@@ -1,21 +1,18 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
-app = Flask(__name__)
-app.debug=True
-app.config['BOOTSTRAP_SERVE_LOCAL'] = True
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-Bootstrap(app)
-
 import os.path
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
+
 def mkpath(p):
     return os.path.normpath(os.path.join(os.path.dirname(__file__),p))
 
-from flask_sqlalchemy import SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = ('sqlite:///'+mkpath('../myapp.db'))
-db = SQLAlchemy(app)
 
-app.config['SECRET_KEY']="1f32daee-b73d-4c12-beb3-fae8e7eb5a30"
-
-from flask_login import LoginManager
+app =Flask(__name__)
+app.config['SECRET_KEY']= "4b26de02-bc1b-46ff-9501-06e041851b00"
+app.debug=True
+app.config['BOOTSTRAP_SERVE_LOCAL']=True
+app.config['SQLALCHEMY_DATABASE_URI']=('sqlite:///'+mkpath('../myapp.db'))
+db=SQLAlchemy(app)
+Bootstrap(app)
 login_manager = LoginManager(app)
-login_manager.login_view="login"
