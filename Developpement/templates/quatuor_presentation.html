@@ -1,7 +1,23 @@
 {% extends "base.html" %}
 {% block main %}
-<div class="test">
-  <h1 class="test"  >TEST CSS</h1>
+<div class="quatuor-presentation">
+  <h1 class="titre-gpartie">Presentation</h1>
+  <div class="presentation-gdiv">
+  <div class="presentation-div">
+    <img class="presentation-img" src="{{ url_for('static',filename='img/presentation-quatuor-1.png') }}" alt="">
+    <div class="presentation-text">
+      <p>Omitto iuris dictionem in libera civitate contra leges senatusque consulta; caedes relinquo; libidines praetereo, quarum acerbissimum extat indicium et ad insignem memoriam turpitudinis et paene ad iustum odium imperii nostri, quod constat nobilissimas virgines se in puteos abiecisse et morte voluntaria necessariam turpitudinem depulisse. Nec haec idcirco omitto, quod non gravissima sint, sed quia nunc sine teste dico.</p>
+
+    </div>
+  </div>
+    <div class="presentation-div">
+      <div class="presentation-text">
+        <p>Omitto iuris dictionem in libera civitate contra leges senatusque consulta; caedes relinquo; libidines praetereo, quarum acerbissimum extat indicium et ad insignem memoriam turpitudinis et paene ad iustum odium imperii nostri, quod constat nobilissimas virgines se in puteos abiecisse et morte voluntaria necessariam turpitudinem depulisse. Nec haec idcirco omitto, quod non gravissima sint, sed quia nunc sine teste dico.</p>
+      </div>
+      <img class="presentation-img" src="{{ url_for('static',filename='img/presentation-quatuor-2.png') }}" alt="">
+    </div>
+  </div>
+</div>
 </div>
 
 {% endblock %}

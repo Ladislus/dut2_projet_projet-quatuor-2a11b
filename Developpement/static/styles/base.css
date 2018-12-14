@@ -3,8 +3,8 @@
 }
 
 .img-accueil{
-  width: 100px;
-  height: 45px;
+height: 150%;
+width: 150%;
 }
 
 
@@ -14,4 +14,32 @@ div.test{
 
 h1.test{
   color: red;
+}
+
+
+.titre-gpartie{
+text-align: center;
+text-decoration: underline;
+margin-bottom: 10%;
+
+}
+
+.presentation-div{
+  display: flex;
+  margin-bottom: 5%
+}
+
+.presentation-img{
+  height: 100%;
+  width: 100%;
+  border-radius: 5%;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+}
+
+.presentation-text{
+  font-family: Verdana,sans-serif;
+  font-size: 15px;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
 }
