@@ -7,14 +7,10 @@ height: 150%;
 width: 150%;
 }
 
-
-div.test{
-  margin-top: 10%;
+p{
+  font-family: Verdana,sans-serif;
 }
 
-h1.test{
-  color: red;
-}
 
 
 .titre-gpartie{
@@ -42,4 +38,22 @@ margin-bottom: 10%;
   font-size: 15px;
   margin-right: 2.5%;
   margin-left: 2.5%;
+}
+
+.quatuor-concert-div{
+  display: flex;
+}
+
+
+.quatuor-concert-div>p{
+  margin-left: 2.5%;
+  margin-right: 2.5%
+}
+
+.quatuor-concert-gpartie>*{
+text-align: center
+}
+
+.quatuor-concert-div{
+  margin-bottom: 2.5%
 }
