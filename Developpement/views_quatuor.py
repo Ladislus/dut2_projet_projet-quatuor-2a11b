@@ -42,10 +42,28 @@ def quatuor_concerts():
     return render_template("quatuor_concerts.html")
 
 
-@app.route("/quatuor/presse/")
-def quatuor_presse():
+@app.route("/quatuor/presse/actu")
+def quatuor_presse_actu():
     """
 
-    :return: Retourne le template correspondant à la page des articles de presse du quatuor
+    :return: Retourne le template correspondant à la page des articles de presse du quatuor actuelle
     """
-    return render_template("quatuor_presse.html")
+    return render_template("quatuor_presse_actu.html")
+
+
+@app.route("/quatuor/presse/all")
+def quatuor_presse_all():
+    """
+
+    :return: Retourne le template correspondant à la page de touts les articles de presse en rapport avec le quatuor
+    """
+    return render_template("quatuor_presse_all.html")
+
+
+@app.route("/quatuor/presse/<int:id>")
+def quatuor_presse(id):
+    """
+    :id: L'id de l'article de presse
+    :return: Retourne le template correspondant à la page d'un artciel du quautor
+    """
+    return render_template("quatuor_presse.html",id=id)
