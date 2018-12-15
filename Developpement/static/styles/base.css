@@ -18,6 +18,7 @@ text-align: center;
 text-decoration: underline;
 margin-bottom: 10%;
 
+
 }
 
 .presentation-div{
@@ -56,4 +57,41 @@ text-align: center
 
 .quatuor-concert-div{
   margin-bottom: 2.5%
+}
+
+
+.text-milieu{
+  width: 50%;
+  margin-top:15%
+}
+
+.margin-bottom-10{
+  margin-bottom: 10%
+}
+
+.text-left{
+  text-align: left;
+}
+
+.text-right{
+  text-align: right;
+}
+
+
+.margin-right-10{
+  margin-right: 10%
+}
+
+.margin-left-10{
+  margin-left: 10%
+}
+
+
+
+.margin-right-5{
+  margin-right: 5%
+}
+
+.margin-left-5{
+  margin-left: 5%
 }
