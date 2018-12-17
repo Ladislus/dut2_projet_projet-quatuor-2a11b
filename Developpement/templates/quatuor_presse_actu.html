@@ -5,7 +5,7 @@
     background-color: rgb(15, 15, 15)
   }
 </style>
-<div id="myCarousel" class="carousel slide " data-ride="carousel">
+<div id="myCarousel" class="carousel slide " data-ride="carousel" data-interval="7500">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li id="actu" data-target="#myCarousel" data-slide-to="0" ></li>
@@ -16,19 +16,19 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner ">
     <div class="item active actu">
-      <img src="{{ url_for('static',filename='img/presentation-quatuor-1.png' ) }}" alt="presentation-quatuor-1" class="image-actu">
+        <img src="{{ url_for('static',filename='img/presentation-quatuor-1.png' ) }}" alt="presentation-quatuor-1" class="image-actu">
       <div id="contour" class="carousel-caption">
-          <h3 id="actu">Actu 1</h3>
-          <p id="actu">"Titre article 1"</p>
+          <a href="/quatuor/presse/actu"> <h3 id="actu">Actu 1</h3></a>
+            <a href="/quatuor/presse/actu"> <p id="actu">"Titre article 1"</p></a>
       </div>
     </div>
 
     <div class="item actu">
       <div class="actu">
-        <img src="{{ url_for('static',filename='img/presentation-quatuor-2.png' ) }}" alt="presentation-quatuor-2" class="image-actu">
+          <img src="{{ url_for('static',filename='img/presentation-quatuor-2.png' ) }}" alt="presentation-quatuor-2" class="image-actu">
         <div id="contour" class="carousel-caption">
-            <h3 id="actu">Actu 2</h3>
-            <p id="actu">"Titre article 2"</p>
+            <a href="/quatuor/presse/actu"> <h3 id="actu">Actu 2</h3></a>
+            <a href="/quatuor/presse/actu"> <p id="actu">"Titre article 2"</p></a>
         </div>
       </div>
     </div>
@@ -38,8 +38,8 @@
       <div class="actu">
         <img src="{{ url_for('static',filename='img/presentation-quatuor-3.jpg' ) }}" alt="presentation-quatuor-3" class="image-actu">
         <div id="contour" class="carousel-caption">
-            <h3 id="actu">Actu 3</h3>
-            <p id="actu">"Titre article 3"</p>
+              <a href="/quatuor/presse/actu"> <h3 id="actu">Actu 3</h3></a>
+              <a href="/quatuor/presse/actu"> <p id="actu">"Titre article 3"</p></a>
         </div>
       </div>
     </div>
