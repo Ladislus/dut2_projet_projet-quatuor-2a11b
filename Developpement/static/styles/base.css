@@ -1,0 +1,134 @@
+#main{
+  margin-top: 5em;
+}
+
+.img-accueil{
+height: 150%;
+width: 150%;
+}
+
+p,h1,h2{
+  font-family: Verdana,sans-serif;
+}
+
+
+
+.titre-gpartie{
+text-align: center;
+text-decoration: underline;
+margin-bottom: 10%;
+
+
+}
+
+.presentation-div{
+  display: flex;
+  margin-bottom: 5%
+}
+
+.presentation-img{
+  height: 100%;
+  width: 100%;
+  border-radius: 5%;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+}
+
+.presentation-text{
+  font-family: Verdana,sans-serif;
+  font-size: 15px;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+}
+
+.quatuor-concert-div{
+  display: flex;
+}
+
+
+.quatuor-concert-div>p{
+  margin-left: 2.5%;
+  margin-right: 2.5%
+}
+
+.quatuor-concert-gpartie>*{
+text-align: center
+}
+
+.quatuor-concert-div{
+  margin-bottom: 2.5%
+}
+
+
+.text-milieu{
+  width: 50%;
+  margin-top:15%
+}
+
+.margin-bottom-10{
+  margin-bottom: 10%
+}
+
+.text-left{
+  text-align: left;
+}
+
+.text-right{
+  text-align: right;
+}
+
+
+.margin-right-10{
+  margin-right: 10%
+}
+
+.margin-left-10{
+  margin-left: 10%
+}
+
+
+
+.margin-right-5{
+  margin-right: 5%
+}
+
+.margin-left-5{
+  margin-left: 5%
+}
+
+
+.actu{
+  display: flex;
+}
+
+.image-actu{
+  width: 200%;
+  height: 200%;
+  margin-left: 1%;
+}
+
+.actu>p{
+  margin-top: 5%;
+  text-align: center;
+}
+
+.actu>h1{
+  text-align: center;;
+  margin-top: 1%
+}
+
+
+.presse-actu-margin-top{
+  margin-top: 10%;
+}
+
+.grey{
+  background-color: lightgrey
+}
+
+
+.membres{
+  text-align: center;
+  margin-left: 5%;
+  margin-top: 15%;
+}
