@@ -7,7 +7,7 @@ height: 150%;
 width: 150%;
 }
 
-p{
+p,h1,h2{
   font-family: Verdana,sans-serif;
 }
 
@@ -94,4 +94,41 @@ text-align: center
 
 .margin-left-5{
   margin-left: 5%
+}
+
+
+.actu{
+  display: flex;
+}
+
+.image-actu{
+  width: 200%;
+  height: 200%;
+  margin-left: 1%;
+}
+
+.actu>p{
+  margin-top: 5%;
+  text-align: center;
+}
+
+.actu>h1{
+  text-align: center;;
+  margin-top: 1%
+}
+
+
+.presse-actu-margin-top{
+  margin-top: 10%;
+}
+
+.grey{
+  background-color: lightgrey
+}
+
+
+.membres{
+  text-align: center;
+  margin-left: 5%;
+  margin-top: 15%;
 }
