@@ -26,6 +26,23 @@ def contact_renseignements():
 def contact_ficheTechnique():
     """
 
-    :return: Retourne le template des renseignements sur le site
+    :return: Retourne le template de la fiche tchnique des concerts
     """
     return render_template("contact_ficheTechnique.html")
+
+@app.route("/contact/plaquette")
+def contact_plaquette():
+    """
+
+    :return: Retourne le template de la plaquette actuelle
+    """
+    return render_template("contact_plaquette.html")
+
+    @app.route("/contact/plaquette")
+
+def contact_musical():
+    """
+
+    :return: Retourne le template des partenaires musicaux du groupe
+    """
+    return render_template("contact_plaquette.html")
