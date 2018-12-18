@@ -154,3 +154,29 @@ text-align: center
 background-color: rgba(0, 0, 0, 0.2);
 border-radius: 10px;
 }
+
+#concert-quatuor{
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+#concert-stage{
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+
+.iframe-quatuor{
+  border-radius: 10px 0px 0px 0px;
+}
+
+.iframe-stage{
+  border-radius: 0px 10px 0px 0px;
+}
+.text-quatuor{
+  margin-right: 5%;
+}
+
+.text-stage{
+  margin-left: 5%
+}
