@@ -60,10 +60,10 @@ def quatuor_presse_all():
     return render_template("quatuor_presse_all.html")
 
 
-@app.route("/quatuor/presse/<int:id>")
-def quatuor_presse(id):
+@app.route("/quatuor/presse/article/<nomarticle>")
+def quatuor_presse(nomarticle):
     """
     :id: L'id de l'article de presse
     :return: Retourne le template correspondant a la page d'un artciel du quautor
     """
-    return render_template("quatuor_presse.html",id=id)
+    return render_template("quatuor_presse.html",article=nomarticle)

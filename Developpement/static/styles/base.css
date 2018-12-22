@@ -1,5 +1,5 @@
 #main{
-  margin-top: 3em;
+  margin-top: 5em;
 }
 
 .img-accueil{
@@ -153,4 +153,10 @@ text-align: center
 #contour{
 background-color: rgba(0, 0, 0, 0.2);
 border-radius: 10px;
+}
+
+
+.pp{
+width: 125px;
+height: 125px
 }
