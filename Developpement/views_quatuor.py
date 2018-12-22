@@ -5,7 +5,7 @@ from .model_quatuor import *
 def home():
     """
 
-    :return: Retourne le template correspondant à la page de la présentation du quatuor
+    :return: Retourne le template correspondant a la page de la presentation du quatuor
     """
     return render_template("quatuor_presentation.html")
 
@@ -13,7 +13,7 @@ def home():
 def quatuor_presentation():
     """
 
-    :return: Retourne le template correspondant à la page de la présentation du quatuor
+    :return: Retourne le template correspondant a la page de la presentation du quatuor
     """
     return render_template("quatuor_presentation.html")
 
@@ -21,7 +21,7 @@ def quatuor_presentation():
 def quatuor_repertoire():
     """
 
-    :return: Retourne le template correspondant à la page du répertoire du quatuor
+    :return: Retourne le template correspondant a la page du repertoire du quatuor
     """
     return render_template("quatuor_repertoire.html")
 
@@ -29,7 +29,7 @@ def quatuor_repertoire():
 def quatuor_extrait():
     """
 
-    :return: Retourne le template correspondant à la page des extraits du quatuor
+    :return: Retourne le template correspondant a la page des extraits du quatuor
     """
     return render_template("quatuor_extrait.html")
 
@@ -37,7 +37,7 @@ def quatuor_extrait():
 def quatuor_concerts():
     """
 
-    :return: Retourne le template correspondant à la page des concerts du quatuor
+    :return: Retourne le template correspondant a la page des concerts du quatuor
     """
     return render_template("quatuor_concerts.html")
 
@@ -46,7 +46,7 @@ def quatuor_concerts():
 def quatuor_presse_actu():
     """
 
-    :return: Retourne le template correspondant à la page des articles de presse du quatuor actuelle
+    :return: Retourne le template correspondant a la page des articles de presse du quatuor actuelle
     """
     return render_template("quatuor_presse_actu.html")
 
@@ -55,7 +55,7 @@ def quatuor_presse_actu():
 def quatuor_presse_all():
     """
 
-    :return: Retourne le template correspondant à la page de touts les articles de presse en rapport avec le quatuor
+    :return: Retourne le template correspondant a la page de touts les articles de presse en rapport avec le quatuor
     """
     return render_template("quatuor_presse_all.html")
 
@@ -64,6 +64,6 @@ def quatuor_presse_all():
 def quatuor_presse(id):
     """
     :id: L'id de l'article de presse
-    :return: Retourne le template correspondant à la page d'un artciel du quautor
+    :return: Retourne le template correspondant a la page d'un artciel du quautor
     """
     return render_template("quatuor_presse.html",id=id)

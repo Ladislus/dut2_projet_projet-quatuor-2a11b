@@ -1,4 +1,4 @@
 from .app import app, db
-from . import views
-from . import commands
-from . import models
+from .views import *
+# from .models import *
+from .commands import *
