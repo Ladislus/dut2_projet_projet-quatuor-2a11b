@@ -51,13 +51,18 @@ def quatuor_presse_actu():
     return render_template("quatuor_presse_actu.html")
 
 
+liste=[]
+liste.append(["Le Quatuor a un nouveau site Web","22/12/2018","Olivier Roussillat"])
+liste.append(["Le Groupe 2A11b a fait le meilleur site web","23/12/2018","Sophie Anglade"])
+liste.append(["Car c'est notre projet!","24/12/2018","Andrien Foucault"])
+
 @app.route("/quatuor/presse/all")
 def quatuor_presse_all():
     """
 
     :return: Retourne le template correspondant a la page de touts les articles de presse en rapport avec le quatuor
     """
-    return render_template("quatuor_presse_all.html")
+    return render_template("quatuor_presse_all.html",liste=liste)
 
 
 @app.route("/quatuor/presse/article/<nomarticle>")
