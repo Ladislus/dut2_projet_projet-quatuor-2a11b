@@ -2,9 +2,7 @@
 {% block main %}
 
 <div class="container">
-  <h2>Filterable Table</h2>
-  <p>Type something in the input field to search the table for first names, last names or emails:</p>
-  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <input class="form-control" id="myInput" type="text" placeholder="Rechercher...">
   <br>
   <table class="table table-bordered table-striped">
     <thead>
@@ -17,7 +15,7 @@
     <tbody id="myTable">
       {% for elem in liste %}
       <tr>
-        <td><a href="/quatuor/presse/article/{{elem[0]}}">{{elem[0]}}</a></td>
+        <td><a id="nolink" href="/quatuor/presse/article/{{elem[0]}}">{{elem[0]}}</a></td>
         <td>{{elem[1]}}</td>
         <td>{{elem[2]}}</td>
       </tr>
