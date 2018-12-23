@@ -150,6 +150,10 @@ text-align: center
 
 }
 
+.flex{
+  display: flex;
+}
+
 #contour{
 background-color: rgba(0, 0, 0, 0.2);
 border-radius: 10px;
@@ -163,4 +167,10 @@ height: 125px
 
 #nolink{
   color: rgb(0,0,0)
+}
+
+.imagepresse{
+  height: 100%;
+  width: 100%;
+  margin-right: 5%;
 }
