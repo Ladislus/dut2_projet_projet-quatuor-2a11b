@@ -1,8 +1,41 @@
 #main{
   margin-top: 5em;
+  background-color: #ffffffaa;
+  border-radius: 1em;
 }
 
-.img-accueil{
+body{
+  background-image: url("../img/imgFond.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@font-face {
+  font-family: adam;
+  src: url("font/Quicksand_Bold.otf");
+
+}
+
+.navbar{
+  font-family: adam;
+  font-size: medium;
+}
+
+.division-membres {
+  display: flex;
+  align-items: flex-start;
+}
+
+.division-membres > * {
+  text-align: center;
+}
+
+#imgMembre {
+  width: 10em;
+  border-radius: 1em;
+}
+
+.img-accueil {
 height: 150%;
 width: 150%;
 }
@@ -39,8 +72,6 @@ margin-bottom: 10%;
 .presentation-text{
   font-family: Verdana,sans-serif;
   font-size: 15px;
-  margin-right: 2.5%;
-  margin-left: 2.5%;
 }
 
 .quatuor-concert-div{
