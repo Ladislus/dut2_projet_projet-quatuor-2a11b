@@ -1,0 +1,271 @@
+{% extends "base.html" %}
+{% block main %}
+<h1>Informations sur la clarinette</h1>
+    <div id="myCarousel2" class="carousel slide " data-ride="carousel" data-interval="7500">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel2" data-slide-to="1" ></li>
+        <li data-target="#myCarousel2" data-slide-to="2" ></li>
+        <li data-target="#myCarousel2" data-slide-to="3" ></li>
+        <li data-target="#myCarousel2" data-slide-to="4" ></li>
+        <li data-target="#myCarousel2" data-slide-to="5" ></li>
+        <li data-target="#myCarousel2" data-slide-to="6" ></li>
+        <li data-target="#myCarousel2" data-slide-to="7" ></li>
+        <li data-target="#myCarousel2" data-slide-to="8" ></li>
+        <li data-target="#myCarousel2" data-slide-to="9" ></li>
+        <li data-target="#myCarousel2" data-slide-to="10" ></li>
+        <li data-target="#myCarousel2" data-slide-to="11" ></li>
+      </ol>
+    
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+          <div class="item active">
+            <img src="{{ url_for('static',filename='img/fond.png' ) }}" style="width:100%;" alt="Clarinette sopranino" >
+          <div data-toggle="collapse" data-target="#demo" id="contour" class="carousel-caption">
+              <h3 class="color">Clarinette sopranino</h3>
+              <p>En savoir plus...<span class="glyphicon glyphicon-chevron-down"></span></p>
+              <div id="demo" class="collapse">
+                    Un peu plus grande que la sopranino, cette clarinette est beaucoup plus courante que sa petite soeur.
+                    Il suffit de regarder l'offre des facteurs pour s'en rendre compte immédiatement.
+                    Selon les modèles, le corps est soit d'un seul tenant, soit en deux parties.
+                    Comme la majorité des clarinettes, ce modèle est dit transpositeur. C'est à dire que lorsque l'on joue un do écrit, la note réelle est un mi bémol situé une tierce mineure au dessus.
+                    La clarinette soprano en mi bémol est également appelée clarinette piccolo à cause de son registre aigu.
+                    Bien que difficile à maîtriser, ce registre est souvent qualifié de criard, ironique ou encore de sarcastique.
+                    Son caractère est particulièrement bien mis en évidence dans les pièces "Till l'espiègle" (Richard Strauss) ou "La Symphonie Fantastique" (Berlioz).
+                    Ses registres médium et grave sont plus adaptés au passages mélancoliques et ténébreux.
+                    Rendue populaire par les orchestres d'harmonie, cette clarinette a fait sa première apparition dans l'orchestre à la fin du 19ème siècle.
+                    Elle ne s'y installera définitivement que grâce à des compositeurs de l'école française comme Roussel, Milhaud ou Ravel.
+                    <br><b>Tonalité :</b> Mi bémol
+                </div>
+          </div>
+        </div>
+    
+        <div class="item">
+          <div>
+              <img src="{{ url_for('static',filename='img/fond.png' ) }}" style="width:100%;" alt="Clarinette soprano en mi bémol" >
+            <div data-toggle="collapse" data-target="#demo2" id="contour" class="carousel-caption">
+                <h3>Clarinette soprano en Mi bémol</h3>
+                <p>En savoir plus...<span class="glyphicon glyphicon-chevron-down"></span></p>
+                <div id="demo2" class="collapse">
+                      La clarinette sopranino est la plus petite, et donc la plus aigue de toutes les clarinettes.
+                      Elle ne mesure que 25 centimètres, et son corps est constitué d'un seul tenant, soit en bois, soit en métal.
+                      Sa sonorité, aussi stridente que perçante, est liée à la petite taille de l'instrument.
+                      Elle est d'ailleurs si petite que les doigts se touchent une fois posés sur cette clarinette.                
+                      La rareté de cet instrument s'explique par son utilisation peu courante.
+                      Elle était principalement utilisée par les bandas italiennes pour la musique militaire.
+                      Le Bal Masqué de Verdi est la pièce la plus significative du répertoire classique de cet instrument.
+                      Cette clarinette semble remise à l'honneur par les compositeurs contemporains pour sa sonorité, comme Gilbert Amy avec "Espace déployé".
+                      <br><b>Tonalité :</b> La bémol
+                  </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="item">
+          <div>
+            <img src="{{ url_for('static',filename='img/fond.png' ) }}" style="width:100%;" alt="" >
+            <div data-toggle="collapse" data-target="#demo3" id="contour" class="carousel-caption">
+                <h3>Clarinette en Ré</h3>
+                <p>En savoir plus...<span class="glyphicon glyphicon-chevron-down"></span></p>
+                <div id="demo3" class="collapse">
+                        Bien que mieux représentée par les facteurs que la sopranino en la bémol, la clarinette en ré reste assez rare.
+                        Cette clarinette est aujourd'hui utilisée quasiment exclusivement pour l'interprétation des concertos de Molter.
+                        Son timbre est plus doux que celui de la mi bémol dans le grave, et elle propose un aigu séduisant.
+                        Certaines pièces de Richard Strauss et de Stravinsky incluent des traits écrits pour cet instrument,
+                        mais les instrumentistes préfèrent très souvent les transposer pour la clarinette soprano en mi bémol.
+                        <br><b>Tonalité :</b> Ré
+                  </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+            <div>
+              <img src="{{ url_for('static',filename='img/fond.png' ) }}" style="width:100%;" alt="Clarinette en Ut" >
+              <div data-toggle="collapse" data-target="#demo4" id="contour" class="carousel-caption">
+                  <h3>Clarinette en Ut</h3>
+                  <p>En savoir plus...<span class="glyphicon glyphicon-chevron-down"></span></p>
+                  <div id="demo4" class="collapse">
+                        Comme la clarinette en ré, la clarinette en ut est assez peu utilisée.
+                        L'offre est cependant plus étoffée que celle du modèle en ré, car de plus en plus de conservatoires font débuter leurs plus jeunes élèves sur cette clarinette.
+                        La sonorité de cet instrument est assez agressive et les instrumentistes préfèrent donc souvent transposer leurs trait sur leur si bémol.                   
+                        Le répertoire de pièces écrites utilisant cette clarinette est assez important, mais les œuvres principales restent "Le Scare du Printemps" (Stravinsky) et les opéras de Rossini.
+                        <br><b>Tonalité :</b> Ut
+                    </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div>
+              <img src="{{ url_for('static',filename='img/fond.png' ) }}" style="width:100%;" alt="Clarinette en Si bémol" >
+              <div data-toggle="collapse" data-target="#demo5" id="contour" class="carousel-caption">
+                  <h3>Clarinette en Si bémol</h3>
+                  <p>En savoir plus...<span class="glyphicon glyphicon-chevron-down"></span></p>
+                  <div id="demo5" class="collapse">
+                        De très loin le modèle le plus répandu, la si bémol est la référence de la clarinette.
+                        Chaque facteur dispose de nombreux modèles déclinés en modèles débutants, intermédiaires et professionnels. 
+                        Ces clarinettes existent en plastique, en alliage poudre de bois/résine, en bois, et même en métal.
+                        Certains modèles permettent d'accéder au mi bémol grave et disposent également d'un levier mi bémol / la bémol supplémentaire pour la main gauche.                        
+                        Sa sonorité est douce, puissante et brillante.
+                        Elle est très fréquemment utilisée comme instrument soliste à l'orchestre (comme dans les concertos de Weber ou de Spohr), où elle s'unit à merveille aux bois et aux cordes.                     
+                        C'est pour ce type de clarinette que sont écrit la grande majorité des pièces du répertoire.
+                        <br><b>Tonalité :</b> Si bémol
+                    </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div>
+              <img src="{{ url_for('static',filename='img/fond.png' ) }}" style="width:100%;" alt="Clarinette en La" >
+              <div data-toggle="collapse" data-target="#demo6" id="contour" class="carousel-caption">
+                  <h3>Clarinette en La</h3>
+                  <p>En savoir plus...<span class="glyphicon glyphicon-chevron-down"></span></p>
+                  <div id="demo6" class="collapse">
+                        De très loin le modèle le plus répandu, la si bémol est la référence de la clarinette.
+                        Chaque facteur dispose de nombreux modèles déclinés en modèles débutants, intermédiaires et professionnels. 
+                        Ces clarinettes existent en plastique, en alliage poudre de bois/résine, en bois, et même en métal.
+                        Certains modèles permettent d'accéder au mi bémol grave et disposent également d'un levier mi bémol / la bémol supplémentaire pour la main gauche.                        
+                        Sa sonorité est douce, puissante et brillante.
+                        Elle est très fréquemment utilisée comme instrument soliste à l'orchestre (comme dans les concertos de Weber ou de Spohr), où elle s'unit à merveille aux bois et aux cordes.                     
+                        C'est pour ce type de clarinette que sont écrit la grande majorité des pièces du répertoire.
+                        <br><b>Tonalité :</b> La
+                    </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div>
+              <img src="{{ url_for('static',filename='img/fond.png' ) }}" style="width:100%;" alt="La de basset" >
+              <div data-toggle="collapse" data-target="#demo7" id="contour" class="carousel-caption">
+                  <h3>La de basset</h3>
+                  <p>En savoir plus...<span class="glyphicon glyphicon-chevron-down"></span></p>
+                  <div id="demo7" class="collapse">
+                        De très loin le modèle le plus répandu, la si bémol est la référence de la clarinette.
+                        Chaque facteur dispose de nombreux modèles déclinés en modèles débutants, intermédiaires et professionnels. 
+                        Ces clarinettes existent en plastique, en alliage poudre de bois/résine, en bois, et même en métal.
+                        Certains modèles permettent d'accéder au mi bémol grave et disposent également d'un levier mi bémol / la bémol supplémentaire pour la main gauche.                        
+                        Sa sonorité est douce, puissante et brillante.
+                        Elle est très fréquemment utilisée comme instrument soliste à l'orchestre (comme dans les concertos de Weber ou de Spohr), où elle s'unit à merveille aux bois et aux cordes.                     
+                        C'est pour ce type de clarinette que sont écrit la grande majorité des pièces du répertoire.
+                        <br><b>Tonalité :</b> La
+                    </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div>
+              <img src="{{ url_for('static',filename='img/fond.png' ) }}" style="width:100%;" alt="Clarinette alto" >
+              <div data-toggle="collapse" data-target="#demo8" id="contour" class="carousel-caption">
+                  <h3>Clarinette alto</h3>
+                  <p>En savoir plus...<span class="glyphicon glyphicon-chevron-down"></span></p>
+                  <div id="demo8" class="collapse">
+                        De très loin le modèle le plus répandu, la si bémol est la référence de la clarinette.
+                        Chaque facteur dispose de nombreux modèles déclinés en modèles débutants, intermédiaires et professionnels. 
+                        Ces clarinettes existent en plastique, en alliage poudre de bois/résine, en bois, et même en métal.
+                        Certains modèles permettent d'accéder au mi bémol grave et disposent également d'un levier mi bémol / la bémol supplémentaire pour la main gauche.                        
+                        Sa sonorité est douce, puissante et brillante.
+                        Elle est très fréquemment utilisée comme instrument soliste à l'orchestre (comme dans les concertos de Weber ou de Spohr), où elle s'unit à merveille aux bois et aux cordes.                     
+                        C'est pour ce type de clarinette que sont écrit la grande majorité des pièces du répertoire.
+                        <br><b>Tonalité :</b> Mi bémol
+                    </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div>
+              <img src="{{ url_for('static',filename='img/fond.png' ) }}" style="width:100%;" alt="Cor de basset" >
+              <div data-toggle="collapse" data-target="#demo9" id="contour" class="carousel-caption">
+                  <h3>Cor de basset</h3>
+                  <p>En savoir plus...<span class="glyphicon glyphicon-chevron-down"></span></p>
+                  <div id="demo9" class="collapse">
+                        De très loin le modèle le plus répandu, la si bémol est la référence de la clarinette.
+                        Chaque facteur dispose de nombreux modèles déclinés en modèles débutants, intermédiaires et professionnels. 
+                        Ces clarinettes existent en plastique, en alliage poudre de bois/résine, en bois, et même en métal.
+                        Certains modèles permettent d'accéder au mi bémol grave et disposent également d'un levier mi bémol / la bémol supplémentaire pour la main gauche.                        
+                        Sa sonorité est douce, puissante et brillante.
+                        Elle est très fréquemment utilisée comme instrument soliste à l'orchestre (comme dans les concertos de Weber ou de Spohr), où elle s'unit à merveille aux bois et aux cordes.                     
+                        C'est pour ce type de clarinette que sont écrit la grande majorité des pièces du répertoire.
+                        <br><b>Tonalité :</b> Fa
+                    </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div>
+              <img src="{{ url_for('static',filename='img/fond.png' ) }}" style="width:100%;" alt="Clarinette basse" >
+              <div data-toggle="collapse" data-target="#demo10" id="contour" class="carousel-caption">
+                  <h3>Clarinette basse</h3>
+                  <p>En savoir plus...<span class="glyphicon glyphicon-chevron-down"></span></p>
+                  <div id="demo10" class="collapse">
+                        De très loin le modèle le plus répandu, la si bémol est la référence de la clarinette.
+                        Chaque facteur dispose de nombreux modèles déclinés en modèles débutants, intermédiaires et professionnels. 
+                        Ces clarinettes existent en plastique, en alliage poudre de bois/résine, en bois, et même en métal.
+                        Certains modèles permettent d'accéder au mi bémol grave et disposent également d'un levier mi bémol / la bémol supplémentaire pour la main gauche.                        
+                        Sa sonorité est douce, puissante et brillante.
+                        Elle est très fréquemment utilisée comme instrument soliste à l'orchestre (comme dans les concertos de Weber ou de Spohr), où elle s'unit à merveille aux bois et aux cordes.                     
+                        C'est pour ce type de clarinette que sont écrit la grande majorité des pièces du répertoire.
+                        <br><b>Tonalité :</b> Si bémol
+                    </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div>
+              <img src="{{ url_for('static',filename='img/fond.png' ) }}" style="width:100%;" alt="Clarinette contre alto" >
+              <div data-toggle="collapse" data-target="#demo11" id="contour" class="carousel-caption">
+                  <h3>Clarinette contre alto</h3>
+                  <p>En savoir plus...<span class="glyphicon glyphicon-chevron-down"></span></p>
+                  <div id="demo11" class="collapse">
+                        De très loin le modèle le plus répandu, la si bémol est la référence de la clarinette.
+                        Chaque facteur dispose de nombreux modèles déclinés en modèles débutants, intermédiaires et professionnels. 
+                        Ces clarinettes existent en plastique, en alliage poudre de bois/résine, en bois, et même en métal.
+                        Certains modèles permettent d'accéder au mi bémol grave et disposent également d'un levier mi bémol / la bémol supplémentaire pour la main gauche.                        
+                        Sa sonorité est douce, puissante et brillante.
+                        Elle est très fréquemment utilisée comme instrument soliste à l'orchestre (comme dans les concertos de Weber ou de Spohr), où elle s'unit à merveille aux bois et aux cordes.                     
+                        C'est pour ce type de clarinette que sont écrit la grande majorité des pièces du répertoire.
+                        <br><b>Tonalité :</b> Mi bémol
+                    </div>
+              </div>
+            </div>
+        </div>
+        <div class="item">
+            <div>
+              <img src="{{ url_for('static',filename='img/fond.png' ) }}" style="width:100%;" alt="Clarinette contrebasse" >
+              <div data-toggle="collapse" data-target="#demo12" id="contour" class="carousel-caption">
+                  <h3>Clarinette contrebasse</h3>
+                  <p>En savoir plus...<span class="glyphicon glyphicon-chevron-down"></span></p>
+                  <div id="demo12" class="collapse">
+                        De très loin le modèle le plus répandu, la si bémol est la référence de la clarinette.
+                        Chaque facteur dispose de nombreux modèles déclinés en modèles débutants, intermédiaires et professionnels. 
+                        Ces clarinettes existent en plastique, en alliage poudre de bois/résine, en bois, et même en métal.
+                        Certains modèles permettent d'accéder au mi bémol grave et disposent également d'un levier mi bémol / la bémol supplémentaire pour la main gauche.                        
+                        Sa sonorité est douce, puissante et brillante.
+                        Elle est très fréquemment utilisée comme instrument soliste à l'orchestre (comme dans les concertos de Weber ou de Spohr), où elle s'unit à merveille aux bois et aux cordes.                     
+                        C'est pour ce type de clarinette que sont écrit la grande majorité des pièces du répertoire.
+                        <br><b>Tonalité :</b> Si bémol
+                    </div>
+              </div>
+            </div>
+        </div>
+
+      </div>
+    
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Précedent</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel2" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Suivant</span>
+      </a>
+    </div>
+{% endblock %}
