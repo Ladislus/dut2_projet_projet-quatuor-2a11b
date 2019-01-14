@@ -1,7 +1,25 @@
 #main{
   margin-top: 5em;
+  background-color: #ffffffaa;
+  border-radius: 1em;
 }
 
+@font-face {
+  font-family: adam;
+  src: url("font/Quicksand_Bold.otf");
+
+}
+
+.navbar{
+  font-family: adam;
+  font-size: medium;
+}
+
+body{
+  background-image: url("http://quatuordivertimento.fr/fonds/index4.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 .img-accueil{
 height: 150%;
 width: 150%;
