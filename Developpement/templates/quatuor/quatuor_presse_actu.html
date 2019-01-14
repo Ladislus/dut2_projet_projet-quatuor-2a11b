@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block main %}
+<style>
+  body{
+    background-color: rgb(15, 15, 15)
+  }
+</style>
+<div id="myCarousel" class="carousel slide " data-ride="carousel" data-interval="7500">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li id="actu" data-target="#myCarousel" data-slide-to="0" ></li>
+    <li id="actu" data-target="#myCarousel" data-slide-to="1" ></li>
+    <li id="actu" data-target="#myCarousel" data-slide-to="2" ></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner ">
+    <div class="item active actu">
+        <img src="{{ url_for('static',filename='img/presentation-quatuor-1.png' ) }}" alt="presentation-quatuor-1" class="image-actu">
+      <div id="contour" class="carousel-caption">
+          <a href="/quatuor/presse/article/Article 1"> <h3 id="actu">Actu 1</h3></a>
+          <a href="/quatuor/presse/article/Article 1"> <p id="actu">"Titre article 1"</p></a>
+      </div>
+    </div>
+
+    <div class="item actu">
+      <div class="actu">
+          <img src="{{ url_for('static',filename='img/presentation-quatuor-2.png' ) }}" alt="presentation-quatuor-2" class="image-actu">
+        <div id="contour" class="carousel-caption">
+            <a href="/quatuor/presse/article/Actu 2"> <h3 id="actu">Actu 2</h3></a>
+            <a href="/quatuor/presse/article/Actu 2"> <p id="actu">"Titre article 2"</p></a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="item actu">
+      <div class="actu">
+        <img src="{{ url_for('static',filename='img/presentation-quatuor-3.jpg' ) }}" alt="presentation-quatuor-3" class="image-actu">
+        <div id="contour" class="carousel-caption">
+              <a href="/quatuor/presse/article/Article 3  "> <h3 id="actu">Actu 3</h3></a>
+              <a href="/quatuor/presse/article/Article 3"> <p id="actu">"Titre article 3"</p></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Précedent</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Suivant</span>
+  </a>
+</div>
+<a href="/quatuor/presse/all" style="margin-left:46%;"> Touts les articles</a>
+
+
+{% endblock %}

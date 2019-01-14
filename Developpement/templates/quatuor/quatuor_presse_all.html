@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block main %}
+
+<div class="container">
+  <input class="form-control" id="myInput" type="text" placeholder="Rechercher...">
+  <br>
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nom de l'article</th>
+        <th>Date</th>
+        <th>Rédigé par</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      {% for elem in liste %}
+      <tr>
+        <td><a id="nolink" href="/quatuor/presse/article/{{elem[0]}}">{{elem[0]}}</a></td>
+        <td>{{elem[1]}}</td>
+        <td>{{elem[2]}}</td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script>
+$(document).ready(function(){
+ $("#myInput").on("keyup", function() {
+   var value = $(this).val().toLowerCase();
+   $("#myTable tr").filter(function() {
+     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+   });
+ });
+});
+</script>
+{% endblock %}

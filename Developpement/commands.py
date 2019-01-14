@@ -6,17 +6,17 @@ from .app import app, db
 def loaddb(filename):
     '''Creates the tables and populates them with data.'''
 
-    # création de toutes les tables
+    # creation de toutes les tables
     db.create_all()
 
-    # chargement de notre jeu de données
+    # chargement de notre jeu de donnees
     import yaml
     books = yaml.load(open(filename))
 
-    # import des modèles
+    # import des modeles
     from .models import Author, Book
 
-    # première passe: création de tous les auteurs
+    # premiere passe: creation de tous les auteurs
     authors = {}
     for b in books:
         a = b["author"]
@@ -26,7 +26,7 @@ def loaddb(filename):
             authors[a] = o
     db.session.commit()
 
-    # deuxième passe: création de tous les livres
+    # deuxieme passe: creation de tous les livres
     for b in books:
         a = authors[b["author"]]
         o = Book(price = b["price"],
