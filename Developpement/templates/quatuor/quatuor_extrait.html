@@ -1,9 +1,39 @@
 {% extends "base.html" %}
 {% block main %}
-<h2>Test</h2>
-<p>Test I,partition II</p>
-<audio controls>
-  <source src="{{ url_for('static',filename='audio/test/test.mp3') }}" type="audio/mpeg">
+<div class="page_extrait">
+<div class="extrait">
+  <h2>Test</h2>
+  <p>Extrait de Test.</p>
+  <audio controls>
+   <source src="{{ url_for('static',filename='audio/'+'test/test.mp3')}}" type="audio/mpeg">
   Your browser does not support the audio element.
-</audio>
+  </audio>
+  <br>
+  <a href="{{ url_for('static',filename='audio/test/test.mp3')}}"
+   download="test.mp3">Télécharger</a>
+</div>
+<div class="extrait">
+  <h2>Test</h2>
+  <p>Extrait de Test.</p>
+  <audio controls>
+   <source src="{{ url_for('static',filename='audio/'+'test/test.mp3')}}" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+  <br>
+  <a href="{{ url_for('static',filename='audio/test/test.mp3')}}"
+   download="test.mp3">Télécharger</a>
+</div>
+<div class="extrait">
+  <h2>Test</h2>
+  <p>Extrait de Test.</p>
+  <audio controls>
+   <source src="{{ url_for('static',filename='audio/'+'test/test.mp3')}}" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+  <br>
+  <a href="{{ url_for('static',filename='audio/test/test.mp3')}}"
+   download="test.mp3">Télécharger</a>
+</div>
+</div>
+
 {% endblock %}

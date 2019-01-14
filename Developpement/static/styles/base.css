@@ -207,3 +207,17 @@ height: 125px
   width: 100%;
   margin-right: 5%;
 }
+
+
+.extrait{
+  background-color: rgba(0, 0, 0, 0.13);
+  width: 33%;
+  margin-left: 0.33%;
+  text-align: center;
+}
+
+
+.page_extrait{
+  display: flex;
+  margin-bottom: 1%;
+}
