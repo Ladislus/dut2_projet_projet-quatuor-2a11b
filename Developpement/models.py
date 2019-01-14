@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### FICHIER DES METHODES PERMETTANT L'ACCES a LA BD ###
 
 from .app import db
@@ -97,3 +98,59 @@ def quatuor_getMedia(n=None):
         - le titre de la musique correspondante
         - une liste des instruments utilises
     """
+=======
+from app import db
+
+from sqlalchemy.dialects.sqlite import BLOB
+
+class Utilisateur(db.Model):
+    idUt       = db.Column(db.Integer, primary_key = True)
+    ecoleUt    = db.Column(db.String(50))
+    nivUt      = db.Column(db.Integer)
+    usernameUt = db.Column(db.String(30), nullable = False, unique = True)
+    mdpUt      = db.Column(db.String(30), nullable = False)
+    roleUt     = db.Column(db.String(10))
+
+    pers_id    = db.Column(Integer, ForeignKey("personne.idPers"))
+
+    personne   = db.relationsip("Personne", db.backref="utilisateur")
+
+class Personne(db.Model):
+    idPers      = db.Column(db.Integer, primary_key = True)
+    nomPers     = db.Column(db.String(20))
+    prenomPers  = db.Column(db.String(20))
+    mailPers    = db.Column(db.String(50), unique = True)
+    telPersUn   = db.Column(db.String(10))
+    dateNPers   = db.Column(db.DateTime)
+    newsPers    = db.Column(db.Boolean, default = False)
+
+    adresse_id  = db.Column(db.Integer, ForeignKey("Lieu.idLieu"))
+
+    adresse     = db.relationsip("Adresse")
+    tuteur      = db.relationsip("Personne", remote_side = [idPers])
+
+    #TODO : relation de tuteur (Personne vers Personne)
+    # alternates = db.relationship('Issue',
+    #             backref=db.backref('parent', remote_side=[id])
+    #         )
+    # #This is what you need to add to make the database link it self
+    # parent_id=db.Column(db.Integer, db.ForeignKey('issues.id'))
+    # children=db.relationship('Issue', backref=db.backref('parent', remote_side=[id]))
+    # #Calling children would send you all the children of the parent.
+    # #Calling parent would give you the parent of the current group. If it returns None then you are looking at a root Issue.
+
+
+class Participe(db.Model):
+    statePaieSt = db.Column(db.String(10), nullable = False, default = 'EN ATTENTE')
+    stateValSt  = db.Column(db.String(10), nullable = False, default = 'EN ATTENTE')
+    ficheMed    = db.Column(BLOB, nullable = False)
+    autParent   = db.Column(BLOB)   #TODO : Trigger if Personne.age < 18
+
+    idUt        = db.Column(db.Integer, ForeignKey("utilisateur.idUt"), primary_key = True)
+    idSt        = db.Column(db.Integer, ForeignKey("stage.idSt"), primary_key = True)
+
+    utilisateur = db.relationsip("Utilisateur", db.backref="participations")
+    stage       = db.relationsip("Stage", db.backref="participants")
+
+class InscrireInstru(db.Model)
+>>>>>>> ajout de Utilisateur, Personne et Participe dans le model
