@@ -7,7 +7,7 @@ def home():
 
     :return: Retourne le template correspondant a la page de la presentation du quatuor
     """
-    return render_template("quatuor_presentation.html")
+    return render_template("quatuor/quatuor_presentation.html")
 
 @app.route("/quatuor/presentation/")
 def quatuor_presentation():
@@ -15,7 +15,7 @@ def quatuor_presentation():
 
     :return: Retourne le template correspondant a la page de la presentation du quatuor
     """
-    return render_template("quatuor_presentation.html")
+    return render_template("quatuor/quatuor_presentation.html")
 
 @app.route("/quatuor/repertoire/")
 def quatuor_repertoire():
@@ -23,7 +23,7 @@ def quatuor_repertoire():
 
     :return: Retourne le template correspondant a la page du repertoire du quatuor
     """
-    return render_template("quatuor_repertoire.html")
+    return render_template("quatuor/quatuor_repertoire.html")
 
 @app.route("/quatuor/extrait/")
 def quatuor_extrait():
@@ -31,7 +31,7 @@ def quatuor_extrait():
 
     :return: Retourne le template correspondant a la page des extraits du quatuor
     """
-    return render_template("quatuor_extrait.html")
+    return render_template("quatuor/quatuor_extrait.html")
 
 @app.route("/quatuor/concerts/")
 def quatuor_concerts():
@@ -39,7 +39,7 @@ def quatuor_concerts():
 
     :return: Retourne le template correspondant a la page des concerts du quatuor
     """
-    return render_template("quatuor_concerts.html")
+    return render_template("quatuor/quatuor_concerts.html")
 
 
 @app.route("/quatuor/presse/actu")
@@ -48,7 +48,7 @@ def quatuor_presse_actu():
 
     :return: Retourne le template correspondant a la page des articles de presse du quatuor actuelle
     """
-    return render_template("quatuor_presse_actu.html")
+    return render_template("quatuor/quatuor_presse_actu.html")
 
 
 liste=[]
@@ -62,7 +62,7 @@ def quatuor_presse_all():
 
     :return: Retourne le template correspondant a la page de touts les articles de presse en rapport avec le quatuor
     """
-    return render_template("quatuor_presse_all.html",liste=liste)
+    return render_template("quatuor/quatuor_presse_all.html",liste=liste)
 
 
 @app.route("/quatuor/presse/article/<nomarticle>")
@@ -77,5 +77,5 @@ def quatuor_presse(nomarticle):
     :return: Retourne le template correspondant a la page d'un artciel du quautor
     """
     if article==None:
-            return render_template("page_404.html")
-    return render_template("quatuor_presse.html",article=article)
+            return render_template("other/page_404.html")
+    return render_template("quatuor/quatuor_presse.html",article=article)
