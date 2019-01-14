@@ -84,7 +84,7 @@ margin-bottom: 10%;
   margin-right: 2.5%
 }
 
-.quatuor-concert-gpartie>*{
+.quatuor-concert-gpartie>{
 text-align: center
 }
 
@@ -258,4 +258,28 @@ height: 125px
   margin-left: 0.25%;
   margin-bottom: 2%;
   flex-wrap: wrap;
+}
+#myCarousel2{
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.carousel-inner{
+  height: 100%;
+  width: 70%;
+  margin-left: 15%;
+}
+
+.color{
+  color:black;
+}
+
+.carousel-caption{
+  opacity: 100;
+  color: rgb(73, 73, 73);
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 2%;
 }
