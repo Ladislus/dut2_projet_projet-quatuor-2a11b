@@ -1,3 +1,4 @@
+from .views import *
 @app.route("/stage/presentation")
 def stage_presentation():
     """

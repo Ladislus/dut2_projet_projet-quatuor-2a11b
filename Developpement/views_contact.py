@@ -1,3 +1,4 @@
+from .views import *
 @app.route("/contact/administratif")
 def contact_administratif():
     """
@@ -38,7 +39,7 @@ def contact_plaquette():
     """
     return render_template("contact_plaquette.html")
 
-    @app.route("/contact/plaquette")
+@app.route("/contact/musical")
 
 def contact_musical():
     """

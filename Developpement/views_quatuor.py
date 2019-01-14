@@ -76,4 +76,6 @@ def quatuor_presse(nomarticle):
     :id: L'id de l'article de presse
     :return: Retourne le template correspondant a la page d'un artciel du quautor
     """
+    if article==None:
+            return render_template("page_404.html")
     return render_template("quatuor_presse.html",article=article)

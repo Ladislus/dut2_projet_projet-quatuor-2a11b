@@ -1,3 +1,4 @@
+from .views import *
 @app.route("/other/liens")
 def contact_liens():
     """
