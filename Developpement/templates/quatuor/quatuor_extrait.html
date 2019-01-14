@@ -1,4 +1,35 @@
 {% extends "base.html" %}
 {% block main %}
+{% for elem2 in liste[id] %}
+<div class="page_extrait">
+  {% for elem3 in elem2 %}
+  <div class="extrait">
+    <h2>{{ elem3[0] }}</h2>
+    <p>{{ elem3[1] }}</p>
+    <audio controls>
+      <source src="{{ url_for('static',filename='audio/extrait/'+elem3[2])}}" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <br>
+    <a href="{{ url_for('static',filename='partition/'+elem3[3])}}" download="{{ elem3[3] }}">Télécharger la partition</a>
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}
+
+{% if ok %}
+<div class="center">
+  {% if id!=0 %}
+  <a href="/quatuor/extrait/{{ id-1 }}">Précédent</a>
+  {% endif %}
+  {% for i in range(gliste|length+2) %}
+  <a href="/quatuor/extrait/{{ i }}">{{i}}</a>
+  {% endfor %}
+  {% if id!=gliste|length+1 %}
+  <a href="/quatuor/extrait/{{ id+1 }}">Suivant</a>
+  {% endif %}
+
+</div>
+{% endif %}
 
 {% endblock %}

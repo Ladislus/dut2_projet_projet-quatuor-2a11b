@@ -181,6 +181,10 @@ text-align: center
 
 }
 
+.center{
+  text-align: center;
+}
+
 .flex{
   display: flex;
 }
@@ -237,4 +241,21 @@ height: 125px
   height: 100%;
   width: 100%;
   margin-right: 5%;
+}
+
+
+.extrait{
+  background-color: rgba(0, 0, 0, 0.13);
+  margin-left: 0.25%;
+  margin-bottom: 2%;
+  text-align: center;
+  flex: 2 2 20%;
+}
+
+
+.page_extrait{
+  display: flex;
+  margin-left: 0.25%;
+  margin-bottom: 2%;
+  flex-wrap: wrap;
 }
