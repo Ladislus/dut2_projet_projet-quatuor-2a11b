@@ -4,6 +4,12 @@
   border-radius: 1em;
 }
 
+body{
+  background-image: url("../img/imgFond.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 @font-face {
   font-family: adam;
   src: url("font/Quicksand_Bold.otf");
@@ -15,12 +21,21 @@
   font-size: medium;
 }
 
-body{
-  background-image: url("http://quatuordivertimento.fr/fonds/index4.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+.division-membres {
+  display: flex;
+  align-items: flex-start;
 }
-.img-accueil{
+
+.division-membres > * {
+  text-align: center;
+}
+
+#imgMembre {
+  width: 10em;
+  border-radius: 1em;
+}
+
+.img-accueil {
 height: 150%;
 width: 150%;
 }
@@ -57,8 +72,6 @@ margin-bottom: 10%;
 .presentation-text{
   font-family: Verdana,sans-serif;
   font-size: 15px;
-  margin-right: 2.5%;
-  margin-left: 2.5%;
 }
 
 .quatuor-concert-div{
