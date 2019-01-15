@@ -1,0 +1,24 @@
+.actu{
+  display: flex;
+}
+
+.image-actu{
+  width: 100%;
+  height: 50%;
+}
+
+.actu>p{
+  margin-top: 5%;
+  text-align: center;
+}
+
+.actu>h1{
+  text-align: center;;
+  margin-top: 1%;
+  color: rgb(112, 112, 112)
+}
+
+
+.presse-actu-margin-top{
+  margin-top: 10%;
+}
