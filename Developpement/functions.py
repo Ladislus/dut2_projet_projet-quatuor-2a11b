@@ -1,5 +1,4 @@
 from hashlib import sha512
-from models import *
 
 def crypt(password):
     """
@@ -13,5 +12,7 @@ def init_db(filename = None):
     """
     Initialise la base de donnée
     """
-    # creation de toutes les tables
     db.create_all()
+
+def get_concert():
+    return Concert.query.all()
