@@ -1,9 +1,8 @@
 {% extends "quatuor/quatuor_presse_actu.html" %}
 
 {% block presse %}
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
 <div class="container  liste-article">
 <br>c
 {% for i in range(liste|length) %}
