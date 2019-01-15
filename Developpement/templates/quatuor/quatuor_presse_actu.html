@@ -20,8 +20,8 @@
     <div class="item active actu">
         <img src="{{ url_for('static',filename='img/presentation-quatuor-1.png' ) }}" alt="presentation-quatuor-1" class="image-actu">
       <div id="contour" class="carousel-caption">
-          <a href="/quatuor/presse/article/Article 1"> <h3 id="actu">Actu 1</h3></a>
-          <a href="/quatuor/presse/article/Article 1"> <p id="actu">"Titre article 1"</p></a>
+          <a href="/quatuor/presse/article/Article 1"> <h3 id="actu">{{ caroussel[0][0]}}</h3></a>
+          <a href="/quatuor/presse/article/Article 1"> <p id="actu">{{ caroussel[0][1]}}</p></a>
       </div>
     </div>
 
@@ -29,8 +29,8 @@
       <div class="actu">
           <img src="{{ url_for('static',filename='img/presentation-quatuor-2.png' ) }}" alt="presentation-quatuor-2" class="image-actu">
         <div id="contour" class="carousel-caption">
-            <a href="/quatuor/presse/article/Actu 2"> <h3 id="actu">Actu 2</h3></a>
-            <a href="/quatuor/presse/article/Actu 2"> <p id="actu">"Titre article 2"</p></a>
+            <a href="/quatuor/presse/article/Actu 2"> <h3 id="actu">{{ caroussel[1][0]}}</h3></a>
+            <a href="/quatuor/presse/article/Actu 2"> <p id="actu">{{ caroussel[1][1]}}</p></a>
         </div>
       </div>
     </div>
@@ -40,8 +40,8 @@
       <div class="actu">
         <img src="{{ url_for('static',filename='img/presentation-quatuor-3.png' ) }}" alt="presentation-quatuor-3" class="image-actu">
         <div id="contour" class="carousel-caption">
-              <a href="/quatuor/presse/article/Article 3  "> <h3 id="actu">Actu 3</h3></a>
-              <a href="/quatuor/presse/article/Article 3"> <p id="actu">"Titre article 3"</p></a>
+              <a href="/quatuor/presse/article/Article 3  "> <h3 id="actu">{{ caroussel[2][0]}}</h3></a>
+              <a href="/quatuor/presse/article/Article 3"> <p id="actu">{{ caroussel[2][1]}}</p></a>
         </div>
       </div>
     </div>

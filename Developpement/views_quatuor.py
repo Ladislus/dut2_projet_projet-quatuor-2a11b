@@ -53,10 +53,11 @@ def quatuor_extrait(id):
 
     :return: Retourne le template correspondant a la page des extraits du quatuor
     """
+    ok=False
     if len(gliste)>1:
         ok=True
-    else:
-        ok=False
+
+
     return render_template("quatuor/quatuor_extrait.html",liste=gliste,ok=ok,id=id)
 
 @app.route("/quatuor/extrait/ajout/")
@@ -79,9 +80,12 @@ liste=[]
 liste.append(["Le Quatuor a un nouveau site Web","22/12/2018","Olivier Roussillat","presentation-quatuor-1","Omitto iuris dictionem in libera civitate contra leges senatusque consulta; caedes relinquo; libidines praetereo, quarum acerbissimum extat indicium et ad insignem memoriam turpitudinis et paene ad iustum odium imperii nostri, quod constat nobilissimas virgines se in puteos abiecisse et morte voluntaria necessariam turpitudinem depulisse. Nec haec idcirco omitto, quod non gravissima sint, sed quia nunc sine teste dico."])
 liste.append(["Le Groupe 2A11b a fait le meilleur site web","23/12/2018","Sophie Anglade","presentation-quatuor-2","Omitto iuris dictionem in libera civitate contra leges senatusque consulta; caedes relinquo; libidines praetereo, quarum acerbissimum extat indicium et ad insignem memoriam turpitudinis et paene ad iustum odium imperii nostri, quod constat nobilissimas virgines se in puteos abiecisse et morte voluntaria necessariam turpitudinem depulisse. Nec haec idcirco omitto, quod non gravissima sint, sed quia nunc sine teste dico."])
 liste.append(["Car c'est notre projet!","24/12/2018","Andrien Foucault","presentation-quatuor-3","Omitto iuris dictionem in libera civitate contra leges senatusque consulta; caedes relinquo; libidines praetereo, quarum acerbissimum extat indicium et ad insignem memoriam turpitudinis et paene ad iustum odium imperii nostri, quod constat nobilissimas virgines se in puteos abiecisse et morte voluntaria necessariam turpitudinem depulisse. Nec haec idcirco omitto, quod non gravissima sint, sed quia nunc sine teste dico."])
-liste.append(["Un nouveau départ","12/01/2018","Michael Abid","fond","Text important"])
-liste.append(["Deux nouveau départ","13/01/2018","Michael Abid","fond","Text moins important"])
-liste.append(["trois nouveau départ","14/01/2018","Alexis Chauvette","fond","Text tres important"])
+liste.append(["Un nouveau départ","12/01/2018","Michael Abid","fond","Omitto iuris dictionem in libera civitate contra leges senatusque consulta; caedes relinquo; libidines praetereo, quarum acerbissimum extat indicium et ad insignem memoriam turpitudinis et paene ad iustum odium imperii nostri, quod constat nobilissimas virgines se in puteos abiecisse et morte voluntaria necessariam turpitudinem depulisse. Nec haec idcirco omitto, quod non gravissima sint, sed quia nunc sine teste dico."])
+liste.append(["Deux nouveau départ","13/01/2018","Michael Abid","fond","Omitto iuris dictionem in libera civitate contra leges senatusque consulta; caedes relinquo; libidines praetereo, quarum acerbissimum extat indicium et ad insignem memoriam turpitudinis et paene ad iustum odium imperii nostri, quod constat nobilissimas virgines se in puteos abiecisse et morte voluntaria necessariam turpitudinem depulisse. Nec haec idcirco omitto, quod non gravissima sint, sed quia nunc sine teste dico."])
+liste.append(["trois nouveau départ","14/01/2018","Alexis Chauvette","fond","Omitto iuris dictionem in libera civitate contra leges senatusque consulta; caedes relinquo; libidines praetereo, quarum acerbissimum extat indicium et ad insignem memoriam turpitudinis et paene ad iustum odium imperii nostri, quod constat nobilissimas virgines se in puteos abiecisse et morte voluntaria necessariam turpitudinem depulisse. Nec haec idcirco omitto, quod non gravissima sint, sed quia nunc sine teste dico."])
+liste.append(["Quatre nouveau départ","12/01/2018","Michael Abid","fond","Omitto iuris dictionem in libera civitate contra leges senatusque consulta; caedes relinquo; libidines praetereo, quarum acerbissimum extat indicium et ad insignem memoriam turpitudinis et paene ad iustum odium imperii nostri, quod constat nobilissimas virgines se in puteos abiecisse et morte voluntaria necessariam turpitudinem depulisse. Nec haec idcirco omitto, quod non gravissima sint, sed quia nunc sine teste dico."])
+liste.append(["Cinq nouveau départ","13/01/2018","Michael Abid","fond","Omitto iuris dictionem in libera civitate contra leges senatusque consulta; caedes relinquo; libidines praetereo, quarum acerbissimum extat indicium et ad insignem memoriam turpitudinis et paene ad iustum odium imperii nostri, quod constat nobilissimas virgines se in puteos abiecisse et morte voluntaria necessariam turpitudinem depulisse. Nec haec idcirco omitto, quod non gravissima sint, sed quia nunc sine teste dico."])
+liste.append(["Six nouveau départ","14/01/2018","Alexis Chauvette","fond","Omitto iuris dictionem in libera civitate contra leges senatusque consulta; caedes relinquo; libidines praetereo, quarum acerbissimum extat indicium et ad insignem memoriam turpitudinis et paene ad iustum odium imperii nostri, quod constat nobilissimas virgines se in puteos abiecisse et morte voluntaria necessariam turpitudinem depulisse. Nec haec idcirco omitto, quod non gravissima sint, sed quia nunc sine teste dico."])
 
 @app.route("/quatuor/presse/actu/")
 def quatuor_presse_actu():
@@ -99,11 +103,36 @@ def quatuor_presse_all(id):
 
     :return: Retourne le template correspondant a la page de touts les articles de presse en rapport avec le quatuor
     """
+    ok=False
     listetrois=[]
     listetrois.append(liste[0])
     listetrois.append(liste[1])
     listetrois.append(liste[2])
-    return render_template("quatuor/quatuor_presse_all.html",liste=liste,caroussel=listetrois)
+    glistR=[]
+    listeR=[]
+    cpt=-1
+    for elem in liste:
+        cpt+=1
+        listeR.append(elem)
+        if cpt==5:
+            cpt=0
+            glistR.append(listeR)
+            listeR=[]
+    if listeR:
+        glistR.append(listeR)
+    print(listeR)
+    page=[]
+    try:
+        page=glistR[id]
+        
+    except Exception as e:
+        page=glistR[0]
+
+    if len(glistR)>1:
+        ok=True
+
+
+    return render_template("quatuor/quatuor_presse_all.html",liste=page,caroussel=listetrois,id=id,ok=ok)
 
 
 @app.route("/quatuor/presse/article/<nomarticle>")

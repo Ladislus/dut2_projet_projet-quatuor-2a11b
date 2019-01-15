@@ -3,37 +3,48 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <div class="container  liste-article">
-  <input class="form-control" id="myInput" type="text" placeholder="Rechercher...">
-  <br>
-  <table class="table table-bordered table-striped table-hover">
-    <thead>
-      <tr>
-        <th>Nom de l'article</th>
-        <th>Date</th>
-        <th>Rédigé par</th>
-      </tr>
-    </thead>
-    <tbody id="myTable">
-      {% for elem in liste %}
-      <tr>
-        <td><a id="nolink" href="/quatuor/presse/article/{{elem[0]}}">{{elem[0]}}</a></td>
-        <td>{{elem[1]}}</td>
-        <td>{{elem[2]}}</td>
-      </tr>
-
-      {% endfor %}
-    </tbody>
-  </table>
+<br>
+{% for i in range(liste|length) %}
+{% if i%2==0 %}
+<div class="presse-titre presse-paire">
+  <h3>{{liste[i][0]}}</h3>
+  <div class="presse-vignette">
+    <div id="blocImage">
+      <img src="{{ url_for('static',filename='img/'+liste[i][3]+'.png')}}" alt="Image de {{liste[i][0]}}">
+      <p>Posté par {{liste[i][2]}} le {{liste[i][1]}}</p>
+    </div>
+    <p>{{ liste[i][4]}}</p>
+  </div>
 </div>
+{% else %}
+<div class="presse-titre presse-impaire">
+    <h3>{{liste[i][0]}}</h3>
+  <div class="presse-vignette">
+    <p>{{ liste[i][4]}}</p>
+    <div id="blocImage">
+      <img src="{{ url_for('static',filename='img/'+liste[i][3]+'.png')}}" alt="Image de {{liste[i][0]}}">
+      <p>Posté par {{liste[i][2]}} le {{liste[i][1]}}</p>
+    </div>
+  </div>
 
-<script>
-$(document).ready(function(){
- $("#myInput").on("keyup", function() {
-   var value = $(this).val().toLowerCase();
-   $("#myTable tr").filter(function() {
-     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-   });
- });
-});
-</script>
+</div>
+{% endif %}
+
+{% endfor %}
+
+</div>
+{% if ok %}
+<div class="center">
+  {% if id!=0 %}
+  <a href="/quatuor/presse/all/{{ id-1 }}">Précédent</a>
+  {% endif %}
+  {% for i in range(gliste|length+2) %}
+  <a href="/quatuor/presse/all/{{ i }}">{{i}}</a>
+  {% endfor %}
+  {% if id!=gliste|length+1 %}
+  <a href="/quatuor/presse/all/{{ id+1 }}">Suivant</a>
+  {% endif %}
+
+</div>
+{% endif %}
 {% endblock %}
