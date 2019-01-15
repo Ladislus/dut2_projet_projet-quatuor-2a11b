@@ -1,4 +1,5 @@
 from .app import db
+from .functions import *
 
 from sqlalchemy.dialects.sqlite import BLOB
 from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, Text, Float, Date, Table, UniqueConstraint
@@ -57,17 +58,6 @@ class Personne(Base):
 
     adresse     = relationship("Lieu", back_populates = "residants")
     utilisateur = relationship("Utilisateur", uselist = False, back_populates = "personne")
-
-    # tuteur      = relationship("Personne", remote_side = [idPers])
-    #TODO : relation de tuteur (Personne vers Personne)
-    # alternates = relationship('Issue',
-    #             backref=backref('parent', remote_side=[id])
-    #         )
-    # #This is what you need to add to make the database link it self
-    # parent_id=Column(Integer, ForeignKey('issues.id'))
-    # children=relationship('Issue', backref=backref('parent', remote_side=[id]))
-    # #Calling children would send you all the children of the parent.
-    # #Calling parent would give you the parent of the current group. If it returns None then you are looking at a root Issue.
 
 class JoueInstrument(Base):
     __tablename__ = "JoueInstrument"
