@@ -1,5 +1,4 @@
 from .views import *
-from .model_quatuor import *
 
 @app.route("/")
 def home():

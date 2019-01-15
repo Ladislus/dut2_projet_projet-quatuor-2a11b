@@ -1,4 +1,98 @@
 {% extends "base.html" %}
 {% block main %}
-
+<div class="stage-presentation">
+    <h1 class="titre-gpartie">Présentation des Stages</h1>
+    <div class='first-subtitle'>
+        <div id="h2-1"><h2>Les Profs</h2></div>
+        <img class="underline" src="{{ url_for('static',filename='img/underline1.jpg') }}" alt="underline">
+    </div>
+    <div class="list-profs">
+        <ul>
+            <li>
+                <div class="olivier">
+                <img src="{{ url_for('static',filename='img/Olivier-Roussillat.png')}}" class="img-rounded" alt="olivier" width="165" height="200"> 
+                <h3>Olivier Roussillat</h3>
+                </div>
+            </li>
+            <li>
+                <div class="frederic">
+                <img src="{{ url_for('static',filename='img/Frederic-Dudilet.png')}}" class="img-rounded" alt="olivier" width="165" height="200"> 
+                <h3>Frédéric Dudilet</h3>
+                </div>
+            </li>
+            <li>
+                <div class="robert">
+                <img src="{{ url_for('static',filename='img/Robert-Ramon.png')}}" class="img-rounded" alt="olivier" width="165" height="200"> 
+                <h3>Robert Ramon</h3>
+                </div>
+            </li>
+            <li>
+                <div class="tony">
+                <img src="{{ url_for('static',filename='img/Tony-Bigot.png')}}" class="img-rounded" alt="olivier" width="165" height="200"> 
+                <h3>Tony Bigot</h3>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="h2-2"><h2>Vous inscrire à un Stage</h2></div>
+    <img class="underline2" src="{{ url_for('static',filename='img/underline1.jpg') }}" alt="underline">
+    <div class="global2">
+        <div class="dropdowngeneral">
+                <h4>Votre Niveau: </h4>
+                <select id="what" class="form-control selectpicker show-tick">
+                    <option selected>Select...</option>
+                    <option>Niveau 1</option>
+                    <option>Niveau 2</option>
+                    <option>Niveau 3</option>
+                </select>
+        </div>
+        <div class="dropdowngeneral">
+                <h4>Votre Instrument: </h4>
+                <select id="what" class="form-control selectpicker show-tick">
+                    <option selected>Select...</option>
+                    <option>Clarinette en laB</option>
+                    <option>Clarinette en miB</option>
+                    <option>Clarinette en ré</option>
+                    <option>Clarinette en ut</option>
+                    <option>Clarinette en siB</option>
+                    <option>Clarinette en la</option>
+                    <option>Clarinette en la de basset</option>
+                    <option>Cor de basset en fa</option>
+                    <option>Clarinette basse en siB</option>
+                    <option>Clarinette contralto en miB</option>
+                    <option>Clarinette contrebasse en siB</option>
+                </select>
+        </div>
+    </div>
+    <div class="recherche"><button type="button" class="btn btn-default" data-toggle="collapse" data-target=".tableau">Rechercher les stages disponibles</button></div>
+    <div class="container_tab">
+        <div class="tableau">         
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Nom du Stage</th>
+                  <th>Dates</th>
+                  <th>Adresse</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Stage d'Hiver</td>
+                  <td>Du 21/12/18 au 20/03/19</td>
+                  <td>13 Rue Victor Hugo - Orléans</td>
+                </tr>
+                <tr>
+                  <td>Stage de Printemps</td>
+                  <td>Du 21/03/19 au 20/06/19</td>
+                  <td>8 Boulevard Saint-Germain - Olivet</td>
+                </tr>
+                <tr>
+                  <td>Stage d'Eté</td>
+                  <td>Du 21/06/19 au 20/09/19</td>
+                  <td>25 place de la Loire - Fleury Les Aubrais</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>  
+    </div>
 {% endblock %}
