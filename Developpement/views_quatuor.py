@@ -24,13 +24,47 @@ def quatuor_repertoire():
     """
     return render_template("quatuor/quatuor_repertoire.html")
 
-@app.route("/quatuor/extrait/")
-def quatuor_extrait():
+gliste=[]
+liste2=[]
+sliste1=[]
+sliste1.append(["Opus I, de macarena","L'opus 1 de macarena fait par jean oguste de la moliere","test.mp3","test.jpg"])
+sliste1.append(["Opus II, de macarena","L'opus 2 de macarena fait par jean oguste de la moliere","test.mp3","test.jpg"])
+sliste1.append(["Opus III, de macarena","L'opus 3 de macarena fait par jean oguste de la moliere","test.mp3","test.jpg"])
+sliste2=[]
+sliste2.append(["Opus I, de Alloa","L'opus 1 de alloa fait par","test.mp3","test.jpg"])
+sliste2.append(["Opus II, de Alloa","L'opus 2 de alloa fait par","test.mp3","test.jpg"])
+liste2.append(sliste1)
+liste2.append(sliste2)
+gliste.append(liste2)
+liste3=[]
+sliste3=[]
+sliste3.append(["Opus I, de Fusla","L'opus 1 de macarena fait par jean oguste de la moliere","test.mp3","test.jpg"])
+sliste3.append(["Opus II, de Fusla","L'opus 2 de macarena fait par jean oguste de la moliere","test.mp3","test.jpg"])
+sliste3.append(["Opus III, de Fusla","L'opus 3 de macarena fait par jean oguste de la moliere","test.mp3","test.jpg"])
+sliste4=[]
+sliste4.append(["Opus I, de Olga","L'opus 1 de alloa fait par","test.mp3","test.jpg"])
+sliste4.append(["Opus II, de Olga","L'opus 2 de alloa fait par","test.mp3","test.jpg"])
+liste3.append(sliste3)
+liste3.append(sliste4)
+gliste.append(liste3)
+@app.route("/quatuor/extrait/<int:id>")
+def quatuor_extrait(id):
     """
 
     :return: Retourne le template correspondant a la page des extraits du quatuor
     """
-    return render_template("quatuor/quatuor_extrait.html")
+    if len(gliste)>1:
+        ok=True
+    else:
+        ok=False
+    return render_template("quatuor/quatuor_extrait.html",liste=gliste,ok=ok,id=id)
+
+@app.route("/quatuor/extrait/ajout/")
+def quatuor_extrait_ajout():
+    """
+
+    :return: Retourne le template correspondant a la page de creation des extraits du quatuor
+    """
 
 @app.route("/quatuor/concerts/")
 def quatuor_concerts():
