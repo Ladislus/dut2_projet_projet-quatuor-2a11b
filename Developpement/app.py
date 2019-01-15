@@ -4,8 +4,6 @@ import os.path
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
-
-
 app = Flask(__name__)
 app.debug = True
 
