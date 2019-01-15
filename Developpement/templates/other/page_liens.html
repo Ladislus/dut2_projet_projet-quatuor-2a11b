@@ -1,4 +1,75 @@
 {% extends "base.html" %}
 {% block main %}
 
+<h1>Liens</h1>
+<br>
+<div class="liens">
+  <h2 id="hliens">Réseaux sociaux</h2>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+  <br>
+  <div class="liste-logo">
+    <a href="https://fr-fr.facebook.com/QuatuorDivertimento45/">
+      <img src="{{ url_for('static',filename='img/logo-facebook.png') }}" alt="facebook logo" id="logo-liens">
+      <strong>
+        <p>Notre page facebook</p>
+      </strong>
+    </a>
+
+  </div>
+</div>
+
+<div class="partenaires">
+  <h2 id="hliens">Nos partenaires</h2>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+  <br>
+  <div class="liste-partenaires">
+  <div>
+    <a href="https://clarenpic.blog4ever.com/">
+      <img src="{{ url_for('static',filename='img/logo-clarinette-picardie.jpg') }}" alt="picardie clarinette logo" id="logo-partenaires">
+      <strong>
+        <p>Club de Clarinette en Picardie</p>
+      </strong>
+    </a>
+  </div>
+    <div>
+    <a href="www.regioncentre-valdeloire.fr/">
+      <img src="{{ url_for('static',filename='img/logo-region-centre.png') }}" alt="picardie clarinette logo" id="logo-partenaires">
+      <strong>
+        <p>Region Centre Val de Loire</p>
+      </strong>
+    </a>
+  </div>
+  </div>
+</div>
+
+<div class="partenaires">
+  <h2 id="hliens">Nos magasins conseillés</h2>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+  <br>
+  <div class="liste-partenaires">
+    <div>
+      <a href="https://www.buffet-crampon.com/fr/">
+        <img src="{{ url_for('static',filename='img/logo-crampon.png') }}" alt="Buffet Crampon" id="logo-partenaires">
+        <strong>
+          <p>Buffet Crampon</p>
+        </strong>
+      </a>
+      <p>Fabriqant français de clarinette</p>
+    </div>
+    <div>
+      <a href="www.regioncentre-valdeloire.fr/">
+        <img src="{{ url_for('static',filename='img/logo-vandoren.png') }}" alt="picardie clarinette logo" id="logo-partenaires">
+        <strong>
+          <p>Vandoren</p>
+        </strong>
+      </a>
+      <p>Fabriqant d'accessoires et de partitions</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 {% endblock %}
