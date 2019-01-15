@@ -1,0 +1,17 @@
+.division-membres {
+  display: flex;
+  align-items: flex-start;
+}
+
+.division-membres > * {
+  text-align: center;
+}
+#imgMembre {
+  width: 10em;
+  border-radius: 1em;
+}
+.membres{
+  text-align: center;
+  margin-left: 5%;
+  margin-top: 15%;
+}

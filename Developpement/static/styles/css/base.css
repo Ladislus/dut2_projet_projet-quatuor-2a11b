@@ -30,21 +30,26 @@ body{
   font-family: adam;
   font-size: medium;
 }
+
 .navbar-nav a{
   color: white;
 }
+
 .navbar-nav img{
   height: 250%;
   margin-left: -30%;
   margin-top: -18%;
 }
+
 .navbar-collapse{
   background-color: black;
 }
+
 .navbar-nav:hover .dropdown-toggle:hover{
   background-color: lightgrey;
   color: black;
 }
+
 li.dropdown:hover > .dropdown-menu {
     display: block;
 }
@@ -55,17 +60,23 @@ li.dropdown:hover > .dropdown-menu {
 height: 150%;
 width: 150%;
 }
+
 .fond-noir{
   background-color: rgb(23, 23, 23)
 }
+
 .titre-gpartie{
-  text-align: center;
-  margin-bottom: 10%;
+text-align: center;
+margin-bottom: 10%;
+
+
 }
+
 .presentation-div{
   display: flex;
   margin-bottom: 5%
 }
+
 .presentation-img{
   height: 100%;
   width: 100%;
@@ -73,78 +84,181 @@ width: 150%;
   margin-right: 2.5%;
   margin-left: 2.5%;
 }
+
 .presentation-text{
   font-family: Verdana,sans-serif;
   font-size: 15px;
 }
+
+.quatuor-concert-div{
+  display: flex;
+}
+
+
+.quatuor-concert-div>p{
+  margin-left: 2.5%;
+  margin-right: 2.5%
+}
+
+.quatuor-concert-gpartie>{
+text-align: center
+}
+
+.quatuor-concert-div{
+  margin-bottom: 2.5%
+}
+
+
 .text-milieu{
   width: 50%;
   margin-top:15%
 }
+
 .margin-bottom-10{
   margin-bottom: 10%
 }
+
 .text-left{
   text-align: left;
 }
+
 .text-right{
   text-align: right;
 }
+
+
 .margin-right-10{
   margin-right: 10%
 }
+
 .margin-left-10{
   margin-left: 10%
 }
+
+
+
 .margin-right-5{
   margin-right: 5%
 }
+
 .margin-left-5{
   margin-left: 5%
 }
+
+
+.actu{
+  display: flex;
+}
+
+.image-actu{
+  width: 100%;
+  height: 50%;
+}
+
+.actu>p{
+  margin-top: 5%;
+  text-align: center;
+}
+
+.actu>h1{
+  text-align: center;;
+  margin-top: 1%;
+  color: rgb(112, 112, 112)
+}
+
+
+.presse-actu-margin-top{
+  margin-top: 10%;
+}
+
 .grey{
   background-color: lightgrey
 }
+
+
+.membres{
+  text-align: center;
+  margin-left: 5%;
+  margin-top: 15%;
+}
+
+
 .taille-carousel{
   height: 100%;
   width: 100%;
 }
+
 .color-indic{
   background-color: lightgrey
 }
+
 #actu{
   color: rgba(255, 255, 255, 0.95)
+
 }
+
+.center{
+  text-align: center;
+}
+
 .flex{
   display: flex;
 }
+
 #contour{
-  background-color: rgba(0, 0, 0, 0.2);
+background-color: rgba(0, 0, 0, 0.2);
+border-radius: 10px;
+}
+
+#concert-quatuor{
+  background-color: rgba(0, 0, 0, 0.05);
   border-radius: 10px;
 }
+
+#concert-stage{
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+
 .iframe-quatuor{
   border-radius: 10px 0px 0px 0px;
 }
+
 .iframe-stage{
   border-radius: 0px 10px 0px 0px;
 }
 .text-quatuor{
   margin-right: 5%;
 }
+
 .text-stage{
   margin-left: 5%
 }
+
+
 #boutton-concert{
-  text-decoration none;
-  color : black;
+
+text-decoration none;
+color : black;
+
 }
+
 .pp{
-  width: 125px;
-  height: 125px
+width: 125px;
+height: 125px
 }
+
 #nolink{
   color: rgb(0,0,0)
 }
+
+.imagepresse{
+  height: 100%;
+  width: 100%;
+  margin-right: 5%;
+}
+
 h1{
   font-family: 'aaa';
 }
@@ -214,13 +328,28 @@ h3{
   text-align: center;
   margin-left: 7%;
 }
+
+
+.extrait{
+  background-color: rgba(0, 0, 0, 0.13);
+  margin-left: 0.25%;
+  margin-bottom: 2%;
+  text-align: center;
+  flex: 2 2 20%;
+}
+
+
+.page_extrait{
+  display: flex;
+  margin-left: 0.25%;
+  margin-bottom: 2%;
+  flex-wrap: wrap;
+}
 #myCarousel2{
   margin-top: 2%;
   margin-bottom: 2%;
 }
-.center{
-  text-align: center;
-}
+
 .carousel-inner{
   height: 100%;
   width: 70%;
@@ -239,4 +368,47 @@ h3{
 h1{
   text-align: center;
   margin-bottom: 2%;
+}
+
+.liste-article{
+  margin-top: 5%
+}
+#blocImage p {
+    width: 100%;
+    margin : auto;
+    z-index: 200;
+
+}
+
+#blocImage {
+    width : 100%;
+}
+
+.presse-vignette{
+  display: flex;
+}
+
+#blocImage img{
+  width: 20em;
+  height: 10em;
+  border-radius: 2%;
+
+}
+.presse-titre{
+  margin-top: 1%;
+
+}
+
+.presse-paire{
+  background-color: rgba(175, 175, 175, 0.52);
+  border-radius: 1.5%;
+}
+
+
+.presse-impaire{
+  background-color: rgba(175, 175, 175, 0.73);
+  border-radius: 1.5%;
+}
+.presse-impaire h3{
+  text-align: right;
 }

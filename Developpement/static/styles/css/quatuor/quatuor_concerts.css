@@ -1,0 +1,22 @@
+.quatuor-concert-div{
+  display: flex;
+}
+.quatuor-concert-div>p{
+  margin-left: 2.5%;
+  margin-right: 2.5%
+}
+.quatuor-concert-gpartie>{
+text-align: center
+}
+.quatuor-concert-div{
+  margin-bottom: 2.5%
+}
+#concert-quatuor{
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+#concert-stage{
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
