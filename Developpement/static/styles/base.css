@@ -1,3 +1,11 @@
+@font-face{
+  font-family: "Roboto";
+  src: url('../Police/Roboto-Light.ttf');
+}
+@font-face{
+  font-family: "aaa";
+  src: url('../Police/Aaargh.ttf');
+}
 #main{
   margin-top: 5em;
   background-color: #ffffffaa;
@@ -40,17 +48,12 @@ height: 150%;
 width: 150%;
 }
 
-p,h1,h2{
-  font-family: Verdana,sans-serif;
-}
-
 .fond-noir{
   background-color: rgb(23, 23, 23)
 }
 
 .titre-gpartie{
 text-align: center;
-text-decoration: underline;
 margin-bottom: 10%;
 
 
@@ -243,6 +246,84 @@ height: 125px
   margin-right: 5%;
 }
 
+h1{
+  font-family: 'aaa';
+}
+#h2-1{
+  margin-top: -6%;
+  text-align: center;
+}
+.glyph-prof{
+  width: 3%;
+  margin-left: 40%;
+  margin-top: -11%;
+  object-position: fixed;
+}
+.list-profs>ul{
+  list-style-type: none;
+  margin-left: 3.5%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-profs li{
+  padding: 3.5%;
+  text-align: center;
+  margin-top: 2%;
+}
+#h2-2{
+  text-align: center;
+}
+h2{
+  font-family: 'aaa';
+}
+.underline{
+  width:10%;
+  margin-left: 45%;
+  margin-top:-1.5%;
+}
+h3{
+  font-family: 'aaa';
+}
+.underline2{
+  width:16%;
+  margin-left: 42.5%;
+  margin-top:-1.5%;
+}
+.dropdowngeneral{
+  /*display: flex;
+  flex-wrap: wrap;*/
+  margin-top: 2%;
+  font-family: 'aaa';
+  padding-right:2%;
+  text-align: center;
+}
+.global2{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left:33.5%;
+}
+.recherche{
+  text-align: center;
+  font-family: 'aaa';
+  margin-top: 2%;
+}
+.tableau{
+  width:65%;
+  margin-left:18%;
+  margin-top:3%;
+  font-family: 'aaa';
+  text-align: center;
+}
+.tableau th{
+  text-align: center;
+}
+#what{
+  width: 90%;
+  text-align: center;
+  margin-left: 7%;
+}
+
 
 .extrait{
   background-color: rgba(0, 0, 0, 0.13);
@@ -282,4 +363,47 @@ height: 125px
 h1{
   text-align: center;
   margin-bottom: 2%;
+}
+
+.liste-article{
+  margin-top: 5%
+}
+#blocImage p {
+    width: 100%;
+    margin : auto;
+    z-index: 200;
+
+}
+
+#blocImage {
+    width : 100%;
+}
+
+.presse-vignette{
+  display: flex;
+}
+
+#blocImage img{
+  width: 20em;
+  height: 10em;
+  border-radius: 2%;
+
+}
+.presse-titre{
+  margin-top: 1%;
+
+}
+
+.presse-paire{
+  background-color: rgba(175, 175, 175, 0.52);
+  border-radius: 1.5%;
+}
+
+
+.presse-impaire{
+  background-color: rgba(175, 175, 175, 0.73);
+  border-radius: 1.5%;
+}
+.presse-impaire h3{
+  text-align: right;
 }

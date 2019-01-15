@@ -5,6 +5,7 @@
 {% block styles %}
 {{ super() }}
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/base.css')}}">
+<link rel="stylesheet" href="css/bootstrap-select.css">
 {% endblock %}
 
 {% block navbar %}
@@ -28,7 +29,7 @@
                 <li><a href="/quatuor/repertoire/">Repertoire</a></li>
                 <li><a href="/quatuor/extrait/0">Extrait</a></li>
                 <li><a href="/quatuor/concerts/">Concerts</a></li>
-                <li><a href="/quatuor/presse/actu">Presse</a></li>
+                <li><a href="/quatuor/presse/all/0">Presse</a></li>
               </ul>
             </li>
             <li class="dropdown tab-home">
@@ -37,6 +38,7 @@
                   <li><a href="/stage/presentation/">Présentation</a></li>
                   <li><a href="/stage/inscription/">Inscription</a></li>
                   <li><a href="/stage/programmes/">Programmes</a></li>
+                  <li><a href="/stage/concerts/">Concerts</a></li>
                   <li><a href="/stage/presse/">Presse</a></li>
                   <li><a href="/stage/recettes/">Recettes</a></li>
 
@@ -81,7 +83,8 @@
 
 {% block content %}
 <div id="main" class="container theme-showcase" role="main">
-  {% block main %}{% endblock %}
+  {% block main %}
+  {% endblock %}
 </div>
 {% endblock %}
 
