@@ -1,4 +1,4 @@
-from app import db
+from .app import db
 
 from sqlalchemy.dialects.sqlite import BLOB
 from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, Text, Float, Date, Table, UniqueConstraint
@@ -10,7 +10,7 @@ Base = db.Model
 #Tables associatives
 repertoire_partition = Table("repertoire_partition", Base.metadata,
                         Column("idRep", Integer, ForeignKey("Repertoire.idRep")),
-                        Column("idPart", Integer, ForeignKey("Partition.idPart")))
+                        Column("idPart", Integer, ForeignKey("Partition.idPart")) )
 
 article_media         = Table("article_media", Base.metadata,
                          Column("idArt", Integer, ForeignKey("Article.idArt")),
@@ -22,6 +22,8 @@ stage_media           = Table("stage_media", Base.metadata,
 
 #Tables
 class Utilisateur(Base):
+    __tablename__ = "Utilisateur"
+
     idUt           = Column(Integer, primary_key = True, autoincrement = True)
     ecoleUt        = Column(String(50))
     nivUt          = Column(Integer)
@@ -39,6 +41,8 @@ class Utilisateur(Base):
     commentaires   = relationship("Commentaire", back_populates = "auteur")
 
 class Personne(Base):
+    __tablename__ = "Personne"
+
     idPers      = Column(Integer, primary_key = True, autoincrement = True)
     nomPers     = Column(String(20))
     prenomPers  = Column(String(20))
@@ -66,6 +70,8 @@ class Personne(Base):
     # #Calling parent would give you the parent of the current group. If it returns None then you are looking at a root Issue.
 
 class JoueInstrument(Base):
+    __tablename__ = "JoueInstrument"
+
     niveauInstru = Column(Integer)
 
     idUt         = Column(Integer, ForeignKey("Utilisateur.idUt"), primary_key = True)
@@ -75,6 +81,8 @@ class JoueInstrument(Base):
     instrument   = relationship("Instrument", back_populates = "joueurs")
 
 class Participe(Base):
+    __tablename__ = "Participe"
+
     statePaieSt = Column(String(10), nullable = False, default = 'EN ATTENTE')
     stateValSt  = Column(String(10), nullable = False, default = 'EN ATTENTE')
     ficheMed    = Column(BLOB, nullable = False)
@@ -87,6 +95,8 @@ class Participe(Base):
     stage       = relationship("Stage", back_populates = "participants")
 
 class InscrireInstru(Base):
+    __tablename__ = "InscrireInstru"
+
     voieJoue    = Column(String(20), nullable = False)
 
     idUt        = Column(Integer, ForeignKey("Utilisateur.idUt"), primary_key = True)
@@ -98,6 +108,8 @@ class InscrireInstru(Base):
     instrument  = relationship("Instrument")
 
 class Stage(Base):
+    __tablename__ = "Stage"
+
     idSt           = Column(Integer, primary_key = True, autoincrement = True)
     idRep          = Column(Integer)                                               #TODO : Trigger lors de l'insertion/modification si l'idRep est dans Repertoire
     intituleSt     = Column(String(30), nullable = False)
@@ -115,6 +127,8 @@ class Stage(Base):
     medias         = relationship("Media", secondary = stage_media, back_populates = "stages")
 
 class Instrument(Base):
+    __tablename__ = "Instrument"
+
     idInstru    = Column(Integer, primary_key = True, autoincrement = True)
     nomInstru   = Column(String(20), unique = True, nullable = False)
 
@@ -122,12 +136,16 @@ class Instrument(Base):
     partitions  = relationship("Partition", back_populates = "instrument")
 
 class Repertoire(Base):
+    __tablename__ = "Repertoire"
+
     idRep       = Column(Integer, primary_key = True, autoincrement = True)
     nomRep      = Column(String(20), unique = True, nullable = False)
 
     partitions  = relationship("Partition", secondary = repertoire_partition, back_populates = "repertoires")
 
 class Partition(Base):
+    __tablename__ = "Partition"
+
     idPart      = Column(Integer, primary_key = True, autoincrement = True)
     nomPart     = Column(String(20), nullable = False)
     autPart     = Column(String(20), nullable = False)
@@ -143,6 +161,8 @@ class Partition(Base):
     UniqueConstraint(nomPart, autPart, id_Instru, name = "unique_partition")
 
 class Concert(Base):
+    __tablename__ = "Concert"
+
     idConcert       = Column(Integer, primary_key = True, autoincrement = True)
     titreConcert    = Column(String(30), nullable = False)
     dateConcert     = Column(Date, unique = True)                               #TODO : Trigger lors de l'insertion/modification si un autre concert est en cour
@@ -151,6 +171,8 @@ class Concert(Base):
     idLieu          = Column(Integer)                                           #TODO : Trigger lors de l'insertion/modification si l'idLieu est dans Lieu
 
 class Lieu(Base):
+    __tablename__ = "Lieu"
+
     idLieu    = Column(Integer, primary_key = True, autoincrement = True)
     adrLieu   = Column(Text, nullable = False)
     codeLieu  = Column(Integer, nullable = False)
@@ -161,6 +183,8 @@ class Lieu(Base):
     UniqueConstraint(adrLieu, codeLieu, villeLieu, name = "unique_lieu")
 
 class Article(Base):
+    __tablename__ = "Article"
+
     idArt        = Column(Integer, primary_key = True, autoincrement = True)
     titreArt     = Column(String(200), unique = True)
     datePubArt   = Column(Date, nullable = False)
@@ -173,6 +197,8 @@ class Article(Base):
     commentaires = relationship("Commentaire", back_populates = "article")
 
 class Media(Base):
+    __tablename__ = "Media"
+
     idMed        = Column(Integer, primary_key = True, autoincrement = True)
     nomMed       = Column(String(40), nullable = False)
     typeMed      = Column(String(10), nullable = False)
@@ -182,7 +208,9 @@ class Media(Base):
     stages       = relationship("Stage", secondary = "stage_media", back_populates = "medias")
 
 class Commentaire(Base):
-    idCom       = Column(Integer, primary_key = True, autoincrement = True)
+    __tablename__ = "Commentaire"
+
+    idCom       = Column(Integer, primary_key = True)
     dateCom     = Column(Date, nullable = True)
     contenuCom  = Column(Text, nullable = True)
 
