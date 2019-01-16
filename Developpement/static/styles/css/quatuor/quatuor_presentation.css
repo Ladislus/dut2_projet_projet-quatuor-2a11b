@@ -1,0 +1,37 @@
+.division-membres {
+  display: flex;
+  align-items: flex-start;
+}
+
+.division-membres > * {
+  text-align: center;
+}
+#imgMembre {
+  width: 10em;
+  border-radius: 1em;
+}
+.membres{
+  text-align: center;
+  margin-left: 5%;
+  margin-top: 15%;
+}
+.titre-gpartie{
+  text-align: center;
+  margin-bottom: 10%;
+}
+.presentation-div{
+  display: flex;
+  margin-bottom: 5%
+}
+.presentation-img{
+  height: 100%;
+  width: 100%;
+  border-radius: 5%;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+}
+.presentation-text{
+  font-family: Verdana,sans-serif;
+  font-size: 15px;
+}
+ 

@@ -3,7 +3,7 @@
 <!-- Creation d'un boite de texte qui change automatiquement le contenue d'une balise <p>  -->
 <script type="text/javascript">
 function preview(){
-  document.getElementById("para").textContent =   document.getElementById("a").value;
+  document.getElementById("para").textContent =   document.getElementById("comment").value;
 }
 var myvar;
 function m(){
@@ -11,7 +11,8 @@ myvar = setInterval('preview()',1000);
 }
 </script>
 <body onLoad="m()">
-<textarea id="a" rows="4" cols="50">
+<p>Rentrez votre texte :</p>
+<textarea  class='form-control' id="comment" rows="4" cols="50">
 </textarea>
 <p id="para"></p>
 
