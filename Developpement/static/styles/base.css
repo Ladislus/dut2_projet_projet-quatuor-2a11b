@@ -12,12 +12,6 @@
   border-radius: 1em;
 }
 
-body{
-  background-image: url("../img/imgFond.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
 @font-face {
   font-family: adam;
   src: url("font/Quicksand_Bold.otf");
@@ -49,15 +43,13 @@ li.dropdown:hover > .dropdown-menu {
     display: block;
 }
 
+.img-accueil {
+  height: 150%;
+  width: 150%;
+}
+
 /*  Fin du menu de navigation  */
 
-.img-accueil {
-height: 150%;
-width: 150%;
-}
-.fond-noir{
-  background-color: rgb(23, 23, 23)
-}
 .titre-gpartie{
   text-align: center;
   margin-bottom: 10%;
@@ -199,44 +191,20 @@ h3{
   font-family: 'aaa';
   margin-top: 2%;
 }
-.tableau{
-  width:65%;
-  margin-left:18%;
-  margin-top:3%;
-  font-family: 'aaa';
-  text-align: center;
-}
-.tableau th{
-  text-align: center;
-}
 #what{
   width: 90%;
   text-align: center;
   margin-left: 7%;
 }
-#myCarousel2{
-  margin-top: 2%;
-  margin-bottom: 2%;
-}
-.center{
-  text-align: center;
-}
-.carousel-inner{
-  height: 100%;
-  width: 70%;
-  margin-left: 15%;
-}
-
 .color{
   color:black;
 }
-
-.carousel-caption{
-  opacity: 100;
-  color: rgb(73, 73, 73);
-}
-
 h1{
   text-align: center;
   margin-bottom: 2%;
+}
+body{
+  background-image: url("projetquatuor2a11b/Developpement/static/img/imgFond.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

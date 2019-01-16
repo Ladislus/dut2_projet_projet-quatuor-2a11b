@@ -1,6 +1,7 @@
 {% extends "base.html" %}
-<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/quatuor/quatuor_extrait.css')}}">
 {% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/quatuor/quatuor_extrait.css')}}">
 {% for elem2 in liste[id] %}
 <div class="page_extrait">
   {% for elem3 in elem2 %}

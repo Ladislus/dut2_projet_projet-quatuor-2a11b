@@ -1,6 +1,7 @@
 {% extends "base.html" %}
-<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/quatuor/quatuor_presse.css')}}">
 {% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/quatuor/quatuor_presse.css')}}">
 
 <h1>{{ article[0] }}</h1> <!-- Nom de l'article -->
 <p>Redige par {{ article[2] }} le {{ article[1] }}</p> <!-- Nom de la personne ayant rediger l'article et la date -->

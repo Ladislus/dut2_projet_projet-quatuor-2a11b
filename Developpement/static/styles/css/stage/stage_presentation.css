@@ -1,0 +1,54 @@
+.tableau{
+  width:65%;
+  margin-left:18%;
+  margin-top:3%;
+  font-family: 'aaa';
+  text-align: center;
+}
+.tableau th{
+  text-align: center;
+}
+#what{
+  width: 90%;
+  text-align: center;
+  margin-left: 7%;
+}
+.recherche{
+  text-align: center;
+  font-family: 'aaa';
+  margin-top: 2%;
+}
+.global2{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left:33.5%;
+}
+.underline2{
+  width:16%;
+  margin-left: 42.5%;
+  margin-top:-1.5%;
+}
+.underline{
+  width:10%;
+  margin-left: 45%;
+  margin-top:-1.5%;
+}
+#h2-1{
+  margin-top: 6%;
+  text-align: center;
+}
+#h2-2{
+  text-align: center;
+}
+.list-profs>ul{
+  list-style-type: none;
+  margin-left: 3.5%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-profs li{
+  padding: 3.5%;
+  text-align: center;
+  margin-top: 2%;
+}

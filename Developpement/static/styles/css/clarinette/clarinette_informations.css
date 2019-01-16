@@ -1,0 +1,17 @@
+.carousel-inner{
+  height: 100%;
+  width: 70%;
+  margin-left: 15%;
+}
+.carousel-caption{
+  opacity: 100;
+  color: rgb(73, 73, 73);
+}
+#myCarousel2{
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+#contour{
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}

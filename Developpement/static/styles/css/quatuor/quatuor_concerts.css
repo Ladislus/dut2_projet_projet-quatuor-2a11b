@@ -20,3 +20,62 @@ text-align: center
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 10px;
 }
+.titre-gpartie{
+  text-align: center;
+  margin-bottom: 10%;
+}
+.presentation-div{
+  display: flex;
+  margin-bottom: 5%
+}
+.presentation-img{
+  height: 100%;
+  width: 100%;
+  border-radius: 5%;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+}
+.presentation-text{
+  font-family: Verdana,sans-serif;
+  font-size: 15px;
+}
+.text-milieu{
+  width: 50%;
+  margin-top:15%
+}
+.margin-bottom-10{
+  margin-bottom: 10%
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+.margin-right-10{
+  margin-right: 10%
+}
+.margin-left-10{
+  margin-left: 10%
+}
+.margin-right-5{
+  margin-right: 5%
+}
+.margin-left-5{
+  margin-left: 5%
+}
+#boutton-concert{
+  text-decoration none;
+  color : black;
+}
+.text-stage{
+  margin-left: 5%
+}
+.text-quatuor{
+  margin-right: 5%;
+}.iframe-quatuor{
+  border-radius: 10px 0px 0px 0px;
+}
+.iframe-stage{
+  border-radius: 0px 10px 0px 0px;
+}
