@@ -19,4 +19,4 @@ Les membres Louis BONDUEL et Abdelhafid ENNES quitterons le projet mi-Janvier.
 
 1 - Se placer dans le dossier Ressources/
 2 - Exécuter setup.sh (./setup.sh)
-3 - Définir le fichier application dans .flaskenv (FLASK_APP = <Fichier_Application.py>)
+3 - Définir le fichier / dossier application dans .flaskenv (FLASK_APP = <Application>)
