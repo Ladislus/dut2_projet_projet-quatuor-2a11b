@@ -25,6 +25,14 @@ class RespLegalForm(FlaskForm):
     mailTrav        = StringField('Adresse Mail de Travail')
 
 class User_ContactForm(FlaskForm):
+    nomAuteur       = StringField('Nom Auteur mail')
+    prenomAuteur    = StringField('Prénom Auteur mail')
+    mailAuteur      = StringField('Mail Auteur')
+    objetMessage    = SelectField('Objet')
+    contenuMessage  = TextField('Contenu message')
+    pjMessage       = FieldList(FormField(FileField('Pièce-jointe')))
+
+class Admin_ContactForm(FlaskForm):
     objetMessage    = SelectField('Objet')
     contenuMessage  = TextField('Contenu message')
     pjMessage       = FieldList(FormField(FileField('Pièce-jointe')))
@@ -59,25 +67,17 @@ class ModifMdPForm(Flask):
     mdpActu         = HiddenField('Mot de passe actuel')
     mdpNew          = HiddenField('Nouvau Mot de passe ')
     mdpNewConfirm   = HiddenField('Confirmation nouveau Mot de passe actuel')
-# class UserForm(FlaskForm):
-#     idUt        = HiddenField('idUt')
-#     ecoleUt     = StringField('Ecole de Musique')
-#     nivUt       = IntegerField('Niveau')
-#     usernameUt  = StringField('Nom d\'utlisateur', validators[DataRequired()])
-#     mdpUt       = PasswordField('Mot de Passe', validators[DataRequired()])
-#
-#     idPers      = HiddenField('personneLiee ?')
-#
-# class StageForm(FlaskForm):
-#     idSt        = HiddenField('idSt')
-#     idRep       = HiddenField('idRep')
-#     intituleSt  = StringField('Intitule du stage', validators[DataRequired()])
-#     nbPlaceSt   = IntegerField('Nombre de places dispos', validators[DataRequired()])
-#     dateDebSt   = DateField('Date de début du stage', validators[DataRequired()])
-#     dateFinSt   = DateField('Date de fin du stage', validators[DataRequired()])
-#     tenueSt     = StringField('Tenue exigée pour le concert du stage')
-#     prixSt      = FloatField('Prix du stage')
-#     descStage   = TextField('Description du stage', validators[DataRequired()])
-#     nivRequisSt = IntegerField('Niveau minimum pour intégrer le stage')
-#
-#     idLieu      = StringField('Adresse', validators[DataRequired()])
+
+class StageForm(FlaskForm):
+    idSt        = HiddenField('idSt')
+    idRep       = HiddenField('idRep')
+    intituleSt  = StringField('Intitule du stage', validators[DataRequired()])
+    nbPlaceSt   = IntegerField('Nombre de places dispos', validators[DataRequired()])
+    dateDebSt   = DateField('Date de début du stage', validators[DataRequired()])
+    dateFinSt   = DateField('Date de fin du stage', validators[DataRequired()])
+    tenueSt     = StringField('Tenue exigée pour le concert du stage')
+    prixSt      = FloatField('Prix du stage')
+    descStage   = TextField('Description du stage', validators[DataRequired()])
+    nivRequisSt = IntegerField('Niveau minimum pour intégrer le stage')
+
+    # idLieu      = StringField('Adresse', validators[DataRequired()])
