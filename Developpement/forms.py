@@ -3,14 +3,14 @@ from wtforms import StringField, DateField, FieldList, FormField, IntegerField, 
 from wtforms.validators import DataRequired
 
 class PersonForm(FlaskForm):
-    nomPers         = StringField('Nom', validators[DataRequired()])
-    prenomPers      = StringField('Prénom', validators[DataRequired()])
-    dateNPers       = DateField('Date de naissance', validators[DataRequired()])
-    tel1Pers        = StringField('Téléphone principal', validators[DataRequired()])
-    mailPers        = StringField('Adresse Mail', validators[DataRequired()])
-    clarJouees      = FieldList(FormField(StringField('Clarinette jouée')))
-    niveau          = IntegerField('Année d\'experience')
-    ecole           = StringField('Ecole')
+    nomPers         = StringField('Nom', validators=[DataRequired()])
+    prenomPers      = StringField('Prénom', validators=[DataRequired()])
+    dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
+    tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
+    mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
+    clarJouees      = FieldList(FormField(StringField('Clarinette jouée')), validators=[DataRequired()])
+    niveau          = IntegerField('Année d\'experience'), validators=[DataRequired()]
+    ecole           = StringField('Ecole'), validators=[DataRequired()]
     typePratique    = StringField('Type de pratique')
 
 class RespLegalForm(FlaskForm):
@@ -25,20 +25,20 @@ class RespLegalForm(FlaskForm):
     mailTrav        = StringField('Adresse Mail de Travail')
 
 class User_ContactForm(FlaskForm):
-    nomAuteur       = StringField('Nom Auteur mail')
-    prenomAuteur    = StringField('Prénom Auteur mail')
-    mailAuteur      = StringField('Mail Auteur')
-    objetMessage    = SelectField('Objet')
-    contenuMessage  = TextField('Contenu message')
+    nomAuteur       = StringField('Nom Auteur mail', validators=[DataRequired()])
+    prenomAuteur    = StringField('Prénom Auteur mail', validators=[DataRequired()])
+    mailAuteur      = StringField('Mail Auteur', validators=[DataRequired()])
+    objetMessage    = SelectField('Objet', validators=[DataRequired()])
+    contenuMessage  = TextField('Contenu message', validators=[DataRequired()])
     pjMessage       = FieldList(FormField(FileField('Pièce-jointe')))
 
 class Admin_ContactForm(FlaskForm):
-    objetMessage    = SelectField('Objet')
-    contenuMessage  = TextField('Contenu message')
+    objetMessage    = SelectField('Objet', validators=[DataRequired()])
+    contenuMessage  = TextField('Contenu message', validators=[DataRequired()])
     pjMessage       = FieldList(FormField(FileField('Pièce-jointe')))
 
 class AutorMedForm(FlaskForm):
-    numContactUrg1  = StringField('Numero à contacter Urgence 1')
+    numContactUrg1  = StringField('Numero à contacter Urgence 1', validators=[DataRequired()])
     numContactUrg2  = StringField('Numero à contacter Urgence 2')
 
 class AutorStage_MineurForm(FlaskForm):
@@ -48,25 +48,25 @@ class AutorStage_MineurForm(FlaskForm):
     autorImagSite   = BooleanField('Autorisation utilisation image sur le site du quatuor')
 
 class CreateAccountForm(FlaskForm):
-    username        = StringField('Nom d\'utilisateur')
-    mail            = StringField('Adresse mail')
-    confirmMail     = StringField('Confirmation Adresse Mail')
-    mdp             = HiddenField('Mot de passe')
-    mdpConfirm      = HiddenField('Confirmation Mot de passe')
+    username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
+    mail            = StringField('Adresse mail', validators=[DataRequired()])
+    confirmMail     = StringField('Confirmation Adresse Mail', validators=[DataRequired()])
+    mdp             = HiddenField('Mot de passe', validators=[DataRequired()])
+    mdpConfirm      = HiddenField('Confirmation Mot de passe', validators=[DataRequired()])
 
 class LoginForm(FlaskForm):
-    username        = StringField('Nom d\'utilisateur')
-    mdp             = HiddenField('Mot de passe')
+    username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
+    mdp             = HiddenField('Mot de passe', validators=[DataRequired()])
 
 class OubliMdpForm(FlaskForm):
-    username        = StringField('Nom d\'utilisateur')
-    mail            = StringField('Adresse mail')
-    confirmMail     = StringField('Confirmation Adresse Mail')
+    username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
+    mail            = StringField('Adresse mail', validators=[DataRequired()])
+    confirmMail     = StringField('Confirmation Adresse Mail', validators=[DataRequired()])
 
 class ModifMdPForm(Flask):
-    mdpActu         = HiddenField('Mot de passe actuel')
-    mdpNew          = HiddenField('Nouvau Mot de passe ')
-    mdpNewConfirm   = HiddenField('Confirmation nouveau Mot de passe actuel')
+    mdpActu         = HiddenField('Mot de passe actuel', validators=[DataRequired()])
+    mdpNew          = HiddenField('Nouvau Mot de passe ', validators=[DataRequired()])
+    mdpNewConfirm   = HiddenField('Confirmation nouveau Mot de passe actuel', validators=[DataRequired()])
 
 class StageForm(FlaskForm):
     idSt        = HiddenField('idSt')
