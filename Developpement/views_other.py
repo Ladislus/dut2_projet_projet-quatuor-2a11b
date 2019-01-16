@@ -7,14 +7,14 @@ def other_liens():
     """
     return render_template("other/page_liens.html")
 
-@app.route("/other/connection/")
+@app.route("/other/connexion/")
 def other_connexion():
     """
 
     :return: Retourne le templates de la page de connexion
 
     """
-    return render_template("base.html")
+    return render_template("other/connexion.html")
 
 @app.route("/other/deconnexion/")
 def other_deconnexion():
