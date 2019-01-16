@@ -21,20 +21,20 @@
 <div class="center">
 
   <ul class="pagination">
-  {% for i in range(gliste|length+2) %}
-  <li {% if i==id %} class="active" {% endif %}><a href="/quatuor/extrait/{{ i }}">{{i}}</a></li>
-  {% endfor %}
+    {% for i in range(gliste|length+2) %}
+    <li {% if i==id %} class="active" {% endif %}><a href="/quatuor/extrait/{{ i }}">{{i}}</a></li>
+    {% endfor %}
   </ul>
   <ul class="pager">
-  {% if id!=0 %}
-  <li class="previous"><a href="/quatuor/extrait/{{ id-1 }}">Précédent</a></li>
-  {% endif %}
+    {% if id!=0 %}
+    <li class="previous"><a href="/quatuor/extrait/{{ id-1 }}">Précédent</a></li>
+    {% endif %}
   </ul>
   <ul class="pager">
-  {% if id!=gliste|length+1 %}
-  <li class="next"><a href="/quatuor/extrait/{{ id+1 }}">Suivant</a></li>
-  {% endif %}
-</ul>
+    {% if id!=gliste|length+1 %}
+    <li class="next"><a href="/quatuor/extrait/{{ id+1 }}">Suivant</a></li>
+    {% endif %}
+  </ul>
 
 </div>
 {% endif %}

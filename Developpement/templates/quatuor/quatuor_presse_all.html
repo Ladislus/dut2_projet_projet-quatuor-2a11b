@@ -4,29 +4,29 @@
 <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
 <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
 <div class="container  liste-article">
-<br>
-{% for i in range(liste|length) %}
-<div class="presse-titre {% if i%2==0 %}presse-paire{% else %} presse-impaire {% endif %}">
-  <h3>{{liste[i][0]}}</h3>
-  <div class="presse-vignette">
-    <div id="blocImage">
-      <img src="{{ url_for('static',filename='img/'+liste[i][3]+'.png')}}" alt="Image de {{liste[i][0]}}">
-      <p>Posté par {{liste[i][2]}} le {{liste[i][1]}}</p>
+  <br>
+  {% for i in range(liste|length) %}
+  <div class="presse-titre {% if i%2==0 %}presse-paire{% else %} presse-impaire {% endif %}">
+    <h3>{{liste[i][0]}}</h3>
+    <div class="presse-vignette">
+      <div id="blocImage">
+        <img src="{{ url_for('static',filename='img/'+liste[i][3]+'.png')}}" alt="Image de {{liste[i][0]}}">
+        <p>Posté par {{liste[i][2]}} le {{liste[i][1]}}</p>
+      </div>
+      <p>{{ liste[i][4]}}</p>
     </div>
-    <p>{{ liste[i][4]}}</p>
   </div>
-</div>
 
 
 
-{% endfor %}
+  {% endfor %}
 
 </div>
 {% if ok %}
 <div class="center">
   <ul class="pagination">
     {% for i in range(gliste|length+2) %}
-    <li {% if i==id %} class="active" {% endif %} ><a href="/quatuor/presse/all/{{ i }}">{{i}}</a></li>
+    <li {% if i==id %} class="active" {% endif %}><a href="/quatuor/presse/all/{{ i }}">{{i}}</a></li>
     {% endfor %}
   </ul>
   <ul class="pager">
@@ -35,9 +35,9 @@
     {% endif %}
   </ul>
   <ul class="pager">
-  {% if id!=gliste|length+1 %}
-  <li class="next"><a href="/quatuor/presse/all/{{ id+1 }}" class="next">Suivant</a> </li>
-  {% endif %}
+    {% if id!=gliste|length+1 %}
+    <li class="next"><a href="/quatuor/presse/all/{{ id+1 }}" class="next">Suivant</a> </li>
+    {% endif %}
   </ul>
 
 </div>

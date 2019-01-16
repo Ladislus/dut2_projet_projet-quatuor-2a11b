@@ -1,5 +1,50 @@
 {% extends "base.html" %}
 {% block main %}
+<h1>Renseignements</h1>
+<div class="liens">
+  <h2 id="hliens">Les Membres</h2>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+  <br>
+  <div class="list-profs">
+    <ul>
+      <li>
+        <div class="olivier">
+          <img src="{{ url_for('static',filename='img/Olivier-Roussillat.png')}}" class="img-rounded" alt="olivier" width="165" height="200">
+          <h3>Olivier Roussillat</h3>
+        </div>
+      </li>
+      <li>
+        <div class="frederic">
+          <img src="{{ url_for('static',filename='img/Frederic-Dudilet.png')}}" class="img-rounded" alt="olivier" width="165" height="200">
+          <h3>Frédéric Dudilet</h3>
+        </div>
+      </li>
+      <li>
+        <div class="robert">
+          <img src="{{ url_for('static',filename='img/Robert-Ramon.png')}}" class="img-rounded" alt="olivier" width="165" height="200">
+          <h3>Robert Ramon</h3>
+        </div>
+      </li>
+      <li>
+        <div class="tony">
+          <img src="{{ url_for('static',filename='img/Tony-Bigot.png')}}" class="img-rounded" alt="olivier" width="165" height="200">
+          <h3>Tony Bigot</h3>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 
+<div class="liens">
+  <h3 id="hliens">Informations utiles</h3>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+  <br>
+  <div class="center">
+    <p><span class="glyphicon glyphicon-phone-alt "></span> 02 - 48 - 58 - 63 - 72</p>
+    <p><span class="glyphicon glyphicon-envelope "></span> 12 rue Allan Turing - 45160</p>
+    <p><span class=" glyphicon glyphicon-home "></span> quatuor.divertimento@gmail.com</p>
+  </div>
+</div>
+<br>
 
 {% endblock %}
