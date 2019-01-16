@@ -39,11 +39,16 @@ class AutorStage_MineurForm(FlaskForm):
     autorImag       = BooleanField('Autorisation utilisation image dans le cadre du stage')
     autorImagSite   = BooleanField('Autorisation utilisation image sur le site du quatuor')
 
-class 
+class CreateAccountForm(FlaskForm):
+    username        = StringField('Nom d\'utilisateur')
 
 class LoginForm(FlaskForm):
     username        = StringField('Nom d\'utilisateur')
+    mail            = StringField('Adresse mail')
+    confirmMail     = StringField('Confirmation Adresse Mail')
     mdp             = HiddenField('Mot de passe')
+    mdpConfirm      = HiddenField('Confirm Mot de passe')
+    
 # class UserForm(FlaskForm):
 #     idUt        = HiddenField('idUt')
 #     ecoleUt     = StringField('Ecole de Musique')
