@@ -18,4 +18,4 @@ def get_concerts():
     return Concert.query.all()
 
 def get_extraits():
-    medias = Media.query.filter(Media.specMed == 'EXTRAIT')
+    return Media.query.filter(Media.specMed == 'EXTRAIT')
