@@ -55,18 +55,18 @@
         <li><a href="/contact/mentionsLegales/">Mentions Legals</a></li>
         <li><a href="/contact/renseignements/">Renseignements</a></li>
         <li><a href="/contact/ficheTechnique/">Fiche Technique</a></li>
-        <li><a href="/contact/plaquette/">Plaquettte</a></li>
+        <li><a href="/contact/plaquette/">Plaquette</a></li>
         <li><a href="/contact/musical/">Musical</a></li>
       </ul>
     </li>
     <li><a class="dropdown-toggle" href="/other/liens/">Liens</a></li>
+    {% if current_user.is_authenticated %}
+    <li><a>{{ current_user.username }}</a></li>
+    <li><a href="/other/deconnexion/"><span class="glyphicon glyphicon-log-out"></span></a></li>
+    {% else %}
+    <li id="tab-connect"><a class="dropdown-toggle" href="/other/connexion/">Connexion  <span class="glyphicon glyphicon-log-in" id="id"></span></a></li>
+    {% endif %}
   </ul>
-  {% if current_user.is_authenticated %}
-  <li><a>{{ current_user.username }}</a></li>
-  <li><a href="/other/deconnexion/"><span class="glyphicon glyphicon-log-out"></span></a></li>
-  {% else %}
-  <li id="tab-connect"><a href="/other/connexion/"><span class="glyphicon glyphicon-log-in"></span></a></li>
-  {% endif %}
 </div><!-- /.navbar-collapse -->
 {% endblock %}
 
