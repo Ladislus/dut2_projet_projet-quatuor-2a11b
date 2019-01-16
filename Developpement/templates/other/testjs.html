@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main %}
+<script type="text/javascript">
+function preview(){
+  document.getElementById("para").textContent =   document.getElementById("a").value;
+}
+var myvar;
+function m(){
+myvar = setInterval(preview(),1000);
+}
+
+</script>
+<body onLoad="m()">
+
+
+
+
+
+<textarea id="a" rows="4" cols="50">
+</textarea>
+
+<p id="para"></p>
+</body>
+{% endblock %}

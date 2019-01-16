@@ -21,4 +21,12 @@ def contact_mdpOublie():
 
     :return: Retourne le template de la page d'oublie de mot de passe
     """
-    return render_template("mdpOublie.html")
+    return render_template("other/mdpOublie.html")
+
+@app.route("/other/test/")
+def contact_test():
+    """
+
+    :return: Retourne le template de la page de test
+    """
+    return render_template("other/testjs.html")
