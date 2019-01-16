@@ -24,10 +24,38 @@ body{
 
 }
 
-.navbar{
+/*  Menu de navigation  */
+
+.navbar-nav{
   font-family: adam;
   font-size: medium;
 }
+
+.navbar-nav a{
+  color: white;
+}
+
+.navbar-nav img{
+  height: 250%;
+  margin-left: -30%;
+  margin-top: -18%;
+}
+
+.navbar-collapse{
+  background-color: black;
+}
+
+.navbar-nav:hover .dropdown-toggle:hover{
+  background-color: lightgrey;
+  color: black;
+}
+
+li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+/*  Fin du menu de navigation  */
+
 
 .division-membres {
   display: flex;
@@ -288,14 +316,6 @@ h3{
   width:16%;
   margin-left: 42.5%;
   margin-top:-1.5%;
-}
-.dropdowngeneral{
-  /*display: flex;
-  flex-wrap: wrap;*/
-  margin-top: 2%;
-  font-family: 'aaa';
-  padding-right:2%;
-  text-align: center;
 }
 .global2{
   text-align: center;
