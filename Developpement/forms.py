@@ -35,4 +35,17 @@ class StageForm(FlaskForm):
     descStage   = TextField('Description du stage', validators[DataRequired()])
     nivRequisSt = IntegerField('Niveau minimum pour intégrer le stage')
 
-    idLieu      = StringField('Adresse', validators[DataRequired()]) 
+    idLieu      = StringField('Adresse', validators[DataRequired()])
+
+class ArticleForm(FlaskForm):
+    idArt       = HiddenField('idSt')
+    titreArt    = StringField('Titre de l\'article')
+    contenuArt  = TextField('Description article')
+
+    idUt        = HiddenField('Auteur de l\'article')
+
+class ComForm(FlaskForm):
+    idCom       = HiddenField('idCom')
+    contenuCom  = TextField('Contenu commentaire')
+
+    idUt        = HiddenField('Auteur du commentaire')
