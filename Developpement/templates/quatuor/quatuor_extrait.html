@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/quatuor/quatuor_extrait.css')}}">
 {% for elem2 in liste[id] %}
 <div class="page_extrait">
   {% for elem3 in elem2 %}
@@ -19,15 +21,22 @@
 
 {% if ok %}
 <div class="center">
-  {% if id!=0 %}
-  <a href="/quatuor/extrait/{{ id-1 }}">Précédent</a>
-  {% endif %}
-  {% for i in range(gliste|length+2) %}
-  <a href="/quatuor/extrait/{{ i }}">{{i}}</a>
-  {% endfor %}
-  {% if id!=gliste|length+1 %}
-  <a href="/quatuor/extrait/{{ id+1 }}">Suivant</a>
-  {% endif %}
+
+  <ul class="pagination">
+    {% for i in range(gliste|length+2) %}
+    <li {% if i==id %} class="active" {% endif %}><a href="/quatuor/extrait/{{ i }}">{{i}}</a></li>
+    {% endfor %}
+  </ul>
+  <ul class="pager">
+    {% if id!=0 %}
+    <li class="previous"><a href="/quatuor/extrait/{{ id-1 }}">Précédent</a></li>
+    {% endif %}
+  </ul>
+  <ul class="pager">
+    {% if id!=gliste|length+1 %}
+    <li class="next"><a href="/quatuor/extrait/{{ id+1 }}">Suivant</a></li>
+    {% endif %}
+  </ul>
 
 </div>
 {% endif %}

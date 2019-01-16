@@ -1,5 +1,5 @@
 from .views import *
-@app.route("/other/liens")
+@app.route("/other/liens/")
 def contact_liens():
     """
 
@@ -7,7 +7,7 @@ def contact_liens():
     """
     return render_template("other/page_liens.html")
 
-@app.route("/other/connexion")
+@app.route("/other/connexion/")
 def contact_connexion():
     """
 
@@ -15,10 +15,18 @@ def contact_connexion():
     """
     return render_template("other/connexion.html")
 
-@app.route("/other/mdpOublie")
+@app.route("/other/mdpOublie/")
 def contact_mdpOublie():
     """
 
     :return: Retourne le template de la page d'oublie de mot de passe
     """
-    return render_template("mdpOublie.html")
+    return render_template("other/mdpOublie.html")
+#NE PAS PRENDRE EN COMPTE
+@app.route("/other/test/")
+def contact_test():
+    """
+
+    :return: Retourne le template de la page de test
+    """
+    return render_template("other/testjs.html")
