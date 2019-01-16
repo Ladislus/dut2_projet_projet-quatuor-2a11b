@@ -1,6 +1,6 @@
 from .views import *
-from flask_mail import Mail, Message
-from .app import mail
+
+
 @app.route("/contact/administratif/")
 def contact_administratif():
     """
