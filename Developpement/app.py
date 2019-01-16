@@ -3,8 +3,8 @@ from flask_bootstrap import Bootstrap
 import os.path
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-
-
+from flask_mail import Mail, Message
+import os.path
 
 app = Flask(__name__)
 app.debug = True
