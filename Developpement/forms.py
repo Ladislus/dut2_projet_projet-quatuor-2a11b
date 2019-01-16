@@ -7,10 +7,10 @@ class PersonForm(FlaskForm):
     prenomPers      = StringField('Prénom', validators[DataRequired()])
     dateNPers       = DateField('Date de naissance', validators[DataRequired()])
     tel1Pers        = StringField('Téléphone principal', validators[DataRequired()])
-    tel2Pers        = StringField('Téléphone optionnel')
     mailPers        = StringField('Adresse Mail', validators[DataRequired()])
     clarJouees      = FieldList(FormField(StringField('Clarinette jouée')))
     niveau          = IntegerField('Année d\'experience')
+    ecole           = StringField('Ecole')
     typePratique    = StringField('Type de pratique')
 
 class RespLegalForm(FlaskForm):
