@@ -1,5 +1,5 @@
 from .views import *
-@app.route("/contact/administratif")
+@app.route("/contact/administratif/")
 def contact_administratif():
     """
 
@@ -7,7 +7,7 @@ def contact_administratif():
     """
     return render_template("contact/contact_administratif.html")
 
-@app.route("/contact/mentionsLegales")
+@app.route("/contact/mentionsLegales/")
 def contact_mentionsLegales():
     """
 
@@ -15,7 +15,7 @@ def contact_mentionsLegales():
     """
     return render_template("contact/contact_mentionsLegales.html")
 
-@app.route("/contact/renseignements")
+@app.route("/contact/renseignements/")
 def contact_renseignements():
     """
 
@@ -23,7 +23,7 @@ def contact_renseignements():
     """
     return render_template("contact/contact_renseignements.html")
 
-@app.route("/contact/ficheTechnique")
+@app.route("/contact/ficheTechnique/")
 def contact_ficheTechnique():
     """
 
@@ -31,7 +31,7 @@ def contact_ficheTechnique():
     """
     return render_template("contact/contact_ficheTechnique.html")
 
-@app.route("/contact/plaquette")
+@app.route("/contact/plaquette/")
 def contact_plaquette():
     """
 
@@ -39,11 +39,11 @@ def contact_plaquette():
     """
     return render_template("contact/contact_plaquette.html")
 
-@app.route("/contact/musical")
+@app.route("/contact/musical/")
 
 def contact_musical():
     """
 
     :return: Retourne le template des partenaires musicaux du groupe
     """
-    return render_template("contact/contact_plaquette.html")
+    return render_template("contact/contact_musical.html")
