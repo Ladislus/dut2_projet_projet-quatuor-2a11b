@@ -1,10 +1,8 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
-import os.path
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-
-
+import os.path
 
 app = Flask(__name__)
 app.debug = True
@@ -17,10 +15,10 @@ def mkpath(p):
         )
     )
 
-db = SQLAlchemy(app)
 Bootstrap(app)
+db = SQLAlchemy(app)
 login_manager = LoginManager(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = ('sqlite:///'+mkpath('../database.db'))
+app.config['SQLALCHEMY_DATABASE_URI'] = ('sqlite:///'+mkpath('database.db'))
 app.config['BOOTSTRAP_SERVE_LOCAL']=True
 app.config["SECRET_KEY"] = "fec03c30-124c-43b2-85db-4dfb72c4b56e"

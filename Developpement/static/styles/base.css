@@ -208,3 +208,49 @@ body{
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+#hliens{
+  text-align: center;
+  font-size: 30px
+}
+
+#logo-liens{
+  width: 10em;
+  height: 10em;
+}
+
+.liste-logo{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.liste-partenaires{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#logo-partenaires{
+  width: 10em;
+  height: 10em;
+}
+
+.liste-logo div{
+  margin-left: 10%;
+  margin-right: 10%;
+
+}
+
+.liste-partenaires div{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.partenaires{
+  margin-bottom: 5%
+}
