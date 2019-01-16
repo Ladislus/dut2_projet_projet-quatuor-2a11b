@@ -52,6 +52,11 @@ class Personne(Base):
     telPersDeux = Column(String(10))
     dateNPers   = Column(Date)
     newsPers    = Column(Boolean, default = False)
+    audPrivPers = Column(Boolean, default = False)
+    audPublPers = Column(Boolean, default = False)
+    imgPrivPers = Column(Boolean, default = False)
+    imgPublPers = Column(Boolean, default = False)
+
     idTuteur    = Column(Integer)                                               #TODO : obligatoire si age < 18; trigger pour savoir si tuteur.age > 18
 
     id_Lieu     = Column(Integer, ForeignKey("Lieu.idLieu"))

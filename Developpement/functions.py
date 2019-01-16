@@ -14,5 +14,8 @@ def init_db(filename = None):
     """
     db.create_all()
 
-def get_concert():
+def get_concerts():
     return Concert.query.all()
+
+def get_extraits():
+    medias = Media.query.filter(Media.specMed == 'EXTRAIT')
