@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_presentation.css')}}">
 <div class="stage-presentation">
     <h1 class="titre-gpartie">Présentation des Stages</h1>
     <div class='first-subtitle'>
@@ -10,25 +12,25 @@
         <ul>
             <li>
                 <div class="olivier">
-                <img src="{{ url_for('static',filename='img/Olivier-Roussillat.png')}}" class="img-rounded" alt="olivier" width="165" height="200"> 
+                <img src="{{ url_for('static',filename='img/Olivier-Roussillat.png')}}" class="img-rounded" alt="olivier" width="165" height="200">
                 <h3>Olivier Roussillat</h3>
                 </div>
             </li>
             <li>
                 <div class="frederic">
-                <img src="{{ url_for('static',filename='img/Frederic-Dudilet.png')}}" class="img-rounded" alt="olivier" width="165" height="200"> 
+                <img src="{{ url_for('static',filename='img/Frederic-Dudilet.png')}}" class="img-rounded" alt="olivier" width="165" height="200">
                 <h3>Frédéric Dudilet</h3>
                 </div>
             </li>
             <li>
                 <div class="robert">
-                <img src="{{ url_for('static',filename='img/Robert-Ramon.png')}}" class="img-rounded" alt="olivier" width="165" height="200"> 
+                <img src="{{ url_for('static',filename='img/Robert-Ramon.png')}}" class="img-rounded" alt="olivier" width="165" height="200">
                 <h3>Robert Ramon</h3>
                 </div>
             </li>
             <li>
                 <div class="tony">
-                <img src="{{ url_for('static',filename='img/Tony-Bigot.png')}}" class="img-rounded" alt="olivier" width="165" height="200"> 
+                <img src="{{ url_for('static',filename='img/Tony-Bigot.png')}}" class="img-rounded" alt="olivier" width="165" height="200">
                 <h3>Tony Bigot</h3>
                 </div>
             </li>
@@ -66,7 +68,7 @@
     </div>
     <div class="recherche"><button type="button" class="btn btn-default" data-toggle="collapse" data-target=".tableau">Rechercher les stages disponibles</button></div>
     <div class="container_tab">
-        <div class="tableau">         
+        <div class="tableau">
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -93,6 +95,6 @@
                 </tr>
               </tbody>
             </table>
-        </div>  
+        </div>
     </div>
-{% endblock %}
+{% endblock %} 

@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/quatuor/quatuor_presse_actu.css')}}">
 <style>
   body{
     background-color: rgb(15, 15, 15)
@@ -58,11 +60,11 @@
     <span class="sr-only">Suivant</span>
   </a>
 </div>
-
+<a href="/quatuor/presse/all" style="margin-left:46%;"> Touts les articles</a>
 
 {% block presse %}
 
 {% endblock %}
 
-
+ 
 {% endblock %}
