@@ -5,7 +5,7 @@ def contact_liens():
 
     :return: Retourne le template de la page dédiée aux liens utiles
     """
-    return render_template("contact_liens.html")
+    return render_template("other/page_liens.html")
 
 @app.route("/other/connexion/")
 def contact_connexion():
