@@ -1,0 +1,17 @@
+.page_extrait{
+  display: flex;
+  margin-left: 0.25%;
+  margin-bottom: 2%;
+  flex-wrap: wrap;
+}
+.extrait{
+  background-color: rgba(0, 0, 0, 0.13);
+  margin-left: 0.25%;
+  margin-bottom: 2%;
+  text-align: center;
+  flex: 2 2 20%;
+}
+.center{
+  text-align: center;
+}
+  

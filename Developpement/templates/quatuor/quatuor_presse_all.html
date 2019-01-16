@@ -1,10 +1,11 @@
 {% extends "quatuor/quatuor_presse_actu.html" %}
-
 {% block presse %}
-<script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
-<script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/quatuor/quatuor_presse_all.css')}}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <div class="container  liste-article">
-<br>c
+<br>
 {% for i in range(liste|length) %}
 {% if i%2==0 %}
 <div class="presse-titre presse-paire">
@@ -47,6 +48,6 @@
   {% endif %}
 
 </div>
-
 {% endif %}
 {% endblock %}
+ 
