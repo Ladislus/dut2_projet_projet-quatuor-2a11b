@@ -1,4 +1,5 @@
 from .app import app
+from .app import mail
 from flask import render_template
 from .views_quatuor import *
 from .views_clarinette import *
