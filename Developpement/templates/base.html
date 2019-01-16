@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block navbar %}
-<div class="navbar-fixed-top collapse navbar-collapse" id="bs-example-navbar-collapse-1" role="navigation">
+<nav class="navbar-fixed-top collapse navbar-collapse" id="bs-example-navbar-collapse-1" role="navigation">
       <ul class="nav navbar-nav">
         <a class="navbar-brand" href="/"><img src="{{ url_for('static',filename='img/diverti.png') }}" alt="diverti.png" class="img-accueil"> </a>
         <li class="dropdown">
@@ -61,7 +61,7 @@
         </li>
         <li><a class="dropdown-toggle" href="/other/liens/">Liens</a></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </nav><!-- /.navbar-collapse -->
 {% endblock %}
 
 
@@ -85,4 +85,3 @@ $(function() {
 })
 </script>
 {% endblock %}
- 
