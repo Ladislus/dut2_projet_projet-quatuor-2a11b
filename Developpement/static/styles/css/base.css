@@ -15,6 +15,7 @@
 body{
   background-image: url("../../img/imgFond.png");
   background-repeat: no-repeat;
+  background-size: cover;
   background-attachment: fixed;
 }
 
@@ -77,4 +78,3 @@ h1{
   text-align: center;
   margin-bottom: 2%;
 }
- 
