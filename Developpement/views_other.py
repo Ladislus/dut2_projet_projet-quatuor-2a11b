@@ -15,6 +15,14 @@ def contact_connexion():
     """
     return render_template("other/connexion.html")
 
+@app.route("/other/deconnexion/")
+def contact_deconnexion():
+    """
+
+    :return: Retourne le template de la page de deconnexion
+    """
+    return render_template("other/deconnexion.html")
+
 @app.route("/other/mdpOublie/")
 def contact_mdpOublie():
     """
