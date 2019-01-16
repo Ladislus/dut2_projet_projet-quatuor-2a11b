@@ -41,14 +41,24 @@ class AutorStage_MineurForm(FlaskForm):
 
 class CreateAccountForm(FlaskForm):
     username        = StringField('Nom d\'utilisateur')
-
-class LoginForm(FlaskForm):
-    username        = StringField('Nom d\'utilisateur')
     mail            = StringField('Adresse mail')
     confirmMail     = StringField('Confirmation Adresse Mail')
     mdp             = HiddenField('Mot de passe')
-    mdpConfirm      = HiddenField('Confirm Mot de passe')
-    
+    mdpConfirm      = HiddenField('Confirmation Mot de passe')
+
+class LoginForm(FlaskForm):
+    username        = StringField('Nom d\'utilisateur')
+    mdp             = HiddenField('Mot de passe')
+
+class OubliMdpForm(FlaskForm):
+    username        = StringField('Nom d\'utilisateur')
+    mail            = StringField('Adresse mail')
+    confirmMail     = StringField('Confirmation Adresse Mail')
+
+class ModifMdPForm(Flask):
+    mdpActu         = HiddenField('Mot de passe actuel')
+    mdpNew          = HiddenField('Nouvau Mot de passe ')
+    mdpNewConfirm   = HiddenField('Confirmation nouveau Mot de passe actuel')
 # class UserForm(FlaskForm):
 #     idUt        = HiddenField('idUt')
 #     ecoleUt     = StringField('Ecole de Musique')
