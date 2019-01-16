@@ -16,10 +16,3 @@ def init_db(filename = None):
 
 def get_concert():
     return Concert.query.all()
-
-def get_extrait():
-    medias = Media.query.filter(Media.typeMed == ".mp4")
-    return [ media for media in medias if media.specMed == 'EXTRAIT' ]
-
-def get_articles():
-    return Article.query().all()
