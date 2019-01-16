@@ -21,7 +21,7 @@ def contact_renseignements():
 
     :return: Retourne le template des renseignements sur le site
     """
-    return render_template("contact/contact_renseignements.html/")
+    return render_template("contact/contact_renseignements.html")
 
 @app.route("/contact/ficheTechnique/")
 def contact_ficheTechnique():
