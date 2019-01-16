@@ -1,4 +1,5 @@
-from app import db
+from .app import db
+from .functions import *
 
 from sqlalchemy.dialects.sqlite import BLOB
 from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, Text, Float, Date, Table, UniqueConstraint
@@ -42,22 +43,17 @@ class Personne(Base):
     telPersDeux = Column(String(10))
     dateNPers   = Column(Date)
     newsPers    = Column(Boolean, default = False)
-    ifTuteur    = Column(Integer)                                                #TODO : obligatoire si age < 18; trigger pour savoir si tuteur.age > 18
+    audPrivPers = Column(Boolean, default = False)
+    audPublPers = Column(Boolean, default = False)
+    imgPrivPers = Column(Boolean, default = False)
+    imgPublPers = Column(Boolean, default = False)
+
+    idTuteur    = Column(Integer)                                               #TODO : obligatoire si age < 18; trigger pour savoir si tuteur.age > 18
 
     idLieu      = Column(Integer, ForeignKey("Lieu.idLieu"))
 
     adresse     = relationship("Adresse")
     tuteur      = relationship("Personne", remote_side = [idPers])
-
-    #TODO : relation de tuteur (Personne vers Personne)
-    # alternates = relationship('Issue',
-    #             backref=backref('parent', remote_side=[id])
-    #         )
-    # #This is what you need to add to make the database link it self
-    # parent_id=Column(Integer, ForeignKey('issues.id'))
-    # children=relationship('Issue', backref=backref('parent', remote_side=[id]))
-    # #Calling children would send you all the children of the parent.
-    # #Calling parent would give you the parent of the current group. If it returns None then you are looking at a root Issue.
 
 class JoueInstrument(Base):
     niveauInstru = Column(Integer)
@@ -165,6 +161,7 @@ class Media(Base):
     nomMed       = Column(String(40), nullable = False)
     typeMed      = Column(String(10), nullable = False)
     ficMed       = Column(BLOB, nullable = False)
+    specMed      = Column(String(10), default = 'NOPE') #Peut être 'EXTRAIT',
 
     idCom        = Column(Integer, ForeignKey("Commentaire.idCom"))
 
