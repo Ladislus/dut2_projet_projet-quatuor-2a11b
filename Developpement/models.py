@@ -193,6 +193,7 @@ class Media(Base):
     nomMed       = Column(String(40), nullable = False)
     typeMed      = Column(String(10), nullable = False)
     ficMed       = Column(BLOB, nullable = False)
+    specMed      = Column(String(10), default = 'NOPE') #Peut être 'EXTRAIT',
 
     articles     = relationship("Article", secondary = "article_media", back_populates = "medias")
     stages       = relationship("Stage", secondary = "stage_media", back_populates = "medias")
