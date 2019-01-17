@@ -40,7 +40,32 @@ $(function(){
     <article id="entree">
       <div class="titre">
         <h1>Les Entrées</h1>
-        <img src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+        <img class="underline" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-sm-6">
+          <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree1.jpg') }}" alt="Velouté Potiron Carotte">
+          <h3>Vélouté de Potiron et de Carottes <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+        </div>
+        <div class="col-sm-6 col-sm-6">
+          <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree2.jpg') }}" alt="Soupe Chou Vert">
+            <h3>Soupe aux Chou Vert <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-6">
+              <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree3.jpg') }}" alt="Flan de Courgettes">
+              <h3>Flan de Courgettes <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+            </div>
+            <div class="col-sm-6 col-sm-6">
+              <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree4.jpg') }}" alt="Terrine de poisson au basilic">
+              <h3>Terrine de poisson au basilic <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+          </div>
+    </article>
+    <article id="plat">
+      <div class="titre">
+        <h1>Les Plats Principaux</h1>
+        <img class="underline" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
       </div>
       <div class="row">
           <div class="col-sm-6 col-sm-6">
@@ -62,38 +87,81 @@ $(function(){
               <h3>Terrine de poisson au basilic <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
           </div>
     </article>
-    <article id="plat">
-      <h1>Les Plats Principaux</h1>
-      <p>Donec nunc urna, tempus in dui et, luctus pretium diam. Donec ac facilisis lacus. Nunc vestibulum suscipit nibh sit amet efficitur. In eget dignissim augue. Suspendisse semper augue sollicitudin auctor commodo. Aenean a condimentum diam. In sit
-        amet lacus fringilla, tempor mi ac, ornare erat. Etiam tincidunt ante nisi, et ultrices orci varius sit amet. Etiam a ipsum dictum, lacinia lectus at, tristique enim.
-        <p>
-          <p>Mauris in quam eu libero bibendum lacinia. Pellentesque ac odio sit amet velit ornare efficitur. Duis suscipit orci non lacus efficitur luctus. Proin at odio egestas velit facilisis pulvinar vel eget sem. Cum sociis natoque penatibus et magnis
-            dis parturient montes, nascetur ridiculus mus. Praesent pharetra viverra nulla, et dictum nisl efficitur in.</p>
-    </article>
     <article id="dessert">
 
-      <h1>Les Desserts</h1>
-      <p>Donec nunc urna, tempus in dui et, luctus pretium diam. Donec ac facilisis lacus. Nunc vestibulum suscipit nibh sit amet efficitur. In eget dignissim augue. Suspendisse semper augue sollicitudin auctor commodo. Aenean a condimentum diam. In sit
-        amet lacus fringilla, tempor mi ac, ornare erat. Etiam tincidunt ante nisi, et ultrices orci varius sit amet. Etiam a ipsum dictum, lacinia lectus at, tristique enim.
-        <p>
-          <p>Mauris in quam eu libero bibendum lacinia. Pellentesque ac odio sit amet velit ornare efficitur. Duis suscipit orci non lacus efficitur luctus. Proin at odio egestas velit facilisis pulvinar vel eget sem. Cum sociis natoque penatibus et magnis
-            dis parturient montes, nascetur ridiculus mus. Praesent pharetra viverra nulla, et dictum nisl efficitur in.</p>
+      <div class="titre">
+        <h1>Les Desserts</h1>
+        <img class="underline" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+      </div>
+      <div class="row">
+          <div class="col-sm-6 col-sm-6">
+            <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree1.jpg') }}" alt="Velouté Potiron Carotte">
+            <h3>Vélouté de Potiron et de Carottes <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+          </div>
+          <div class="col-sm-6 col-sm-6">
+            <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree2.jpg') }}" alt="Soupe Chou Vert">
+            <h3>Soupe aux Chou Vert <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-6">
+              <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree3.jpg') }}" alt="Flan de Courgettes">
+              <h3>Flan de Courgettes <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+            </div>
+            <div class="col-sm-6 col-sm-6">
+              <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree4.jpg') }}" alt="Terrine de poisson au basilic">
+              <h3>Terrine de poisson au basilic <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+          </div>
     </article>
     <article id="sucre">
-      <h1>Plats Sucrés</h1>
-      <p>Donec nunc urna, tempus in dui et, luctus pretium diam. Donec ac facilisis lacus. Nunc vestibulum suscipit nibh sit amet efficitur. In eget dignissim augue. Suspendisse semper augue sollicitudin auctor commodo. Aenean a condimentum diam. In sit
-        amet lacus fringilla, tempor mi ac, ornare erat. Etiam tincidunt ante nisi, et ultrices orci varius sit amet. Etiam a ipsum dictum, lacinia lectus at, tristique enim.
-        <p>
-          <p>Mauris in quam eu libero bibendum lacinia. Pellentesque ac odio sit amet velit ornare efficitur. Duis suscipit orci non lacus efficitur luctus. Proin at odio egestas velit facilisis pulvinar vel eget sem. Cum sociis natoque penatibus et magnis
-            dis parturient montes, nascetur ridiculus mus. Praesent pharetra viverra nulla, et dictum nisl efficitur in.</p>
+      <div class="titre">
+        <h1>Plats Sucrés</h1>
+        <img class="underline" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+      </div>
+      <div class="row">
+          <div class="col-sm-6 col-sm-6">
+            <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree1.jpg') }}" alt="Velouté Potiron Carotte">
+            <h3>Vélouté de Potiron et de Carottes <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+          </div>
+          <div class="col-sm-6 col-sm-6">
+            <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree2.jpg') }}" alt="Soupe Chou Vert">
+            <h3>Soupe aux Chou Vert <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-6">
+              <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree3.jpg') }}" alt="Flan de Courgettes">
+              <h3>Flan de Courgettes <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+            </div>
+            <div class="col-sm-6 col-sm-6">
+              <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree4.jpg') }}" alt="Terrine de poisson au basilic">
+              <h3>Terrine de poisson au basilic <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+          </div>
     </article>
     <article id="sel">
-      <h1>Plats Salés</h1>
-      <p>Donec nunc urna, tempus in dui et, luctus pretium diam. Donec ac facilisis lacus. Nunc vestibulum suscipit nibh sit amet efficitur. In eget dignissim augue. Suspendisse semper augue sollicitudin auctor commodo. Aenean a condimentum diam. In sit
-        amet lacus fringilla, tempor mi ac, ornare erat. Etiam tincidunt ante nisi, et ultrices orci varius sit amet. Etiam a ipsum dictum, lacinia lectus at, tristique enim.
-        <p>
-          <p>Mauris in quam eu libero bibendum lacinia. Pellentesque ac odio sit amet velit ornare efficitur. Duis suscipit orci non lacus efficitur luctus. Proin at odio egestas velit facilisis pulvinar vel eget sem. Cum sociis natoque penatibus et magnis
-            dis parturient montes, nascetur ridiculus mus. Praesent pharetra viverra nulla, et dictum nisl efficitur in.</p>
+      <div class="titre">
+        <h1>Plats Salés</h1>
+        <img class="underline" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+      </div>
+      <div class="row">
+          <div class="col-sm-6 col-sm-6">
+            <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree1.jpg') }}" alt="Velouté Potiron Carotte">
+            <h3>Vélouté de Potiron et de Carottes <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+          </div>
+          <div class="col-sm-6 col-sm-6">
+            <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree2.jpg') }}" alt="Soupe Chou Vert">
+            <h3>Soupe aux Chou Vert <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-6">
+              <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree3.jpg') }}" alt="Flan de Courgettes">
+              <h3>Flan de Courgettes <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+            </div>
+            <div class="col-sm-6 col-sm-6">
+              <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree4.jpg') }}" alt="Terrine de poisson au basilic">
+              <h3>Terrine de poisson au basilic <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+          </div>
     </article>
   </section>
 </body>
