@@ -2,9 +2,8 @@ from .app import db, app
 import click
 
 @app.cli.command()
-@click.argument('filename')
-def loaddb(filename):
-    '''Creates the tables and populates them with data.'''
-
-    # creation de toutes les tables
+def init():
+    """
+    Commande initialisant la base de donnée
+    """
     db.create_all()
