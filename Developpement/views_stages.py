@@ -16,7 +16,8 @@ def stage_inscription():
     """
     form=PersonForm()
     form2=RespLegalForm()
-    return render_template("stage/stage_inscription.html", form=form, form2=form2)
+    form3=AutorStage_MineurForm()
+    return render_template("stage/stage_inscription.html", form=form, form2=form2, form3=form3)
 
 @app.route("/stage/inscription/autorisationMedicale/")
 def stage_inscription_autorisationMedicale():
@@ -24,8 +25,8 @@ def stage_inscription_autorisationMedicale():
 
     :return: Retourne le template de la page d'autorisation médicale pour un stage
     """
-    form=PersonForm()
-    return render_template("stage/stage_inscription_autorisationMedicale.html",form=PersonForm())
+    form=AutorMedForm()
+    return render_template("stage/stage_inscription_autorisationMedicale.html",form=form)
 
 @app.route("/stage/inscription/valide")
 def stage_inscription_valide():
