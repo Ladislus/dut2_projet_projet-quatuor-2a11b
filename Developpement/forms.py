@@ -70,9 +70,7 @@ class ConnectForm(FlaskForm):
         return user if passwd == user.password else None
 
 class OubliMdpForm(FlaskForm):
-    username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
     mail            = StringField('Adresse mail', validators=[DataRequired()])
-    confirmMail     = StringField('Confirmation Adresse Mail', validators=[DataRequired()])
 
 class ModifMdPForm(FlaskForm):
     mdpActu         = HiddenField('Mot de passe actuel', validators=[DataRequired()])

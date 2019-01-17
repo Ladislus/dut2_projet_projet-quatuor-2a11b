@@ -82,13 +82,8 @@
 {% block scripts %}
 {{ super() }}
 <script>
-  var tabcur = "tab-home"; {
-    % block js %
-  }
+  var tabcur = "tab-home";
 
-  {
-    % endblock %
-  }
   $(function() {
     $("#" + tabcur).addClass('active')
   })
