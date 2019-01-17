@@ -13,9 +13,3 @@ def init_db(filename = None):
     Initialise la base de donnée
     """
     db.create_all()
-
-def get_concerts():
-    return Concert.query.all()
-
-def get_extraits():
-    return Media.query.filter(Media.specMed == 'EXTRAIT')

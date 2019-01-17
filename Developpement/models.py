@@ -1,5 +1,8 @@
 from .app import db
+
 from .functions import *
+from .inserts import *
+from .getters import *
 
 from sqlalchemy.dialects.sqlite import BLOB
 from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, Text, Float, Date, Table, UniqueConstraint
