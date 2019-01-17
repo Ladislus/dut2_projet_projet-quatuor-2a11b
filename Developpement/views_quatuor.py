@@ -67,13 +67,7 @@ def quatuor_extrait_ajout():
     :return: Retourne le template correspondant a la page de creation des extraits du quatuor
     """
 
-@app.route("/quatuor/concerts/")
-def quatuor_concerts():
-    """
 
-    :return: Retourne le template correspondant a la page des concerts du quatuor
-    """
-    return render_template("quatuor/quatuor_concerts.html")
 
 
 liste=[]
@@ -124,7 +118,7 @@ def quatuor_presse_all(id):
     page=[]
     try:
         page=glistR[id]
-        
+
     except Exception as e:
         page=glistR[0]
 

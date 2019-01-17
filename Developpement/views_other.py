@@ -1,6 +1,8 @@
 from .views import *
+from .forms import *
+from flask_login import login_user
 @app.route("/other/liens/")
-def contact_liens():
+def other_liens():
     """
 
     :return: Retourne le template de la page dédiée aux liens utiles
@@ -8,23 +10,52 @@ def contact_liens():
     return render_template("other/page_liens.html")
 
 @app.route("/other/connexion/")
-def contact_connexion():
+def other_connexion():
     """
 
-    :return: Retourne le template de la page de connexion
+    :return: Retourne le templates de la page de connexion
+
     """
-    return render_template("other/connexion.html")
+    connectForm=ConnectForm()
+    if not connectForm.is_submitted():
+        connectForm.next.data = request.args.get("next")
+    elif connectForm.validate_on_submit():
+        user = connectForm.get_authentificated_user()
+        if user:
+            login_user(user)
+            next = connectForm.next.data or url_for("home")
+            return redirect(next)
+    return render_template("other/connexion.html",
+                            connectForm=connectForm)
+
+@app.route("/other/deconnexion/")
+def other_deconnexion():
+    """
+
+    :return: Retourne le template de la page de deconnexion
+    """
+    return render_template("other/deconnexion.html")
 
 @app.route("/other/mdpOublie/")
-def contact_mdpOublie():
+def other_mdpOublie():
     """
 
     :return: Retourne le template de la page d'oublie de mot de passe
     """
     return render_template("other/mdpOublie.html")
+
+@app.route("/other/concerts/")
+def quatuor_concerts():
+    """
+
+    :return: Retourne le template correspondant a la page des concerts
+    """
+    return render_template("other/concerts.html")
+
+
 #NE PAS PRENDRE EN COMPTE
 @app.route("/other/test/")
-def contact_test():
+def other_test():
     """
 
     :return: Retourne le template de la page de test

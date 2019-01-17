@@ -25,7 +25,6 @@ body{
 }
 
 /*  Menu de navigation  */
-
 .navbar-nav{
   font-family: 'adam';
   font-size: medium;
@@ -45,7 +44,7 @@ body{
   background-color: black;
 }
 
-.navbar-nav:hover .dropdown-toggle:hover{
+.navbar-nav:hover, .dropdown-toggle:hover{
   background-color: lightgrey;
   color: black;
 }
@@ -77,4 +76,3 @@ h1{
   text-align: center;
   margin-bottom: 2%;
 }
- 
