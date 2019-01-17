@@ -1,10 +1,15 @@
 from .app import db
+
 from .functions import *
+from .inserts import *
+from .getters import *
 
 from sqlalchemy.dialects.sqlite import BLOB
 from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, Text, Float, Date, Table, UniqueConstraint
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+
+from flask_login import UserMixin
 
 Base = db.Model
 
@@ -22,7 +27,7 @@ stage_media          = Table("stage_media", Base.metadata,
                         Column("idMed", Integer, ForeignKey("Media.idMed")) )
 
 #Tables
-class Utilisateur(Base):
+class Utilisateur(Base, UserMixin):
     idUt       = Column(Integer, primary_key = True, autoincrement = True)
     ecoleUt    = Column(String(50))
     nivUt      = Column(Integer)
@@ -161,7 +166,7 @@ class Media(Base):
     nomMed       = Column(String(40), nullable = False)
     typeMed      = Column(String(10), nullable = False)
     ficMed       = Column(BLOB, nullable = False)
-    specMed      = Column(String(10), default = 'NOPE') #Peut être 'EXTRAIT',
+    specMed      = Column(String(10), default = 'NOPE') #Peut être 'EXTRAIT', 'RECETTE'
 
     idCom        = Column(Integer, ForeignKey("Commentaire.idCom"))
 
