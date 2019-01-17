@@ -1,1 +1,26 @@
- 
+ul.nav-pills {
+  margin-top: 20%;
+  position: fixed;
+}
+div.col-sm-9 div {
+  height: 250px;
+  font-size: 28px;
+}
+.sous_menu{
+  margin-top: 10%;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+  color: #fff;
+  background-color: #337ab7;
+}
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+@media screen and (max-width: 810px) {
+  #entree, #plat, #dessert, #sucre, #sel  {
+    margin-left: 150px;
+  }
+}

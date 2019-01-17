@@ -2,5 +2,55 @@
 {% block main %}
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_recettes.css')}}">
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<body>
+<div class="container" data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+  <div class="row">
+    <nav class="col-sm-3" id="myScrollspy">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="dropdown active">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recettes par catégories <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#entree">Entrée</a></li>
+            <li><a href="#plat">Plat Principal</a></li>
+            <li><a href="#dessert">Dessert</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recettes par saveurs <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#sucre">Sucré</a></li>
+            <li><a href="#sel">Salé</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div class="col-sm-9">
+      <div class="sous_menu" id="entree">
+        <h1>Les Entrées</h1>
+        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+      </div>
+      <div class="sous_menu" id="plat">
+        <h1>Les Plats</h1>
+        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+      </div>
+      <div class="sous_menu" id="dessert">
+        <h1>Les Desserts</h1>
+        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+      </div>
+      <div class="sous_menu" id="sucre">
+        <h1>Plats Sucrés</h1>
+        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+      </div>
+      <div class="sous_menu" id="sel">
+        <h1>Plats Salés</h1>
+        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
 
 {% endblock %}
