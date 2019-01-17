@@ -1,0 +1,4 @@
+<!-- <div class="form-group">
+  <label for="repSt" class="col-sm-3 control-label">{{creaStageForm.repSt.label}}</label>
+  <div class="col-sm-3">{{ creaStageForm.repSt(size=50, class="form-control", placeholder="Repertoire du stage")}}</div>
+</div> -->
