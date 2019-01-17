@@ -41,13 +41,14 @@ class Admin_ContactForm(FlaskForm):
 
 class AutorMedForm(FlaskForm):
     numContactUrg1  = StringField('Numero à contacter Urgence 1', validators=[DataRequired()])
-    numContactUrg2  = StringField('Numero à contacter Urgence 2')
+    numContactUrg2  = StringField('Numero à contacter Urgence 2', validators=[DataRequired()])
+    numContactUrg3  = StringField('Numero à contacter Urgence 3')
 
 class AutorStage_MineurForm(FlaskForm):
-    autorAudioPrive = BooleanField('Autorisation utilisation audio en privé')
-    autorAudioPub   = BooleanField('Autorisation utilisation audio sur le site quatuor')
-    autorImag       = BooleanField('Autorisation utilisation image dans le cadre du stage')
-    autorImagSite   = BooleanField('Autorisation utilisation image sur le site du quatuor')
+    autorAudioPrive = BooleanField("à effectuer un enregistrement audio de celui-ci dans le cadre du stage de l ensemble de clarinettes 2017.")
+    autorAudioPub   = BooleanField('de cet enregistrement audio sur le site Quatuor de clarinettes DIVERTIMENTO (adresse du site) en partie publique')
+    autorImag       = BooleanField('à effectuer des photographies et un enregistrement vidéo de celui-ci dans le cadre du stage de ‘ensemble de clarinettes 2017.')
+    autorImagSite   = BooleanField('de ces photographies et vidéos sur le site Quatuor de clarinettes DIVERTIMENTO (adresse du site) en partie membres (accès privé par mot de passe)')
 
 class CreateAccountForm(FlaskForm):
     username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])

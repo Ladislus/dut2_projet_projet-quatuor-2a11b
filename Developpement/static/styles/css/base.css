@@ -44,7 +44,7 @@ body{
   background-color: black;
 }
 
-.navbar-nav:hover, .dropdown-toggle:hover{
+.navbar-nav:hover .dropdown-toggle:hover{
   background-color: lightgrey;
   color: black;
 }
