@@ -2,7 +2,6 @@ from .app import login_manager
 
 from hashlib import sha512
 from datetime import datetime, timedelta
-from flask_login import
 
 def crypt(password):
     """

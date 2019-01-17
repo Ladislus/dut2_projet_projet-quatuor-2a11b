@@ -31,6 +31,16 @@ def other_mdpOublie():
     :return: Retourne le template de la page d'oublie de mot de passe
     """
     return render_template("other/mdpOublie.html")
+
+@app.route("/other/concerts/")
+def quatuor_concerts():
+    """
+
+    :return: Retourne le template correspondant a la page des concerts
+    """
+    return render_template("other/concerts.html")
+
+
 #NE PAS PRENDRE EN COMPTE
 @app.route("/other/test/")
 def other_test():
