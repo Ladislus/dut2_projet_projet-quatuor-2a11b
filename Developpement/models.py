@@ -37,7 +37,7 @@ class Utilisateur(Base, UserMixin):
 
     idPers     = Column(Integer, ForeignKey("Personne.idPers"))
 
-    personne   = relationship("Personne", backref = "utilisateur")
+    personne   = relationship("Personne")
 
 class Personne(Base):
     idPers      = Column(Integer, primary_key = True, autoincrement = True)
@@ -54,7 +54,6 @@ class Personne(Base):
     idLieu      = Column(Integer, ForeignKey("Lieu.idLieu"))
 
     adresse     = relationship("Adresse")
-    tuteur      = relationship("Personne", remote_side = [idPers])
 
 class JoueInstrument(Base):
     niveauInstru = Column(Integer)
