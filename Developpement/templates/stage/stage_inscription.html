@@ -1,6 +1,187 @@
 {% extends "base.html" %}
 {% block main %}
-<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_inscription.css')}}">
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
-
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_inscription.css')}}">
+<h1>Inscription à un Stage</h1>
+<div class='first-subtitle'>
+    <h3 id="h3title">Bulletin d'Inscription</h3>
+    <img class="underline" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+</div>
+<h4>Stagiaire</h4>
+<img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
+<div class="bigcontainer">
+    <div class="container" id="container1">
+        <div class="row">
+            <div class="col-sm-11">
+                <form class="form-horizontal" role="form" method="POST" action="{{ url_for('stage_inscription') }}">
+                            {{ form.hidden_tag() }}
+                    <div class="form-group">
+                        <label for="nomPers">{{ form.nomPers.label }}</label>
+                        <div>{{ form.nomPers(size=50, class_="form-control",placeholder="Demarest")}}</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="prenomPers">{{ form.prenomPers.label }}</label>
+                        <div>{{ form.prenomPers(size=50, class_="form-control",placeholder="Liam")}}</div>
+                    </div>
+                    <div class="form-group">
+                            <label for="dateNPers">{{ form.dateNPers.label }}</label>
+                            <div>
+                                {{ form.dateNPers(size=50, class_="form-control", type="date", id="date")}}
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel1Pers">{{ form.tel1Pers.label }}</label>
+                        <div>
+                            {{ form.tel1Pers(size=50, class_="form-control", type="tel", pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}", placeholder="06-33-59-20-90")}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mailPers">{{ form.mailPers.label }}</label>
+                        <div>
+                            {{ form.mailPers(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ecole">{{ form.ecole.label }}</label>
+                        <div>{{ form.ecole(size=50, class_="form-control",placeholder="Demarest")}}</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="typePratique">{{ form.typePratique.label }}</label>
+                        <div>{{ form.typePratique(size=50, class_="form-control",placeholder="Demarest")}}</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="clarJouees">{{ form.clarJouees.label}}</label>
+                        <div>
+                        {{ form.clarJouees(size=100, class_="form-control selectpicker show-tick") }}
+                                <option selected>Select...</option>
+                                <option>Clarinette en laB</option>
+                                <option>Clarinette en miB</option>
+                                <option>Clarinette en ré</option>
+                                <option>Clarinette en ut</option>
+                                <option>Clarinette en siB</option>
+                                <option>Clarinette en la</option>
+                                <option>Clarinette en la de basset</option>
+                                <option>Cor de basset en fa</option>
+                                <option>Clarinette basse en siB</option>
+                                <option>Clarinette contralto en miB</option>
+                                <option>Clarinette contrebasse en siB</option>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="usr">Votre Niveau</label>
+                        <div>
+                        {{ form.niveau(class="form-control selectpicker show-tick", option="Niveau 1")}}
+                                <option selected>Select...</option>
+                                <option>Niveau 1</option>
+                                <option>Niveau 2</option>
+                                <option>Niveau 3</option>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div id="div">
+    <h4>Responsable Légal</h4>
+    <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
+        <div class="bigcontainer2">
+            <div class="container" id="container3">
+                <div class="row">
+                    <div class="col-sm-11">
+                        <form class="form-horizontal" role="form2" method="POST" action="{{ url_for('stage_inscription') }}">
+                            {{ form2.hidden_tag() }}
+                            <div class="form-group">
+                                <label for="nomResp">{{ form2.nomResp.label }}</label>
+                                <div>{{ form2.nomResp(size=50, class_="form-control",placeholder="Demarest")}}</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="prenomResp">{{ form2.prenomResp.label }}</label>
+                                <div>{{ form2.prenomResp(size=50, class_="form-control",placeholder="Liam")}}</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="adrResp">{{ form2.adrResp.label }}</label>
+                                <div>{{ form2.adrResp(size=100, class_="form-control",placeholder="16 Rue Victor Hugo")}}</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="CPResp">{{ form2.CPResp.label }}</label>
+                                {{ form2.CPResp(size=100, class_="form-control", pattern="(0-9]{5}", placeholder="45000")}}
+                            </div>
+                            <div class="form-group">
+                                <label for="villeResp">{{ form2.villeResp.label }}</label>
+                                <div>{{ form2.villeResp(size=50, class_="form-control", placeholder="Orleans")}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" id="container2">
+                    <div class="row">
+                        <div class="col-sm-11">
+                                <div class="form-group">
+                                    <label for="telPers">{{ form2.telPers.label }}</label>
+                                    <div>
+                                        {{ form2.telPers(size=50, class_="form-control", type="tel", pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}", placeholder="06-33-59-20-90")}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telTrav">{{ form2.telTrav.label }}</label>
+                                    <div>
+                                        {{ form2.telTrav(size=50, class_="form-control", type="tel", pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}", placeholder="06-33-59-20-90")}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mailPers">{{ form2.mailPers.label }}</label>
+                                    <div>
+                                        {{ form2.mailPers(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mailTrav">{{ form2.mailTrav.label }}</label>
+                                    <div>
+                                        {{ form2.mailTrav(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
+                                    </div>
+                                </div>
+                                <p>ATTENTION Conformément à la loi n° 2002-303 du 4 mars 2002 relative aux droits des malades : En cas d’urgence, un élève accidenté ou malade est orienté et transporté par les services de secours d’urgence vers l’hôpital le mieux adapté. La famille est immédiatement avertie par nos soins. Un élève mineur ne peut sortir de l’hôpital qu’accompagné de sa famille. Si vous le souhaitez, dans l'intérêt de votre enfant, vous pouvez prendre rendez-vous avec les responsables de l’association pour nous expliquer un éventuel cadre clinique particulier, ou la prise d'un
+                                                traitement nécessitant notre vigilance.</p>
+</div>
+                            <h5>Autorise(nt) l'association DIVERTIMENTO:</h5>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label for="autorAudioPrive">{{ form3.autorAudioPrive.label }}
+                                    {{ form3.autorAudioPrive(class_="form-control",type="checkbox", value="",id="check2")}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label for="autorImag">{{ form3.autorImag.label }}
+                                    {{ form3.autorImag(class_="form-control",type="checkbox", value="",id="check")}}
+                                </div><br>
+                            </div>
+                            <h5>Autorise(nt) la diffusion:</h5>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label for="autorAudioPub">{{ form3.autorAudioPub.label }}
+                                    {{ form3.autorAudioPub(class_="form-control",type="checkbox", value="",id="check2")}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label for="autorImagSite">{{ form3.autorImagSite.label }}
+                                    {{ form3.autorImagSite(class_="form-control",type="checkbox", value="",id="check")}}
+                                </div>
+                            </div>
+                            <p>Dans le cadre des activités menées au sein du stage et pendant les concerts, des photographies ou des vidéos sur lesquelles vous apparaîtrez pourront être réalisées.
+                                La loi relative au droit à l’image nous oblige à vous demander une autorisation écrite, non seulement pour les prises de son et de vue mais aussi pour la diffusion de ces vidéos et de ces images sur un support défini. Ces enregistrements seront réalisés par les membres de l’association, d’autres participants au stage ou une personne extérieure identifiée par l’association DIVERTIMENTO. De courts extraits sonores seront accessible en partie public du site du Quatuor de clarinettes DIVERTIMENTO, les vidéos et photographies ne seront accessibles qu’en partie « membres » du même site, avec un mot de passe attribué à l’inscription du stagiaire. Conformément à la loi, vous pouvez à tout moment vérifier l’usage qui est fait des données vous concernant et vous disposez du droit de retrait de ces données si vous le jugez utile.</p>
+                            <h5>Télécharger les formulaires</h5><br>
+                            <div class=form-group>
+                                    <a download="inscription.pdf" href="{{ url_for('static',filename='fichier_statique/inscription.pdf')}}">Télécharger le Bulletin d'inscription</a><br>
+                                    <a download="autorisation.pdf" href="{{ url_for('static',filename='fichier_statique/autorisation.pdf')}}">Télécharger l'autorisation de diffusion</a>
+                            </div>
+                            <div class=form-group>   
+                                <a href="/stage/inscription/autorisationMedicale/"><input type="submit" id="submit" class="btn btn-default" value="Continuer"></a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

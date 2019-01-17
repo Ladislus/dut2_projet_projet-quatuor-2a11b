@@ -1,4 +1,5 @@
 from .views import *
+from .forms import *
 @app.route("/stage/presentation/")
 def stage_presentation():
     """
@@ -13,7 +14,10 @@ def stage_inscription():
 
     :return: Retourne le template de la page d'inscription à un stage
     """
-    return render_template("stage/stage_inscription.html")
+    form=PersonForm()
+    form2=RespLegalForm()
+    form3=AutorStage_MineurForm()
+    return render_template("stage/stage_inscription.html", form=form, form2=form2, form3=form3)
 
 @app.route("/stage/inscription/autorisationMedicale/")
 def stage_inscription_autorisationMedicale():
@@ -21,15 +25,8 @@ def stage_inscription_autorisationMedicale():
 
     :return: Retourne le template de la page d'autorisation médicale pour un stage
     """
-    return render_template("stage/stage_inscription_autorisationMedicale.html")
-
-@app.route("/stage/inscription/autorisationParentale/")
-def stage_inscription_autorisationParentale():
-    """
-
-    :return: Retourne le template de la page d'autorisation parentale pour un stage
-    """
-    return render_template("stage/stage_inscription_autorisationParentale.html")
+    form=AutorMedForm()
+    return render_template("stage/stage_inscription_autorisationMedicale.html",form=form)
 
 @app.route("/stage/inscription/valide")
 def stage_inscription_valide():
