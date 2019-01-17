@@ -3,11 +3,11 @@ from wtforms import StringField, HiddenField, PasswordField, DateField, IntegerF
 from wtforms.validators import DataRequired
 
 class PersonForm(FlaskForm):
-    nomPers         = StringField('Nom', validators[DataRequired()])
-    prenomPers      = StringField('Prénom', validators[DataRequired()])
-    dateNPers       = DateField('Date de naissance', validators[DataRequired()])
-    tel1Pers        = StringField('Téléphone principal', validators[DataRequired()])
-    mailPers        = StringField('Adresse Mail', validators[DataRequired()])
+    nomPers         = StringField('Nom', validators=[DataRequired()])
+    prenomPers      = StringField('Prénom', validators=[DataRequired()])
+    dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
+    tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
+    mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
     clarJouees      = FieldList(FormField(StringField('Clarinette jouée')))
     niveau          = IntegerField('Année d\'experience')
     ecole           = StringField('Ecole')
@@ -21,28 +21,28 @@ class RespLegalForm(FlaskForm):
     villeResp       = StringField('Ville du Responsable')
     telPers         = StringField('Téléphone personnel')
     telTrav         = StringField('Téléphone travail')
-    mailPers        = StringField('Adresse Mail', validators[DataRequired()])
-    mailTrav        = StringField('Adresse Mail', validators[DataRequired()])
+    mailPers        = StringField('Adresse Mail Personnel', validators=[DataRequired()])
+    mailTrav        = StringField('Adresse Mail Travail', validators=[DataRequired()])
 
 # class UserForm(FlaskForm):
 #     idUt        = HiddenField('idUt')
 #     ecoleUt     = StringField('Ecole de Musique')
 #     nivUt       = IntegerField('Niveau')
-#     usernameUt  = StringField('Nom d\'utlisateur', validators[DataRequired()])
-#     mdpUt       = PasswordField('Mot de Passe', validators[DataRequired()])
+#     usernameUt  = StringField('Nom d\'utlisateur', validators=[DataRequired()])
+#     mdpUt       = PasswordField('Mot de Passe', validators=[DataRequired()])
 #
 #     idPers      = HiddenField('personneLiee ?')
 #
 # class StageForm(FlaskForm):
 #     idSt        = HiddenField('idSt')
 #     idRep       = HiddenField('idRep')
-#     intituleSt  = StringField('Intitule du stage', validators[DataRequired()])
-#     nbPlaceSt   = IntegerField('Nombre de places dispos', validators[DataRequired()])
-#     dateDebSt   = DateField('Date de début du stage', validators[DataRequired()])
-#     dateFinSt   = DateField('Date de fin du stage', validators[DataRequired()])
+#     intituleSt  = StringField('Intitule du stage', validators=[DataRequired()])
+#     nbPlaceSt   = IntegerField('Nombre de places dispos', validators=[DataRequired()])
+#     dateDebSt   = DateField('Date de début du stage', validators=[DataRequired()])
+#     dateFinSt   = DateField('Date de fin du stage', validators=[DataRequired()])
 #     tenueSt     = StringField('Tenue exigée pour le concert du stage')
 #     prixSt      = FloatField('Prix du stage')
-#     descStage   = TextField('Description du stage', validators[DataRequired()])
+#     descStage   = TextField('Description du stage', validators=[DataRequired()])
 #     nivRequisSt = IntegerField('Niveau minimum pour intégrer le stage')
 #
-#     idLieu      = StringField('Adresse', validators[DataRequired()])
+#     idLieu      = StringField('Adresse', validators=[DataRequired()])
