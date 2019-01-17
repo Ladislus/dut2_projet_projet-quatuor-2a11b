@@ -59,7 +59,7 @@ class CreateAccountForm(FlaskForm):
 class ConnectForm(FlaskForm):
     next            = HiddenField()
     username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
-    mdp             = HiddenField('Mot de passe', validators=[DataRequired()])
+    password        = PasswordField('Mot de passe', validators=[DataRequired()])
 
     def get_authentificated_user(self):
         user = get_user(self.username.data)

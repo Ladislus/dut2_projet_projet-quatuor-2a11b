@@ -7,7 +7,7 @@
 <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
 </div>
 <form class="form-horizontal" id="form_login"role="form" method="POST" action="{{ url_for('other_connexion') }}">
-  {{ form.hidden_tag() }}
+  {{ connectForm.hidden_tag() }}
   <div class="form-group">
     <label for="username" class="col-sm-3 control-label">Nom d'utilisateur</label>
     <div class="col-sm-3">{{ connectForm.username(size=50, class_="form-control", placeholder="Nom d'utilisateur") }}</div>
