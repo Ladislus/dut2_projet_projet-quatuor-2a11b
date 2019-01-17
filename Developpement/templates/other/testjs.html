@@ -3,11 +3,42 @@
 <!-- Creation d'un boite de texte qui change automatiquement le contenue d'une balise <p>  -->
 <script type="text/javascript">
 function preview(){
-  document.getElementById("para").textContent =   document.getElementById("comment").value;
+  document.getElementById("para").textContent = document.getElementById("comment").value ;
+  document.getElementById("para1").textContent = td.getFullYear()-an>=18;
+  document.getElementById("para2").textContent = td.getMonth()-mon>=-1;
+  document.getElementById("para3").textContent = td.getDay()-day>=-1;
+}
+var age =false;
+var an;
+var mon;
+var day;
+var td;
+function Fage(){
+  td=new Date();
+  var naissance = document.getElementById("date").value;
+  an=naissance.substr(0,4);
+  mon=naissance.substr(5,2);
+  day=naissance.substr(9,2);
+
+  if (td.getFullYear()-an>=18 && td.getMonth()-mon>=-1 && td.getDay()-day>=-1) {
+    age=true ;
+  }
+  else{
+    age = false;
+  }
+  if (age==false) {
+    document.getElementById("age").style.display= "none";
+  }
+  else {
+    document.getElementById("age").style.display = "";
+  }
 }
 var myvar;
+var myvar2;
 function m(){
-myvar = setInterval('preview()',1000);
+myvar = setInterval('preview()',10);
+myvar2 = setInterval('Fage()',10);
+
 }
 </script>
 <body onLoad="m()">
@@ -15,7 +46,20 @@ myvar = setInterval('preview()',1000);
 <textarea  class='form-control' id="comment" rows="4" cols="50">
 </textarea>
 <p id="para"></p>
+<br>
+<p id="para1"></p>
+<p id="para2"></p>
+<p id="para3"></p>
 
+
+<form class="" action="" method="post">
+
+  <input id="date"type="date" name="" value="">
+
+  <input id="age" type="text" name="" value="" style="display:none">
+
+
+</form>
 
 </body>
 
