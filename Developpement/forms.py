@@ -83,7 +83,7 @@ class ModifMdPForm(FlaskForm):
 
 class StageForm(FlaskForm):
     idSt        = HiddenField('idSt')
-    repSt        = SelectField('Repertoire du stage')
+    # repSt       = SelectField('Repertoire du stage')
     intituleSt  = StringField('Intitule du stage', validators=[DataRequired()])
     adresseSt   = StringField('Adresse du stage', validators=[DataRequired()])
     cpSt        = StringField('Code Postal du stage', validators=[DataRequired()])
