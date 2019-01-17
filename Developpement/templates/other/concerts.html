@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block main %}
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
-<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/quatuor/quatuor_concerts.css')}}">
-<div class="quatuor-concert">
-  <h1 class="titre-gpartie">Concerts</h1>
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/autre/concerts.css')}}">
+<div class="">
+  <h1 class="">Concerts</h1>
   <div class="quatuor-concert-gpartie">
     <p class="margin-bottom-10">
       <!-- Bouton pour afficher les concerts -->
@@ -15,36 +15,102 @@
     <div class="row">
       <div class="col">
         <div class="collapse multi-collapse" id="concert-quatuor">
-          <div class="card card-body quatuor-concert-div">
-            <div>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d669.4530076172093!2d1.9259484149373018!3d47.843234760172024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1544777510376" width="600" height="450"
-                frameborder="0" class="iframe-quatuor" style="border:0" allowfullscreen></iframe>
-              <p class="text-center">16 rue d'issoudin,Orleans 45380</p>
+          <div class="flex-row">
+            <div class="">
+              <h2>Titre</h2>
+              <p>Put all speaking her delicate recurred possible. Set indulgence inquietude discretion insensible bed why announcing. Middleton fat two satisfied additions. So continued he or commanded household smallness delivered. Door poor on do walk in half. Roof his head the what.
+                Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.
+                Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew. Exquisite excellent son gentleman acuteness her. Do is voice total power mr ye might round still.
+                Sitting mistake towards his few country ask. You delighted two rapturous six depending objection happiness something the. Off nay impossible dispatched partiality unaffected. Norland adapted put ham cordial. Ladies talked may shy basket narrow see. Him she distrusts questions sportsmen. Tolerably pretended neglected on my earnestly by. Sex scale sir style truth ought.
+              </p>
+              <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal1">Voir la carte</button>
             </div>
-            <div class="text-milieu margin-left-5">
-              <p class="text-quatuor">Omitto iuris dictionem in libera civitate contra leges senatusque consulta; caedes relinquo; libidines praetereo, quarum acerbissimum extat indicium et ad insignem memoriam turpitudinis et paene ad iustum odium
-                imperii nostri, quod constat nobilissimas virgines se in puteos abiecisse et morte voluntaria necessariam turpitudinem depulisse. Nec haec idcirco omitto, quod non gravissima sint, sed quia nunc sine teste dico.</p>
-            </div>
+            <img src="{{ url_for('static',filename='img/presentation-quatuor-2.png') }}" alt="image-stage">
           </div>
 
+
+
+
+          <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+
+  <!--Content-->
+  <div class="modal-content">
+
+    <!--Body-->
+    <div class="modal-body mb-0 p-0">
+
+      <!--Google map-->
+      <div id="map-container-google-16" class="z-depth-1-half map-container-9" style="height: 400px">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d341.2573385119904!2d1.9267141925826787!3d47.843173429855426!2m3!1f359.15624999999994!2f0!3f0!3m2!1i1024!2i768!4f35!5e1!3m2!1sfr!2sfr!4v1547717039815"
+          frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+
+    </div>
+
+    <!--Footer-->
+    <div class="modal-footer justify-content-center">
+      <button type="button" class="btn btn-outline-info btn-md" data-dismiss="modal">Close <i class="fas fa-times ml-1"></i></button>
+
+    </div>
+
+  </div>
+  <!--/.Content-->
+
+</div>
+</div>
         </div>
       </div>
       <div class="col">
-        <div class="col quatuor-concert-gdiv">
+        <div class="col">
           <div class="collapse multi-collapse" id="concert-stage">
-            <div class="card card-body quatuor-concert-div">
-              <div class="text-milieu margin-right-5  ">
-                <p class="text-stage">Omitto iuris dictionem in libera civitate contra leges senatusque consulta; caedes relinquo; libidines praetereo, quarum acerbissimum extat indicium et ad insignem memoriam turpitudinis et paene ad iustum odium
-                  imperii nostri, quod constat nobilissimas virgines se in puteos abiecisse et morte voluntaria necessariam turpitudinem depulisse. Nec haec idcirco omitto, quod non gravissima sint, sed quia nunc sine teste dico.</p>
-              </div>
-              <div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d669.4530076172093!2d1.9259484149373018!3d47.843234760172024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1544777510376" width="600" height="450"
-                  frameborder="0" class="iframe-stage" style="border:0" allowfullscreen></iframe>
-                <p class="text-center">16 rue d'issoudin,Orleans 45380</p>
+            <div class="flex-row">
+              <img src="{{ url_for('static',filename='img/presentation-quatuor-1.png') }}" alt="image-stage">
+              <div class="">
+                <h2>Titre</h2>
+                <p>Put all speaking her delicate recurred possible. Set indulgence inquietude discretion insensible bed why announcing. Middleton fat two satisfied additions. So continued he or commanded household smallness delivered. Door poor on do walk in half. Roof his head the what.
+                  Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.
+                  Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew. Exquisite excellent son gentleman acuteness her. Do is voice total power mr ye might round still.
+                  Sitting mistake towards his few country ask. You delighted two rapturous six depending objection happiness something the. Off nay impossible dispatched partiality unaffected. Norland adapted put ham cordial. Ladies talked may shy basket narrow see. Him she distrusts questions sportsmen. Tolerably pretended neglected on my earnestly by. Sex scale sir style truth ought.
+                </p>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal2">Voir la carte</button>
+
               </div>
 
             </div>
 
+
+
+            <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Body-->
+      <div class="modal-body mb-0 p-0">
+
+        <!--Google map-->
+        <div id="map-container-google-16" class="z-depth-1-half map-container-9" style="height: 400px">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d341.2573385119904!2d1.9267141925826787!3d47.843173429855426!2m3!1f359.15624999999994!2f0!3f0!3m2!1i1024!2i768!4f35!5e1!3m2!1sfr!2sfr!4v1547717039815"
+            frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-outline-info btn-md" data-dismiss="modal">Close <i class="fas fa-times ml-1"></i></button>
+
+      </div>
+
+    </div>
+    <!--/.Content-->
+
+  </div>
+</div>
           </div>
         </div>
       </div>
