@@ -1,7 +1,7 @@
 from .functions import crypt
 from .getters import get_user
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, StringField, TextField
+from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, SelectMultipleField, StringField, TextField
 from wtforms.validators import DataRequired
 
 class PersonForm(FlaskForm):
@@ -10,7 +10,7 @@ class PersonForm(FlaskForm):
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
     tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
     mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
-    clarJouees      = FieldList(FormField(StringField('Clarinette jouée')), validators=[DataRequired()])
+    clarJouees      = SelectMultipleField('Clarinette jouée', validators=[DataRequired()])
     niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
     ecole           = StringField('Ecole', validators=[DataRequired()])
     typePratique    = StringField('Type de pratique')
@@ -39,11 +39,11 @@ class Admin_ContactForm(FlaskForm):
     contenuMessage  = TextField('Contenu message', validators=[DataRequired()])
     pjMessage       = FieldList(FormField(FileField('Pièce-jointe')))
 
-class AutorMedForm(FlaskForm):
+class AutorMedicForm(FlaskForm):
     numContactUrg1  = StringField('Numero à contacter Urgence 1', validators=[DataRequired()])
     numContactUrg2  = StringField('Numero à contacter Urgence 2')
 
-class AutorStage_MineurForm(FlaskForm):
+class AutorMediaForm(FlaskForm):
     autorAudioPrive = BooleanField('Autorisation utilisation audio en privé')
     autorAudioPub   = BooleanField('Autorisation utilisation audio sur le site quatuor')
     autorImag       = BooleanField('Autorisation utilisation image dans le cadre du stage')
@@ -69,9 +69,11 @@ class ConnectForm(FlaskForm):
         return user if passwd == user.password else None
 
 class OubliMdpForm(FlaskForm):
-    username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
     mail            = StringField('Adresse mail', validators=[DataRequired()])
-    confirmMail     = StringField('Confirmation Adresse Mail', validators=[DataRequired()])
+
+class ModifMdPOubliForm():
+    mdpNew          = HiddenField('Nouvau Mot de passe ', validators=[DataRequired()])
+    mdpNewConfirm   = HiddenField('Confirmation nouveau Mot de passe actuel', validators=[DataRequired()])
 
 class ModifMdPForm(FlaskForm):
     mdpActu         = HiddenField('Mot de passe actuel', validators=[DataRequired()])
@@ -80,7 +82,7 @@ class ModifMdPForm(FlaskForm):
 
 class StageForm(FlaskForm):
     idSt        = HiddenField('idSt')
-    idRep       = HiddenField('idRep')
+    repSt        = SelectField('Repertoire du stage')
     intituleSt  = StringField('Intitule du stage', validators=[DataRequired()])
     adresseSt   = StringField('Adresse du stage', validators=[DataRequired()])
     cpSt        = StringField('Code Postal du stage', validators=[DataRequired()])
@@ -90,7 +92,5 @@ class StageForm(FlaskForm):
     dateFinSt   = DateField('Date de fin du stage', validators=[DataRequired()])
     tenueSt     = StringField('Tenue exigée pour le concert du stage')
     prixSt      = FloatField('Prix du stage')
-    descStage   = TextField('Description du stage', validators=[DataRequired()])
+    descSt      = TextField('Description du stage', validators=[DataRequired()])
     nivRequisSt = IntegerField('Niveau minimum pour intégrer le stage')
-
-    # idLieu      = StringField('Adresse', validators[DataRequired()])

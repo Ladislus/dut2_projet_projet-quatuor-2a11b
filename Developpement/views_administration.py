@@ -104,4 +104,6 @@ def administration_creerStage():
 
     :return: Retourne le template de la page de creation de stage
     """
-    return render_template("administration_creerStage.html")
+    creaStageForm=StageForm()
+    return render_template("administration/administration_creerStage.html",
+                            creaStageForm=creaStageForm)
