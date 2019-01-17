@@ -48,10 +48,6 @@ class Personne(Base):
     telPersDeux = Column(String(10))
     dateNPers   = Column(Date)
     newsPers    = Column(Boolean, default = False)
-    audPrivPers = Column(Boolean, default = False)
-    audPublPers = Column(Boolean, default = False)
-    imgPrivPers = Column(Boolean, default = False)
-    imgPublPers = Column(Boolean, default = False)
 
     idTuteur    = Column(Integer)                                               #TODO : obligatoire si age < 18; trigger pour savoir si tuteur.age > 18
 
@@ -72,8 +68,13 @@ class JoueInstrument(Base):
 class Participe(Base):
     statePaieSt = Column(String(10), nullable = False, default = 'EN ATTENTE')
     stateValSt  = Column(String(10), nullable = False, default = 'EN ATTENTE')
-    ficheMed    = Column(BLOB, nullable = False)
-    autParent   = Column(BLOB)                                                          #TODO : Trigger if Personne.age < 18
+    telUrg1     = Column(String(10), nullable = False)
+    telUrg2     = Column(String(10), nullable = False)
+    telUrg3     = Column(String(10))
+    audPrivPers = Column(Boolean, default = False)
+    audPublPers = Column(Boolean, default = False)
+    imgPrivPers = Column(Boolean, default = False)
+    imgPublPers = Column(Boolean, default = False)
 
     idUt        = Column(Integer, ForeignKey("Utilisateur.idUt"), primary_key = True)
     idSt        = Column(Integer, ForeignKey("Stage.idSt"), primary_key = True)
