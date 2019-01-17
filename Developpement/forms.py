@@ -1,5 +1,4 @@
-from .functions import crypt
-from .getters import get_user
+from .models import *
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, SelectMultipleField, StringField, TextField
 from wtforms.validators import DataRequired
