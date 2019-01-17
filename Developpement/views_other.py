@@ -62,4 +62,8 @@ def other_test():
 
     :return: Retourne le template de la page de test
     """
-    return render_template("other/testjs.html")
+    form=PersonForm()
+    form2=RespLegalForm()
+    form3=AutorStage_MineurForm()
+    return render_template("other/testjs.html", form=form, form2=form2, form3=form3)
+    
