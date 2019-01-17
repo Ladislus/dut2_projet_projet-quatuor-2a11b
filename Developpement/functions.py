@@ -1,5 +1,4 @@
 from .app import login_manager
-from .models import Utilisateur
 
 from hashlib import sha512
 from datetime import datetime, timedelta
