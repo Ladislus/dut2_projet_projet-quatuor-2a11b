@@ -1,4 +1,6 @@
 from .views import *
+from .forms import *
+from flask_login import login_user
 @app.route("/other/liens/")
 def other_liens():
     """
@@ -14,7 +16,17 @@ def other_connexion():
     :return: Retourne le templates de la page de connexion
 
     """
-    return render_template("other/connexion.html")
+    connectForm=ConnectForm()
+    if not connectForm.is_submitted():
+        connectForm.next.data = request.args.get("next")
+    elif connectForm.validate_on_submit():
+        user = connectForm.get_authentificated_user()
+        if user:
+            login_user(user)
+            next = connectForm.next.data or url_for("home")
+            return redirect(next)
+    return render_template("other/connexion.html",
+                            connectForm=connectForm)
 
 @app.route("/other/deconnexion/")
 def other_deconnexion():

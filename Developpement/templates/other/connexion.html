@@ -6,11 +6,24 @@
 <h1>Connexion</h1>
 <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
 </div>
-<div class="form-group">
-  <form class="" action="/other/seconnecter" method="post">
-
-  </form>
-
-</div>
-<br>
+<form class="form-horizontal" id="form_login"role="form" method="POST" action="{{ url_for('other_connexion') }}">
+  {{ form.hidden_tag() }}
+  <div class="form-group">
+    <label for="username" class="col-sm-3 control-label">Nom d'utilisateur</label>
+    <div class="col-sm-3">{{ connectForm.username(size=50, class_="form-control", placeholder="Nom d'utilisateur") }}</div>
+  </div>
+  <div class="form-group">
+    <label for="password" class="col-sm-3 control-label">Mot de passe</label>
+    <div class="col-sm-3">{{ connectForm.password(size=50, class_="form-control", placeholder="Mot de passe") }}</div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-3">
+      <button type="submit" class="btn btn-default">Se connecter</button>
+    </div>
+  </div>
+</form>
+{% endblock %}
+{% block js %}
+{{ super() }}
+tabcur = "tab-connect";
 {% endblock %}

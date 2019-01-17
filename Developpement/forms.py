@@ -1,5 +1,7 @@
+from .functions import crypt
+from .getters import get_user
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateField, FieldList, FormField, IntegerField, TextField, FileField, PasswordField, HiddenField
+from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, StringField, TextField
 from wtforms.validators import DataRequired
 
 class PersonForm(FlaskForm):
@@ -9,19 +11,19 @@ class PersonForm(FlaskForm):
     tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
     mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
     clarJouees      = FieldList(FormField(StringField('Clarinette jouée')), validators=[DataRequired()])
-    niveau          = IntegerField('Année d\'experience'), validators=[DataRequired()]
-    ecole           = StringField('Ecole'), validators=[DataRequired()]
+    niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
+    ecole           = StringField('Ecole', validators=[DataRequired()])
     typePratique    = StringField('Type de pratique')
 
 class RespLegalForm(FlaskForm):
-    nomResp         = StringField('Nom du Responsable', validators[DataRequired()])
-    prenomResp      = StringField('Prénom du Responsable', validators[DataRequired()])
-    adrResp         = StringField('Adresse du Responsable', validators[DataRequired()])
-    CPResp          = StringField('Code Postal du Responsable', validators[DataRequired()])
-    villeResp       = StringField('Ville du Responsable', validators[DataRequired()])
-    telPers         = StringField('Téléphone personnel', validators[DataRequired()])
+    nomResp         = StringField('Nom du Responsable', validators=[DataRequired()])
+    prenomResp      = StringField('Prénom du Responsable', validators=[DataRequired()])
+    adrResp         = StringField('Adresse du Responsable', validators=[DataRequired()])
+    CPResp          = StringField('Code Postal du Responsable', validators=[DataRequired()])
+    villeResp       = StringField('Ville du Responsable', validators=[DataRequired()])
+    telPers         = StringField('Téléphone personnel', validators=[DataRequired()])
     telTrav         = StringField('Téléphone travail')
-    mailPers        = StringField('Adresse Mail Personnelle', validators[DataRequired()])
+    mailPers        = StringField('Adresse Mail Personnelle', validators=[DataRequired()])
     mailTrav        = StringField('Adresse Mail de Travail')
 
 class User_ContactForm(FlaskForm):
@@ -54,16 +56,24 @@ class CreateAccountForm(FlaskForm):
     mdp             = HiddenField('Mot de passe', validators=[DataRequired()])
     mdpConfirm      = HiddenField('Confirmation Mot de passe', validators=[DataRequired()])
 
-class LoginForm(FlaskForm):
+class ConnectForm(FlaskForm):
+    next            = HiddenField()
     username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
     mdp             = HiddenField('Mot de passe', validators=[DataRequired()])
+
+    def get_authentificated_user(self):
+        user = get_user(self.username.data)
+        if user is None:
+            return None
+        passwd = crypt(self.password.data)
+        return user if passwd == user.password else None
 
 class OubliMdpForm(FlaskForm):
     username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
     mail            = StringField('Adresse mail', validators=[DataRequired()])
     confirmMail     = StringField('Confirmation Adresse Mail', validators=[DataRequired()])
 
-class ModifMdPForm(Flask):
+class ModifMdPForm(FlaskForm):
     mdpActu         = HiddenField('Mot de passe actuel', validators=[DataRequired()])
     mdpNew          = HiddenField('Nouvau Mot de passe ', validators=[DataRequired()])
     mdpNewConfirm   = HiddenField('Confirmation nouveau Mot de passe actuel', validators=[DataRequired()])
@@ -74,7 +84,7 @@ class StageForm(FlaskForm):
     intituleSt  = StringField('Intitule du stage', validators=[DataRequired()])
     adresseSt   = StringField('Adresse du stage', validators=[DataRequired()])
     cpSt        = StringField('Code Postal du stage', validators=[DataRequired()])
-    villeSt     = StringField('Ville du stage' validators=[DataRequired()])
+    villeSt     = StringField('Ville du stage', validators=[DataRequired()])
     nbPlaceSt   = IntegerField('Nombre de places dispos', validators=[DataRequired()])
     dateDebSt   = DateField('Date de début du stage', validators=[DataRequired()])
     dateFinSt   = DateField('Date de fin du stage', validators=[DataRequired()])
