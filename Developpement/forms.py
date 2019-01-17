@@ -10,7 +10,7 @@ class PersonForm(FlaskForm):
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
     tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
     mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
-    clarJouees      = SelectMultipleField('Clarinette jouée', validators=[DataRequired()])
+    clarJouees      = StringField('Clarinette jouée', validators=[DataRequired()])
     niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
     ecole           = StringField('Ecole', validators=[DataRequired()])
     typePratique    = StringField('Type de pratique')

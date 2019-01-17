@@ -18,11 +18,11 @@
   </div>
   <div class="form-group">
     <label for="dateDebSt" class="col-sm-3 control-label">{{creaStageForm.dateDebSt.label}}</label>
-    <div class="col-sm-3">{{ creaStageForm.dateDebSt(size=50, class="form-control", placeholder="YYYY-MM-DD")}}</div>
+    <div class="col-sm-3">{{ creaStageForm.dateDebSt(size=50, class="form-control", type="date", placeholder="YYYY-MM-DD")}}</div>
   </div>
   <div class="form-group">
     <label for="dateFinSt" class="col-sm-3 control-label">{{creaStageForm.dateFinSt.label}}</label>
-    <div class="col-sm-3">{{ creaStageForm.dateFinSt(size=50, class="form-control", placeholder="YYYY-MM-DD")}}</div>
+    <div class="col-sm-3">{{ creaStageForm.dateFinSt(size=50, class="form-control", type="date", placeholder="YYYY-MM-DD")}}</div>
   </div>
   <div class="form-group">
     <label for="adresseSt" class="col-sm-3 control-label">{{creaStageForm.adresseSt.label}}</label>
@@ -52,6 +52,11 @@
     <label for="nivRequisSt" class="col-sm-3 control-label">{{creaStageForm.nivRequisSt.label}}</label>
     <div class="col-sm-3">{{ creaStageForm.nivRequisSt(size=50, class="form-control", placeholder="Niveau requis")}}</div>
   </div>
-
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-3">
+      <button type="submit" class="btn btn-default">Créer stage</button>
+    </div>
+  </div>
+</form>
 
 {% endblock %}
