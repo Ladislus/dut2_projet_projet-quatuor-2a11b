@@ -85,10 +85,11 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  width: auto;
+  background: grey;
   z-index: 999;
 }
+
 
 nav ul {
   margin: 0;
@@ -108,7 +109,7 @@ nav li {
 nav li a {
   display: block;
   padding: 20px;
-  color: #fff;
+  color: red;
   text-decoration: none;
   text-transform: uppercase;
   transition: all .3s ease-in-out;
@@ -118,9 +119,14 @@ nav li a {
 }
 
 nav li a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  color: black;
 }
 
-#navbar .active a {
-  background: rgb(0, 157, 234);
+#navbar .active ul{
+  color: black;
+}
+.scroll{
+    width: 50px;
+    position: relative;
+    z-index: 999;
 }

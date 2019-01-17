@@ -21,17 +21,24 @@ $(function(){
 });
 </script>
 
-
 <body data-spy="scroll" data-target="#navbar">
   <header>
     <section>
       <nav id="navbar">
-        <ul class="nav">
-          <li><a href="#entree">Les Entrées</a></li>
-          <li><a href="#plat">Les Plats Principaux</a></li>
-          <li><a href="#dessert">Les Desserts</a></li>
-          <li><a href="#sucre">Plats Sucrés</a></li>
-          <li><a href="#sel">Plats Salés</a></li>
+        <ul class="navbar-nav nav">
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Recettes par catégories <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="sous_menu" href="#entree">Les Entrées</a></li>
+              <li><a class="sous_menu" href="#plat">Les Plats Principaux</a></li>
+              <li><a class="sous_menu" href="#dessert">Les Desserts</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Recettes par saveurs <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="sous_menu" href="#sucre">Plats Sucrés</a></li>
+              <li><a class="sous_menu" href="#sel">Plats Salés</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </section>
