@@ -1,4 +1,4 @@
-@font-face{
+ @font-face{
   font-family: "Roboto";
   src: url('../../Police/Roboto-Light.ttf');
 }
@@ -41,7 +41,7 @@ body{
   margin-top: -18%;
 }
 
-.navbar-collapse{
+.navbar{
   background-color: black;
 }
 
