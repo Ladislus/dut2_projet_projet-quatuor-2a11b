@@ -28,4 +28,4 @@ def est_majeur(str_date):
 
 @login_manager.user_loader
 def load_user(username):
-    return get_user(username)
+    return Utilisateur.query.get(username)
