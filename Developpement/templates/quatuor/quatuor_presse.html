@@ -2,11 +2,26 @@
 {% block main %}
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/quatuor/quatuor_presse.css')}}">
-
-<h1>{{ article[0] }}</h1> <!-- Nom de l'article -->
-<p>Redige par {{ article[2] }} le {{ article[1] }}</p> <!-- Nom de la personne ayant rediger l'article et la date -->
+<!--
+<h1>{{ article[0] }}</h1>
+<p>Redige par {{ article[2] }} le {{ article[1] }}</p>
 <div class="flex">
   <img class="imagepresse" src="{{ url_for('static',filename='img/'+article[3]+'.png') }}" alt="{{ article[3] }}">
-  <p>{{ article[4] }} </p> <!-- Article -->
+  <p>{{ article[4] }} </p>
+</div> -->
+
+<div class="article"style="">
+
+   <div class="article-titre"style="">
+      <h1>{{ article[0] }}</h1>
+
+   </div>
+   <div class="article-image" style="">
+      <img src="{{ url_for('static',filename='img/'+article[3]+'.png') }}">
+   </div>
+   <div class="article-text">
+     <p>{{ article[4] }} </p>
+   </div>
+    <p>Redige par {{ article[2] }} le {{ article[1] }}</p>
 </div>
 {% endblock %}
