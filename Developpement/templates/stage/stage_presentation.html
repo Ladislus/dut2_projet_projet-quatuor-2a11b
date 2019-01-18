@@ -76,23 +76,16 @@
                   <th>Adresse</th>
                 </tr>
               </thead>
+              {% for stage in listStages %}
               <tbody>
                 <tr>
-                  <td>Stage d'Hiver</td>
-                  <td>Du 21/12/18 au 20/03/19</td>
-                  <td>13 Rue Victor Hugo - Orléans</td>
-                </tr>
-                <tr>
-                  <td>Stage de Printemps</td>
-                  <td>Du 21/03/19 au 20/06/19</td>
-                  <td>8 Boulevard Saint-Germain - Olivet</td>
-                </tr>
-                <tr>
-                  <td>Stage d'Eté</td>
-                  <td>Du 21/06/19 au 20/09/19</td>
-                  <td>25 place de la Loire - Fleury Les Aubrais</td>
+                  <td><a href="/stage/{{stage.intituleSt}}/">{{stage.intituleSt}}</a></td>
+                  <td>{{stage.datedeb}}</td>
+                  <td>{{stage.datefin}}</td>
+                  <td>{{stage.lieuSt}}</td>
                 </tr>
               </tbody>
+              {% endfor %}
             </table>
         </div>
     </div>
