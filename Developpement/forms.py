@@ -10,7 +10,7 @@ class PersonForm(FlaskForm):
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
     tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
     mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
-    clarJouees      = StringField('Clarinette jouée', validators=[DataRequired()])
+    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[], validators=[DataRequired()])
     niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
     ecole           = StringField('Ecole', validators=[DataRequired()])
     typePratique    = StringField('Type de pratique')
@@ -33,15 +33,15 @@ class User_ContactForm(FlaskForm):
     nomAuteur       = StringField('Nom Auteur mail', validators=[DataRequired()])
     prenomAuteur    = StringField('Prénom Auteur mail', validators=[DataRequired()])
     mailAuteur      = StringField('Mail Auteur', validators=[DataRequired()])
-    objetMessage    = SelectField('Objet', validators=[DataRequired()])
+    objetMessage    = SelectField('Objet', choices=[], validators=[DataRequired()])
     contenuMessage  = TextField('Contenu message', validators=[DataRequired()])
-    pjMessage       = FieldList(FormField(FileField('Pièce-jointe')))
+    pjMessage       = StringField('PJ')
 
 class Admin_ContactForm(FlaskForm):
-    objetMessage    = SelectField('Objet', validators=[DataRequired()])
-    destMessage     = SelectField('Destinataire', validators=[DataRequired()])
+    objetMessage    = SelectField('Objet', choices=[('admin', "Adminstratif"), ('music', "Musical"), ('ques', "Question")], validators=[DataRequired()])
+    destMessage     = SelectField('Destinataire', choices=[('dest1', "dest1"),('dest2', "dest2")], validators=[DataRequired()])
     contenuMessage  = TextField('Contenu message', validators=[DataRequired()])
-    pjMessage       = FieldList(FormField(FileField('Pièce-jointe')))
+    pjMessage       = StringField('PJ')
 
 class AutorMedicForm(FlaskForm):
     numContactUrg1  = StringField('Numero à contacter Urgence 1', validators=[DataRequired()])
@@ -87,7 +87,7 @@ class ModifMdPForm(FlaskForm):
 
 class StageForm(FlaskForm):
     idSt        = HiddenField('idSt')
-    # repSt       = SelectField('Repertoire du stage')
+    repSt       = SelectField('Repertoire du stage', choices=[], validators=[DataRequired()])
     intituleSt  = StringField('Intitule du stage', validators=[DataRequired()])
     adresseSt   = StringField('Adresse du stage', validators=[DataRequired()])
     cpSt        = StringField('Code Postal du stage', validators=[DataRequired()])
