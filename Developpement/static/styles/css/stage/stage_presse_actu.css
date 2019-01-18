@@ -1,0 +1,34 @@
+.actu{
+    display: flex;
+  }
+  .image-actu{
+    width: 100%;
+    height: 50%;
+  }
+  .actu>p{
+    margin-top: 5%;
+    text-align: center;
+  }
+  .actu>h1{
+    text-align: center;;
+    margin-top: 1%;
+    color: rgb(112, 112, 112)
+  }
+  .presse-actu-margin-top{
+    margin-top: 10%;
+  }
+  .carousel-caption{
+    opacity: 100;
+    color: rgb(73, 73, 73);
+  }
+  #myCarousel{
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  #contour{
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  #actu{
+    color: rgba(255, 255, 255, 0.95)
+  }
