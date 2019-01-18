@@ -56,7 +56,7 @@ class Role(Base, RoleMixin):
 
     membres = relationship("Utilisateur", back_populates = "roleUt")
 
-class Personne(Base, UserMixin):
+class Personne(Base):
     __tablename__ = "Personne"
 
     idPers      = Column(Integer, primary_key = True, autoincrement = True)
