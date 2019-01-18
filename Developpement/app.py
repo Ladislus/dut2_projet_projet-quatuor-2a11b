@@ -18,8 +18,6 @@ def mkpath(p):
 db = SQLAlchemy(app)
 Bootstrap(app)
 
-
-
 login_manager = LoginManager(app)
 login_manager.login_view = "other_connexion"
 
