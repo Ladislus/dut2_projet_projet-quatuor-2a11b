@@ -55,6 +55,14 @@ def quatuor_concerts():
     return render_template("other/concerts.html")
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    """
+
+    :return: Retourne le template correspondant a la page erreur 404
+    """
+    return render_template('other/page_404.html'),404
+
 #NE PAS PRENDRE EN COMPTE
 @app.route("/other/test/")
 def other_test():
@@ -66,4 +74,3 @@ def other_test():
     form2=RespLegalForm()
     form3=AutorStage_MineurForm()
     return render_template("other/testjs.html", form=form, form2=form2, form3=form3)
-    
