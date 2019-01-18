@@ -1,7 +1,7 @@
 from .functions import crypt
 from .getters import get_user
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, StringField, TextField
+from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, SelectMultipleField, StringField, TextField
 from wtforms.validators import DataRequired
 
 class PersonForm(FlaskForm):
@@ -10,17 +10,20 @@ class PersonForm(FlaskForm):
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
     tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
     mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
-    clarJouees      = FieldList(FormField(StringField('Clarinette jouée')), validators=[DataRequired()])
+    clarJouees      = StringField('Clarinette jouée', validators=[DataRequired()])
     niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
     ecole           = StringField('Ecole', validators=[DataRequired()])
     typePratique    = StringField('Type de pratique')
 
+class LieuForm(FlaskForm):
+    adrLieu         = StringField('Adresse du Lieu', validators=[DataRequired()])
+    CPLieu          = IntegerField('Code Postal du Lieu', validators=[DataRequired()])
+    villeLieu       = StringField('Ville du Lieu', validators=[DataRequired()])
+
+
 class RespLegalForm(FlaskForm):
     nomResp         = StringField('Nom du Responsable', validators=[DataRequired()])
     prenomResp      = StringField('Prénom du Responsable', validators=[DataRequired()])
-    adrResp         = StringField('Adresse du Responsable', validators=[DataRequired()])
-    CPResp          = StringField('Code Postal du Responsable', validators=[DataRequired()])
-    villeResp       = StringField('Ville du Responsable', validators=[DataRequired()])
     telPers         = StringField('Téléphone personnel', validators=[DataRequired()])
     telTrav         = StringField('Téléphone travail')
     mailPers        = StringField('Adresse Mail Personnelle', validators=[DataRequired()])
@@ -36,18 +39,19 @@ class User_ContactForm(FlaskForm):
 
 class Admin_ContactForm(FlaskForm):
     objetMessage    = SelectField('Objet', validators=[DataRequired()])
+    destMessage     = SelectField('Destinataire', validators=[DataRequired()])
     contenuMessage  = TextField('Contenu message', validators=[DataRequired()])
     pjMessage       = FieldList(FormField(FileField('Pièce-jointe')))
 
-class AutorMedForm(FlaskForm):
+class AutorMedicForm(FlaskForm):
     numContactUrg1  = StringField('Numero à contacter Urgence 1', validators=[DataRequired()])
     numContactUrg2  = StringField('Numero à contacter Urgence 2', validators=[DataRequired()])
     numContactUrg3  = StringField('Numero à contacter Urgence 3')
 
 class AutorStage_MineurForm(FlaskForm):
-    autorAudioPrive = BooleanField("à effectuer un enregistrement audio de celui-ci dans le cadre du stage de l ensemble de clarinettes 2017.")
+    autorAudioPrive = BooleanField('à effectuer un enregistrement audio de celui-ci dans le cadre du stage de l\'ensemble de clarinettes 2017.')
     autorAudioPub   = BooleanField('de cet enregistrement audio sur le site Quatuor de clarinettes DIVERTIMENTO (adresse du site) en partie publique')
-    autorImag       = BooleanField('à effectuer des photographies et un enregistrement vidéo de celui-ci dans le cadre du stage de ‘ensemble de clarinettes 2017.')
+    autorImag       = BooleanField('à effectuer des photographies et un enregistrement vidéo de celui-ci dans le cadre du stage de l\'ensemble de clarinettes 2017.')
     autorImagSite   = BooleanField('de ces photographies et vidéos sur le site Quatuor de clarinettes DIVERTIMENTO (adresse du site) en partie membres (accès privé par mot de passe)')
 
 class CreateAccountForm(FlaskForm):
@@ -72,6 +76,10 @@ class ConnectForm(FlaskForm):
 class OubliMdpForm(FlaskForm):
     mail            = StringField('Adresse mail', validators=[DataRequired()])
 
+class ModifMdPOubliForm():
+    mdpNew          = HiddenField('Nouvau Mot de passe ', validators=[DataRequired()])
+    mdpNewConfirm   = HiddenField('Confirmation nouveau Mot de passe actuel', validators=[DataRequired()])
+
 class ModifMdPForm(FlaskForm):
     mdpActu         = HiddenField('Mot de passe actuel', validators=[DataRequired()])
     mdpNew          = HiddenField('Nouvau Mot de passe ', validators=[DataRequired()])
@@ -79,7 +87,7 @@ class ModifMdPForm(FlaskForm):
 
 class StageForm(FlaskForm):
     idSt        = HiddenField('idSt')
-    idRep       = HiddenField('idRep')
+    # repSt       = SelectField('Repertoire du stage')
     intituleSt  = StringField('Intitule du stage', validators=[DataRequired()])
     adresseSt   = StringField('Adresse du stage', validators=[DataRequired()])
     cpSt        = StringField('Code Postal du stage', validators=[DataRequired()])
@@ -89,7 +97,5 @@ class StageForm(FlaskForm):
     dateFinSt   = DateField('Date de fin du stage', validators=[DataRequired()])
     tenueSt     = StringField('Tenue exigée pour le concert du stage')
     prixSt      = FloatField('Prix du stage')
-    descStage   = TextField('Description du stage', validators=[DataRequired()])
+    descSt      = TextField('Description du stage', validators=[DataRequired()])
     nivRequisSt = IntegerField('Niveau minimum pour intégrer le stage')
-
-    # idLieu      = StringField('Adresse', validators[DataRequired()])
