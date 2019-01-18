@@ -5,7 +5,7 @@ def administration():
 
     :return: Retourne le template de la page d'administration
     """
-    return render_template("administration.html")
+    return render_template("administration/administration.html")
 
 @app.route("/administration/mailing/")
 def administration_mailing():
@@ -13,7 +13,9 @@ def administration_mailing():
 
     :return: Retourne le template de la page de mailing
     """
-    return render_template("administration_mailing.html")
+    admin_contactForm = Admin_ContactForm()
+    return render_template("administration/administration_mailing.html",
+                            admin_contactForm=admin_contactForm)
 
 @app.route("/administration/gestionStages/")
 def administration_gestionStages():
@@ -21,7 +23,7 @@ def administration_gestionStages():
 
     :return: Retourne le template de la page de gestion des stages
     """
-    return render_template("administration_gestionStages.html")
+    return render_template("administration/administration_gestionStages.html")
 
 @app.route("/administration/gestionFichiers/")
 def administration_gestionFichiers():
@@ -29,7 +31,7 @@ def administration_gestionFichiers():
 
     :return: Retourne le template de la page de gestion des fichiers présents sur le site
     """
-    return render_template("administration_gestionFichiers.html")
+    return render_template("administration/administration_gestionFichiers.html")
 
 @app.route("/administration/gestionFichiers/images/")
 def administration_gestionFichiers_images():
