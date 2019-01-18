@@ -1,4 +1,4 @@
-@font-face{
+ @font-face{
   font-family: "Roboto";
   src: url('../../Police/Roboto-Light.ttf');
 }
@@ -15,6 +15,7 @@
 body{
   background-image: url("../../img/imgFond.png");
   background-repeat: no-repeat;
+  background-size: cover;
   background-attachment: fixed;
 }
 
@@ -34,17 +35,11 @@ body{
   color: white;
 }
 
-.navbar-nav img{
-  height: 250%;
-  margin-left: -30%;
-  margin-top: -18%;
-}
-
-.navbar-collapse{
+.navbar{
   background-color: black;
 }
 
-.navbar-nav:hover .dropdown-toggle:hover{
+.navbar-nav:hover .dropdown>a:hover{
   background-color: lightgrey;
   color: black;
 }
@@ -54,8 +49,7 @@ li.dropdown:hover > .dropdown-menu {
 }
 
 .img-accueil {
-  height: 150%;
-  width: 150%;
+  height: 100%;
 }
 
 /*  Fin du menu de navigation  */
