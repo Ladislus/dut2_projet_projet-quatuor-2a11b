@@ -1,8 +1,58 @@
 {% extends "base.html" %}
 {% block main %}
+<!-- Creation d'un boite de texte qui change automatiquement le contenue d'une balise <p>  -->
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_inscription.css')}}">
+<script type="text/javascript">
+function preview(){
+  document.getElementById("pp").textContent = age ;
+}var age =true;
+var an;
+var mon;
+var day;
+var td;
+var t;
+var y;
+function Fage(){
+  td=new Date();
+  var naissance = document.getElementById("date").value;
+  an=naissance.substr(0,4);
+  mon=naissance.substr(5,2);
+  day=naissance.substr(8,2);
+  t=an+''+mon+''+day
+  y=td.getFullYear()+''+td.getMonth()+1+''+td.getDate()
+
+  if (y-t>'180000'){
+    age=false;
+}
+else {
+  age=true;
+}
+
+  if (age==false) {
+    document.getElementById("age").style.display= "none";
+  }
+  else {
+    document.getElementById("age").style.display = "";
+  }
+
+
+}
+var myvar;
+var myvar2;
+function m(){
+myvar = setInterval('preview()',10);
+myvar2 = setInterval('Fage()',10);
+
+}
+</script>
+<body onLoad="m()">
+
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_inscription.css')}}">
+
 <h1>Inscription à un Stage</h1>
+
 <div class='first-subtitle'>
     <h3 id="h3title">Bulletin d'Inscription</h3>
     <img class="underline" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
@@ -81,7 +131,7 @@
             </div>
         </div>
     </div>
-<div id="div">
+<div id="age">
     <h4>Responsable Légal</h4>
     <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
         <div class="bigcontainer2">
@@ -176,7 +226,7 @@
                                     <a download="inscription.pdf" href="{{ url_for('static',filename='fichier_statique/inscription.pdf')}}">Télécharger le Bulletin d'inscription</a><br>
                                     <a download="autorisation.pdf" href="{{ url_for('static',filename='fichier_statique/autorisation.pdf')}}">Télécharger l'autorisation de diffusion</a>
                             </div>
-                            <div class=form-group>   
+                            <div class=form-group>
                                 <a href="/stage/inscription/autorisationMedicale/"><input type="submit" id="submit" class="btn btn-default" value="Continuer"></a>
                             </div>
                         </div>
@@ -184,4 +234,7 @@
             </div>
         </div>
     </div>
+
+</body>
+
 {% endblock %}

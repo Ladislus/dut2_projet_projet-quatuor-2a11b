@@ -36,13 +36,15 @@ def other_deconnexion():
     """
     return render_template("other/deconnexion.html")
 
-@app.route("/other/mdpOublie/")
+@app.route("/other/mdpOubli/")
 def other_mdpOublie():
     """
 
     :return: Retourne le template de la page d'oublie de mot de passe
     """
-    return render_template("other/mdpOublie.html")
+    oubliForm=OubliMdpForm()
+
+    return render_template("other/mbpOubli.html",oubliForm=oubliForm)
 
 @app.route("/other/concerts/")
 def quatuor_concerts():
@@ -60,4 +62,8 @@ def other_test():
 
     :return: Retourne le template de la page de test
     """
-    return render_template("other/testjs.html")
+    form=PersonForm()
+    form2=RespLegalForm()
+    form3=AutorStage_MineurForm()
+    return render_template("other/testjs.html", form=form, form2=form2, form3=form3)
+    
