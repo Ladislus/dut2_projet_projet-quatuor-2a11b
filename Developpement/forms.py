@@ -39,6 +39,7 @@ class User_ContactForm(FlaskForm):
 
 class Admin_ContactForm(FlaskForm):
     objetMessage    = SelectField('Objet', validators=[DataRequired()])
+    destMessage     = SelectField('Destinataire', validators=[DataRequired()])
     contenuMessage  = TextField('Contenu message', validators=[DataRequired()])
     pjMessage       = FieldList(FormField(FileField('Pièce-jointe')))
 
