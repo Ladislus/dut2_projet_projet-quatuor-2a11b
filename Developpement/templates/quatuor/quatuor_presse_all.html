@@ -8,6 +8,7 @@
   <br>
   {% for i in range(liste|length) %}
   <div class="presse-titre {% if i%2==0 %}presse-paire{% else %} presse-impaire {% endif %}">
+    {% if i%2==0 %}
     <h3>{{liste[i][0]}}</h3>
     <div class="presse-vignette">
       <div id="blocImage">
@@ -16,6 +17,16 @@
       </div>
       <p>{{ liste[i][4]}}</p>
     </div>
+    {% else %}
+    <h3>{{liste[i][0]}}</h3>
+    <div class="presse-vignette">
+      <p>{{ liste[i][4]}}</p>
+      <div id="blocImage">
+        <img src="{{ url_for('static',filename='img/'+liste[i][3]+'.png')}}" alt="Image de {{liste[i][0]}}">
+        <p>Posté par {{liste[i][2]}} le {{liste[i][1]}}</p>
+      </div>
+    </div>
+    {% endif %}
   </div>
 
 
