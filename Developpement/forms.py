@@ -15,12 +15,15 @@ class PersonForm(FlaskForm):
     ecole           = StringField('Ecole', validators=[DataRequired()])
     typePratique    = StringField('Type de pratique')
 
+class LieuForm(FlaskForm):
+    adrLieu         = StringField('Adresse du Lieu', validators=[DataRequired()])
+    CPLieu          = IntegerField('Code Postal du Lieu', validators=[DataRequired()])
+    villeLieu       = StringField('Ville du Lieu', validators=[DataRequired()])
+
+
 class RespLegalForm(FlaskForm):
     nomResp         = StringField('Nom du Responsable', validators=[DataRequired()])
     prenomResp      = StringField('Prénom du Responsable', validators=[DataRequired()])
-    adrResp         = StringField('Adresse du Responsable', validators=[DataRequired()])
-    CPResp          = StringField('Code Postal du Responsable', validators=[DataRequired()])
-    villeResp       = StringField('Ville du Responsable', validators=[DataRequired()])
     telPers         = StringField('Téléphone personnel', validators=[DataRequired()])
     telTrav         = StringField('Téléphone travail')
     mailPers        = StringField('Adresse Mail Personnelle', validators=[DataRequired()])
