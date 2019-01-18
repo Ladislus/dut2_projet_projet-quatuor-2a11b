@@ -8,6 +8,8 @@ from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, Text, Float
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
+from flask_login import UserMixin
+
 Base = db.Model
 
 #Tables associatives
@@ -43,7 +45,7 @@ class Utilisateur(Base):
     articles       = relationship("Article", back_populates = "auteur")
     commentaires   = relationship("Commentaire", back_populates = "auteur")
 
-class Personne(Base):
+class Personne(Base, UserMixin):
     __tablename__ = "Personne"
 
     idPers      = Column(Integer, primary_key = True, autoincrement = True)
