@@ -38,12 +38,3 @@ def contact_plaquette():
     :return: Retourne le template de la plaquette actuelle
     """
     return render_template("contact/contact_plaquette.html")
-
-@app.route("/contact/musical/")
-
-def contact_musical():
-    """
-
-    :return: Retourne le template des partenaires musicaux du groupe
-    """
-    return render_template("contact/contact_musical.html")
