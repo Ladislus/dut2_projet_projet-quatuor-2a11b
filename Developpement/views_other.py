@@ -1,6 +1,8 @@
 from .views import *
 from .forms import *
-from flask_login import login_user
+
+from flask_login import login_user;
+
 @app.route("/other/liens/")
 def other_liens():
     """
@@ -34,7 +36,8 @@ def other_deconnexion():
 
     :return: Retourne le template de la page de deconnexion
     """
-    return render_template("other/deconnexion.html")
+    user_logout()
+    return redirect("home")
 
 @app.route("/other/mdpOubli/")
 def other_mdpOublie():
