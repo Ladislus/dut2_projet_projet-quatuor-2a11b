@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_mailing.css')}}">
+
+<div class="liens">
+<h1>Messagerie</h1>
+<img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+</div>
+<form class="form-horizontal" id="form_login"role="form" method="POST" action="{{ url_for('administration_mailing') }}">
+  <div class="form-group">
+    <label for="objetMessage" class="col-sm-3 control-label">{{admin_contactForm.objetMessage.label}}</label>
+    <div class="col-sm-3">{{ admin_contactForm.objetMessage(class="form-control")}}</div>
+  </div>
+  <div class="form-group">
+    <label for="destMessage" class="col-sm-3 control-label">{{admin_contactForm.destMessage.label}}</label>
+    <div class="col-sm-3">{{ admin_contactForm.destMessage(class="form-control", placeholder="Destinataire du mail")}}</div>
+  </div>
+  <div class="form-group">
+    <label for="contenuMessage" class="col-sm-3 control-label">{{admin_contactForm.contenuMessage.label}}</label>
+    <div class="col-sm-3">{{ admin_contactForm.contenuMessage(size=50, class="form-control", placeholder="Contenu du mail")}}</div>
+  </div>
+  <div class="form-group">
+    <label for="pjMessage" class="col-sm-3 control-label">{{admin_contactForm.pjMessage.label}}</label>
+    <div class="col-sm-3">{{ admin_contactForm.pjMessage(size=50, class="form-control")}}</div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-3">
+      <button type="submit" class="btn btn-default">Envoyer mail</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

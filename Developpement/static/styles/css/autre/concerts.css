@@ -52,6 +52,10 @@ position:absolute;
   flex-wrap: wrap;
 
 }
+.boutton-concert{
+  text-align: center;
+}
+
 
 .flex-row>div{
   width: 65%

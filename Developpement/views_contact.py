@@ -1,11 +1,14 @@
 from .views import *
+from .forms import *
 @app.route("/contact/administratif/")
 def contact_administratif():
     """
 
     :return: Retourne le template de la partie administrative du contact
     """
-    return render_template("contact/contact_administratif.html")
+    user_contactForm=User_ContactForm()
+    return render_template("contact/contact_administratif.html",
+                            user_contactForm=user_contactForm)
 
 @app.route("/contact/mentionsLegales/")
 def contact_mentionsLegales():
@@ -38,12 +41,3 @@ def contact_plaquette():
     :return: Retourne le template de la plaquette actuelle
     """
     return render_template("contact/contact_plaquette.html")
-
-@app.route("/contact/musical/")
-
-def contact_musical():
-    """
-
-    :return: Retourne le template des partenaires musicaux du groupe
-    """
-    return render_template("contact/contact_musical.html")
