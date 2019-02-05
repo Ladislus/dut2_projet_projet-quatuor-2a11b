@@ -1,10 +1,6 @@
 from .views import *
-<<<<<<< HEAD
-@app.route("/administration/")
-=======
 from .forms import *
 @app.route("/administration")
->>>>>>> mail_contact
 def administration():
     """
 
