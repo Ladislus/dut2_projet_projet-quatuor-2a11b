@@ -1,78 +1,81 @@
 @font-face{
-  font-family: "Roboto";
-  src: url('../../Police/Roboto-Light.ttf');
+ font-family: "Roboto";
+ src: url('../../Police/Roboto-Light.ttf');
 }
 @font-face{
-  font-family: "aaa";
-  src: url('../../Police/Aaargh.ttf');
+ font-family: "aaa";
+ src: url('../../Police/Aaargh.ttf');
 }
 #main{
-  margin-top: 5em;
-  background-color: #ffffffaa;
-  border-radius: 1em;
+ margin-top: 5em;
+ background-color: #ffffffaa;
+ border-radius: 1em;
 }
 
 body{
-  background-image: url("../../img/imgFond.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+ background-image: url("../../img/imgFond.png");
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-attachment: fixed;
 }
 
 @font-face {
-  font-family: 'adam';
-  src: url("../font/Quicksand_Bold.otf");
+ font-family: 'adam';
+ src: url("../font/Quicksand_Bold.otf");
 
+}
+
+@media screen and (min-width: 768px) {
+ .dropdown:hover>.dropdown-menu {
+   display: block;
+ }
+ .navbar:hover .dropdown-toggle:hover{
+   background-color: lightgrey;
+ }
+ .dropdown-toggle:hover p{
+   color: black;
+ }
+
+ .dropdown:hover > .dropdown-menu {
+     display: block;
+ }
+
+ .dropdown-toggle p,.glyphicon{
+   color: white;
+ }
 }
 
 /*  Menu de navigation  */
-.navbar-nav{
-  font-family: 'adam';
-  font-size: medium;
+.navbar{
+ font-family: 'adam';
+ font-size: medium;
+ background-color: black;
+ border-style: none;
 }
 
-.navbar-nav a{
-  color: white;
-}
-
-.navbar-nav img{
-  height: 250%;
-  margin-left: -30%;
-  margin-top: -18%;
-}
-
-.navbar-collapse{
-  background-color: black;
-}
-
-.navbar-nav:hover .dropdown-toggle:hover{
-  background-color: lightgrey;
-  color: black;
-}
-
-li.dropdown:hover > .dropdown-menu {
-    display: block;
+.dropdown-toggle p,.glyphicon{
+ color: white;
 }
 
 .img-accueil {
-  height: 150%;
-  width: 150%;
+ height: 100%;
 }
 
 /*  Fin du menu de navigation  */
 
 h1{
-  font-family: 'aaa';
+ font-family: 'aaa';
 }
 h2{
-  font-family: 'aaa';
+ font-family: 'aaa';
 }
 h3{
-  font-family: 'aaa';
+ font-family: 'aaa';
 }
 .color{
-  color:black;
+ color:black;
 }
 h1{
-  text-align: center;
-  margin-bottom: 2%;
+ text-align: center;
+ margin-bottom: 2%;
 }
