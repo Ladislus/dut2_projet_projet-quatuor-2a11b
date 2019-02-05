@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 {% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/contact/plaquette.css')}}">
 
+<div class="liens">
+  <h2 id="hliens">Plaquette du Quatuor</h2>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+  <div class="center">
+    <p>Ici vous pourrez trouvez les plaquettes du quatuor</p>
+    <embed src="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" width=75% height=800em type='application/pdf'/>
+    <br>
+    <a href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" download="fichetechnique.pdf"><span class="glyphicon glyphicon-save"></span> Télécharger la plaquette</a>
+  </div>
+</div>
+<br>
 
 {% endblock %}

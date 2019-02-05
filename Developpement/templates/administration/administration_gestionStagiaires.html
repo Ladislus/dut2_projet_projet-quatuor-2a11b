@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionStagiaires.css')}}">
+<div class="liens">
+  <h1 id="hliens">Gestion des stagiaires</h1>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+</div>
+<div class="stagiaire-all">
+  {% for elem in dico_stagiaire %}
+  <div class="stagiaire-annee">
+    <h2>{{ elem }}</h2>
+    <div class="stagiaire-individu table-responsive">
+      <table  class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Age</th>
+            <th>Niveau</th>
+            <th>Mail</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for elem2 in dico_stagiaire[elem] %}
+          <tr>
+            <!-- Nom Prenom age niveau mail role  -->
+            <td>{{ elem2[0] }}</td>
+            <td>{{ elem2[1] }}</td>
+            <td>{{ elem2[2] }}</td>
+            <td>{{ elem2[3] }}</td>
+            <td><a style="color:rgb(0, 0, 0)" href="">{{ elem2[4] }}</a></td>
+            <td>{{ elem2[5] }}</td>
+          </tr>
+
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
