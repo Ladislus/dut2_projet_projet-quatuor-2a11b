@@ -24,7 +24,8 @@ def stage_inscription():
     form=PersonForm()
     form2=RespLegalForm()
     form3=AutorStage_MineurForm()
-    return render_template("stage/stage_inscription.html", form=form, form2=form2, form3=form3)
+    form4=LieuForm()
+    return render_template("stage/stage_inscription.html", form=form, form2=form2, form3=form3,form4=form4)
 
 @app.route("/stage/inscription/autorisationMedicale/")
 def stage_inscription_autorisationMedicale():
