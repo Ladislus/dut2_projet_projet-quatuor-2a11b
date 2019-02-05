@@ -64,68 +64,48 @@ myvar2 = setInterval('Fage()',10);
         <div class="row">
             <div class="col-sm-11">
                 <form class="form-horizontal" role="form" method="POST" action="{{ url_for('stage_inscription') }}">
-                            {{ form.hidden_tag() }}
+                            {{ persForm.hidden_tag() }}
                     <div class="form-group">
-                        <label for="nomPers">{{ form.nomPers.label }}</label>
-                        <div>{{ form.nomPers(size=50, class_="form-control",placeholder="Demarest")}}</div>
+                        <label for="nomPers">{{ persForm.nomPers.label }}</label>
+                        <div>{{ persForm.nomPers(size=50, class_="form-control",placeholder="Demarest")}}</div>
                     </div>
                     <div class="form-group">
-                        <label for="prenomPers">{{ form.prenomPers.label }}</label>
-                        <div>{{ form.prenomPers(size=50, class_="form-control",placeholder="Liam")}}</div>
+                        <label for="prenomPers">{{ persForm.prenomPers.label }}</label>
+                        <div>{{ persForm.prenomPers(size=50, class_="form-control",placeholder="Liam")}}</div>
                     </div>
                     <div class="form-group">
-                            <label for="dateNPers">{{ form.dateNPers.label }}</label>
+                            <label for="dateNPers">{{ persForm.dateNPers.label }}</label>
                             <div>
-                                {{ form.dateNPers(size=50, class_="form-control", type="date", id="date")}}
+                                {{ persForm.dateNPers(size=50, class_="form-control", type="date", id="date")}}
                             </div>
                     </div>
                     <div class="form-group">
-                        <label for="tel1Pers">{{ form.tel1Pers.label }}</label>
+                        <label for="tel1Pers">{{ persForm.tel1Pers.label }}</label>
                         <div>
-                            {{ form.tel1Pers(size=50, class_="form-control", type="tel", pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}", placeholder="06-33-59-20-90")}}
+                            {{ persForm.tel1Pers(size=50, class_="form-control", type="tel", pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}", placeholder="06-33-59-20-90")}}
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="mailPers">{{ form.mailPers.label }}</label>
+                        <label for="mailPers">{{ persForm.mailPers.label }}</label>
                         <div>
-                            {{ form.mailPers(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
+                            {{ persForm.mailPers(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="ecole">{{ form.ecole.label }}</label>
-                        <div>{{ form.ecole(size=50, class_="form-control",placeholder="Demarest")}}</div>
+                        <label for="ecole">{{ persForm.ecole.label }}</label>
+                        <div>{{ persForm.ecole(size=50, class_="form-control",placeholder="Demarest")}}</div>
                     </div>
                     <div class="form-group">
-                        <label for="typePratique">{{ form.typePratique.label }}</label>
-                        <div>{{ form.typePratique(size=50, class_="form-control",placeholder="Demarest")}}</div>
+                        <label for="typePratique">{{ persForm.typePratique.label }}</label>
+                        <div>{{ persForm.typePratique(size=50, class_="form-control",placeholder="Demarest")}}</div>
                     </div>
                     <div class="form-group">
-                        <label for="clarJouees">{{ form.clarJouees.label}}</label>
-                        <div>
-                        {{ form.clarJouees(size=100, class_="form-control selectpicker show-tick") }}
-                                <option selected>Select...</option>
-                                <option>Clarinette en laB</option>
-                                <option>Clarinette en miB</option>
-                                <option>Clarinette en ré</option>
-                                <option>Clarinette en ut</option>
-                                <option>Clarinette en siB</option>
-                                <option>Clarinette en la</option>
-                                <option>Clarinette en la de basset</option>
-                                <option>Cor de basset en fa</option>
-                                <option>Clarinette basse en siB</option>
-                                <option>Clarinette contralto en miB</option>
-                                <option>Clarinette contrebasse en siB</option>
-                        </div>
+                        <label for="clarJouees">{{ persForm.clarJouees.label}}</label>
+                        <div>{{ persForm.clarJouees(size=100, class_="form-control selectpicker show-tick") }}</div>
                     </div>
                     <div class="form-group">
                         <label for="usr">Votre Niveau</label>
-                        <div>
-                        {{ form.niveau(class="form-control selectpicker show-tick", option="Niveau 1")}}
-                                <option selected>Select...</option>
-                                <option>Niveau 1</option>
-                                <option>Niveau 2</option>
-                                <option>Niveau 3</option>
-                        </div>
+                        <div>{{ persForm.niveau(class="form-control selectpicker show-tick", option="Niveau 1")}}</div>
                     </div>
                 </div>
             </div>
@@ -139,26 +119,26 @@ myvar2 = setInterval('Fage()',10);
                 <div class="row">
                     <div class="col-sm-11">
                         <form class="form-horizontal" role="form2" method="POST" action="{{ url_for('stage_inscription') }}">
-                            {{ form2.hidden_tag() }}
+                            {{ respLegForm.hidden_tag() }}
                             <div class="form-group">
-                                <label for="nomResp">{{ form2.nomResp.label }}</label>
-                                <div>{{ form2.nomResp(size=50, class_="form-control",placeholder="Demarest")}}</div>
+                                <label for="nomResp">{{ respLegForm.nomResp.label }}</label>
+                                <div>{{ respLegForm.nomResp(size=50, class_="form-control",placeholder="Demarest")}}</div>
                             </div>
                             <div class="form-group">
-                                <label for="prenomResp">{{ form2.prenomResp.label }}</label>
-                                <div>{{ form2.prenomResp(size=50, class_="form-control",placeholder="Liam")}}</div>
+                                <label for="prenomResp">{{ respLegForm.prenomResp.label }}</label>
+                                <div>{{ respLegForm.prenomResp(size=50, class_="form-control",placeholder="Liam")}}</div>
                             </div>
                             <div class="form-group">
-                                <label for="adrResp">{{ form2.adrResp.label }}</label>
-                                <div>{{ form2.adrResp(size=100, class_="form-control",placeholder="16 Rue Victor Hugo")}}</div>
+                                <label for="adrResp">{{ lieuForm.adrLieu.label }}</label>
+                                <div>{{ lieuForm.adrLieu(size=100, class_="form-control",placeholder="16 Rue Victor Hugo")}}</div>
                             </div>
                             <div class="form-group">
-                                <label for="CPResp">{{ form2.CPResp.label }}</label>
-                                {{ form2.CPResp(size=100, class_="form-control", pattern="(0-9]{5}", placeholder="45000")}}
+                                <label for="CPResp">{{ lieuForm.CPLieu.label }}</label>
+                                {{ lieuForm.CPLieu(size=100, class_="form-control", pattern="(0-9]{5}", placeholder="45000")}}
                             </div>
                             <div class="form-group">
-                                <label for="villeResp">{{ form2.villeResp.label }}</label>
-                                <div>{{ form2.villeResp(size=50, class_="form-control", placeholder="Orleans")}}</div>
+                                <label for="villeResp">{{ lieuForm.villeLieu.label }}</label>
+                                <div>{{ lieuForm.villeLieu(size=50, class_="form-control", placeholder="Orleans")}}</div>
                             </div>
                         </div>
                     </div>
@@ -167,27 +147,27 @@ myvar2 = setInterval('Fage()',10);
                     <div class="row">
                         <div class="col-sm-11">
                                 <div class="form-group">
-                                    <label for="telPers">{{ form2.telPers.label }}</label>
+                                    <label for="telPers">{{ respLegForm.telPers.label }}</label>
                                     <div>
-                                        {{ form2.telPers(size=50, class_="form-control", type="tel", pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}", placeholder="06-33-59-20-90")}}
+                                        {{ respLegForm.telPers(size=50, class_="form-control", type="tel", pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}", placeholder="06-33-59-20-90")}}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="telTrav">{{ form2.telTrav.label }}</label>
+                                    <label for="telTrav">{{ respLegForm.telTrav.label }}</label>
                                     <div>
-                                        {{ form2.telTrav(size=50, class_="form-control", type="tel", pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}", placeholder="06-33-59-20-90")}}
+                                        {{ respLegForm.telTrav(size=50, class_="form-control", type="tel", pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}", placeholder="06-33-59-20-90")}}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="mailPers">{{ form2.mailPers.label }}</label>
+                                    <label for="mailPers">{{ respLegForm.mailPers.label }}</label>
                                     <div>
-                                        {{ form2.mailPers(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
+                                        {{ respLegForm.mailPers(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="mailTrav">{{ form2.mailTrav.label }}</label>
+                                    <label for="mailTrav">{{ respLegForm.mailTrav.label }}</label>
                                     <div>
-                                        {{ form2.mailTrav(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
+                                        {{ respLegForm.mailTrav(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
                                     </div>
                                 </div>
                                 <p>ATTENTION Conformément à la loi n° 2002-303 du 4 mars 2002 relative aux droits des malades : En cas d’urgence, un élève accidenté ou malade est orienté et transporté par les services de secours d’urgence vers l’hôpital le mieux adapté. La famille est immédiatement avertie par nos soins. Un élève mineur ne peut sortir de l’hôpital qu’accompagné de sa famille. Si vous le souhaitez, dans l'intérêt de votre enfant, vous pouvez prendre rendez-vous avec les responsables de l’association pour nous expliquer un éventuel cadre clinique particulier, ou la prise d'un
@@ -196,27 +176,27 @@ myvar2 = setInterval('Fage()',10);
                             <h5>Autorise(nt) l'association DIVERTIMENTO:</h5>
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <label for="autorAudioPrive">{{ form3.autorAudioPrive.label }}
-                                    {{ form3.autorAudioPrive(class_="form-control",type="checkbox", value="",id="check2")}}
+                                    <label for="autorAudioPrive">{{ autorSta_mineurForm.autorAudioPrive.label }}
+                                    {{ autorSta_mineurForm.autorAudioPrive(class_="form-control",type="checkbox", value="",id="check2")}}
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <label for="autorImag">{{ form3.autorImag.label }}
-                                    {{ form3.autorImag(class_="form-control",type="checkbox", value="",id="check")}}
+                                    <label for="autorImag">{{ autorSta_mineurForm.autorImag.label }}
+                                    {{ autorSta_mineurForm.autorImag(class_="form-control",type="checkbox", value="",id="check")}}
                                 </div><br>
                             </div>
                             <h5>Autorise(nt) la diffusion:</h5>
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <label for="autorAudioPub">{{ form3.autorAudioPub.label }}
-                                    {{ form3.autorAudioPub(class_="form-control",type="checkbox", value="",id="check2")}}
+                                    <label for="autorAudioPub">{{ autorSta_mineurForm.autorAudioPub.label }}
+                                    {{ autorSta_mineurForm.autorAudioPub(class_="form-control",type="checkbox", value="",id="check2")}}
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <label for="autorImagSite">{{ form3.autorImagSite.label }}
-                                    {{ form3.autorImagSite(class_="form-control",type="checkbox", value="",id="check")}}
+                                    <label for="autorImagSite">{{ autorSta_mineurForm.autorImagSite.label }}
+                                    {{ autorSta_mineurForm.autorImagSite(class_="form-control",type="checkbox", value="",id="check")}}
                                 </div>
                             </div>
                             <p>Dans le cadre des activités menées au sein du stage et pendant les concerts, des photographies ou des vidéos sur lesquelles vous apparaîtrez pourront être réalisées.
