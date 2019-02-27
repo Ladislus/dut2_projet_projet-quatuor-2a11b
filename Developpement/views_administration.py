@@ -1,6 +1,5 @@
 from .views import *
-from .forms import *
-@app.route("/administration")
+@app.route("/administration/")
 def administration():
     """
 
