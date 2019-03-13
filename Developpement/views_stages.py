@@ -5,7 +5,7 @@ def stage_Id(id):
     a = get_stage(id)
     return render_template("stage.html",
             title=a.intituleSt)
-        
+
 
 @app.route("/stage/presentation/")
 def stage_presentation():
@@ -26,6 +26,15 @@ def stage_inscription():
     form3=AutorStage_MineurForm()
     form4=LieuForm()
     return render_template("stage/stage_inscription.html", form=form, form2=form2, form3=form3,form4=form4)
+
+@app.route("/stage/partitions/")
+def stage_partitions():
+    """
+
+    :return: Retourne le template de la page des partitions des musiques des stages
+    """
+    niveauForm = NiveauForm()
+    return render_template("stage/stage_partitions.html", niveauForm = niveauForm)
 
 @app.route("/stage/inscription/autorisationMedicale/")
 def stage_inscription_autorisationMedicale():
@@ -155,23 +164,6 @@ def stage_paiement():
     :return: Retourne le template de la page de paiement de stage
     """
     return render_template("stage/stage_paiement.html")
-
-@app.route("/stage/partitions/")
-def stage_partitions():
-    """
-
-    :return: Retourne le template de la page des partitions des musiques des stages
-    """
-    return render_template("stage/stage_partitions.html")
-
-@app.route("/stage/partitions/niveau1/")
-def stage_partitions_niveau1():
-    """
-
-    :return: Retourne le template de la page des partitions des musiques des stages de niveau 1
-    """
-    return render_template("stage/stage_partitions_niveau1.html")
-
 
 @app.route("/stage/partitions/niveau2/")
 def stage_partitions_niveau2():

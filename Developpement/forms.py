@@ -20,6 +20,9 @@ class LieuForm(FlaskForm):
     CPLieu          = IntegerField('Code Postal du Lieu', validators=[DataRequired()])
     villeLieu       = StringField('Ville du Lieu', validators=[DataRequired()])
 
+class NiveauForm(FlaskForm):
+    niveau = SelectField('Niveau', choices=['Niveau 1', 'Niveau 2', 'Niveau 3'], validators=[DataRequired()])
+
 
 class RespLegalForm(FlaskForm):
     nomResp         = StringField('Nom du Responsable', validators=[DataRequired()])
