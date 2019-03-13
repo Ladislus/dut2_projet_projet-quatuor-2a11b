@@ -115,6 +115,6 @@ def administration_creerStage():
     """
     creaStageForm=StageForm()
     lieuForm=LieuForm()
-    return render_template("administration/administration/administration_creerStage.html",
+    return render_template("administration/administration_creerStage.html",
                             creaStageForm=creaStageForm,
                             lieuForm=lieuForm)

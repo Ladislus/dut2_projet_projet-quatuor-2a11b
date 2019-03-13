@@ -91,10 +91,7 @@ class ModifMdPForm(FlaskForm):
 class StageForm(FlaskForm):
     idSt        = HiddenField('idSt')
     repSt       = SelectField('Repertoire du stage', choices=[], validators=[DataRequired()])
-    intituleSt  = StringField('Intitule du stage', validators=[DataRequired()])
-    adresseSt   = StringField('Adresse du stage', validators=[DataRequired()])
-    cpSt        = StringField('Code Postal du stage', validators=[DataRequired()])
-    villeSt     = StringField('Ville du stage', validators=[DataRequired()])
+    intituleSt  = TextField('Intitule du stage', validators=[DataRequired()])
     nbPlaceSt   = IntegerField('Nombre de places dispos', validators=[DataRequired()])
     dateDebSt   = DateField('Date de début du stage', validators=[DataRequired()])
     dateFinSt   = DateField('Date de fin du stage', validators=[DataRequired()])
@@ -102,3 +99,9 @@ class StageForm(FlaskForm):
     prixSt      = FloatField('Prix du stage')
     descSt      = TextField('Description du stage', validators=[DataRequired()])
     nivRequisSt = IntegerField('Niveau minimum pour intégrer le stage')
+
+class ConcertForm(FlaskForm):
+    titreC = StringField('Titre du concert', validators=[DataRequired()])
+    dateC = DateField('Date du concert', validators=[DataRequired()])
+    isLinkToStage = BooleanField('est lié à un stage', validators=[DataRequired()])
+    descC = TextField('Description du concert', validators=[DataRequired()])

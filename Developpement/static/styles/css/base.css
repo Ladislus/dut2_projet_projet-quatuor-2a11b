@@ -24,15 +24,13 @@ body{
 
 }
 
-/*  Menu de navigation  */
-.navbar-nav{
-  font-family: 'adam';
-  font-size: medium;
-}
-
-.navbar-nav a{
-  color: white;
-}
+@media screen and (min-width: 768px) {
+ .navbar:hover .dropdown-toggle:hover{
+   background-color: lightgrey;
+ }
+ .dropdown-toggle:hover p{
+   color: black;
+ }
 
 .navbar-nav img{
   height: 250%;
@@ -51,11 +49,6 @@ body{
 
 li.dropdown:hover > .dropdown-menu {
     display: block;
-}
-
-.img-accueil {
-  height: 150%;
-  width: 150%;
 }
 
 /*  Fin du menu de navigation  */
