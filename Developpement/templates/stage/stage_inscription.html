@@ -3,53 +3,11 @@
 <!-- Creation d'un boite de texte qui change automatiquement le contenue d'une balise <p>  -->
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_inscription.css')}}">
-<script type="text/javascript">
-function preview(){
-  document.getElementById("pp").textContent = age ;
-}var age =true;
-var an;
-var mon;
-var day;
-var td;
-var t;
-var y;
-function Fage(){
-  td=new Date();
-  var naissance = document.getElementById("date").value;
-  an=naissance.substr(0,4);
-  mon=naissance.substr(5,2);
-  day=naissance.substr(8,2);
-  t=an+''+mon+''+day
-  y=td.getFullYear()+''+td.getMonth()+1+''+td.getDate()
 
-  if (y-t>'180000'){
-    age=false;
-}
-else {
-  age=true;
-}
-
-  if (age==false) {
-    document.getElementById("age").style.display= "none";
-  }
-  else {
-    document.getElementById("age").style.display = "";
-  }
-
-
-}
-var myvar;
-var myvar2;
-function m(){
-myvar = setInterval('preview()',10);
-myvar2 = setInterval('Fage()',10);
-
-}
-</script>
-<body onLoad="m()">
 
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_inscription.css')}}">
+
 
 <h1>Inscription à un Stage</h1>
 
@@ -214,7 +172,42 @@ myvar2 = setInterval('Fage()',10);
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+    var age =true;
+    var an;
+    var mon;
+    var day;
+    var td;
+    var t;
+    var y;
+    function Fage(){
+      td=new Date();
+      var naissance = document.getElementById("date").value;
+      an=naissance.substr(0,4);
+      mon=naissance.substr(5,2);
+      day=naissance.substr(8,2);
+      t=an+mon+day;
+      y=td.getFullYear()+'';
+      if (td.getMonth()+1>9) {
+      y=y+(td.getMonth()+1);
+      }
+      else {
+        y=y+'0'+(td.getMonth()+1);
+      }
+      y=y+td.getDate();
+      age=parseInt(t-y)>-180000;
 
-</body>
+      if (age) {
+        document.getElementById("age").style.display="";
+      }
+      else {
+        document.getElementById("age").style.display="none";
+      }
+
+    }
+    var myvar;
+    var myvar2;
+    myvar2 = setInterval('Fage()',100);
+    </script>
 
 {% endblock %}
