@@ -26,9 +26,6 @@ body{
 }
 
 @media screen and (min-width: 768px) {
- .dropdown:hover>.dropdown-menu {
-   display: block;
- }
  .navbar:hover .dropdown-toggle:hover{
    background-color: lightgrey;
  }
@@ -55,10 +52,6 @@ body{
 
 .dropdown-toggle p,.glyphicon{
  color: white;
-}
-
-.img-accueil {
- height: 100%;
 }
 
 /*  Fin du menu de navigation  */
