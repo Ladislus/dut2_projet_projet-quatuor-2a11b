@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionStagiaires.css')}}">
+<div class="liens">
+  <h1 id="hliens">Panneau d'administration</h1>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+</div>
+<div>
+   <a href="/administration/gestionFichiers/">Gestion des fichiers</a>
+   <a href="/administration/gestionStagiaires/">Gestion des stagiaires</a>
+   <a href="/administration/creerStage/">Création d'un stage</a>
+   <a href="/administration/gestionStages/">Gestion des stages</a>
+   <a href="/administration/mailing/">Mailing</a>
+</div>
+
+{% endblock %}
