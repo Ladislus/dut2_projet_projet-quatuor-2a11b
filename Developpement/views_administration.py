@@ -1,5 +1,6 @@
 from .views import *
-@app.route("/administration/")
+from .forms import *
+@app.route("/administration")
 def administration():
     """
 
@@ -117,13 +118,14 @@ def administration_gestionStagiaires():
     dico['2017'].append(["Demarest","Liam","19","1","liam.demarest@outlook.fr","user"])
     return render_template("administration/administration_gestionStagiaires.html",dico_stagiaire=dico)
 
-@app.route("/administration/gestionStagiaires/Stagiaire/")
+@app.route("/administration/modifierStagiaire/")
 def administration_gestionStagiaires_Stagiaire():
     """
 
     :return: Retourne le template de la page de gestion d'un stagiaire
     """
-    return render_template("administration/administration_gestionStagiaires_stagiaire.html")
+    modifStagiaire=PersonForm()
+    return render_template("administration/administration_gestionStagiaires_stagiaire.html",modifStagiaire=modifStagiaire)
 
 @app.route("/administration/creerStage/")
 def administration_creerStage():
