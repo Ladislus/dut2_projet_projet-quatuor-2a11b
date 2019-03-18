@@ -6,9 +6,9 @@
   <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
 </div>
 <div class="stagiaire-all">
-  {% for elem in dico_stagiaire %}
+  {% for stagiaires in dico_stagiaire %}
   <div class="stagiaire-annee">
-    <h2>{{ elem }}</h2>
+    <h2>{{ stagiaires }}</h2>
     <div class="stagiaire-individu table-responsive">
       <table  class="table table-bordered">
         <thead>
@@ -22,15 +22,16 @@
           </tr>
         </thead>
         <tbody>
-          {% for elem2 in dico_stagiaire[elem] %}
+          {% for stagiaire in dico_stagiaire[stagiaires] %}
           <tr>
             <!-- Nom Prenom age niveau mail role  -->
-            <td>{{ elem2[0] }}</td>
-            <td>{{ elem2[1] }}</td>
-            <td>{{ elem2[2] }}</td>
-            <td>{{ elem2[3] }}</td>
-            <td><a style="color:rgb(0, 0, 0)" href="">{{ elem2[4] }}</a></td>
-            <td>{{ elem2[5] }}</td>
+            <td>{{ stagiaire[0] }}</td>
+            <td>{{ stagiaire[1] }}</td>
+            <td>{{ stagiaire[2] }}</td>
+            <td>{{ stagiaire[3] }}</td>
+            <td><a style="color:rgb(0, 0, 0)" href="">{{ stagiaire[4] }}</a></td>
+            <td>{{ stagiaire[5] }}</td>
+            <td><a href="/administration/modifierStagiaire/"><input type="submit" id="submit" class="btn btn-default" value="Modifier"></a></td>
           </tr>
 
           {% endfor %}

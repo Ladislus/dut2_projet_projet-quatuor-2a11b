@@ -23,7 +23,25 @@ def administration_gestionStages():
 
     :return: Retourne le template de la page de gestion des stages
     """
-    return render_template("administration/administration_gestionStages.html")
+    dico={}
+    dico['2018']=[]
+    dico['2018'].append(["04","Repertoire 1","Stage d'été","1 rue Michel","28000","Chartres","30","01/01/2018","01/02/2018","costume","10.0€","zjhreuzhruz","Niveau 1"])
+    dico['2018'].append(["03","Repertoire 2","Stage hiver","1 rue Michel","28000","Chartres","30","01/03/2018","01/04/2018","costume","15.0€","zjhreuzhruz","Niveau 2"])
+    dico['2017']=[]
+    dico['2017'].append(["02","Repertoire 3","Stage printemps","1 rue Michel","28000","Chartres","30","01/01/2017","01/02/2017","costume","25.0€","zjhreuzhruz","Niveau 1"])
+    dico['2017'].append(["01","Repertoire 1","Stage automne","1 rue Michel","28000","Chartres","30","01/05/2017","01/06/2017","costume","20.0€","zjhreuzhruz","Niveau 3"])
+    return render_template("administration/administration_gestionStages.html", dico_stage=dico)
+
+@app.route("/administration/modifierStage/")
+def administration_modifierStage():
+    """
+
+    :return: Retourne le template de la page de gestion des stages
+    """
+    creaStageForm=StageForm()
+    lieuForm=LieuForm()
+    return render_template("administration/administration_modifierStage.html",creaStageForm=creaStageForm,
+    lieuForm=lieuForm)
 
 @app.route("/administration/gestionFichiers/")
 def administration_gestionFichiers():
