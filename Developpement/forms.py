@@ -15,6 +15,9 @@ class PersonForm(FlaskForm):
     ecole           = StringField('Ecole', validators=[DataRequired()])
     typePratique    = StringField('Type de pratique')
 
+class NiveauForm(FlaskForm):
+    niveau = SelectField('Niveau', choices=[("Niveau 1"),("Niveau 2"),("Niveau 3")])
+
 class LieuForm(FlaskForm):
     adrLieu         = StringField('Adresse du Lieu', validators=[DataRequired()])
     CPLieu          = IntegerField('Code Postal du Lieu', validators=[DataRequired()])
