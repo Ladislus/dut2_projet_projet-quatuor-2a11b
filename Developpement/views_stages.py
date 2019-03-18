@@ -8,7 +8,7 @@ def stage_presentation():
     """
     return render_template("stage/stage_presentation.html")
 
-@app.route("/stage/inscription/")
+@app.route("/stage/inscription/", methods = ["GET", "POST"])
 def stage_inscription():
     """
 

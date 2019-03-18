@@ -9,7 +9,7 @@ class PersonForm(FlaskForm):
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
     tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
     mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
-    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[], validators=[DataRequired()])
+    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[("value", "test")], validators=[DataRequired()])
     niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
     ecole           = StringField('Ecole', validators=[DataRequired()])
     typePratique    = StringField('Type de pratique')
@@ -18,7 +18,6 @@ class LieuForm(FlaskForm):
     adrLieu         = StringField('Adresse du Lieu', validators=[DataRequired()])
     CPLieu          = IntegerField('Code Postal du Lieu', validators=[DataRequired()])
     villeLieu       = StringField('Ville du Lieu', validators=[DataRequired()])
-
 
 class RespLegalForm(FlaskForm):
     nomResp         = StringField('Nom du Responsable', validators=[DataRequired()])
