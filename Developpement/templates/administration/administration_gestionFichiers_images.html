@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionFichiers_images.css')}}">
+<div class="liens">
+  <h1 id="hliens">Gestion des Images</h1>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+</div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Visuel</th>
+            <th>Nom</th>
+            <th>Type</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline"></td>
+            <td>underline3</td>
+            <td>.png</td>
+            <td><span class="btn btn-default fileinput-button">
+                  <i class="glyphicon glyphicon-pencil"></i>
+                  <input id="fileupload" type="file" name="files[]" multiple="">
+                </span>
+            <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></button></td>
+          </tr>
+          <tr>
+            <td><img src="{{ url_for('static',filename='img/entree1.jpg') }}" alt="entree1"></td>
+            <td>entree1</td>
+            <td>.jpg</td>
+            <td><span class="btn btn-default fileinput-button">
+                  <i class="glyphicon glyphicon-pencil"></i>
+                  <input id="fileupload" type="file" name="files[]" multiple="">
+                </span>
+            <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></button></td>
+          </tr>
+          <tr>
+            <td><img src="{{ url_for('static',filename='img/Olivier-Roussillat.png') }}" alt="Olivier-Roussillat"></td>
+            <td>Olivier-Roussillat</td>
+            <td>.png</td>
+            <td><span class="btn btn-default fileinput-button">
+                  <i class="glyphicon glyphicon-pencil"></i>
+                  <input id="fileupload" type="file" name="files[]" multiple="">
+                </span>
+            <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="end">
+        <p>Ajouter une image :</p>
+        <span id="plus" class="btn btn-info fileinput-button">
+            <i class="glyphicon glyphicon-plus"></i>
+            <input id="fileupload" type="file" name="files[]" multiple="">
+        </span>
+      </div>
+{% endblock %}
