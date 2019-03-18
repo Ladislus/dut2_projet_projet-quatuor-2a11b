@@ -33,6 +33,17 @@ def administration_gestionStages():
     dico['2017'].append(["01","Repertoire 1","Stage automne","1 rue Michel","28000","Chartres","30","01/05/2017","01/06/2017","costume","20.0€","zjhreuzhruz","Niveau 3"])
     return render_template("administration/administration_gestionStages.html", dico_stage=dico)
 
+@app.route("/administration/modifierStage/")
+def administration_modifierStage():
+    """
+
+    :return: Retourne le template de la page de gestion des stages
+    """
+    creaStageForm=StageForm()
+    lieuForm=LieuForm()
+    return render_template("administration/administration_modifierStage.html",creaStageForm=creaStageForm,
+    lieuForm=lieuForm)
+
 @app.route("/administration/gestionFichiers/")
 def administration_gestionFichiers():
     """

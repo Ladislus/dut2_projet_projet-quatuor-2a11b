@@ -5,9 +5,9 @@
   <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
 </div>
 <div class="stagiaire-all">
-  {% for elem in dico_stage %}
+  {% for stages in dico_stage %}
   <div class="stagiaire-annee">
-    <h2>{{ elem }}</h2>
+    <h2>{{ stages }}</h2>
     <div class="stagiaire-individu table-responsive">
       <table  class="table table-bordered">
         <thead>
@@ -27,20 +27,21 @@
           </tr>
         </thead>
         <tbody>
-          {% for elem2 in dico_stage[elem] %}
+          {% for stage in dico_stage[stages] %}
           <tr>
-            <td>{{ elem2[1] }}</td>
-            <td>{{ elem2[2] }}</td>
-            <td>{{ elem2[3] }}</td>
-            <td>{{ elem2[4] }}</td>
-            <td>{{ elem2[5] }}</td>
-            <td>{{ elem2[6] }}</td>
-            <td>{{ elem2[7] }}</td>
-            <td>{{ elem2[8] }}</td>
-            <td>{{ elem2[9] }}</td>
-            <td>{{ elem2[10] }}</td>
-            <td>{{ elem2[11] }}</td>
-            <td>{{ elem2[12] }}</td>
+            <td>{{ stage[1] }}</td>
+            <td>{{ stage[2] }}</td>
+            <td>{{ stage[3] }}</td>
+            <td>{{ stage[4] }}</td>
+            <td>{{ stage[5] }}</td>
+            <td>{{ stage[6] }}</td>
+            <td>{{ stage[7] }}</td>
+            <td>{{ stage[8] }}</td>
+            <td>{{ stage[9] }}</td>
+            <td>{{ stage[10] }}</td>
+            <td>{{ stage[11] }}</td>
+            <td>{{ stage[12] }}</td>
+            <td><a href="/administration/modifierStage/"><input type="submit" id="submit" class="btn btn-default" value="Modifier"></a></td>
           </tr>
 
           {% endfor %}
