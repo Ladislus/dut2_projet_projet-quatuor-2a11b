@@ -1,7 +1,7 @@
 from .functions import crypt
 from .getters import get_user
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, MultipleFileField, PasswordField, SelectField, SelectMultipleField, StringField, TextField
+from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, SelectMultipleField, StringField, TextField
 from wtforms.validators import DataRequired
 
 class PersonForm(FlaskForm):
@@ -15,10 +15,16 @@ class PersonForm(FlaskForm):
     ecole           = StringField('Ecole', validators=[DataRequired()])
     typePratique    = StringField('Type de pratique')
 
+class NiveauForm(FlaskForm):
+    niveau = SelectField('Niveau', choices=[("Niveau 1"),("Niveau 2"),("Niveau 3")])
+
 class LieuForm(FlaskForm):
     adrLieu         = StringField('Adresse du Lieu', validators=[DataRequired()])
     CPLieu          = IntegerField('Code Postal du Lieu', validators=[DataRequired()])
     villeLieu       = StringField('Ville du Lieu', validators=[DataRequired()])
+
+class NiveauForm(FlaskForm):
+    niveau = SelectField('Niveau', choices=['Niveau 1', 'Niveau 2', 'Niveau 3'], validators=[DataRequired()])
 
 
 class RespLegalForm(FlaskForm):
@@ -35,13 +41,13 @@ class User_ContactForm(FlaskForm):
     mailAuteur      = StringField('Mail Auteur', validators=[DataRequired()])
     objetMessage    = SelectField('Objet', choices=[], validators=[DataRequired()])
     contenuMessage  = TextField('Contenu message', validators=[DataRequired()])
-    pjMessage       = MultipleFileField(u'Image File')
+    pjMessage       = StringField('PJ')
 
 class Admin_ContactForm(FlaskForm):
     objetMessage    = SelectField('Objet', choices=[('admin', "Adminstratif"), ('music', "Musical"), ('ques', "Question")], validators=[DataRequired()])
-    destMessage     = SelectMultipleField('Destinataire', choices=[('dest1', "dest1"),('dest2', "dest2")], validators=[DataRequired()])
+    destMessage     = SelectField('Destinataire', choices=[('dest1', "dest1"),('dest2', "dest2")], validators=[DataRequired()])
     contenuMessage  = TextField('Contenu message', validators=[DataRequired()])
-    pjMessage       = MultipleFileField(u'Image File')
+    pjMessage       = StringField('PJ')
 
 class AutorMedicForm(FlaskForm):
     numContactUrg1  = StringField('Numero à contacter Urgence 1', validators=[DataRequired()])
@@ -58,8 +64,8 @@ class CreateAccountForm(FlaskForm):
     username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
     mail            = StringField('Adresse mail', validators=[DataRequired()])
     confirmMail     = StringField('Confirmation Adresse Mail', validators=[DataRequired()])
-    mdp             = PasswordField('Mot de passe', validators=[DataRequired()])
-    mdpConfirm      = PasswordField('Confirmation Mot de passe', validators=[DataRequired()])
+    mdp             = HiddenField('Mot de passe', validators=[DataRequired()])
+    mdpConfirm      = HiddenField('Confirmation Mot de passe', validators=[DataRequired()])
 
 class ConnectForm(FlaskForm):
     next            = HiddenField()

@@ -1,0 +1,21 @@
+body{
+  font-family: 'aaa';
+}
+#btn-1{
+  text-align: center;
+}
+
+#select-1{
+  text-align: center;
+  width: 20%;
+  margin-left: 40%;
+  padding: 1%;
+}
+
+#sel1{
+  text-align: center;
+}
+img{
+  margin-left: 36.5%;
+  margin-top: -2%;
+}

@@ -1,0 +1,46 @@
+{% extends "stage/stage_presse_actu.html" %}
+{% block presse %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_presse_all.css')}}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div class="container  liste-article">
+  <br>
+  {% for i in range(liste|length) %}
+  <div class="presse-titre {% if i%2==0 %}presse-paire{% else %} presse-impaire {% endif %}">
+    <h3>{{liste[i][0]}}</h3>
+    <div class="presse-vignette">
+      <div id="blocImage">
+        <img class= "img-rounded" src="{{ url_for('static',filename='img/'+liste[i][3]+'.png')}}" alt="Image de {{liste[i][0]}}">
+        <p class="paragraphe">Posté par {{liste[i][2]}} le {{liste[i][1]}}</p>
+        <p class="paragraphe">{{ liste[i][4]}}</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  {% endfor %}
+
+</div>
+{% if ok %}
+<div class="center">
+  <ul class="pagination">
+    {% for i in range(gliste|length+2) %}
+    <li {% if i==id %} class="active" {% endif %}><a href="/stage/presse/all/{{ i }}">{{i}}</a></li>
+    {% endfor %}
+  </ul>
+  <ul class="pager">
+    {% if id!=0 %}
+    <li class="previous"> <a href="/stage/presse/all/{{ id-1 }}" class="previous">Précédent</a> </li>
+    {% endif %}
+  </ul>
+  <ul class="pager">
+    {% if id!=gliste|length+1 %}
+    <li class="next"><a href="/stage/presse/all/{{ id+1 }}" class="next">Suivant</a> </li>
+    {% endif %}
+  </ul>
+
+</div>
+{% endif %}
+{% endblock %}

@@ -1,14 +1,11 @@
 from .views import *
-from .forms import *
 @app.route("/contact/administratif/")
 def contact_administratif():
     """
 
     :return: Retourne le template de la partie administrative du contact
     """
-    user_contactForm=User_ContactForm()
-    return render_template("contact/contact_administratif.html",
-                            user_contactForm=user_contactForm)
+    return render_template("contact/contact_administratif.html")
 
 @app.route("/contact/mentionsLegales/")
 def contact_mentionsLegales():

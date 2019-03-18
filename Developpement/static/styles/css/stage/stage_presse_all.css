@@ -1,0 +1,54 @@
+.presse-titre{
+    margin-top: 1%;
+  }
+  .presse-vignette{
+    display: flex;
+  }
+  #blocImage p {
+      width: 100%;
+      margin : auto;
+      z-index: 200;
+  }
+  #blocImage {
+      width : 100%;
+  }
+  #blocImage img{
+    width: 20em;
+    height: 10em;
+    border-radius: 2%;
+  }
+  .liste-article{
+    margin-top: 5%
+  }
+  .presse-impaire{
+    background-color: rgba(175, 175, 175, 0.73);
+    border-radius: 1.5%;
+  }
+  .presse-impaire h3{
+    text-align: right;
+  }
+  .presse-paire{
+    background-color: rgba(175, 175, 175, 0.52);
+    border-radius: 1.5%;
+  }
+  .presse-impaire img{
+    float: right;
+  }
+  .presse-paire img{
+    float: left;
+  }
+  .center{
+    text-align: center;
+  }
+   
+h3{
+  padding:4%;
+} 
+.paragraphe{
+  text-align: justify;
+  padding: 1%;
+}
+img{
+  margin:1%;
+  padding: 1%;
+}
