@@ -172,24 +172,7 @@ def stage_paiement():
     """
     return render_template("stage/stage_paiement.html")
 
-@app.route("/stage/partitions/niveau2/")
-def stage_partitions_niveau2():
-    """
-
-    :return: Retourne le template de la page des partitions des musiques des stages de niveau 2
-    """
-    return render_template("stage/stage/stage_partitions_niveau2.html")
-
-
-@app.route("/stage/partitions/niveau3/")
-def stage_partitions_niveau3():
-    """
-
-    :return: Retourne le template de la page des partitions des musiques des stages de niveau 3
-    """
-    return render_template("stage/stage_partitions_niveau3.html")
-
-@app.route("/stage/recettes/<int:id>")
+@app.route("/stage/recettes_unitaires/")
 def stage_recettes_unitaire():
     """
 
