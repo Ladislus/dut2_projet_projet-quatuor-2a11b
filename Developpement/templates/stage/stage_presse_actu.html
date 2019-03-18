@@ -7,8 +7,8 @@
       background-color: rgb(15, 15, 15)
     }
   </style>
-  
-  
+
+
   <div id="myCarousel" class="carousel slide " data-ride="carousel" data-interval="7500">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -16,52 +16,52 @@
       <li id="actu" data-target="#myCarousel" data-slide-to="1"></li>
       <li id="actu" data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-  
+
     <!-- Wrapper for slides -->
     <div class="carousel-inner ">
       <div class="item active actu">
         <img src="{{ url_for('static',filename='img/presentation-quatuor-1.png' ) }}" alt="presentation-quatuor-1" class="image-actu">
         <div id="contour" class="carousel-caption">
-          <a href="/quatuor/presse/article/{{ caroussel[0][0]}}">
+          <a href="/stage/presse/article/{{ caroussel[0][0]}}">
             <h3 id="actu">{{ caroussel[0][0]}}</h3>
           </a>
-          <a href="/quatuor/presse/article/{{ caroussel[0][0]}}">
+          <a href="/stage/presse/article/{{ caroussel[0][0]}}">
             <p id="actu">{{ caroussel[0][1]}}</p>
           </a>
         </div>
       </div>
-  
+
       <div class="item actu">
         <div class="actu">
           <img src="{{ url_for('static',filename='img/presentation-quatuor-2.png' ) }}" alt="presentation-quatuor-2" class="image-actu">
           <div id="contour" class="carousel-caption">
-            <a href="/quatuor/presse/article/{{ caroussel[1][0]}}">
+            <a href="/stage/presse/article/{{ caroussel[1][0]}}">
               <h3 id="actu">{{ caroussel[1][0]}}</h3>
             </a>
-            <a href="/quatuor/presse/article/{{ caroussel[1][0]}}">
+            <a href="/stage/presse/article/{{ caroussel[1][0]}}">
               <p id="actu">{{ caroussel[1][1]}}</p>
             </a>
           </div>
         </div>
       </div>
-  
-  
+
+
       <div class="item actu">
         <div class="actu">
           <img src="{{ url_for('static',filename='img/presentation-quatuor-3.png' ) }}" alt="presentation-quatuor-3" class="image-actu">
           <div id="contour" class="carousel-caption">
-            <a href="/quatuor/presse/article/{{ caroussel[2][0]}}">
+            <a href="/stage/presse/article/{{ caroussel[2][0]}}">
               <h3 id="actu">{{ caroussel[2][0]}}</h3>
             </a>
-            <a href="/quatuor/presse/article/{{ caroussel[2][0]}}">
+            <a href="/stage/presse/article/{{ caroussel[2][0]}}">
               <p id="actu">{{ caroussel[2][1]}}</p>
             </a>
           </div>
         </div>
       </div>
-  
+
     </div>
-  
+
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>
@@ -72,10 +72,10 @@
       <span class="sr-only">Suivant</span>
     </a>
   </div>
-  <a href="/quatuor/presse/all" style="margin-left:46%;"> Tout les articles</a>
-  
+  <a href="/stage/presse/all" style="margin-left:46%;"> Tout les articles</a>
+
   {% block presse %}
-  
+
   {% endblock %}
 
   {% endblock %}

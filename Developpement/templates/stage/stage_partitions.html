@@ -3,6 +3,38 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_partitions.css')}}">
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
 
+<script type="text/javascript">
+  function niveau(){
+    var niveau = document.getElementById("sel1").value;
+    if (niveau=="Niveau 1") {
+      document.getElementById("Niveau1").style.display= "";
+      document.getElementById("Niveau2").style.display= "none";
+      document.getElementById("Niveau3").style.display= "none";
+    }
+    else if(niveau=="Niveau 2"){
+      document.getElementById("Niveau2").style.display = "";
+      document.getElementById("Niveau1").style.display= "none";
+      document.getElementById("Niveau3").style.display= "none";
+    }
+    else if(niveau=="Niveau 3"){
+      document.getElementById("Niveau3").style.display = "";
+      document.getElementById("Niveau1").style.display= "none";
+      document.getElementById("Niveau2").style.display= "none";
+    }
+    else{
+      document.getElementById("Niveau1").style.display = "none";
+      document.getElementById("Niveau2").style.display = "none";
+      document.getElementById("Niveau3").style.display = "none";
+    }
+  }
+
+  var myvar;
+  function m(){
+    myvar = setInterval('niveau()',10);
+  }
+</script>
+
+<body onload="m()">
 <h1> Les Partitions </h1>
 <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
 
@@ -14,33 +46,14 @@
    <option>{{niveauForm.niveau.choices[2]}}</option>
  </select>
 </div>
-
-<div class="recherche"><button type="button" class="btn btn-default" data-toggle="collapse" data-target="#demo">Voir les partitions</button></div>
-  <div id="Niveau1" class="collapse">
-    Lorem ipsum dolor text....
+  <div id="Niveau1">
+    J'ai le Niveau 1
   </div>
-  <div id="Niveau2" class="collapse">
+  <div id="Niveau2">
     J'ai le Niveau 2
   </div>
-  <div id="Niveau3" class="collapse">
+  <div id="Niveau3">
     J'ai le Niveau 3
   </div>
-
-<script>
-  if(document.getElementById("sel1").value()=="Niveau 1"){
-    document.getElementById("Niveau1").style.display="";
-    document.getElementById("Niveau2").style.display="None";
-    document.getElementById("Niveau3").style.display="None";
-  }
-  if (document.getElementById("sel1").value()=="Niveau 2") {
-    document.getElementById("Niveau2").style.display="";
-    document.getElementById("Niveau1").style.display="None";
-    document.getElementById("Niveau3").style.display="None";
-  }
-  if (document.getElementById("sel1").value()=="Niveau 3"){
-    document.getElementById("Niveau3").style.display="";
-    document.getElementById("Niveau2").style.display="None";
-    document.getElementById("Niveau1").style.display="None";
-  }
-</script>
+</body>
 {% endblock %}
