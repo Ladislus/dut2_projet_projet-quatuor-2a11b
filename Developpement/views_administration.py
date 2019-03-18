@@ -1,4 +1,5 @@
 from .views import *
+from .forms import *
 @app.route("/administration/")
 def administration():
     """
@@ -75,10 +76,23 @@ def administration_gestionFichiers_videos():
 
     :return: Retourne le template de la page de gestion des videos
     """
-    return render_template("administration/administration_gestionFichiers_videos.html")
+    dico={}
+    dico['Quatuor']=[]
+    dico['Quatuor'].append(["Video 8","WAV","{{ url_for('static',filename='img/entree1.jpg') }}"])
+    dico['Quatuor'].append(["Video 7","MP4","{{ url_for('static',filename='img/entree2.jpg') }}"])
+    dico['Stage']=[]
+    dico['Stage'].append(["Video 6","MP4","{{ url_for('static',filename='img/entree1.jpg') }}"])
+    dico['Stage'].append(["Video 5","MP4","{{ url_for('static',filename='img/entree2.jpg') }}"])
+    dico['Concerts']=[]
+    dico['Concerts'].append(["Video 4","MP4","{{ url_for('static',filename='img/entree1.jpg') }}"])
+    dico['Concerts'].append(["Video 3","MP4","{{ url_for('static',filename='img/entree2.jpg') }}"])
+    dico['Clarinette']=[]
+    dico['Clarinette'].append(["Video 2","MP4","{{ url_for('static',filename='img/entree1.jpg') }}"])
+    dico['Clarinette'].append(["Video 1","MP4","{{ url_for('static',filename='img/entree2.jpg') }}"])
+    return render_template("administration/administration_gestionFichiers_videos.html",dico_videos=dico)
+
 
 @app.route("/administration/gestionFichiers/videos/modification/")
-
 def administration_gestionFichiers_videos_modification():
     """
 
@@ -117,13 +131,14 @@ def administration_gestionStagiaires():
     dico['2017'].append(["Demarest","Liam","19","1","liam.demarest@outlook.fr","user"])
     return render_template("administration/administration_gestionStagiaires.html",dico_stagiaire=dico)
 
-@app.route("/administration/gestionStagiaires/Stagiaire/")
+@app.route("/administration/modifierStagiaire/")
 def administration_gestionStagiaires_Stagiaire():
     """
 
     :return: Retourne le template de la page de gestion d'un stagiaire
     """
-    return render_template("administration/administration_gestionStagiaires_stagiaire.html")
+    modifStagiaire=PersonForm()
+    return render_template("administration/administration_gestionStagiaires_stagiaire.html",modifStagiaire=modifStagiaire)
 
 @app.route("/administration/creerStage/")
 def administration_creerStage():

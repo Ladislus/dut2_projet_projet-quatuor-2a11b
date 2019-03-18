@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionStagiaires.css')}}">
+<div class="liens">
+  <h1 id="hliens">Gestion des vidéos</h1>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+</div>
+<div class="stagiaire-all">
+  {% for videos in dico_videos %}
+  <div class="stagiaire-annee">
+    <h2>{{ videos }}</h2>
+    <div class="stagiaire-individu table-responsive">
+      <table  class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Type</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for video in dico_videos[videos] %}
+          <tr>
+            <!-- Nom Prenom age niveau mail role  -->
+            <td>{{ video[0] }}</td>
+            <td>{{ video[1] }}</td>
+            <td><img href="" alt="test">{{ video[2] }}</td>
+            <td><a href="/administration/modifierStagiaire/"><input type="submit" id="submit" class="btn btn-default" value="Modifier"></a></td>
+          </tr>
+
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
