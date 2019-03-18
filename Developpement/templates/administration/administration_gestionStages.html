@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="liens">
+  <h1 id="hliens">Gestion des stages</h1>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+</div>
+<div class="stagiaire-all">
+  {% for stages in dico_stage %}
+  <div class="stagiaire-annee">
+    <h2>{{ stages }}</h2>
+    <div class="stagiaire-individu table-responsive">
+      <table  class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Repertoire</th>
+            <th>Intitule</th>
+            <th>Adresse</th>
+            <th>Code Postal</th>
+            <th>Ville</th>
+            <th>Nombre de places</th>
+            <th>Date début</th>
+            <th>Date fin</th>
+            <th>Tenue</th>
+            <th>Prix</th>
+            <th>Description</th>
+            <th>Niveau requis</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for stage in dico_stage[stages] %}
+          <tr>
+            <td>{{ stage[1] }}</td>
+            <td>{{ stage[2] }}</td>
+            <td>{{ stage[3] }}</td>
+            <td>{{ stage[4] }}</td>
+            <td>{{ stage[5] }}</td>
+            <td>{{ stage[6] }}</td>
+            <td>{{ stage[7] }}</td>
+            <td>{{ stage[8] }}</td>
+            <td>{{ stage[9] }}</td>
+            <td>{{ stage[10] }}</td>
+            <td>{{ stage[11] }}</td>
+            <td>{{ stage[12] }}</td>
+            <td><a href="/administration/modifierStage/"><input type="submit" id="submit" class="btn btn-default" value="Modifier"></a></td>
+          </tr>
+
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
