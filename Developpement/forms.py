@@ -84,8 +84,8 @@ class CreateAccountForm(FlaskForm):
     username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
     mail            = StringField('Adresse mail', validators=[DataRequired()])
     confirmMail     = StringField('Confirmation Adresse Mail', validators=[DataRequired()])
-    mdp             = HiddenField('Mot de passe', validators=[DataRequired()])
-    mdpConfirm      = HiddenField('Confirmation Mot de passe', validators=[DataRequired()])
+    mdp             = PasswordField('Mot de passe', validators=[DataRequired()])
+    mdpConfirm      = PasswordField('Confirmation Mot de passe', validators=[DataRequired()])
 
 class ConnectForm(FlaskForm):
     next            = HiddenField()
@@ -103,13 +103,13 @@ class OubliMdpForm(FlaskForm):
     mail            = StringField('Adresse mail', validators=[DataRequired()])
 
 class ModifMdPOubliForm():
-    mdpNew          = HiddenField('Nouvau Mot de passe ', validators=[DataRequired()])
-    mdpNewConfirm   = HiddenField('Confirmation nouveau Mot de passe actuel', validators=[DataRequired()])
+    mdpNew          = PasswordField('Nouvau Mot de passe ', validators=[DataRequired()])
+    mdpNewConfirm   = PasswordField('Confirmation nouveau Mot de passe actuel', validators=[DataRequired()])
 
 class ModifMdPForm(FlaskForm):
-    mdpActu         = HiddenField('Mot de passe actuel', validators=[DataRequired()])
-    mdpNew          = HiddenField('Nouvau Mot de passe ', validators=[DataRequired()])
-    mdpNewConfirm   = HiddenField('Confirmation nouveau Mot de passe actuel', validators=[DataRequired()])
+    mdpActu         = PasswordField('Mot de passe actuel', validators=[DataRequired()])
+    mdpNew          = PasswordField('Nouvau Mot de passe ', validators=[DataRequired()])
+    mdpNewConfirm   = PasswordField('Confirmation nouveau Mot de passe actuel', validators=[DataRequired()])
 
 class StageForm(FlaskForm):
     idSt        = HiddenField('idSt')
@@ -128,3 +128,9 @@ class StageForm(FlaskForm):
 
 class SouvenirsForm(FlaskForm):
     anneeSouv   = SelectField("Choix de l'année", choices=[('2015', "Année 2015"), ('2016', "Année 2016"), ('2017', "Année 2017")], validators=[DataRequired()])
+
+class ArticleForm(FlaskForm):
+    isArt       = HiddenField('idArt')
+    titreArt    = StringField('Titre de l\'article', validators=[DataRequired()])
+    contenuArt  = TextField('Contenu de l\'article', validators=[DataRequired()])
+    mediaArt    = TextField('Médias liés à l\'article', choices=[], validators=[DataRequired()])
