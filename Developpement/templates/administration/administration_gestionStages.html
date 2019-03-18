@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="liens">
+  <h1 id="hliens">Gestion des stages</h1>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+</div>
+<div class="stagiaire-all">
+  {% for elem in dico_stage %}
+  <div class="stagiaire-annee">
+    <h2>{{ elem }}</h2>
+    <div class="stagiaire-individu table-responsive">
+      <table  class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Repertoire</th>
+            <th>Intitule</th>
+            <th>Adresse</th>
+            <th>Code Postal</th>
+            <th>Ville</th>
+            <th>Nombre de places</th>
+            <th>Date début</th>
+            <th>Date fin</th>
+            <th>Tenue</th>
+            <th>Prix</th>
+            <th>Description</th>
+            <th>Niveau requis</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for elem2 in dico_stage[elem] %}
+          <tr>
+            <td>{{ elem2[1] }}</td>
+            <td>{{ elem2[2] }}</td>
+            <td>{{ elem2[3] }}</td>
+            <td>{{ elem2[4] }}</td>
+            <td>{{ elem2[5] }}</td>
+            <td>{{ elem2[6] }}</td>
+            <td>{{ elem2[7] }}</td>
+            <td>{{ elem2[8] }}</td>
+            <td>{{ elem2[9] }}</td>
+            <td>{{ elem2[10] }}</td>
+            <td>{{ elem2[11] }}</td>
+            <td>{{ elem2[12] }}</td>
+          </tr>
+
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
