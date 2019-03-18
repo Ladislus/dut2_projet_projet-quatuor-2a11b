@@ -1,6 +1,7 @@
 .division-membres {
   display: flex;
   align-items: flex-start;
+
 }
 
 .division-membres > * {
@@ -12,7 +13,7 @@
 }
 .membres{
   text-align: center;
-  margin-left: 5%;
+  margin-left: 23%;
   margin-top: 15%;
 }
 .titre-gpartie{

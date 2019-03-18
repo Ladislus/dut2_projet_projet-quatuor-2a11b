@@ -36,6 +36,16 @@ def stage_partitions():
     niveauForm = NiveauForm()
     return render_template("stage/stage_partitions.html", niveauForm = niveauForm)
 
+@app.route("/stage/souvenirs/")
+def stage_souvenirs():
+    """
+
+    :return: Retourne le template de la page des souvenirs de stages
+    """
+    souvForm=SouvenirsForm()
+    return render_template("stage/stage_souvenirs.html",
+                            souvForm=souvForm)
+
 @app.route("/stage/inscription/autorisationMedicale/")
 def stage_inscription_autorisationMedicale():
     """
@@ -181,14 +191,6 @@ def stage_partitions_niveau3():
     :return: Retourne le template de la page des partitions des musiques des stages de niveau 3
     """
     return render_template("stage/stage_partitions_niveau3.html")
-
-@app.route("/stage/souvenirs/")
-def stage_souvenirs():
-    """
-
-    :return: Retourne le template de la page des souvenirs de stages
-    """
-    return render_template("stage/stage_souvenirs.html")
 
 @app.route("/stage/recettes/<int:id>")
 def stage_recettes_unitaire():
