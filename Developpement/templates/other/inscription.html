@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/autre/other.css')}}">
+
+<div class="liens">
+<h1>Inscription</h1>
+<img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+</div>
+<form class="form-horizontal" id="form_inscription" role="form" method="POST" action="{{ url_for('other_inscription') }}">
+  <div class="form-group">
+    <label for="mail" class="col-sm-3 control-label">Email</label>
+    <div class="col-sm-3">{{ oubliForm.mail(size=50, class_="form-control", placeholder="Nom d'utilisateur") }}</div>
+  </div>
+
+{% endblock %}

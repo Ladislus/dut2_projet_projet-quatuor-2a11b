@@ -9,6 +9,12 @@ def other_liens():
     """
     return render_template("other/page_liens.html")
 
+@app.route("/other/inscription")
+def other_inscription():
+    """
+    """
+    return render_template("other/inscription.html")
+
 @app.route("/other/connexion/")
 def other_connexion():
     """
