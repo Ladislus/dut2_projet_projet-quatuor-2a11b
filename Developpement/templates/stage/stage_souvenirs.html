@@ -2,5 +2,100 @@ s{% extends "base.html" %}
 {% block main %}
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_souvenirs.css')}}">
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
+<script type="text/javascript">
+function date(){
+  var annee = document.getElementById("annee").value;
+  if (annee=="Année 2015") {
+    document.getElementById("2015").style.display= "";
+    document.getElementById("2016").style.display= "none";
+    document.getElementById("2017").style.display= "none";
+  }
+  else if(annee=="Année 2016"){
+    document.getElementById("2016").style.display = "";
+    document.getElementById("2015").style.display= "none";
+    document.getElementById("2017").style.display= "none";
+  }
+  else if(annee=="Année 2017"){
+    document.getElementById("2017").style.display = "";
+    document.getElementById("2015").style.display= "none";
+    document.getElementById("2016").style.display= "none";
+  }
+  else{
+    document.getElementById("2015").style.display = "none";
+    document.getElementById("2016").style.display = "none";
+    document.getElementById("2017").style.display = "none";
+  }
+}
+var myvar;
+function m(){
+  myvar = setInterval('date()',10);
+}
+</script>
+
+<body onLoad="m()">
+  <h1>Souvenirs</h1>
+  <img class="underline" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+
+  <label for="anneeSouv">{{souvForm.anneeSouv.label}}</label>
+  <div class="form-group">{{ souvForm.anneeSouv.label(class="form-control", placeholder="Choix de l'année")}}
+    <select id="annee" class="form-control">
+      <option>{{souvForm.anneeSouv.choices[0][1]}}</option>
+      <option>{{souvForm.anneeSouv.choices[1][1]}}</option>
+      <option>{{souvForm.anneeSouv.choices[2][1]}}</option>
+    </select>
+  </div>
+
+  <div id="2015">
+    <table>
+        <thead>
+            <tr>
+                <th colspanAnnee="1">Stage 2015</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img class="test" src="{{ url_for('static',filename='img/entree1.jpg') }}" alt="test"></td>
+                <td><img class="test" src="{{ url_for('static',filename='img/entree2.jpg') }}" alt="test2"></td>
+            </tr>
+            <tr>
+                <td><img class="test" src="{{ url_for('static',filename='img/entree2.jpg') }}" alt="test"></td>
+                <td><img class="test" src="{{ url_for('static',filename='img/entree1.jpg') }}" alt="test2"></td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+  <div id="2016">
+    <table>
+        <thead>
+            <tr>
+                <th colspan="1">Stage 2016</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img class="test" src="{{ url_for('static',filename='img/entree1.jpg') }}" alt="test"></td>
+                <td><img class="test" src="{{ url_for('static',filename='img/entree2.jpg') }}" alt="test2"></td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+  <div id="2017">
+    <table>
+        <thead>
+            <tr>
+                <th colspan="1">Stage 2017</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img class="test" src="{{ url_for('static',filename='img/entree1.jpg') }}" alt="test"></td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+</body>
 
 {% endblock %}
