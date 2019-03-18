@@ -31,12 +31,22 @@
             <td>{{ stagiaire[3] }}</td>
             <td><a style="color:rgb(0, 0, 0)" href="">{{ stagiaire[4] }}</a></td>
             <td>{{ stagiaire[5] }}</td>
-            <td><a href="/administration/modifierStagiaire/"><input type="submit" id="submit" class="btn btn-default" value="Modifier"></a></td>
+            <td>
+              <a href="/administration/modifierStagiaire/" class="btn btn-default">
+                <span class="glyphicon glyphicon-pencil"></span>
+              </a>
+              <a href="" class="btn btn-default">
+                <span class="glyphicon glyphicon-trash"></span>
+              </a>
+            </td>
           </tr>
 
           {% endfor %}
         </tbody>
       </table>
+      <a href="/administration/modifierStagiaire/" class="btn btn-default">
+        <span class="glyphicon glyphicon-plus"></span>
+      </a>
     </div>
 
   </div>
