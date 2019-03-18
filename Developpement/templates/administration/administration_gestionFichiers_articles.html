@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionStagiaires.css')}}">
+<div class="liens">
+  <h1 id="hliens">Gestion des articles</h1>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+</div>
+<div class="stagiaire-all">
+  <div class="stagiaire-annee">
+    <h2>Articles</h2>
+    <div class="stagiaire-individu table-responsive">
+      <table  class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Titre</th>
+            <th>Date</th>
+            <th>Auteur</th>
+            <th>ID</th>
+            <th>Texte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- {% for article in dico_articles[articles] %} -->
+          {% for articles in dico_articles %}
+          <tr>
+            <!-- titre date contenu  -->
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+              <a href="/administration/modifierStagiaire/" class="btn btn-default">
+                <span class="glyphicon glyphicon-pencil"></span>
+              </a>
+              <a href="" class="btn btn-default">
+                <span class="glyphicon glyphicon-trash"></span>
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+          <!-- {% endfor %} -->
+        </tbody>
+      </table>
+      <input type="file" id="file1">
+      <button type="button" class="btn btn-default">
+        <i class="icon-upload icon-white"></i> Ajouter
+      </button>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
