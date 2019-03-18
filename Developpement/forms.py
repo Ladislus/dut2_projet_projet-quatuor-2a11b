@@ -102,4 +102,3 @@ class StageForm(FlaskForm):
 
 class SouvenirsForm(FlaskForm):
     anneeSouv   = SelectField("Choix de l'année", choices=[('2015', "Année 2015"), ('2016', "Année 2016"), ('2017', "Année 2017")], validators=[DataRequired()])
-    
