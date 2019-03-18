@@ -231,5 +231,15 @@ class Commentaire(Base):
     auteur      = relationship("Utilisateur", back_populates = "commentaires")
     article     = relationship("Article", back_populates = "commentaires")
 
+def insert_lieu(form):
+    if Lieu.query.filter(Lieu.adrLieu == str(form.adrLieu.data), Lieu.codeLieu == int(form.CPLieu.data), Lieu.villeLieu == str(form.villeLieu.data)).first() is None:
+        db.session.add(Lieu(adrLieu = str(form.adrLieu.data), codeLieu = int(form.CPLieu.data), villeLieu = str(form.villeLieu.data)))
+        print("SUCCESSFULLY ADDED THE PLACE")
+        db.session.commit()
+        print("COMMITTED TO SESSION")
+    else:
+        print("ALREADY IN")
+    return Lieu.query.filter(Lieu.adrLieu == str(form.adrLieu.data), Lieu.codeLieu == int(form.CPLieu.data), Lieu.villeLieu == str(form.villeLieu.data)).first().idLieu
+
 user_datastore = SQLAlchemySessionUserDatastore(db, Utilisateur, Role)
 app.security = Security(app, user_datastore)
