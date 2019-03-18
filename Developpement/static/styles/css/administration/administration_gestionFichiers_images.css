@@ -1,0 +1,50 @@
+@font-face{
+  font-family: "aaa";
+  src: url('../../Police/Aaargh.ttf');
+}
+
+table img{
+  width: 18%;
+}
+.underline2{
+  margin-left: 37%;
+}
+th, td{
+  text-align: center;
+  width: 15%;
+}
+th{
+  background-color: darkgrey;
+}
+td{
+  background-color: lightgrey;
+}
+
+input {
+position: absolute;
+top: 0;
+right: 0;
+margin: 0;
+opacity: 0;
+-ms-filter: 'alpha(opacity=0)';
+font-size: 200px;
+direction: ltr;
+cursor: pointer;
+}
+
+.fileinput-button {
+position: relative;
+overflow: hidden;
+}
+
+#end{
+  display: flex;
+  text-align: center;
+  margin-left: 41%;
+}
+p{
+  text-align: center;
+  font-family: "aaa";
+  font-size: 130%;
+  padding-right: 2%;
+}
