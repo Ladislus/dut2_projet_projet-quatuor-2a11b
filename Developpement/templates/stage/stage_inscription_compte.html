@@ -29,9 +29,6 @@
             <label for="mdp">{{ userForm.mdp.label }}</label>
             <div>{{ userForm.mdp(size=50, class_="form-control",placeholder="Mot de passe")}}</div>
           </div>
-           {% if mdpError %}
-           <p class="text-danger">Les mots de passe ne correspondent pas</p>
-           {% endif %}
           <div class="form-group">
             <label for="mdpConfirm">{{ userForm.mdpConfirm.label }}</label>
             <div>{{ userForm.mdpConfirm(size=50, class_="form-control",placeholder="Confirmation du mot de passe")}}</div>

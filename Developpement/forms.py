@@ -52,6 +52,7 @@ class RespLegalForm(FlaskForm):
     telTrav         = StringField('Téléphone travail')
     mailPers        = StringField('Adresse Mail Personnelle', validators=[DataRequired()])
     mailTrav        = StringField('Adresse Mail de Travail')
+    dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
 
 class User_ContactForm(FlaskForm):
     nomAuteur       = StringField('Nom Auteur mail', validators=[DataRequired()])
