@@ -11,6 +11,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from flask_login import UserMixin
 from flask_security import RoleMixin, SQLAlchemySessionUserDatastore, Security
 
+from datetime import datetime
+
 Base = db.Model
 
 #Tables associatives
@@ -62,7 +64,7 @@ class Personne(Base):
     idPers      = Column(Integer, primary_key = True, autoincrement = True)
     nomPers     = Column(String(20))
     prenomPers  = Column(String(20))
-    mailPers    = Column(String(50), unique = True)
+    mailPers    = Column(String(50))
     telPersUn   = Column(String(10), nullable = False)
     telPersDeux = Column(String(10))
     dateNPers   = Column(Date)
@@ -240,6 +242,23 @@ def insert_lieu(form):
     else:
         print("ALREADY IN")
     return Lieu.query.filter(Lieu.adrLieu == str(form.adrLieu.data), Lieu.codeLieu == int(form.CPLieu.data), Lieu.villeLieu == str(form.villeLieu.data)).first().idLieu
+
+def insert_personne(form, id_lieu):
+    existring = False
+    if Personne.query.filter(Personne.nomPers == str(form.nomPers.data), Personne.prenomPers == str(form.prenomPers.data), Personne.mailPers == str(form.mailPers.data), Personne.telPersUn == str(form.tel1Pers.data), Personne.dateNPers == str(form.dateNPers.data)).first() is None:
+        print("ADDING PERSON TO SESSION")
+        db.session.add(Personne(nomPers = str(form.nomPers.data), prenomPers = str(form.prenomPers.data), mailPers = str(form.mailPers.data), telPersUn = str(form.tel1Pers.data), dateNPers = datetime.strptime(str(form.dateNPers.data), '%Y-%m-%d'), id_Lieu = id_lieu))
+        print("SUCCESSFULLY ADDED PERSON TO SESSION")
+        print("COMMITTING")
+        db.session.commit()
+        print("COMMIT SUCCESSFUL")
+    else:
+        existing = True
+        print("ALREADY IN")
+    return (Personne.query.filter(Personne.nomPers == str(form.nomPers.data), Personne.prenomPers == str(form.prenomPers.data), Personne.mailPers == str(form.mailPers.data), Personne.telPersUn == str(form.tel1Pers.data), Personne.dateNPers == str(form.dateNPers.data)).first().idPers, existing)
+
+def try_username(username):
+    return Utilisateur.query.filter(Utilisateur.usernameUt == username).first() is None
 
 user_datastore = SQLAlchemySessionUserDatastore(db, Utilisateur, Role)
 app.security = Security(app, user_datastore)

@@ -3,6 +3,8 @@ from .forms import *
 from .functions import est_majeur
 from .models import *
 
+from .views_other import other_connexion
+
 @app.route("/stage/<int:id>")
 def stage_Id(id):
     a = get_stage(id)
@@ -25,39 +27,80 @@ def stage_inscription():
     :return: Retourne le template de la page d'inscription à un stage
     """
     persForm=PersonForm()
-    respLegForm=RespLegalForm()
-    autorSta_mineurForm=AutorStage_MineurForm()
+    autorForm=AutorStage_MineurForm()
     lieuForm=LieuForm()
 
-    print(persForm.validate_on_submit())
-    print(autorSta_mineurForm.validate_on_submit())
-    print(lieuForm.validate_on_submit())
-    print(respLegForm.validate_on_submit())
+    if persForm.validate_on_submit() & autorForm.validate_on_submit() & lieuForm.validate_on_submit():
 
-    if persForm.validate_on_submit() & autorSta_mineurForm.validate_on_submit() & lieuForm.validate_on_submit():
-
-        #Cas non majeur
-        if ((not est_majeur(str(persForm.dateNPers.data))) & (respLegForm.validate_on_submit())):
-                #insert BD
-                insert_lieu(lieuForm)
-                return redirect(url_for('stage_inscription_autorisationMedicale'))
-        else:
-            print("Responsable legal : PAS OK")
-            return render_template("stage/stage_inscription.html",
-                                persForm=persForm,
-                                respLegForm=respLegForm,
-                                autorSta_mineurForm=autorSta_mineurForm,
-                                lieuForm=lieuForm)
-        print("Majeur")
-        #add db
         id_lieu = insert_lieu(lieuForm)
+        id_pers, existing = insert_personne(persForm, id_lieu)
+
+        if (existing):
+            redirect(url_for('other_connexion'))
+
+        if not est_majeur(str(persForm.dateNPers.data)):
+            return redirect(url_for('stage_inscription_parental'))
+        return redirect(url_for('stage_inscription_compte'))
+    else:
+        return render_template("stage/stage_inscription_basic.html",
+                                persForm=persForm,
+                                autorForm=autorForm,
+                                lieuForm=lieuForm)
+
+@app.route("/stage/inscription/compte", methods = ["GET", "POST"])
+def stage_inscription_compte():
+
+    userForm = CreateAccountForm()
+
+    if userForm.validate_on_submit():
+        mdpError = False
+        userError = False
+
+        if (str(userForm.mdp.data) != str(userForm.mdpConfirm.data)):
+            mdpError = True
+
+        if not try_username(str(userForm.username.data)):
+            userError = True
+
+        if userError or mdpError:
+            return render_template("stage/stage_inscription_compte.html" ,
+                                    userForm = userForm,
+                                    userError = userError,
+                                    mdpError = mdpError)
+
+        insert_user(persForm, userform, id_pers)
+    else:
+        return render_template("stage/stage_inscription_compte.html" ,
+                                userForm = userForm,
+                                userError = False,
+                                mdpError = False)
+
+@app.route("/stage/inscription/autorisation_parental", methods = ["GET", "POST"])
+def stage_inscription_parental():
+    """
+
+    :return: Retourne le template de la page d'inscription à un stage
+    """
+    print("GENRATING FORMS")
+    respLegForm=RespLegalForm()
+    lieuForm=LieuForm()
+    print("FORMS GENERATED")
+
+    print(respLegForm.validate_on_submit())
+    print(lieuForm.validate_on_submit())
+
+    if respLegForm.validate_on_submit() & lieuForm.validate_on_submit():
+        print("FORMS VALIDATED")
+
+        #inserts BD
+        print("INSERTIONS")
+        insert_lieu(lieuForm)
+        print("REDIRECTION TO MEDICAL")
         return redirect(url_for('stage_inscription_autorisationMedicale'))
     else:
-        print("EMPTY")
-        return render_template("stage/stage_inscription.html",
-                                persForm=persForm,
+        print("REDIRECTION TO EMPTY")
+        return render_template("stage/stage_inscription_parental.html",
                                 respLegForm=respLegForm,
-                                autorSta_mineurForm=autorSta_mineurForm,
                                 lieuForm=lieuForm)
 
 @app.route("/stage/partitions/")
