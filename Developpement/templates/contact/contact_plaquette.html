@@ -5,13 +5,25 @@
 <div class="liens">
   <h2 id="hliens">Plaquette du Quatuor</h2>
   <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
-  <div class="center">
-    <p>Ici vous pourrez trouvez les plaquettes du quatuor</p>
-    <embed src="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" width=75% height=800em type='application/pdf'/>
+  {{ ListePlaquette }}
+  {% for annee in ListePlaquette %}
+    {% for elem in ListePlaquette[annee] %}
+
+  <div class="center" style="display:">
+    <embed src="{{ url_for('static',filename='plaquettes_stage/+annee+/+elem')}}" width=75% height=800em type='application/pdf'/>
     <br>
-    <a href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" download="fichetechnique.pdf"><span class="glyphicon glyphicon-save"></span> Télécharger la plaquette</a>
+    <a href="{{ url_for('static',filename='plaquettes_stage/+annee+/+elem')}}" download="{{ elem }}"><span class="glyphicon glyphicon-save"></span> Télécharger la plaquette</a>
   </div>
+  {% endfor %}
+  {% endfor %}
 </div>
 <br>
+
+<script type="text/javascript">
+
+
+
+
+</script>
 
 {% endblock %}

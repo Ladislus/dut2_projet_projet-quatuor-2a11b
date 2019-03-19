@@ -37,4 +37,5 @@ def contact_plaquette():
 
     :return: Retourne le template de la plaquette actuelle
     """
+
     return render_template("contact/contact_plaquette.html")
