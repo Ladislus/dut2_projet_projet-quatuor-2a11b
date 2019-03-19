@@ -3,7 +3,7 @@ from .forms import *
 from .functions import est_majeur
 from .models import *
 
-from .views_other import other_connexion
+from .views_other import *
 
 @app.route("/stage/<int:id>")
 def stage_Id(id):
@@ -35,8 +35,10 @@ def stage_inscription():
         id_lieu = insert_lieu(lieuForm)
         id_pers, existing = insert_personne(persForm, id_lieu)
 
+        print("qsjlkdfhqlsjkdhflqskjdhflqksjdhflqskjdfhlqskjhflqsjkdfhqlskdfjh " + str(existing))
+
         if (existing):
-            redirect(url_for('other_connexion'))
+            return redirect(url_for('other_connexion'))
 
         if not est_majeur(str(persForm.dateNPers.data)):
             return redirect(url_for('stage_inscription_parental', id_enfant = id_pers, ecole = str(persForm.ecole.data), niveau = int(persForm.niveau.data)))

@@ -251,10 +251,10 @@ user_datastore = SQLAlchemyUserDatastore(db, Utilisateur, Role)
 app.security = Security(app, user_datastore)
 
 def insert_personne(form, id_lieu):
-    if Personne.query.filter(Personne.nomPers == str(form.nomPers.data), Personne.prenomPers == str(form.prenomPers.data), Personne.mailPers == str(form.mailPers.data), Personne.telPersUn == str(form.tel1Pers.data), Personne.dateNPers == str(form.dateNPers.data)).first() is None:
+    if Personne.query.filter(Personne.nomPers == str(form.nomPers.data).upper(), Personne.prenomPers == str(form.prenomPers.data), Personne.mailPers == str(form.mailPers.data), Personne.telPersUn == str(form.tel1Pers.data), Personne.dateNPers == str(form.dateNPers.data)).first() is None:
         existing = False
         print("ADDING PERSON TO SESSION")
-        db.session.add(Personne(nomPers = str(form.nomPers.data), prenomPers = str(form.prenomPers.data), mailPers = str(form.mailPers.data), telPersUn = str(form.tel1Pers.data), dateNPers = datetime.strptime(str(form.dateNPers.data), '%Y-%m-%d'), id_Lieu = id_lieu))
+        db.session.add(Personne(nomPers = str(form.nomPers.data).upper(), prenomPers = str(form.prenomPers.data), mailPers = str(form.mailPers.data), telPersUn = str(form.tel1Pers.data), dateNPers = datetime.strptime(str(form.dateNPers.data), '%Y-%m-%d'), id_Lieu = id_lieu))
         print("SUCCESSFULLY ADDED PERSON TO SESSION")
         print("COMMITTING")
         db.session.commit()
@@ -262,7 +262,7 @@ def insert_personne(form, id_lieu):
     else:
         existing = True
         print("ALREADY IN")
-    return (Personne.query.filter(Personne.nomPers == str(form.nomPers.data), Personne.prenomPers == str(form.prenomPers.data), Personne.mailPers == str(form.mailPers.data), Personne.telPersUn == str(form.tel1Pers.data), Personne.dateNPers == str(form.dateNPers.data)).first().idPers, existing)
+    return (Personne.query.filter(Personne.nomPers == str(form.nomPers.data).upper(), Personne.prenomPers == str(form.prenomPers.data), Personne.mailPers == str(form.mailPers.data), Personne.telPersUn == str(form.tel1Pers.data), Personne.dateNPers == str(form.dateNPers.data)).first().idPers, existing)
 
 def try_username(username):
     return Utilisateur.query.filter(Utilisateur.usernameUt == username).first() is None
