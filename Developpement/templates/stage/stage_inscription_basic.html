@@ -32,6 +32,8 @@
                 {{ persForm.dateNPers(size=50, class_="form-control", type="date", id="date")}}
             </div>
           </div>
+          <h4>Contact</h4>
+          <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
           <div class="form-group">
             <label for="tel1Pers">{{ persForm.tel1Pers.label }}</label>
             <div>
@@ -44,6 +46,8 @@
                 {{ persForm.mailPers(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
             </div>
           </div>
+          <h4>Adresse</h4>
+          <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
           <div class="form-group">
             <label for="adrResp">{{ lieuForm.adrLieu.label }}</label>
             <div>{{ lieuForm.adrLieu(size=100, class_="form-control",placeholder="16 Rue Victor Hugo")}}</div>
@@ -56,6 +60,23 @@
             <label for="villeResp">{{ lieuForm.villeLieu.label }}</label>
             <div>{{ lieuForm.villeLieu(size=50, class_="form-control", placeholder="Orleans")}}</div>
           </div>
+          <h4>Information de connection</h4>
+          <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
+          <div class="form-group">
+            <label for="username">{{ userForm.username.label }}</label>
+            <div>{{ userForm.username(size=50, class_="form-control",placeholder="Nom d'utilisateur")}}</div>
+          </div>
+          <div class="form-group">
+            <label for="mdp">{{ userForm.mdp.label }}</label>
+            <div>{{ userForm.mdp(size=50, class_="form-control",placeholder="Mot de passe")}}</div>
+          </div>
+          <div class="form-group">
+            <label for="mdpConfirm">{{ userForm.mdpConfirm.label }}</label>
+            <div>{{ userForm.mdpConfirm(size=50, class_="form-control",placeholder="Confirmation du mot de passe")}}</div>
+          </div>
+
+          <h4>Expérience</h4>
+          <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
           <div class="form-group">
             <label for="ecole">{{ persForm.ecole.label }}</label>
             <div>{{ persForm.ecole(size=50, class_="form-control",placeholder="Conservatoire")}}</div>
@@ -66,7 +87,7 @@
           </div>
           <div class="form-group">
             <label for="clarJouees">{{ persForm.clarJouees.label}}</label>
-            <div>{{ persForm.clarJouees(size=100, class_="form-control selectpicker show-tick") }}</div>
+            <div>{{ persForm.clarJouees(size=10, class_="form-control selectpicker show-tick") }}</div>
           </div>
           <div class="form-group">
             <label for="usr">Votre Niveau</label>
@@ -77,6 +98,8 @@
     </div>
   </div>
   <div id="reste">
+    <h4>Autorisations</h4>
+    <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
       <div>
         <p class="p">ATTENTION Conformément à la loi n° 2002-303 du 4 mars 2002 relative aux droits des malades : En cas d’urgence, un élève accidenté ou malade est orienté et transporté par les services de secours d’urgence vers l’hôpital le mieux adapté. La famille est immédiatement avertie par nos soins. Un élève mineur ne peut sortir de l’hôpital qu’accompagné de sa famille. Si vous le souhaitez, dans l'intérêt de votre enfant, vous pouvez prendre rendez-vous avec les responsables de l’association pour nous expliquer un éventuel cadre clinique particulier, ou la prise d'un
                         traitement nécessitant notre vigilance.
