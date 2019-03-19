@@ -1,4 +1,5 @@
-from .models import *
+from .functions import crypt
+from .getters import get_user
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, SelectMultipleField, StringField, TextField
 from wtforms.validators import DataRequired
@@ -9,7 +10,7 @@ class InscriptionForm(FlaskForm):
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
     tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
     mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
-    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[("value", "test")], validators=[DataRequired()])
+    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[], validators=[DataRequired()])
     niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
     ecole           = StringField('Ecole', validators=[DataRequired()])
     typePratique    = StringField('Type de pratique')
@@ -18,7 +19,7 @@ class InscriptionForm(FlaskForm):
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
     tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
     mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
-    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[("value", "test")], validators=[DataRequired()])
+    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[], validators=[DataRequired()])
     niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
     ecole           = StringField('Ecole', validators=[DataRequired()])
     typePratique    = StringField('Type de pratique')
@@ -29,7 +30,7 @@ class PersonForm(FlaskForm):
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
     tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
     mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
-    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[("value", "test")], validators=[DataRequired()])
+    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[], validators=[DataRequired()])
     niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
     ecole           = StringField('Ecole', validators=[DataRequired()])
     typePratique    = StringField('Type de pratique')
@@ -129,7 +130,7 @@ class SouvenirsForm(FlaskForm):
     anneeSouv   = SelectField("Choix de l'année", choices=[('2015', "Année 2015"), ('2016', "Année 2016"), ('2017', "Année 2017")], validators=[DataRequired()])
 
 class ArticleForm(FlaskForm):
-    isArt       = HiddenField('idArt')
+    idArt       = HiddenField('idArt')
     titreArt    = StringField('Titre de l\'article', validators=[DataRequired()])
     contenuArt  = TextField('Contenu de l\'article', validators=[DataRequired()])
     mediaArt    = TextField('Médias liés à l\'article', choices=[], validators=[DataRequired()])

@@ -61,6 +61,7 @@ def stage_inscription():
                                 lieuForm=lieuForm)
 
 @app.route("/stage/partitions/")
+# @roles_required("STAGIAIRE")
 def stage_partitions():
     """
 
@@ -70,6 +71,7 @@ def stage_partitions():
     return render_template("stage/stage_partitions.html", niveauForm = niveauForm)
 
 @app.route("/stage/souvenirs/")
+# @roles_required("STAGIAIRE")
 def stage_souvenirs():
     """
 
@@ -213,15 +215,8 @@ def stage_paiement():
     """
     return render_template("stage/stage_paiement.html")
 
-@app.route("/stage/recettes_unitaires/")
-def stage_recettes_unitaire():
-    """
-
-    :return: Retourne le template de la page de la recette sur laquelle on a cliqué
-    """
-    return render_template("stage/stage_recettes_unitaire.html")
-
 @app.route("/stage/recettes/")
+# @roles_required("STAGIAIRE")
 def stage_recettes():
     """
 

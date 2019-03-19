@@ -66,7 +66,7 @@ def quatuor_extrait_ajout():
 
     :return: Retourne le template correspondant a la page de creation des extraits du quatuor
     """
-
+    return render_template("",);
 
 
 
