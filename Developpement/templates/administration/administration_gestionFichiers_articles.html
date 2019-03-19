@@ -7,7 +7,8 @@
 </div>
 <div class="stagiaire-all">
   <div class="stagiaire-annee">
-    <h2>Articles</h2>
+    {% for articles in dico_articles %}
+    <h2>{{ articles }}</h2>
     <div class="stagiaire-individu table-responsive">
       <table  class="table table-bordered">
         <thead>
@@ -38,6 +39,7 @@
               </a>
             </td>
           </tr>
+          <!-- {% endfor %} -->
         </tbody>
         {% endfor %}
       </table>
@@ -46,7 +48,7 @@
         <i class="icon-upload icon-white"></i> Ajouter
       </button>
     </div>
-
+    {% endfor %}
   </div>
 </div>
 
