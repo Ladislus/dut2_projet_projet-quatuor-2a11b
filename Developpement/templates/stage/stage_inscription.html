@@ -4,9 +4,6 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_inscription.css')}}">
 
-
-
-
 <h1>Inscription à un Stage</h1>
 
 <div class='first-subtitle'>
@@ -48,12 +45,24 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="ecole">{{ iForm.ecole.label }}</label>
-            <div>{{ iForm.ecole(size=50, class_="form-control",placeholder="Demarest")}}</div>
+            <label for="adrResp">{{ lieuForm.adrLieu.label }}</label>
+            <div>{{ lieuForm.adrLieu(size=100, class_="form-control",placeholder="16 Rue Victor Hugo")}}</div>
           </div>
           <div class="form-group">
-            <label for="typePratique">{{ iForm.typePratique.label }}</label>
-            <div>{{ iForm.typePratique(size=50, class_="form-control",placeholder="Demarest")}}</div>
+            <label for="CPResp">{{ lieuForm.CPLieu.label }}</label>
+            {{ lieuForm.CPLieu(size=100, class_="form-control", pattern="(0-9]{5}", placeholder="45000")}}
+          </div>
+          <div class="form-group">
+            <label for="villeResp">{{ lieuForm.villeLieu.label }}</label>
+            <div>{{ lieuForm.villeLieu(size=50, class_="form-control", placeholder="Orleans")}}</div>
+          </div>
+          <div class="form-group">
+            <label for="ecole">{{ persForm.ecole.label }}</label>
+            <div>{{ persForm.ecole(size=50, class_="form-control",placeholder="Conservatoire")}}</div>
+          </div>
+          <div class="form-group">
+            <label for="typePratique">{{ persForm.typePratique.label }}</label>
+            <div>{{ persForm.typePratique(size=50, class_="form-control",placeholder="Casual")}}</div>
           </div>
           <div class="form-group">
             <label for="clarJouees">{{ iForm.clarJouees.label}}</label>
@@ -83,18 +92,6 @@
               <div class="form-group">
                 <label for="prenomResp">{{ iForm.prenomResp.label }}</label>
                 <div>{{ iForm.prenomResp(size=50, class_="form-control",placeholder="Liam")}}</div>
-              </div>
-              <div class="form-group">
-                <label for="adrResp">{{ iForm.adrLieu.label }}</label>
-                <div>{{ iForm.adrLieu(size=100, class_="form-control",placeholder="16 Rue Victor Hugo")}}</div>
-              </div>
-              <div class="form-group">
-                <label for="CPResp">{{ iForm.CPLieu.label }}</label>
-                {{ iForm.CPLieu(size=100, class_="form-control", pattern="(0-9]{5}", placeholder="45000")}}
-              </div>
-              <div class="form-group">
-                <label for="villeResp">{{ iForm.villeLieu.label }}</label>
-                <div>{{ iForm.villeLieu(size=50, class_="form-control", placeholder="Orleans")}}</div>
               </div>
             </div>
           </div>
@@ -173,7 +170,7 @@
           <a download="autorisation.pdf" href="{{ url_for('static',filename='fichier_statique/autorisation.pdf')}}">Télécharger l'autorisation de diffusion</a>
         </div>
         <div class=form-group>
-          <a href="/stage/inscription/autorisationMedicale/"><input type="submit" id="submit" class="btn btn-default" value="Continuer"></a>
+          <input type="submit" id="submit" class="btn btn-default" value="Continuer">
         </div>
       </div>
     </div>

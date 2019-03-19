@@ -1,10 +1,15 @@
-from .app import db
+from .app import db, app
 from .functions import *
+from .getters import *
+from .inserts import *
 
 from sqlalchemy.dialects.sqlite import BLOB
 from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, Text, Float, Date, Table, UniqueConstraint
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+
+from flask_login import UserMixin
+from flask_security import RoleMixin, SQLAlchemySessionUserDatastore, Security
 
 Base = db.Model
 
@@ -22,7 +27,7 @@ stage_media           = Table("stage_media", Base.metadata,
                          Column("idMed", Integer, ForeignKey("Media.idMed")) )
 
 #Tables
-class Utilisateur(Base):
+class Utilisateur(Base, UserMixin):
     __tablename__ = "Utilisateur"
 
     idUt           = Column(Integer, primary_key = True, autoincrement = True)
@@ -32,14 +37,24 @@ class Utilisateur(Base):
     mdpUt          = Column(String(30), nullable = False)
     roleUt         = Column(String(10), default = 'UTILISATEUR')
 
+    id_Role        = Column(Integer, ForeignKey("Role.idRole"))
     id_Pers        = Column(Integer, ForeignKey("Personne.idPers"))
 
     personne       = relationship("Personne")
+    roleUt         = relationship("Role", back_populates = "membres")
     instruments    = relationship("JoueInstrument", back_populates = "joueur")
     participations = relationship("Participe", back_populates = "utilisateur")
     instruInscrits = relationship("InscrireInstru", back_populates = "utilisateur")
     articles       = relationship("Article", back_populates = "auteur")
     commentaires   = relationship("Commentaire", back_populates = "auteur")
+
+class Role(Base, RoleMixin):
+    __tablename__ = "Role"
+
+    idRole  = Column(Integer, primary_key = True, autoincrement = True)
+    nomRole = Column(String(20), unique = True)
+
+    membres = relationship("Utilisateur", back_populates = "roleUt")
 
 class Personne(Base):
     __tablename__ = "Personne"
@@ -215,3 +230,16 @@ class Commentaire(Base):
 
     auteur      = relationship("Utilisateur", back_populates = "commentaires")
     article     = relationship("Article", back_populates = "commentaires")
+
+def insert_lieu(form):
+    if Lieu.query.filter(Lieu.adrLieu == str(form.adrLieu.data), Lieu.codeLieu == int(form.CPLieu.data), Lieu.villeLieu == str(form.villeLieu.data)).first() is None:
+        db.session.add(Lieu(adrLieu = str(form.adrLieu.data), codeLieu = int(form.CPLieu.data), villeLieu = str(form.villeLieu.data)))
+        print("SUCCESSFULLY ADDED THE PLACE")
+        db.session.commit()
+        print("COMMITTED TO SESSION")
+    else:
+        print("ALREADY IN")
+    return Lieu.query.filter(Lieu.adrLieu == str(form.adrLieu.data), Lieu.codeLieu == int(form.CPLieu.data), Lieu.villeLieu == str(form.villeLieu.data)).first().idLieu
+
+user_datastore = SQLAlchemySessionUserDatastore(db, Utilisateur, Role)
+app.security = Security(app, user_datastore)
