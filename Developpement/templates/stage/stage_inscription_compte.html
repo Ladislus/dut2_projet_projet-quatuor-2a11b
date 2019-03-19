@@ -17,7 +17,10 @@
         <form class="form-horizontal" role="form" method="POST" >
           <h4>Information de connexion</h4>
           <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
-
+          <div class="form-group">
+            <label for="username">{{ userForm.username.label }}</label>
+            <div>{{ userForm.username(size=50, class_="form-control",placeholder="Mot de passe")}}</div>
+          </div>
           {% if userError %}
           <p class="text-danger">Nom d'utilisateur déjà pris</p>
           {% endif %}
