@@ -1,19 +1,24 @@
 {% extends "base.html" %}
 {% block main %}
+<h1> Les Extraits du Quatuor</h1>
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/quatuor/quatuor_extrait.css')}}">
 {% for elem2 in liste[id] %}
 <div class="page_extrait">
   {% for elem3 in elem2 %}
   <div class="extrait">
-    <h2>{{ elem3[0] }}</h2>
-    <p>{{ elem3[1] }}</p>
+    <div class="col-sm-3" id = "titre-descr">
+      <h2>{{ elem3[0] }}</h2>
+      <p>{{ elem3[1] }}</p>
+    </div>
+    <div class="col-sm-3" id = "audio-download">
     <audio controls>
       <source src="{{ url_for('static',filename='audio/extrait/'+elem3[2])}}" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-    <br>
-    <a href="{{ url_for('static',filename='partition/'+elem3[3])}}" download="{{ elem3[3] }}">Télécharger la partition</a>
-  </div>
+        Your browser does not support the audio element.
+      </audio>
+      <br>
+      <a href="{{ url_for('static',filename='partition/'+elem3[3])}}" download="{{ elem3[3] }}">Télécharger la partition</a>
+    </div>
+    </div>
   {% endfor %}
 </div>
 {% endfor %}

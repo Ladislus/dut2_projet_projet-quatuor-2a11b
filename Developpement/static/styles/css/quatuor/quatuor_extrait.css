@@ -1,17 +1,18 @@
-.page_extrait{
-  display: flex;
-  margin-left: 0.25%;
-  margin-bottom: 2%;
-  flex-wrap: wrap;
-}
 .extrait{
-  background-color: rgba(0, 0, 0, 0.13);
-  margin-left: 0.25%;
-  margin-bottom: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fafdef;
+  width: 90%;
   text-align: center;
-  flex: 2 2 20%;
+  margin-left: 5%;
+  border-bottom: 0.1em;
+  border-style: solid;
+  border-collapse: collapse;
 }
-.center{
-  text-align: center;
+#titre-descr{
+  margin-left: 15%;
 }
-  
+#audio-download{
+  margin-left: 15%;
+  margin-top: 1.7%;
+}
