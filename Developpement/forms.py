@@ -1,7 +1,7 @@
 from .models import *
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, SelectMultipleField, StringField, TextField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Length
 
 class InscriptionForm(FlaskForm):
     nomPers         = StringField('Nom', validators=[DataRequired()])
@@ -32,7 +32,6 @@ class PersonForm(FlaskForm):
     clarJouees      = SelectMultipleField('Clarinette jouée', choices=[("value", "test")], validators=[DataRequired()])
     niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
     ecole           = StringField('Ecole', validators=[DataRequired()])
-    typePratique    = StringField('Type de pratique')
 
 class NiveauForm(FlaskForm):
     niveau = SelectField('Niveau', choices=[("Niveau 1"),("Niveau 2"),("Niveau 3")])
@@ -79,8 +78,8 @@ class AutorStage_MineurForm(FlaskForm):
     autorImagSite   = BooleanField('de ces photographies et vidéos sur le site Quatuor de clarinettes DIVERTIMENTO (adresse du site) en partie membres (accès privé par mot de passe)')
 
 class CreateAccountForm(FlaskForm):
-    username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
-    mdp             = PasswordField('Mot de passe', validators=[DataRequired()])
+    username        = StringField('Nom d\'utilisateur', validators=[DataRequired(), Length(min = 7, max = 30)])
+    mdp             = PasswordField('Mot de passe', validators=[DataRequired(), Length(min = 7, max = 30)])
     mdpConfirm      = PasswordField('Confirmation Mot de passe', validators=[DataRequired()])
 
 class ConnectForm(FlaskForm):

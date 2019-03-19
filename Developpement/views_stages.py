@@ -39,8 +39,8 @@ def stage_inscription():
             redirect(url_for('other_connexion'))
 
         if not est_majeur(str(persForm.dateNPers.data)):
-            return redirect(url_for('stage_inscription_parental'))
-        return redirect(url_for('stage_inscription_compte'))
+            return redirect(url_for('stage_inscription_parental', id_enfant = id_pers, ecole = str(persForm.ecole.data), niveau = int(persForm.niveau.data)))
+        return redirect(url_for('stage_inscription_compte', id_pers = id_pers, ecole = str(persForm.ecole.data), niveau = int(persForm.niveau.data)))
     else:
         return render_template("stage/stage_inscription_basic.html",
                                 persForm=persForm,
@@ -63,12 +63,16 @@ def stage_inscription_compte():
             userError = True
 
         if userError or mdpError:
+            print("ERRORS IN THE FORMS")
             return render_template("stage/stage_inscription_compte.html" ,
                                     userForm = userForm,
                                     userError = userError,
                                     mdpError = mdpError)
 
-        insert_user(persForm, userform, id_pers)
+        insert_user(userForm, request.args.get('ecole', type=str), request.args.get('niveau', type=int), request.args.get('id_pers', 1, type=int))
+        print("REDIRECTING TO MEDS")
+
+        return redirect(url_for('stage_inscription_autorisationMedicale'))
     else:
         return render_template("stage/stage_inscription_compte.html" ,
                                 userForm = userForm,
@@ -81,6 +85,7 @@ def stage_inscription_parental():
 
     :return: Retourne le template de la page d'inscription à un stage
     """
+
     print("GENRATING FORMS")
     respLegForm=RespLegalForm()
     lieuForm=LieuForm()
@@ -91,12 +96,12 @@ def stage_inscription_parental():
 
     if respLegForm.validate_on_submit() & lieuForm.validate_on_submit():
         print("FORMS VALIDATED")
-
-        #inserts BD
         print("INSERTIONS")
+
         insert_lieu(lieuForm)
+        # insert_resp(respLegForm) TODO TODO TODO TODO
         print("REDIRECTION TO MEDICAL")
-        return redirect(url_for('stage_inscription_autorisationMedicale'))
+        return redirect(url_for('stage_inscription_compte', id_pers = id_enfant, ecole = str(persForm.ecole.data), niveau = int(persForm.niveau.data)))
     else:
         print("REDIRECTION TO EMPTY")
         return render_template("stage/stage_inscription_parental.html",
