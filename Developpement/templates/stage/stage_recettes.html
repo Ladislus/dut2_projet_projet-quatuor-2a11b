@@ -3,46 +3,99 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_recettes.css')}}">
 
 <script type="text/javascript">
-  // Mon code Javascript
-  // Scroller
-$(function(){
-  $('a[href*=#]').click(function() {
-  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var $target = $(this.hash);
-          $target = $target.length && $target || $('[name=' + this.hash.slice(1) +']');
-          if ($target.length) {
-              var targetOffset = $target.offset().top -0;
-              $('html,body').animate({scrollTop: targetOffset}, 300);
-              return false;
-          }
-      }
-  });
-});
+function plats(){
+  var url = window.location.href;
+  if (url == "http://localhost:5000/stage/recettes/#entree") {
+    document.getElementById("entree").style.display= "";
+    document.getElementById("plat").style.display= "none";
+    document.getElementById("dessert").style.display= "none";
+    document.getElementById("sucre").style.display= "none";
+    document.getElementById("sel").style.display= "none";
+  }
+  else if(url =="http://localhost:5000/stage/recettes/#plat"){
+    document.getElementById("entree").style.display= "none";
+    document.getElementById("plat").style.display= "";
+    document.getElementById("dessert").style.display= "none";
+    document.getElementById("sucre").style.display= "none";
+    document.getElementById("sel").style.display= "none";
+  }
+  else if(url =="http://localhost:5000/stage/recettes/#dessert"){
+    document.getElementById("entree").style.display= "none";
+    document.getElementById("plat").style.display= "none";
+    document.getElementById("dessert").style.display= "";
+    document.getElementById("sucre").style.display= "none";
+    document.getElementById("sel").style.display= "none";
+  }
+  else if(url =="http://localhost:5000/stage/recettes/#sucre"){
+    document.getElementById("entree").style.display= "none";
+    document.getElementById("plat").style.display= "none";
+    document.getElementById("dessert").style.display= "none";
+    document.getElementById("sucre").style.display= "";
+    document.getElementById("sel").style.display= "none";
+  }
+  else if(url =="http://localhost:5000/stage/recettes/#sel"){
+    document.getElementById("entree").style.display= "none";
+    document.getElementById("plat").style.display= "none";
+    document.getElementById("dessert").style.display= "none";
+    document.getElementById("sucre").style.display= "none";
+    document.getElementById("sel").style.display= "";
+  }
+  else{
+    document.getElementById("entree").style.display= "none";
+    document.getElementById("plat").style.display= "none";
+    document.getElementById("dessert").style.display= "none";
+    document.getElementById("sucre").style.display= "none";
+    document.getElementById("sel").style.display= "none";
+  }
+}
+var myvar;
+function m(){
+  myvar = setInterval('plats()',10);
+}
 </script>
 
-<body data-spy="scroll" data-target="#navbar">
+<body onLoad="m()" data-spy="scroll" data-target="#navbar">
   <header>
     <section>
-      <nav id="navbar2">
-        <ul id="nav" class="navbar-nav nav">
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Recettes par catégories <span class="caret"></span></a>
-            <ul id="navbar-ul" class="dropdown-menu">
-              <li id="nav-li"><a id="nav-li-a" class="sous_menu" href="#entree">Les Entrées</a></li>
-              <li id="nav-li"><a id="nav-li-a" class="sous_menu" href="#plat">Les Plats Principaux</a></li>
-              <li id="nav-li"><a id="nav-li-a" class="sous_menu" href="#dessert">Les Desserts</a></li>
+      <nav class="navbar-fixed-bottom">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: black">Recettes par catégories <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="choix" id="choix1" href="#entree">Les Entrées</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a class="choix" id="choix2" href="#plat">Les Plats Principaux</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a class="choix" id="choix3" href="#dessert">Les Desserts</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: black">Recettes par saveurs <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="choix" id="choix4" href="#sucre">Plats Sucrés</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a class="choix" id="choix5" href="#sel">Plats Salés</a></li>
+                </ul>
+              </li>
             </ul>
-          </li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Recettes par saveurs <span class="caret"></span></a>
-            <ul id="navbar-ul" class="dropdown-menu">
-              <li id="nav-li"><a id="nav-li-a" class="sous_menu" href="#sucre">Plats Sucrés</a></li>
-              <li id="nav-li"><a id="nav-li-a" class="sous_menu" href="#sel">Plats Salés</a></li>
-            </ul>
-          </li>
-        </ul>
+          </div>
+        </div>
       </nav>
     </section>
   </header>
   <section class="container">
+
+
     <article id="entree">
       <div class="titre">
         <h1>Les Entrées</h1>
@@ -77,6 +130,8 @@ $(function(){
           </div>
         </div>
     </article>
+
+
     <article id="plat">
       <div class="titre">
         <h1>Les Plats Principaux</h1>
@@ -111,8 +166,9 @@ $(function(){
           </div>
         </div>
     </article>
-    <article id="dessert">
 
+
+    <article id="dessert">
       <div class="titre">
         <h1>Les Desserts</h1>
         <img class="underline" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
@@ -132,20 +188,22 @@ $(function(){
         </div>
       </div>
         <div class="row">
-            <div class="col-sm-6 col-sm-6">
-              <div class="texte">
-              <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree3.jpg') }}" alt="Flan de Courgettes">
-              <h3>Flan de Courgettes <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
-            </div>
-            </div>
-            <div class="col-sm-6 col-sm-6">
-              <div class="texte">
-              <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree4.jpg') }}" alt="Terrine de poisson au basilic">
-              <h3>Terrine de poisson au basilic <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
-            </div>
+          <div class="col-sm-6 col-sm-6">
+            <div class="texte">
+            <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree3.jpg') }}" alt="Flan de Courgettes">
+            <h3>Flan de Courgettes <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+          </div>
+          </div>
+          <div class="col-sm-6 col-sm-6">
+            <div class="texte">
+            <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree4.jpg') }}" alt="Terrine de poisson au basilic">
+            <h3>Terrine de poisson au basilic <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
           </div>
         </div>
+      </div>
     </article>
+
+
     <article id="sucre">
       <div class="titre">
         <h1>Plats Sucrés</h1>
@@ -166,20 +224,22 @@ $(function(){
         </div>
       </div>
         <div class="row">
-            <div class="col-sm-6 col-sm-6">
-              <div class="texte">
-              <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree3.jpg') }}" alt="Flan de Courgettes">
-              <h3>Flan de Courgettes <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
-            </div>
-            </div>
-            <div class="col-sm-6 col-sm-6">
-              <div class="texte">
-              <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree4.jpg') }}" alt="Terrine de poisson au basilic">
-              <h3>Terrine de poisson au basilic <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
-            </div>
+          <div class="col-sm-6 col-sm-6">
+            <div class="texte">
+            <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree3.jpg') }}" alt="Flan de Courgettes">
+            <h3>Flan de Courgettes <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+          </div>
+          </div>
+          <div class="col-sm-6 col-sm-6">
+            <div class="texte">
+            <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree4.jpg') }}" alt="Terrine de poisson au basilic">
+            <h3>Terrine de poisson au basilic <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
           </div>
         </div>
+      </div>
     </article>
+
+
     <article id="sel">
       <div class="titre">
         <h1>Plats Salés</h1>
@@ -200,19 +260,19 @@ $(function(){
         </div>
       </div>
         <div class="row">
-            <div class="col-sm-6 col-sm-6">
-              <div class="texte">
-              <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree3.jpg') }}" alt="Flan de Courgettes">
-              <h3>Flan de Courgettes <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
-            </div>
-            </div>
-            <div class="col-sm-6 col-sm-6">
-              <div class="texte">
-              <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree4.jpg') }}" alt="Terrine de poisson au basilic">
-              <h3>Terrine de poisson au basilic <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
-            </div>
+          <div class="col-sm-6 col-sm-6">
+            <div class="texte">
+            <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree3.jpg') }}" alt="Flan de Courgettes">
+            <h3>Flan de Courgettes <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
+          </div>
+          </div>
+          <div class="col-sm-6 col-sm-6">
+            <div class="texte">
+            <img class="img-thumbnail" src="{{ url_for('static',filename='img/entree4.jpg') }}" alt="Terrine de poisson au basilic">
+            <h3>Terrine de poisson au basilic <a download="fichetechnique.pdf" href="{{ url_for('static',filename='fichier_statique/fichetechnique.pdf')}}" ><small><span class="glyphicon glyphicon-save"></span></small></a></h3>
           </div>
         </div>
+      </div>
     </article>
   </section>
 </body>
