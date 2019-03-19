@@ -7,8 +7,7 @@
 </div>
 <div class="stagiaire-all">
   <div class="stagiaire-annee">
-    {% for articles in dico_articles %}
-    <h2>{{ articles }}</h2>
+    <h2>Articles</h2>
     <div class="stagiaire-individu table-responsive">
       <table  class="table table-bordered">
         <thead>
@@ -20,16 +19,16 @@
             <th>Texte</th>
           </tr>
         </thead>
+        {% for articles in dico_articles %}
         <tbody>
           <!-- {% for article in dico_articles[articles] %} -->
-          {% for article in articles %}
           <tr>
             <!-- titre date contenu  -->
-            <td>{{ article }}</td>
-            <td>{{ article }}</td>
-            <td>{{ article }}</td>
-            <td>{{ article }}</td>
-            <td>{{ article }}</td>
+            <td>{{ articles }}</td>
+            <td>{{ articles }}</td>
+            <td>{{ articles }}</td>
+            <td>{{ articles }}</td>
+            <td>{{ articles }}</td>
             <td>
               <a href="/administration/modifierStagiaire/" class="btn btn-default">
                 <span class="glyphicon glyphicon-pencil"></span>
@@ -39,15 +38,14 @@
               </a>
             </td>
           </tr>
-          <!-- {% endfor %} -->
         </tbody>
+        {% endfor %}
       </table>
       <input type="file" id="file1">
       <button type="button" class="btn btn-default">
         <i class="icon-upload icon-white"></i> Ajouter
       </button>
     </div>
-    {% endfor %}
   </div>
 </div>
 
