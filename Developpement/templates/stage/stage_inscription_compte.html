@@ -15,6 +15,7 @@
     <div class="row">
       <div class="col-sm-11">
         <form class="form-horizontal" role="form" method="POST" >
+          {{ userForm.hidden_tag() }}
           <h4>Information de connexion</h4>
           <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
           <div class="form-group">
