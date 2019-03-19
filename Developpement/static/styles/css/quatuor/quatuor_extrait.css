@@ -5,14 +5,47 @@
   width: 90%;
   text-align: center;
   margin-left: 5%;
-  border-bottom: 0.1em;
+  margin-top: 3%;
   border-style: solid;
   border-collapse: collapse;
 }
 #titre-descr{
-  margin-left: 15%;
+  margin-left: 10%;
 }
 #audio-download{
-  margin-left: 15%;
-  margin-top: 1.7%;
+  margin-left: 10%;
+  display: flex;
+}
+#glyph{
+  font-size: 175%;
+  margin-top: 250%;
+  margin-left: 100%;
+  color: black;
+}
+h1{
+  text-align: center;
+}
+.center{
+  text-align: center;
+}
+
+.next a, .previous a{
+  color: black;
+}
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: black;
+    border-color: black;
+}
+
+.pagination li a{
+  color: black
+}
+
+#glyph-music{
+  font-size: 400%;
+  margin-top: 3.8%;
+  margin-left: 7%;
 }
