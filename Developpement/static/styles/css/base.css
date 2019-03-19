@@ -1,21 +1,27 @@
 @font-face{
   font-family: "Roboto";
-  src: url('../../Police/Roboto-Light.ttf');
+  src: url('../../Police/Roboto-Medium.ttf');
 }
 @font-face{
   font-family: "aaa";
   src: url('../../Police/Aaargh.ttf');
 }
+
+@font-face {
+    font-family: "quick"
+    src:url('../../Police/Quicksand_Book.otf');
+}
+
 #main{
   margin-top: 5em;
   background-color: #ffffffaa;
   border-radius: 1em;
 }
-
 body{
   background-image: url("../../img/imgFond.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
+  font-family: "aaa";
 }
 
 @font-face {
@@ -26,7 +32,7 @@ body{
 
 @media screen and (min-width: 768px) {
  .navbar:hover .dropdown-toggle:hover{
-   background-color: lightgrey;
+   background-color: white;
  }
  .dropdown-toggle:hover p{
    color: black;
@@ -38,19 +44,25 @@ body{
   margin-top: -18%;
 }
 
+.navbar-nav{
+  margin-top: 1%;
+  font-size: 150%;
+  margin-left: -5%;
+  width: auto;
+}
+
 .navbar-collapse{
   background-color: black;
 }
 
 .navbar-nav:hover .dropdown-toggle:hover{
-  background-color: lightgrey;
+  background-color: white;
   color: black;
 }
 
 li.dropdown:hover > .dropdown-menu {
     display: block;
 }
-
 /*  Fin du menu de navigation  */
 
 h1{
@@ -68,4 +80,17 @@ h3{
 h1{
   text-align: center;
   margin-bottom: 2%;
+}
+#logo{
+  width: 48%;
+  margin-left: -25%;
+  display: flex;
+}
+
+.navbar-default{
+  background-color: black;
+}
+
+.navbar-default p{
+  color:white;
 }
