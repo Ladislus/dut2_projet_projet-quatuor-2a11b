@@ -2,7 +2,7 @@ from .functions import crypt
 from .getters import get_user
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, SelectMultipleField, StringField, TextField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Length
 
 class InscriptionForm(FlaskForm):
     nomPers         = StringField('Nom', validators=[DataRequired()])
@@ -30,10 +30,9 @@ class PersonForm(FlaskForm):
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
     tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
     mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
-    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[], validators=[DataRequired()])
+    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[("test", "onsaitpas")], validators=[DataRequired()])
     niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
     ecole           = StringField('Ecole', validators=[DataRequired()])
-    typePratique    = StringField('Type de pratique')
 
 class NiveauForm(FlaskForm):
     niveau = SelectField('Niveau', choices=[("Niveau 1"),("Niveau 2"),("Niveau 3")])
@@ -46,7 +45,6 @@ class LieuForm(FlaskForm):
 class NiveauForm(FlaskForm):
     niveau = SelectField('Niveau', choices=['Niveau 1', 'Niveau 2', 'Niveau 3'], validators=[DataRequired()])
 
-
 class RespLegalForm(FlaskForm):
     nomResp         = StringField('Nom du Responsable', validators=[DataRequired()])
     prenomResp      = StringField('Prénom du Responsable', validators=[DataRequired()])
@@ -54,6 +52,7 @@ class RespLegalForm(FlaskForm):
     telTrav         = StringField('Téléphone travail')
     mailPers        = StringField('Adresse Mail Personnelle', validators=[DataRequired()])
     mailTrav        = StringField('Adresse Mail de Travail')
+    dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
 
 class User_ContactForm(FlaskForm):
     nomAuteur       = StringField('Nom Auteur mail', validators=[DataRequired()])
@@ -81,10 +80,8 @@ class AutorStage_MineurForm(FlaskForm):
     autorImagSite   = BooleanField('de ces photographies et vidéos sur le site Quatuor de clarinettes DIVERTIMENTO (adresse du site) en partie membres (accès privé par mot de passe)')
 
 class CreateAccountForm(FlaskForm):
-    username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
-    mail            = StringField('Adresse mail', validators=[DataRequired()])
-    confirmMail     = StringField('Confirmation Adresse Mail', validators=[DataRequired()])
-    mdp             = PasswordField('Mot de passe', validators=[DataRequired()])
+    username        = StringField('Nom d\'utilisateur', validators=[DataRequired(), Length(min = 7, max = 30)])
+    mdp             = PasswordField('Mot de passe', validators=[DataRequired(), Length(min = 7, max = 30)])
     mdpConfirm      = PasswordField('Confirmation Mot de passe', validators=[DataRequired()])
 
 class ConnectForm(FlaskForm):
