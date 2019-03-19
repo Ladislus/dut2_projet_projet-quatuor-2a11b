@@ -46,7 +46,6 @@ class LieuForm(FlaskForm):
 class NiveauForm(FlaskForm):
     niveau = SelectField('Niveau', choices=['Niveau 1', 'Niveau 2', 'Niveau 3'], validators=[DataRequired()])
 
-
 class RespLegalForm(FlaskForm):
     nomResp         = StringField('Nom du Responsable', validators=[DataRequired()])
     prenomResp      = StringField('Prénom du Responsable', validators=[DataRequired()])
@@ -82,8 +81,6 @@ class AutorStage_MineurForm(FlaskForm):
 
 class CreateAccountForm(FlaskForm):
     username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
-    mail            = StringField('Adresse mail', validators=[DataRequired()])
-    confirmMail     = StringField('Confirmation Adresse Mail', validators=[DataRequired()])
     mdp             = PasswordField('Mot de passe', validators=[DataRequired()])
     mdpConfirm      = PasswordField('Confirmation Mot de passe', validators=[DataRequired()])
 
