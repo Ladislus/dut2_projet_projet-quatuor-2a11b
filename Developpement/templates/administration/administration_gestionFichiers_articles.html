@@ -19,16 +19,16 @@
             <th>Texte</th>
           </tr>
         </thead>
-        {% for articles in dico_articles %}
         <tbody>
           <!-- {% for article in dico_articles[articles] %} -->
+          {% for articles in dico_articles %}
           <tr>
             <!-- titre date contenu  -->
-            <td>{{ articles }}</td>
-            <td>{{ articles }}</td>
-            <td>{{ articles }}</td>
-            <td>{{ articles }}</td>
-            <td>{{ articles }}</td>
+            <td>{{articles[0]}}</td>
+            <td>{{articles[0]}}</td>
+            <td>{{articles[0]}}</td>
+            <td>{{articles[0]}}</td>
+            <td>{{articles[0]}}</td>
             <td>
               <a href="/administration/modifierStagiaire/" class="btn btn-default">
                 <span class="glyphicon glyphicon-pencil"></span>
@@ -38,14 +38,16 @@
               </a>
             </td>
           </tr>
+          {% endfor %}
+          <!-- {% endfor %} -->
         </tbody>
-        {% endfor %}
       </table>
       <input type="file" id="file1">
       <button type="button" class="btn btn-default">
         <i class="icon-upload icon-white"></i> Ajouter
       </button>
     </div>
+
   </div>
 </div>
 

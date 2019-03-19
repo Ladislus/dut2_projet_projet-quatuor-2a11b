@@ -7,12 +7,51 @@
   opacity: 100;
   color: rgb(73, 73, 73);
 }
-#myCarousel2{
-  margin-top: 2%;
+
+#fleche{
+  color: black;
+  opacity: 1;
+}
+
+#titre{
+  margin-top: -5%;
+  margin-bottom: 5%;
+}
+
+#page{
+  margin-bottom: 10%;
+  margin-top: 10%;
+}
+
+#slide{
+  opacity:1;
+  background-image: url("/img/fond2.jpg");
+}
+
+#image{
+  height: 40vw;
+}
+
+#myCarousel{
+  background-color: white;
   margin-bottom: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
+
 #contour{
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: black;
   border-radius: 10px;
+  width: 60%;
 }
-  
+
+h3{
+  color:white;
+}
+
+#contour p{
+  color: white;
+  text-align: justify;
+  margin-left: 10%;
+  margin-right: 10%;
+}
