@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block main %}
-<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_presse.css')}}">
 <!--
 <h1>{{ article[0] }}</h1>
@@ -14,7 +13,7 @@
 
     <div class="article-titre"style="">
        <h1>{{ article[0] }}</h1>
- 
+
     </div>
     <div class="article-image" style="">
        <img src="{{ url_for('static',filename='img/'+article[3]+'.png') }}">
