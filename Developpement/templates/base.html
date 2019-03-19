@@ -4,90 +4,134 @@
 
 {% block styles %}
 {{ super() }}
+<link rel="icon" href="../../favicon.ico">
+<link rel="canonical" href="https://getbootstrap.com/docs/3.3/examples/navbar-fixed-top/">
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
-<link rel="stylesheet" href="css/bootstrap-select.css">
-{% endblock %}
 
+<title>Fixed Top Navbar Example for Bootstrap</title>
+
+<!-- Bootstrap core CSS -->
+<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="navbar-fixed-top.css" rel="stylesheet">
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+{% endblock %}
 {% block navbar %}
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-        <a href="/quatuor/presentation/"><img id='logo' src="{{ url_for('static', filename='img/diverti.png')}}"/></a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><p>Quatuor</p></a>
-          <ul class="dropdown-menu">
-            <li><a href="/quatuor/presentation/">Présentation</a></li>
-            <li><a href="/quatuor/repertoire/">Repertoire</a></li>
-            <li><a href="/quatuor/extrait/0">Extrait</a></li>
-            <li><a href="/quatuor/presse/all/0">Presse</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><p>Stage</p></a>
-          <ul class="dropdown-menu">
-            <li><a href="/stage/presentation/">Présentation</a></li>
-            <li><a href="/stage/inscription/">Inscription</a></li>
-            <li><a href="/stage/programmes/">Programmes</a></li>
-            <li><a href="/stage/presse/all/0">Presse</a></li>
-            <li><a href="/stage/recettes/">Recettes</a></li>
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- <a class="navbar-brand" href="#">Divertimento</a> -->
+          <img class="navbar-brand" href="#" src="{{ url_for('static',filename='img/logo-quatuor.png') }}" alt="logo">
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle sommaire" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: black">Quatuor <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/quatuor/presentation/">Présentation</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/quatuor/repertoire/">Repertoire</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/quatuor/extrait/0">Extrait</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/quatuor/presse/all/0">Presse</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle sommaire" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: black">Stage <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/stage/presentation/">Présentation</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/stage/inscription/">Inscription</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/stage/programmes/">Programmes</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/stage/presse/all/0">Presse</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/stage/recettes/">Recettes</a></li>
 
+                {% if current_user.is_authenticated %}
+
+                <li><a href="/stage/repertoire/">Repertoire</a></li>
+                <li><a href="/stage/partitions/">Partitions</a></li>
+                <li><a href="/stage/souvenirs/">Souvenirs</a></li>
+                <li><a href="/stage/paiement/">Paiement</a></li>
+
+                {% endif %}
+
+              </ul>
+            </li>
+            <li><a href="/other/concerts/" class="sommaire" style="color: black">Concerts</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle sommaire" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: black">Autour de la clarinette <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/autourClarinette/historique/">Historique</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/autourClarinette/informations/">Informations</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle sommaire" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: black">Contact <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/contact/administratif/">Administratif</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/contact/mentionsLegales/">Mentions Legales</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/contact/renseignements/">Renseignements</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/contact/ficheTechnique/">Fiche Technique</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/contact/plaquette/">Plaquette</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/contact/musical/">Musical</a></li>
+              </ul>
+            </li>
+            <li><a href="/other/liens/" class="sommaire" style="color: black">Liens</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle sommaire" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: black">Panneau d'administration <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/administration/gestionFichiers/">Gestion des fichiers</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/administration/gestionStagiaires/">Gestion des stagiaires</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/administration/gestionStages/">Gestion des stages</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/administration/mailing/">Mailing</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
             {% if current_user.is_authenticated %}
-
-            <li><a href="/stage/repertoire/">Repertoire</a></li>
-            <li><a href="/stage/partitions/">Partitions</a></li>
-            <li><a href="/stage/souvenirs/">Souvenirs</a></li>
-            <li><a href="/stage/paiement/">Paiement</a></li>
-
+            <li><a>{{ current_user.username }}</a></li>
+            <li><a href="/other/deconnexion/" style="color: black"><small><span class="glyphicon glyphicon-log-out sommaire"></span></small></a></li>
+            {% else %}
+            <li><a href="/other/connexion/" style="color: black"><small><span class="glyphicon glyphicon-log-in sommaire"></span></small></a></li>
             {% endif %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
-          </ul>
-        </li>
-        <li><a class="dropdown-toggle" href="/other/concerts/"><p>Concerts</p></a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><p>Autour de la clarinette</p></a>
-          <ul class="dropdown-menu">
-            <li><a href="/autourClarinette/historique/">Historique</a></li>
-            <li><a href="/autourClarinette/informations/">Informations</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><p>Contact</p></a>
-          <ul class="dropdown-menu">
-            <li><a href="/contact/administratif/">Administratif</a></li>
-            <li><a href="/contact/mentionsLegales/">Mentions Legales</a></li>
-            <li><a href="/contact/renseignements/">Renseignements</a></li>
-            <li><a href="/contact/ficheTechnique/">Fiche Technique</a></li>
-            <li><a href="/contact/plaquette/">Plaquette</a></li>
-            <li><a href="/contact/musical/">Musical</a></li>
-          </ul>
-        </li>
-        <li><a class="dropdown-toggle" href="/other/liens/"><p>Liens</p></a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><p>Panneau d'administration</p></a>
-          <ul class="dropdown-menu">
-            <li><a href="/administration/gestionFichiers/">Gestion des fichiers</a></li>
-            <li><a href="/administration/gestionStagiaires/">Gestion des stagiaires</a></li>
-            <li><a href="/administration/gestionStages/">Gestion des stages</a></li>
-            <li><a href="/administration/mailing/">Mailing</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        {% if current_user.is_authenticated %}
-        <li><a>{{ current_user.username }}</a></li>
-        <li><a href="/other/deconnexion/"><small><span class="glyphicon glyphicon-log-out"></span></small></a></li>
-        {% else %}
-        <li><a href="/other/connexion/"><small><span class="glyphicon glyphicon-log-in"></span></small></a></li>
-        {% endif %}
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div>
-</nav>
+
 {% endblock %}
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
 
 {% block content %}
