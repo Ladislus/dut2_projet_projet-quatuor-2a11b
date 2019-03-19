@@ -116,7 +116,7 @@ def administration_gestionFichiers_textes():
 
     :return: Retourne le template de la page de gestion des textes
     """
-    return render_template("administration/administration_gestionFichiers_textes.html")
+    return render_template("administration/administration_gestionFichiers_articles.html",dico_articles=liste)
 
 @app.route("/administration/gestionFichiers/textes/modification")
 # @roles_required(ADMIN)
@@ -125,7 +125,7 @@ def administration_gestionFichiers_textes_modification():
 
     :return: Retourne le template de la page de modification d'un texte qui sera dans une popup
     """
-    return render_template("administration/administration_gestionFichiers_textes_modification.html")
+    return render_template("administration/administration_gestionFichiers_articles_modification.html")
 
 @app.route("/administration/gestionStagiaires/")
 # @roles_required(ADMIN)

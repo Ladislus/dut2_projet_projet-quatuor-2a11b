@@ -30,7 +30,7 @@ body{
 
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
  .navbar:hover .dropdown-toggle:hover{
    background-color: white;
  }
@@ -62,7 +62,7 @@ body{
 
 li.dropdown:hover > .dropdown-menu {
     display: block;
-}
+} */
 /*  Fin du menu de navigation  */
 
 h1{
