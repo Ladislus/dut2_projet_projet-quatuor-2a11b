@@ -1,36 +1,34 @@
-{% extends "base.html" %}
+{% extends "administration/administration_gestionFichiers.html" %}
 {% block main %}
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionStagiaires.css')}}">
 <div class="liens">
-  <h1 id="hliens">Gestion des stagiaires</h1>
+  <h1 id="hliens">Gestion des articles</h1>
   <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
 </div>
 <div class="stagiaire-all">
-  {% for stagiaires in dico_stagiaire %}
   <div class="stagiaire-annee">
-    <h2>{{ stagiaires }}</h2>
+    <h2>Articles</h2>
     <div class="stagiaire-individu table-responsive">
       <table  class="table table-bordered">
         <thead>
           <tr>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>Age</th>
-            <th>Niveau</th>
-            <th>Mail</th>
-            <th>Role</th>
+            <th>Titre</th>
+            <th>Date</th>
+            <th>Auteur</th>
+            <th>ID</th>
+            <th>Texte</th>
           </tr>
         </thead>
         <tbody>
-          {% for stagiaire in dico_stagiaire[stagiaires] %}
+          <!-- {% for article in dico_articles[articles] %} -->
+          {% for articles in dico_articles %}
           <tr>
-            <!-- Nom Prenom age niveau mail role  -->
-            <td>{{ stagiaire[0] }}</td>
-            <td>{{ stagiaire[1] }}</td>
-            <td>{{ stagiaire[2] }}</td>
-            <td>{{ stagiaire[3] }}</td>
-            <td><a style="color:rgb(0, 0, 0)" href="">{{ stagiaire[4] }}</a></td>
-            <td>{{ stagiaire[5] }}</td>
+            <!-- titre date contenu  -->
+            <td>{{articles[0]}}</td>
+            <td>{{articles[0]}}</td>
+            <td>{{articles[0]}}</td>
+            <td>{{articles[0]}}</td>
+            <td>{{articles[0]}}</td>
             <td>
               <a href="/administration/modifierStagiaire/" class="btn btn-default">
                 <span class="glyphicon glyphicon-pencil"></span>
@@ -40,17 +38,17 @@
               </a>
             </td>
           </tr>
-
           {% endfor %}
+          <!-- {% endfor %} -->
         </tbody>
       </table>
-      <a href="/administration/modifierStagiaire/" class="btn btn-default">
-        <span class="glyphicon glyphicon-plus"></span>
-      </a>
+      <input type="file" id="file1">
+      <button type="button" class="btn btn-default">
+        <i class="icon-upload icon-white"></i> Ajouter
+      </button>
     </div>
 
   </div>
-  {% endfor %}
 </div>
 
 {% endblock %}
