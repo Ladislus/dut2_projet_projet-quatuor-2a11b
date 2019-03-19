@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% block main %}
-<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionStagiaires.css')}}">
-<div class="liens">
-  <h1 id="hliens">Gestion des fichiers</h1>
-  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
-</div>
-<div class="stagiaire-all">
-  <p> Type de fichiers à modifier </p>
-  <a href="/administration/gestionFichiers/videos/"><input type="submit" id="submit" class="btn btn-default" value="Vidéos"></a>
-  <a href="/administration/gestionFichiers/images/"><input type="submit" id="submit" class="btn btn-default" value="Images"></a>
-  <a href="/administration/gestionFichiers/articles/"><input type="submit" id="submit" class="btn btn-default" value="Articles"></a>
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionFichiers.css')}}">
+<div class="fichiers">
+  <div>
+    <h1 id="fic">Gestion des fichiers</h1>
+    <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+  </div>
+  <div class="types">
+    <p> Type de fichiers à modifier </p>
+    <a href="/administration/gestionFichiers/videos/"><input type="submit" id="submit" class="btn btn-default" value="Vidéos"></a>
+    <a href="/administration/gestionFichiers/images/"><input type="submit" id="submit" class="btn btn-default" value="Images"></a>
+    <a href="/administration/gestionFichiers/articles/"><input type="submit" id="submit" class="btn btn-default" value="Articles"></a>
+  </div>
 </div>
 
 {% endblock %}
