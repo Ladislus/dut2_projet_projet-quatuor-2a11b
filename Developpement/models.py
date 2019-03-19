@@ -73,7 +73,7 @@ class Personne(Base):
     telPersDeux = Column(String(10))
     dateNPers   = Column(Date)
 
-    idTuteur    = Column(Integer)                                               #TODO : obligatoire si age < 18; trigger pour savoir si tuteur.age > 18
+    idTuteur    = Column(Integer, ForeignKey("Personne.idPers"))                                               #TODO : obligatoire si age < 18; trigger pour savoir si tuteur.age > 18
 
     id_Lieu     = Column(Integer, ForeignKey("Lieu.idLieu"))
 
@@ -277,6 +277,16 @@ def insert_user(userForm, ecole, niveau, id_pers):
     print("SUCCESSFULLY ADDED THE ROLE")
     user_datastore.commit()
     print("COMMITTED !")
+
+def insert_resp(respForm, lieuForm, id_enfant):
+    id_lieu = insert_lieu(lieuForm)
+    p = Personne(nomPers = str(respForm.nomResp.data), prenomPers = str(respForm.prenomResp.data), telPersUn = str(respForm.telPers.data), telPersDeux = str(respForm.telTrav.data), mailPers = str(respForm.mailPers.data), dateNPers = datetime.strptime(str(respForm.dateNPers.data), '%Y-%m-%d'), id_Lieu = id_lieu)
+    db.session.add(p)
+    db.session.commit()
+
+    Personne.query.filter(Personne.idPers == id_enfant).first().idTuteur = Personne.query.filter(Personne.nomPers == str(respForm.nomResp.data), Personne.prenomPers == str(respForm.prenomResp.data), Personne.mailPers == str(respForm.mailPers.data)).first().idPers
+
+    db.session.commit()
 
 db.create_all()
 user_datastore.create_role(name = "ADMIN")

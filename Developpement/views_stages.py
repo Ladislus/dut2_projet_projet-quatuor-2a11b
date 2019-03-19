@@ -70,6 +70,7 @@ def stage_inscription_compte():
                                     mdpError = mdpError)
 
         insert_user(userForm, request.args.get('ecole', type=str), request.args.get('niveau', type=int), request.args.get('id_pers', 1, type=int))
+        #TODO insert instruments joués
         print("REDIRECTING TO MEDS")
 
         return redirect(url_for('stage_inscription_autorisationMedicale'))
@@ -95,18 +96,26 @@ def stage_inscription_parental():
     print(lieuForm.validate_on_submit())
 
     if respLegForm.validate_on_submit() & lieuForm.validate_on_submit():
+
+        if not est_majeur(str(respLegForm.dateNPers.data)):
+            return render_template("stage/stage_inscription_parental.html",
+                                    respLegForm=respLegForm,
+                                    lieuForm=lieuForm,
+                                    ageError=True)
+
         print("FORMS VALIDATED")
         print("INSERTIONS")
 
         insert_lieu(lieuForm)
-        # insert_resp(respLegForm) TODO TODO TODO TODO
+        insert_resp(respLegForm, lieuForm, request.args.get('id_enfant', type=int))
         print("REDIRECTION TO MEDICAL")
-        return redirect(url_for('stage_inscription_compte', id_pers = id_enfant, ecole = str(persForm.ecole.data), niveau = int(persForm.niveau.data)))
+        return redirect(url_for('stage_inscription_compte', id_pers = request.args.get('id_enfant', type=int), ecole = request.args.get("ecole", type=str), niveau = request.args.get("niveau", type=int)))
     else:
         print("REDIRECTION TO EMPTY")
         return render_template("stage/stage_inscription_parental.html",
                                 respLegForm=respLegForm,
-                                lieuForm=lieuForm)
+                                lieuForm=lieuForm,
+                                ageError=False)
 
 @app.route("/stage/partitions/")
 def stage_partitions():
