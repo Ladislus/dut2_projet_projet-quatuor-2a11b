@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block main %}
 <!-- Creation d'un boite de texte qui change automatiquement le contenue d'une balise <p>  -->
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_inscription.css')}}">
 
 <h1>Inscription à un Stage</h1>
@@ -15,34 +16,38 @@
   <div class="container" id="container1">
     <div class="row">
       <div class="col-sm-11">
-        <form class="form-horizontal" role="form" method="POST" action="{{ url_for('stage_inscription') }}">
-          {{ iForm.hidden_tag() }}
+        <form class="form-horizontal" role="form" method="POST" >
+          {{ persForm.hidden_tag() }}
           <div class="form-group">
-            <label for="nomPers">{{ iForm.nomPers.label }}</label>
-            <div>{{ iForm.nomPers(size=50, class_="form-control",placeholder="Demarest")}}</div>
+            <label for="nomPers">{{ persForm.nomPers.label }}</label>
+            <div>{{ persForm.nomPers(size=50, class_="form-control",placeholder="Demarest")}}</div>
           </div>
           <div class="form-group">
-            <label for="prenomPers">{{ iForm.prenomPers.label }}</label>
-            <div>{{ iForm.prenomPers(size=50, class_="form-control",placeholder="Liam")}}</div>
+            <label for="prenomPers">{{ persForm.prenomPers.label }}</label>
+            <div>{{ persForm.prenomPers(size=50, class_="form-control",placeholder="Liam")}}</div>
           </div>
           <div class="form-group">
-            <label for="dateNPers">{{ iForm.dateNPers.label }}</label>
+            <label for="dateNPers">{{ persForm.dateNPers.label }}</label>
             <div>
-                {{ iForm.dateNPers(size=50, class_="form-control", type="date", id="date")}}
+                {{ persForm.dateNPers(size=50, class_="form-control", type="date", id="date")}}
+            </div>
+          </div>
+          <h4>Contact</h4>
+          <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
+          <div class="form-group">
+            <label for="tel1Pers">{{ persForm.tel1Pers.label }}</label>
+            <div>
+                {{ persForm.tel1Pers(size=50, class_="form-control", type="tel", pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}", placeholder="06-33-59-20-90")}}
             </div>
           </div>
           <div class="form-group">
-            <label for="tel1Pers">{{ iForm.tel1Pers.label }}</label>
+            <label for="mailPers">{{ persForm.mailPers.label }}</label>
             <div>
-                {{ iForm.tel1Pers(size=50, class_="form-control", type="tel", pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}", placeholder="06-33-59-20-90")}}
+                {{ persForm.mailPers(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
             </div>
           </div>
-          <div class="form-group">
-            <label for="mailPers">{{ iForm.mailPers.label }}</label>
-            <div>
-                {{ iForm.mailPers(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
-            </div>
-          </div>
+          <h4>Adresse</h4>
+          <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
           <div class="form-group">
             <label for="adrResp">{{ lieuForm.adrLieu.label }}</label>
             <div>{{ lieuForm.adrLieu(size=100, class_="form-control",placeholder="16 Rue Victor Hugo")}}</div>
@@ -55,6 +60,8 @@
             <label for="villeResp">{{ lieuForm.villeLieu.label }}</label>
             <div>{{ lieuForm.villeLieu(size=50, class_="form-control", placeholder="Orleans")}}</div>
           </div>
+          <h4>Expérience</h4>
+          <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
           <div class="form-group">
             <label for="ecole">{{ persForm.ecole.label }}</label>
             <div>{{ persForm.ecole(size=50, class_="form-control",placeholder="Conservatoire")}}</div>
@@ -64,70 +71,20 @@
             <div>{{ persForm.typePratique(size=50, class_="form-control",placeholder="Casual")}}</div>
           </div>
           <div class="form-group">
-            <label for="clarJouees">{{ iForm.clarJouees.label}}</label>
-            <div>{{ iForm.clarJouees(size=100, class_="form-control selectpicker show-tick") }}</div>
+            <label for="clarJouees">{{ persForm.clarJouees.label}}</label>
+            <div>{{ persForm.clarJouees(size=10, class_="form-control selectpicker show-tick") }}</div>
           </div>
           <div class="form-group">
             <label for="usr">Votre Niveau</label>
-            <div>{{ iForm.niveau(class="form-control selectpicker show-tick", option="Niveau 1")}}</div>
+            <div>{{ persForm.niveau(class="form-control selectpicker show-tick", option="Niveau 1")}}</div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div id="age">
-    <h4>Responsable Légal</h4>
+  <div id="reste">
+    <h4>Autorisations</h4>
     <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
-    <div class="bigcontainer2">
-      <div class="container" id="container3">
-        <div class="row">
-          <div class="col-sm-11">
-            <form class="form-horizontal" role="form2" method="POST" action="{{ url_for('stage_inscription') }}">
-              {{ iForm.hidden_tag() }}
-              <div class="form-group">
-                <label for="nomResp">{{ iForm.nomResp.label }}</label>
-                <div>{{ iForm.nomResp(size=50, class_="form-control",placeholder="Demarest")}}</div>
-              </div>
-              <div class="form-group">
-                <label for="prenomResp">{{ iForm.prenomResp.label }}</label>
-                <div>{{ iForm.prenomResp(size=50, class_="form-control",placeholder="Liam")}}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container" id="container2">
-          <div class="row">
-            <div class="col-sm-11">
-              <div class="form-group">
-                <label for="telPers">{{ iForm.telPers.label }}</label>
-                <div>
-                  {{ iForm.telPers(size=50, class_="form-control", type="tel", pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}", placeholder="06-33-59-20-90")}}
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="telTrav">{{ iForm.telTrav.label }}</label>
-                <div>
-                  {{ iForm.telTrav(size=50, class_="form-control", type="tel", pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}", placeholder="06-33-59-20-90")}}
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="mailPers">{{ iForm.mailPers.label }}</label>
-                <div>
-                  {{ iForm.mailPers(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="mailTrav">{{ iForm.mailTrav.label }}</label>
-                <div>
-                  {{ iForm.mailTrav(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="reste">
       <div>
         <p class="p">ATTENTION Conformément à la loi n° 2002-303 du 4 mars 2002 relative aux droits des malades : En cas d’urgence, un élève accidenté ou malade est orienté et transporté par les services de secours d’urgence vers l’hôpital le mieux adapté. La famille est immédiatement avertie par nos soins. Un élève mineur ne peut sortir de l’hôpital qu’accompagné de sa famille. Si vous le souhaitez, dans l'intérêt de votre enfant, vous pouvez prendre rendez-vous avec les responsables de l’association pour nous expliquer un éventuel cadre clinique particulier, ou la prise d'un
                         traitement nécessitant notre vigilance.
@@ -136,27 +93,27 @@
       <h5>Autorise(nt) l'association DIVERTIMENTO:</h5>
       <div class="form-group">
         <div class="checkbox">
-          <label for="autorAudioPrive">{{ iForm.autorAudioPrive.label }}
-          {{ iForm.autorAudioPrive(class_="form-control",type="checkbox", value="",id="check2")}}
+          <label for="autorAudioPrive">{{ autorForm.autorAudioPrive.label }}
+          {{ autorForm.autorAudioPrive(class_="form-control",type="checkbox", value="",id="check2")}}
         </div>
       </div>
       <div class="form-group">
         <div class="checkbox">
-          <label for="autorImag">{{ iForm.autorImag.label }}
-          {{ iForm.autorImag(class_="form-control",type="checkbox", value="",id="check")}}
+          <label for="autorImag">{{ autorForm.autorImag.label }}
+          {{ autorForm.autorImag(class_="form-control",type="checkbox", value="",id="check")}}
         </div><br>
       </div>
       <h5>Autorise(nt) la diffusion:</h5>
       <div class="form-group">
         <div class="checkbox">
-          <label for="autorAudioPub">{{ iForm.autorAudioPub.label }}
-          {{ iForm.autorAudioPub(class_="form-control",type="checkbox", value="",id="check2")}}
+          <label for="autorAudioPub">{{ autorForm.autorAudioPub.label }}
+          {{ autorForm.autorAudioPub(class_="form-control",type="checkbox", value="",id="check2")}}
         </div>
       </div>
       <div class="form-group">
         <div class="checkbox">
-          <label for="autorImagSite">{{ iForm.autorImagSite.label }}
-          {{ iForm.autorImagSite(class_="form-control",type="checkbox", value="",id="check")}}
+          <label for="autorImagSite">{{ autorForm.autorImagSite.label }}
+          {{ autorForm.autorImagSite(class_="form-control",type="checkbox", value="",id="check")}}
         </div>
       </div>
       <p class="p">Dans le cadre des activités menées au sein du stage et pendant les concerts, des photographies ou des vidéos sur lesquelles vous apparaîtrez pourront être réalisées.
@@ -171,7 +128,7 @@
         <div class=form-group>
           <input type="submit" id="submit" class="btn btn-default" value="Continuer">
         </div>
-      </div>      
+      </div>
     </div>
 
 
