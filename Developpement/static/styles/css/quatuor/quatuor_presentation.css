@@ -1,20 +1,25 @@
+@font-face{
+  font-family: "Roboto";
+  src: url('../../../Police/Aaargh.ttf');
+}
+
 .division-membres {
   display: flex;
   align-items: flex-start;
 
 }
 
-.division-membres > * {
+.presentation-text p{
+  font-family: "Roboto";
+  font-size: 1.8vh;
+  width: 50%;
   text-align: center;
+  margin-left: 25%;
+  margin-top: 3%;
 }
-#imgMembre {
-  width: 10em;
-  border-radius: 1em;
-}
-.membres{
-  text-align: center;
-  margin-left: 23%;
-  margin-top: 15%;
+
+h1{
+  margin-top: 5%;
 }
 .titre-gpartie{
   text-align: center;
@@ -24,28 +29,72 @@
   display: flex;
   margin-bottom: 5%
 }
-.presentation-img{
-  height: 15em;
-  width: 20em;
-  border-radius: 5%;
-  margin-right: 2.5%;
-  margin-left: 2.5%;
-}
-.presentation-text{
-  font-family: Verdana,sans-serif;
-  font-size: 15px;
-  margin-top: 1%
-}
-
-.group-text-gauche{
-  margin-left: 10%
-}
-
-.group-text-droite{
-  margin-right: 10%
-}
 
 .fond-text{
   background-color: rgba(212, 212, 212, 0.13);
-  border-radius : 1%
+}
+#img1{
+  width:50%;
+  margin-left: 25%;
+  margin-top: 4%;
+}
+#img2{
+  width:50%;
+  margin-left: 25%;
+  margin-top: 2%;
+}
+#member1{
+  width: 20%;
+  margin: 2%;
+}
+
+#member2{
+  width: 20%;
+  margin: 2%;
+}
+#member3{
+  width: 20%;
+  margin: 2%;
+}
+#member4{
+  width: 20%;
+  margin: 2%;
+}
+.division-membres{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-top: -6%;
+}
+ul{
+  list-style-type: none;
+}
+
+#inst{
+  font-weight: bold;
+  margin-left: 3%;
+}
+
+h3{
+  font-weight: bold;
+}
+#Olivier-Roussillat, #Robert-Ramon, #Frederic-Dudilet, #Tony-Bigot{
+background-color: #fafdef;
+border-radius: 10%;
+width: 60%;
+margin: 2%;
+}
+
+#first-two{
+  display: flex;
+}
+#two-last{
+  display: flex;
+}
+
+.presentation-gdiv{
+  background-color: #fbfcef;
+  border-radius: 10%;
+  margin: 5%;
+  margin-top: -7%;
 }
