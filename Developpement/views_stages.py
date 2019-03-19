@@ -1,5 +1,8 @@
 from .views import *
 from .forms import *
+from .functions import est_majeur
+from .models import *
+
 @app.route("/stage/<int:id>")
 def stage_Id(id):
     a = get_stage(id)
@@ -15,14 +18,47 @@ def stage_presentation():
     """
     return render_template("stage/stage_presentation.html")
 
-@app.route("/stage/inscription/")
+@app.route("/stage/inscription/", methods = ["GET", "POST"])
 def stage_inscription():
     """
 
     :return: Retourne le template de la page d'inscription à un stage
     """
-    iForm = InscriptionForm()
-    return render_template("stage/stage_inscription.html", iForm=iForm)
+    persForm=PersonForm()
+    respLegForm=RespLegalForm()
+    autorSta_mineurForm=AutorStage_MineurForm()
+    lieuForm=LieuForm()
+
+    print(persForm.validate_on_submit())
+    print(autorSta_mineurForm.validate_on_submit())
+    print(lieuForm.validate_on_submit())
+    print(respLegForm.validate_on_submit())
+
+    if persForm.validate_on_submit() & autorSta_mineurForm.validate_on_submit() & lieuForm.validate_on_submit():
+
+        #Cas non majeur
+        if ((not est_majeur(str(persForm.dateNPers.data))) & (respLegForm.validate_on_submit())):
+                #insert BD
+                insert_lieu(lieuForm)
+                return redirect(url_for('stage_inscription_autorisationMedicale'))
+        else:
+            print("Responsable legal : PAS OK")
+            return render_template("stage/stage_inscription.html",
+                                persForm=persForm,
+                                respLegForm=respLegForm,
+                                autorSta_mineurForm=autorSta_mineurForm,
+                                lieuForm=lieuForm)
+        print("Majeur")
+        #add db
+        id_lieu = insert_lieu(lieuForm)
+        return redirect(url_for('stage_inscription_autorisationMedicale'))
+    else:
+        print("EMPTY")
+        return render_template("stage/stage_inscription.html",
+                                persForm=persForm,
+                                respLegForm=respLegForm,
+                                autorSta_mineurForm=autorSta_mineurForm,
+                                lieuForm=lieuForm)
 
 @app.route("/stage/partitions/")
 def stage_partitions():
@@ -43,16 +79,21 @@ def stage_souvenirs():
     return render_template("stage/stage_souvenirs.html",
                             souvForm=souvForm)
 
-@app.route("/stage/inscription/autorisationMedicale/")
+@app.route("/stage/inscription/autorisationMedicale/", methods = ["GET", "POST"])
 def stage_inscription_autorisationMedicale():
     """
 
     :return: Retourne le template de la page d'autorisation médicale pour un stage
     """
-    form=AutorMedForm()
-    return render_template("stage/stage_inscription_autorisationMedicale.html",form=form)
+    form=AutorMedicForm()
 
-@app.route("/stage/inscription/valide")
+    if form.validate_on_submit():
+        #add bd
+        return redirect(url_for('stage_inscription_valide'))
+    return render_template("stage/stage_inscription_autorisationMedicale.html",
+                            form=form)
+
+@app.route("/stage/inscription/valide", methods = ["GET", "POST"])
 def stage_inscription_valide():
     """
 
