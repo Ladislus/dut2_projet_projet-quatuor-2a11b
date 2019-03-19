@@ -1,4 +1,8 @@
 from .views import *
+import datetime
+
+
+
 @app.route("/contact/administratif/")
 def contact_administratif():
     """
@@ -37,5 +41,12 @@ def contact_plaquette():
 
     :return: Retourne le template de la plaquette actuelle
     """
-
-    return render_template("contact/contact_plaquette.html")
+    now = datetime.datetime.now()
+    ListePlaquette={}
+    for i in range(now.year,2017,-1):
+        i = str(i)
+        ListePlaquette[i]=[]
+        ListePlaquette[i].append("PLAQUETTE_STAGE_-_"+str(i)+"_-_Niveau_1_Adultes.pdf")
+        ListePlaquette[i].append("PLAQUETTE_STAGE_-_"+str(i)+"_-_Niveau_1.pdf")
+        ListePlaquette[i].append("PLAQUETTE_STAGE_-_"+str(i)+"_-_Niveau_2.pdf")
+    return render_template("contact/contact_plaquette.html",ListePlaquette=ListePlaquette)

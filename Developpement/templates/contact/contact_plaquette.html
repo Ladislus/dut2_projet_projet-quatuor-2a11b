@@ -5,14 +5,19 @@
 <div class="liens">
   <h2 id="hliens">Plaquette du Quatuor</h2>
   <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
-  {{ ListePlaquette }}
-  {% for annee in ListePlaquette %}
-    {% for elem in ListePlaquette[annee] %}
 
+  {% for annee in ListePlaquette %}
+  <br>
+  <h2 id="hliens">{{ annee }}</h2>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+
+    {% for elem in ListePlaquette[annee] %}
   <div class="center" style="display:">
-    <embed src="{{ url_for('static',filename='plaquettes_stage/+annee+/+elem')}}" width=75% height=800em type='application/pdf'/>
+    <embed src="{{ url_for('static',filename='plaquettes_stage/'+annee+'/'+elem)}}" width=75% height=800em type='application/pdf'/>
     <br>
-    <a href="{{ url_for('static',filename='plaquettes_stage/+annee+/+elem')}}" download="{{ elem }}"><span class="glyphicon glyphicon-save"></span> Télécharger la plaquette</a>
+    <a href="{{ url_for('static',filename='plaquettes_stage/'+annee+'/'+elem)}}" download="{{ elem }}"><span class="glyphicon glyphicon-save"></span> Télécharger la plaquette</a>
+    <p id="space"></p>
+
   </div>
   {% endfor %}
   {% endfor %}
