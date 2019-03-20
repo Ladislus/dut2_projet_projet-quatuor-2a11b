@@ -100,6 +100,9 @@
               </ul>
             </li>
             <li><a href="/other/liens/" class="sommaire" style="color: black">Liens</a></li>
+
+            {% if current_user.has_role('ADMIN') %}
+
             <li class="dropdown">
               <a href="#" class="dropdown-toggle sommaire" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: black">Panneau d'administration <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -112,6 +115,9 @@
                 <li><a href="/administration/mailing/">Mailing</a></li>
               </ul>
             </li>
+
+            {% endif %}
+
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {% if current_user.is_authenticated %}

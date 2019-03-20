@@ -54,6 +54,9 @@ class Utilisateur(Base, UserMixin):
     articles       = relationship("Article", back_populates = "auteur")
     commentaires   = relationship("Commentaire", back_populates = "auteur")
 
+    def has_role(self, role):
+        return role in self.roles
+
 class Role(Base, RoleMixin):
     __tablename__ = "Role"
 
