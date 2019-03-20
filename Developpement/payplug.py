@@ -30,12 +30,14 @@ def retrieve_payment(payment_id,mail):
         #Evoyer un mail de confirmation
     except Exception as e:
         #notifier l'echec
+        pass
 
 
 def abort_payment(payment_id):
     # Abort from a payment ID
     payment_id = payment_id
     payment = payplug.Payment.abort(payment_id)
+
 
 
 def get_payments():
