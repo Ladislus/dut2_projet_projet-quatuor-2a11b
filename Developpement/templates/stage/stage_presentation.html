@@ -1,43 +1,65 @@
 {% extends "base.html" %}
 {% block main %}
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_presentation.css')}}">
-<div class="stage-presentation">
-  <h1 class="titre-gpartie">Présentation des Stages</h1>
-  <div class='first-subtitle'>
-    <div id="h2-1">
-      <h2>Les Profs</h2>
-      <img class="underline" src="{{ url_for('static',filename='img/underline3.png') }}">
-    </div>
-    <div class="list-profs">
-        <ul>
-            <li>
-                <div class="olivier">
-                <img src="{{ url_for('static',filename='img/Olivier-Roussillat.png')}}" class="img-rounded" alt="olivier" width="165" height="200">
-                <h3>Olivier Roussillat</h3>
-                </div>
-            </li>
-            <li>
-                <div class="frederic">
-                <img src="{{ url_for('static',filename='img/Frederic-Dudilet.png')}}" class="img-rounded" alt="olivier" width="165" height="200">
-                <h3>Frédéric Dudilet</h3>
-                </div>
-            </li>
-            <li>
-                <div class="robert">
-                <img src="{{ url_for('static',filename='img/Robert-Ramon.png')}}" class="img-rounded" alt="olivier" width="165" height="200">
-                <h3>Robert Ramon</h3>
-                </div>
-            </li>
-            <li>
-                <div class="tony">
-                <img src="{{ url_for('static',filename='img/Tony-Bigot.png')}}" class="img-rounded" alt="olivier" width="165" height="200">
-                <h3>Tony Bigot</h3>
-                </div>
-            </li>
-        </ul>
+<h1>Présentation des Stages</h1>
+  <h2>Les Profs</h2>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+  <div class="membres">
+    <div class="division-membres">
+      <div id = "first-two">
+        <div id="Tony-Bigot">
+          <h3> Tony Bigot </h3>
+          <img class="img-circle" id = "member1" src="{{ url_for('static',filename='img/Tony-Bigot.png') }}" alt="Tony Bigot"/>
+          <p id = "inst"> Clarinette Si Bémol et clarinette Mi Bémol</p>
+          <ul>
+            <li>Premier prix du conservatoire d’Orléans,</li>
+            <li>Premier prix régional (Région Centre),</li>
+            <li>Médaille d’or du CNR de Paris,</li>
+            <li>Titulaire du diplôme d’état de professeur de clarinette,</li>
+            <li>Professeur dans les écoles municipales de musique de <br> La Chapelle Saint-Mesmin (Loiret), Gien (Loiret) <br> et Saint Denis-en-Val (Loiret)</li>
+        </div>
+        <div id="Frederic-Dudilet">
+          <h3> Frédéric Dudilet </h3>
+          <img class="img-circle" id = "member2" src="{{ url_for('static',filename='img/Frederic-Dudilet.png') }}" alt="Frederic Dudilet"/>
+          <p id = "inst"> Clarinette Si Bémol</p>
+          <ul>
+            <li>Premier prix du conservatoire d’Orléans,</li>
+            <li>Premier prix régional (Région Centre),</li>
+            <li>Titulaire du CAPES (Musique),</li>
+            <li>Titulaire du diplôme d’état de professeur de clarinette,</li>
+            <li>Professeur au collège de Saint-Laurent-des-Eaux (Loir-et-Cher)</li>
+        </div>
+      </div>
+      <div id = "two-last">
+        <div id="Robert-Ramon">
+          <h3> Robert Ramon </h3>
+          <img class="img-circle" id = "member2" src="{{ url_for('static',filename='img/Robert-Ramon.png') }}" alt="Robert Ramon"/>
+          <p id = "inst"> Clarinette Si Bémol et Cor de Basset</p>
+          <ul>
+            <li>Premier prix du conservatoire d’Orléans,</li>
+            <li>Premier prix du conservatoire de Saint-Etienne,</li>
+            <li>Médaille d'or du conservatoire de Saint-Etienne,</li>
+            <li>Titulaire du diplôme d’état de professeur de clarinette,</li>
+            <li>Professeur du CRC d'Olivet</li>
+        </div>
+        <div id="Olivier-Roussillat">
+          <h3> Olivier Roussillat </h3>
+          <img class="img-circle" id = "member2" src="{{ url_for('static',filename='img/Olivier-Roussillat.png') }}" alt="Olivier Roussillat"/>
+          <p id = "inst"> Clarinette Basse</p>
+          <ul>
+            <li>Premier prix du conservatoire d’Orléans,</li>
+            <li>Premier prix régional (Région Centre),</li>
+            <li>Médaille d'or du CNR de Paris,</li>
+            <li>Ancien directeur de la Musique Municipale d'Orléans,</li>
+            <li>Titulaire du diplôme d’état de professeur de clarinette,</li>
+            <li>Professeur CRC Maurice Ravel de Fleury-Les-Aubrays (Loiret)</li>
+        </div>
+      </div>
+      </div>
     </div>
     <div id="h2-2"><h2>Vous inscrire à un Stage</h2>
     <img class="underline" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline"></div>
+      <div id="contain-tab-down">
         <div class="dropdowngeneral">
                 <h4>Votre Niveau: </h4>
                 <select class="form-control selectpicker show-tick">
@@ -86,6 +108,8 @@
               </tbody>
               {% endfor %}
             </table>
+          </div>
         </div>
+      </div>
     </div>
 {% endblock %}
