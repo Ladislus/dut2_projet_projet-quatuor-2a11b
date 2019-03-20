@@ -72,6 +72,15 @@ def page_not_found(e):
     """
     return render_template('other/page_404.html'),404
 
+
+@app.route("/other/profil")
+def profile():
+    """
+
+    :return: Retourne le template correspondant au profil de l'utilisateur
+    """
+    my_stages = ["Stage1", "Stage2"]
+    return render_template("other/profil.html", my_stages=my_stages)
 #NE PAS PRENDRE EN COMPTE
 @app.route("/other/test/")
 def other_test():
