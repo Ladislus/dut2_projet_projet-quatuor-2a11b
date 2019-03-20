@@ -9,18 +9,18 @@
   <p>{{ article[4] }} </p>
 </div> -->
 
-<div class="article"style="">
+<div class="article">
 
-   <div class="article-titre"style="">
+   <div class="article-titre">
       <h1>{{ article[0] }}</h1>
-
-   </div>
-   <div class="article-image" style="">
+ <div class="contain-img-text">
+   <div class="article-image">
       <img src="{{ url_for('static',filename='img/'+article[3]+'.png') }}">
    </div>
    <div class="article-text">
      <p>{{ article[4] }} </p>
    </div>
-    <p>Redige par {{ article[2] }} le {{ article[1] }}</p>
+    <p id="redige">Rédigé par {{ article[2] }} le {{ article[1] }}</p>
+  </div>
 </div>
 {% endblock %}

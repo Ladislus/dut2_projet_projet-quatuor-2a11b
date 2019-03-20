@@ -12,9 +12,9 @@
 .presentation-text p{
   font-family: "Roboto";
   font-size: 1.8vh;
-  width: 50%;
-  text-align: center;
-  margin-left: 25%;
+  width: 70%;
+  text-align: justify;
+  margin-left: 15%;
   margin-top: 3%;
 }
 
@@ -94,7 +94,7 @@ margin: 2%;
 
 .presentation-gdiv{
   background-color: #fbfcef;
-  border-radius: 10%;
+  border-radius: 5%;
   margin: 5%;
   margin-top: -7%;
 }

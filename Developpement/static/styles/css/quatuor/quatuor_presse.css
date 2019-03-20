@@ -9,34 +9,47 @@
 
 .article{
 height: 100%;
-width: 100%
-}
+width: 100%;
 
+}
+.contain-img-text{
+  background-color: #fafdef;
+  margin-top: 5%;
+  border-radius: 5%;
+  width:120%;
+  margin-left: -10%;
+}
 .article-titre {
 width: 50%;
 text-align: right;
 margin-left: 25%;
 z-index: 1;
-margin-bottom: 5%
-}
-.article-titre h1{
-  margin-bottom: -5%
-
+margin-bottom: 3%
 }
 
+h1{
+  text-align: center;
+}
 
 .article-image img{
 z-index: 2;
-height: 50%;
-width: 50%;
-margin-left: 25%;
-border-radius: 2%
+height: 90%;
+width: 90%;
+margin-right: 5%;
+margin-top: 5%;
+border-radius: 2%;
 }
 
 .article-text{
-  background-color: rgba(156, 156, 156, 0.22);
-  margin-top: 2.5%;
-  margin-bottom: 2%;
+  text-align: justify;
+  padding-top: 8%;
   margin-left: 10%;
   margin-right: 10%
+}
+
+#redige{
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  font-weight: bold;
 }

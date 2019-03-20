@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block main %}
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/quatuor/quatuor_presse_actu.css')}}">
+<h1>Presse du Quatuor</h1>
 <style>
   body {
     background-color: rgb(15, 15, 15)
@@ -62,13 +63,11 @@
   </div>
 
   <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Précedent</span>
+  <a id="slide" class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span id="fleche" class="glyphicon glyphicon-chevron-left"></span>
   </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Suivant</span>
+  <a id="slide" class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span id="fleche" class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div>
 
