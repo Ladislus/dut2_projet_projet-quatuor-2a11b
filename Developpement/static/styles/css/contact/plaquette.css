@@ -16,3 +16,20 @@
 .liens{
   text-align: center;
 }
+
+.center{
+  background-color: #fafdef;
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  margin-top: 3%;
+  padding: 5%;
+  border-radius: 25px;
+}
+#down{
+  color: black;
+}
+
+#contain-link-glyph{
+  padding-top: 4%;
+}
