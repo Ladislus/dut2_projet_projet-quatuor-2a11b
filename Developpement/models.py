@@ -130,7 +130,7 @@ class Stage(Base):
     idRep          = Column(Integer)                                               #TODO : Trigger lors de l'insertion/modification si l'idRep est dans Repertoire
     intituleSt     = Column(String(30), nullable = False)
     nbPlaceSt      = Column(Integer)
-    dateDebSt      = Column(Date, unique = True)                                   #TODO : Trigger lors de l'insertion/modification si un autre stage est en cour
+    dateDebSt      = Column(Date)                                   #TODO : Trigger lors de l'insertion/modification si un autre stage est en cour
     dateFinSt      = Column(Date, nullable = True)                                                  #TODO : trigger lors de l'insertion/modification si la date de fin n'est pas enterieur a la date de début
     idLieu         = Column(Integer)                                               #TODO : trigger lors de l'insertion/modification si l'idLieu est dans Lieu
     vetSt          = Column(String(40))
@@ -288,35 +288,69 @@ def insert_resp(respForm, lieuForm, id_enfant):
 
     db.session.commit()
 
+def ine(string):
+    return string != ""
+
 def insert_stage(stageForm):
     print("CREATING STAGE")
+
+    print("THE LIEU")
+    if ine(str(stageForm.adresseSt.data)) & ine(str(stageForm.villeSt.data)) & ine(str(stageForm.cpSt.data)):
+        lieuForm = LieuForm()
+        lieuForm.adrLieu.data = str(stageForm.adresseSt.data)
+        lieuForm.CPLieu.data = str(stageForm.cpSt.data)
+        lieuForm.villeLieu.data = str(stageForm.villeSt.data)
+        id_lieu = insert_lieu(lieuForm)
+    else:
+        id_lieu = None
+
+    print("DATE DEB : " + str(stageForm.dateDebSt.data))
     if stageForm.dateDebSt.data is None:
-        stageForm.dateDebSt.data = "0001-01-01"
-    s = Stage(intituleSt = str(stageForm.intituleSt.data), idRep=0, nbPlaceSt=0, dateDebSt=datetime.strptime(str(stageForm.dateDebSt.data), '%Y-%m-%d'), idLieu=0, vetSt='Smoking', prixSt=0.0, descSt='None', nivRequisSt=1)
+        dateD = None
+    else:
+        dateD = datetime.strptime(str(stageForm.dateDebSt.data), '%Y-%m-%d')
+    print("DATE DEB AFTER : " + str(dateD))
+
+    print("DATE FIN : " + str(stageForm.dateDebSt.data))
+    if stageForm.dateFinSt.data is None:
+        dateF = None
+    else:
+        dateF = datetime.strptime(str(stageForm.dateFinSt.data), '%Y-%m-%d')
+    print("DATE FIN AFTER : " + str(dateF))
+
+    if dateD is not None and dateF is not None:
+        if is_over(dateD, dateF):
+            raise ValueError
+
+    print("CREATING STAGE OBJECT")
+    s = Stage(intituleSt = str(stageForm.intituleSt.data),
+              nbPlaceSt = stageForm.nbPlaceSt.data,
+              dateDebSt=dateD,
+              dateFinSt=dateF,
+              idLieu=id_lieu,
+              vetSt=str(stageForm.tenueSt.data),
+              prixSt=stageForm.prixSt.data,
+              descSt=str(stageForm.descSt.data),
+              nivRequisSt=stageForm.nivRequisSt.data)
     print("STAGE CREATED")
     print(s)
     print("ADDING STAGE")
     db.session.add(s)
     print("STAGE ADDED")
-    # try:
-    print("COMMITTING")
     db.session.commit()
-    print("COMMITTED")
-    # except sqlalchemy.exc.IntegrityError:
-    #     print("ROLLBACK")
-    #     db.session.rollback()
-    #     raise ValueError
 
-def get_stage():
-    print(Stage.query.all())
+def get_stages(id = None, filter = None, critere = None):
+    if id is not None:
+        return Stage.query.filter(Stage.idSt == id).first()
     return Stage.query.all()
 
-def ine(string):
-    return string != ""
-
-#TODO quand il y aura les stages
-def test_dates(date1, date2):
-    pass
+def is_over(dateDeb, dateFin):
+    stages = get_stages()
+    for stage in stages:
+        if stage.dateDebSt is not None and stage.dateFinSt is not None:
+            if (datetime.strptime(str(stage.dateDebSt), '%Y-%m-%d') < datetime.strptime(str(dateDeb), '%Y-%m-%d') < datetime.strptime(str(stage.dateFinSt), '%Y-%m-%d')) or (datetime.strptime(str(stage.dateDebSt), '%Y-%m-%d') < datetime.strptime(str(dateFin), '%Y-%m-%d') < datetime.strptime(str(stage.dateFinSt), '%Y-%m-%d')):
+                return True
+    return False
 
 db.create_all()
 user_datastore.create_role(name = "ADMIN")

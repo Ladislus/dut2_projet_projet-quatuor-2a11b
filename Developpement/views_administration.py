@@ -165,16 +165,15 @@ def administration_creerStage():
 
     if stageForm.validate_on_submit():
 
-
-        # try:
-        insert_stage(stageForm)
-        print("NORMALEMENT LA REDIRECTION")
-        return redirect(url_for('administration_gestionStages'))
-        # except ValueError:
-        #     print("EXCEPTION !")
-        #     return render_template("administration/administration_creerStage.html",
-        #                             stageForm=stageForm,
-        #                             timeError=True)
+        try:
+            insert_stage(stageForm)
+            print("NORMALEMENT LA REDIRECTION")
+            return redirect(url_for('administration_gestionStages'))
+        except ValueError:
+            print("EXCEPTION !")
+            return render_template("administration/administration_creerStage.html",
+                                    stageForm=stageForm,
+                                    timeError=True)
     else:
         return render_template("administration/administration_creerStage.html",
                                 stageForm=stageForm,

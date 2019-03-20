@@ -22,7 +22,7 @@
   </div>
   <div class="form-group">
     {% if timeError %}
-    <p class="text-danger">Un stage commence déjà à cette date</p>
+    <p class="text-danger">Un autre stage est en cours pendant cette periode</p>
     {% endif %}
     <label for="dateDebSt" class="col-sm-3 control-label">{{stageForm.dateDebSt.label}}</label>
     <div class="col-sm-3">{{ stageForm.dateDebSt(size=50, class="form-control", type="date", placeholder="YYYY-MM-DD")}}</div>
