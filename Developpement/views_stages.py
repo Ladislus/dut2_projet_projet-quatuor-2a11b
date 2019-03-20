@@ -1,6 +1,5 @@
 from .views import *
 from .forms import *
-from .functions import est_majeur
 from .models import *
 
 from .views_other import *
