@@ -1,12 +1,14 @@
 {% extends "quatuor/quatuor_presse_actu.html" %}
+<h1>Presse du quatuor</h1>
 {% block presse %}
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/quatuor/quatuor_presse_all.css')}}">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <div class="container  liste-article">
   <br>
   {% for i in range(liste|length) %}
-  <div class="presse-titre {% if i%2==0 %}presse-paire{% else %} presse-impaire {% endif %}">
+  <div class="presse-titre">
     {% if i%2==0 %}
     <a href="{{'/quatuor/presse/article/'+liste[i][0]}}"><h3>{{liste[i][0]}}</h3></a>
     <div class="presse-vignette">
@@ -14,12 +16,12 @@
         <img src="{{ url_for('static',filename='img/'+liste[i][3]+'.png')}}" alt="Image de {{liste[i][0]}}">
          <p>Posté par {{liste[i][2]}} le {{liste[i][1]}}</p>
       </div>
-      <p>{{ liste[i][4]}}</p>
+      <p id = "parag-long">{{ liste[i][4]}}</p>
     </div>
     {% else %}
     <a href="{{'/quatuor/presse/article/'+liste[i][0]}}"><h3>{{liste[i][0]}}</h3></a>
     <div class="presse-vignette">
-      <p>{{ liste[i][4]}}</p>
+      <p id = "parag-long">{{ liste[i][4]}}</p>
       <div id="blocImage">
         <img src="{{ url_for('static',filename='img/'+liste[i][3]+'.png')}}" alt="Image de {{liste[i][0]}}">
         <p>Posté par {{liste[i][2]}} le {{liste[i][1]}}</p>

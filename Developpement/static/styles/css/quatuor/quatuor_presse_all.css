@@ -20,18 +20,41 @@
 .liste-article{
   margin-top: 5%
 }
-.presse-impaire{
-  background-color: rgba(175, 175, 175, 0.73);
-  border-radius: 1.5%;
+.presse-titre{
+  background-color: #fafdef;
+  text-align: center;
+  border-style: solid;
+  margin-top: -1.5%;
+  margin-bottom: 5%;
+  width: 97%;
 }
-.presse-impaire h3{
-  text-align: right;
+
+.presse-titre a{
+  color: black;
 }
-.presse-paire{
-  background-color: rgba(175, 175, 175, 0.52);
-  border-radius: 1.5%;
+#parag-long{
+  margin-top: 2.5%;
 }
 .center{
   text-align: center;
 }
- 
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: black;
+    border-color: black;
+}
+.pagination li a{
+  color: black
+}
+
+.next a, .previous a{
+  color: black;
+}
+
+h3{
+  font-weight: bold;
+  text-align: center;
+}
