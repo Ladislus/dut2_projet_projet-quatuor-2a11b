@@ -1,7 +1,6 @@
 .carousel-inner{
   height: 100%;
-  width: 70%;
-  margin-left: 15%;
+  width: 100%;
 }
 .carousel-caption{
   opacity: 100;
@@ -9,31 +8,28 @@
 }
 
 #fleche{
-  color: black;
+  color: white;
   opacity: 1;
 }
 
 #titre{
-  margin-top: -5%;
-  margin-bottom: 5%;
+  margin-top: -7%;
 }
 
 #page{
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   margin-top: 10%;
 }
 
 #slide{
   opacity:1;
-  background-image: url("/img/fond2.jpg");
 }
 
 #image{
-  height: 40vw;
+  height: 50vw;
 }
 
 #myCarousel{
-  background-color: white;
   margin-bottom: 2%;
   margin-left: 2%;
   margin-right: 2%;
@@ -54,4 +50,9 @@ h3{
   text-align: justify;
   margin-left: 10%;
   margin-right: 10%;
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 2%;
 }
