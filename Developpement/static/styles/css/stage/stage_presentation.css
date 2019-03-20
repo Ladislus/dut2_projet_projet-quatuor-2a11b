@@ -1,9 +1,61 @@
+#Olivier-Roussillat, #Robert-Ramon, #Frederic-Dudilet, #Tony-Bigot{
+background-color: #fafdef;
+border-radius: 10%;
+width: 60%;
+margin: 2%;
+}
+
+#member1{
+  width: 20%;
+  margin: 2%;
+}
+
+#member2{
+  width: 20%;
+  margin: 2%;
+}
+#member3{
+  width: 20%;
+  margin: 2%;
+}
+#member4{
+  width: 20%;
+  margin: 2%;
+}
+
+#first-two{
+  display: flex;
+}
+#two-last{
+  display: flex;
+}
+ul{
+  list-style-type: none;
+}
+h2{
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+#inst{
+  font-weight: bold;
+  margin-left: 3%;
+  text-align: center;
+}
+
+.division-membres{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
 .tableau{
   width:65%;
   margin-left:18%;
   margin-top:3%;
   font-family: 'aaa';
   text-align: center;
+  padding-bottom: 5%;
 }
 .tableau th{
   text-align: center;
@@ -12,6 +64,7 @@
   text-align: center;
   font-family: 'aaa';
   margin-top: 2%;
+  padding-bottom: 5%;
 }
 .global2{
   text-align: center;
@@ -48,9 +101,24 @@ h4{
   font-family: 'aaa';
   margin-left: 31.5%;
 }
-underline{
-  width: 10%;
+.underline{
+  width: 25%;
+  text-align: center;
+}
+.underline2{
+  width: 25%;
+  margin-top: -2%;
+  margin-left: 37.5%;
 }
 .btn{
   margin-top:2%;
+}
+#contain-tab-down{
+  background-color: #fafdef;
+  width: 90%;
+  margin-left: 4.8%;
+  border-radius: 5%;
+}
+h4{
+  padding-top: 10%;
 }
