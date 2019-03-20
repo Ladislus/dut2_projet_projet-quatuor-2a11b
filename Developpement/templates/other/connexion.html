@@ -10,6 +10,9 @@
   {% if msg %}
   <p class="text-info"> Il semblerait que vous ayez déjà un compte. Connectez vous pour finaliser l'inscription</p>
   {% endif %}
+  {% if errorLogin %}
+  <p class="text-error">Nom d'utilisateur ou mot de passe incorrect</p>
+  {% endif %}
   {{ connectForm.hidden_tag() }}
   <div class="form-group">
     <label for="username" class="col-sm-3 control-label">Nom d'utilisateur</label>

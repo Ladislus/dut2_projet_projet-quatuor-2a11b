@@ -1,5 +1,4 @@
-from .functions import crypt
-from .getters import get_user
+from .models import *
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, SelectMultipleField, StringField, TextField, TextAreaField
 from wtforms.validators import DataRequired, Length, Required, Optional
@@ -55,12 +54,13 @@ class RespLegalForm(FlaskForm):
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
 
 class User_ContactForm(FlaskForm):
-    nomAuteur       = StringField('Nom Auteur mail', validators=[DataRequired()])
-    prenomAuteur    = StringField('Prénom Auteur mail', validators=[DataRequired()])
+    nomAuteur       = StringField('Nom Auteur ', validators=[DataRequired()])
+    prenomAuteur    = StringField('Prénom Auteur', validators=[DataRequired()])
     mailAuteur      = StringField('Mail Auteur', validators=[DataRequired()])
-    objetMessage    = SelectField('Objet', choices=[], validators=[DataRequired()])
-    contenuMessage  = TextField('Contenu message', validaTextAreaFieldtors=[DataRequired()])
+    objetMessage    = SelectField('Objet', choices=[("choix","--Choix--"),('stage',"Stage"),('concert',"Concert"),("autre","autre")], validators=[DataRequired()])
+    contenuMessage  = TextAreaField('Contenu du message',validators=[DataRequired()])
     pjMessage       = StringField('PJ')
+    autrobjMessage  = TextField('Objet autre', validators=[DataRequired()])
 
 class Admin_ContactForm(FlaskForm):
     objetMessage    = SelectField('Objet', choices=[("choix","--Choix-- "),('admin', "Adminstratif "), ('music', "Musical "), ('ques', "Question "),('autre',"autre ")], validators=[DataRequired()])
@@ -91,12 +91,12 @@ class ConnectForm(FlaskForm):
     username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
     password        = PasswordField('Mot de passe', validators=[DataRequired()])
 
-    def get_authentificated_user(self):
+    def get_user(self):
         user = get_user(self.username.data)
         if user is None:
+            print("USER ING GETTER " + str(user))
             return None
-        passwd = crypt(self.password.data)
-        return user if passwd == user.password else None
+        return user if crypt(self.password.data) == user.mdpUt else None
 
 class OubliMdpForm(FlaskForm):
     mail            = StringField('Adresse mail', validators=[DataRequired()])
