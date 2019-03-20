@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/contact/plaquette.css')}}">
 
 <div class="liens">
-  <h1 id="hliens">Plaquette du Quatuor</h1>
+  <h1 id="hliens">Plaquettes du Quatuor</h1>
 
   {% for annee in ListePlaquette %}
   <br>
@@ -14,7 +14,7 @@
   <div class="center" style="display:">
     <embed src="{{ url_for('static',filename='plaquettes_stage/'+annee+'/'+elem)}}" width=75% height=800em type='application/pdf'/>
     <br>
-    <a href="{{ url_for('static',filename='plaquettes_stage/'+annee+'/'+elem)}}" download="{{ elem }}"><span class="glyphicon glyphicon-save"></span> Télécharger la plaquette</a>
+    <div id="contain-link-glyph"><a id="down" href="{{ url_for('static',filename='plaquettes_stage/'+annee+'/'+elem)}}" download="{{ elem }}"><span class="glyphicon glyphicon-save"></span> Télécharger la plaquette</a></div>
     <p id="space"></p>
 
   </div>
