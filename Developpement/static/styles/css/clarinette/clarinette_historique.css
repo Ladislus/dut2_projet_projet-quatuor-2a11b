@@ -1,19 +1,40 @@
-.titre-gpartie{
-  text-align: center;
-  margin-bottom: 10%;
-}
-.presentation-div{
+.well{
+  background-color: #fbfcef;
+  border-color: #fbfcef;
+  border-radius: 30px;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
   display: flex;
-  margin-bottom: 5%
+}
+h1{
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+.presentation-text{
+  text-align: justify;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+.presentation-img-titre{
+  width: 200%;
+  height: 200%;
 }
 .presentation-img{
-  height: 100%;
-  width: 100%;
-  border-radius: 5%;
-  margin-right: 2.5%;
-  margin-left: 2.5%;
+  width: 70%;
+  height: 70%;
 }
-.presentation-text{
-  font-family: Verdana,sans-serif;
-  font-size: 15px;
-}  
+.presentation-text-titre{
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.quatuor-clarinette{
+  margin-bottom: 5%;
+  margin-top: 3%;
+}
+
+.img-thumbnail{
+  background: white;
+}
