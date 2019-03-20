@@ -58,10 +58,10 @@
                 <li><a href="/stage/presse/all/0">Presse</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="/stage/recettes/">Recettes</a></li>
-                <li role="separator" class="divider"></li>
 
                 {% if current_user.is_authenticated %}
 
+                <li role="separator" class="divider"></li>
                 <li><a href="/stage/repertoire/">Repertoire</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="/stage/partitions/">Partitions</a></li>
@@ -115,9 +115,9 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {% if current_user.is_authenticated %}
-            <div id="connect">
-              <p class="nomUtil">{{ current_user.usernameUt }}</p>
-              <li class="nomUtil"><a href="/other/deconnexion/" style="color: black"><small><span class="glyphicon glyphicon-log-out sommaire"></span></small></a></li>
+            <div>
+              <p id="nomUtil">{{ current_user.usernameUt }}</p>
+              <li id="logoUtil"><a href="/other/deconnexion/" style="color: black"><small><span class="glyphicon glyphicon-log-out sommaire"></span></small></a></li>
             </div>
             {% else %}
             <li><a href="/other/connexion/" style="color: black"><small><span class="glyphicon glyphicon-log-in sommaire"></span></small></a></li>

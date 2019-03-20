@@ -62,12 +62,7 @@ body{
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-#connect{
-  overflow:hidden;
-  width:auto;
-  display:inline;
-}
-.nomUtil{
-  float:left;
-  margin-top: 5%;
+
+#nomUtil{
+  display: flex;
 }
