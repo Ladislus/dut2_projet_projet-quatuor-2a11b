@@ -6,7 +6,7 @@
 <div class="container  liste-article">
   <br>
   {% for i in range(liste|length) %}
-  <div class="presse-titre {% if i%2==0 %}presse-paire{% else %} presse-impaire {% endif %}">
+  <div class="presse-titre">
     {% if i%2==0 %}
     <h3>{{liste[i][0]}}</h3>
     <div class="presse-vignette">
