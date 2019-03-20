@@ -3,6 +3,7 @@
   src: url('../../Police/Aaargh.ttf');
 }
 
+
 table img{
   width: 18%;
 }
@@ -13,14 +14,18 @@ th, td{
   text-align: center;
   width: 15%;
 }
-th{
-  background-color: darkgrey;
-}
 td{
-  background-color: lightgrey;
+  background-color: rgba(242, 242, 242);
+  text-align: center;
+
 }
 
-input {
+th{
+  background-color: rgb(218, 218, 218);
+  text-align: center;
+}
+
+#fileupload {
 position: absolute;
 top: 0;
 right: 0;

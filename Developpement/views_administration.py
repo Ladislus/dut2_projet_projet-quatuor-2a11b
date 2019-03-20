@@ -86,17 +86,16 @@ def administration_gestionFichiers_videos():
     """
     dico={}
     dico['Quatuor']=[]
-    dico['Quatuor'].append(["Video 8","WAV","{{ url_for('static',filename='img/entree1.jpg') }}"])
-    dico['Quatuor'].append(["Video 7","MP4","{{ url_for('static',filename='img/entree2.jpg') }}"])
+    dico['Quatuor'].append(["Video 1","MP4",url_for('static',filename='video/video1.mp4'),url_for('static',filename='video/video1.mp4')])
     dico['Stage']=[]
-    dico['Stage'].append(["Video 6","MP4","{{ url_for('static',filename='img/entree1.jpg') }}"])
-    dico['Stage'].append(["Video 5","MP4","{{ url_for('static',filename='img/entree2.jpg') }}"])
+    dico['Stage'].append(["Video 2","MP4",url_for('static',filename='video/video2.mp4'),url_for('static',filename='video/video2.mp4')])
+    # dico['Stage'].append(["Video 5","MP4","{{ url_for('static',filename='img/entree2.jpg') }}"])
     dico['Concerts']=[]
-    dico['Concerts'].append(["Video 4","MP4","{{ url_for('static',filename='img/entree1.jpg') }}"])
-    dico['Concerts'].append(["Video 3","MP4","{{ url_for('static',filename='img/entree2.jpg') }}"])
+    dico['Concerts'].append(["Video 3","MP4",url_for('static',filename='video/video3.mp4'),url_for('static',filename='video/video3.mp4')])
+    dico['Concerts'].append(["Video 4","MP4",url_for('static',filename='video/video4.mp4'),url_for('static',filename='video/video4.mp4')])
     dico['Clarinette']=[]
-    dico['Clarinette'].append(["Video 2","MP4","{{ url_for('static',filename='img/entree1.jpg') }}"])
-    dico['Clarinette'].append(["Video 1","MP4","{{ url_for('static',filename='img/entree2.jpg') }}"])
+    dico['Clarinette'].append(["Video 5","WEBM",url_for('static',filename='video/video5.webm'),url_for('static',filename='video/video5.webm')])
+    # dico['Clarinette'].append(["Video 1","MP4","{{ url_for('static',filename='img/entree2.jpg') }}"])
     return render_template("administration/administration_gestionFichiers_videos.html",dico_videos=dico)
 
 
@@ -109,9 +108,9 @@ def administration_gestionFichiers_videos_modification():
     """
     return render_template("administration/administration_gestionFichiers_videos_modification.html")
 
-@app.route("/administration/gestionFichiers/textes/")
+@app.route("/administration/gestionFichiers/articles/")
 # @roles_required(ADMIN)
-def administration_gestionFichiers_textes():
+def administration_gestionFichiers_aticles():
     """
 
     :return: Retourne le template de la page de gestion des textes
