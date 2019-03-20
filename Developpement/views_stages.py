@@ -17,7 +17,7 @@ def stage_presentation():
 
     :return: Retourne le template de la page de presentation de stage
     """
-    return render_template("stage/stage_presentation.html", dico_stage=get_stage())
+    return render_template("stage/stage_presentation.html", dico_stage=get_stages())
 
 @app.route("/stage/inscription/", methods = ["GET", "POST"])
 def stage_inscription():
@@ -118,7 +118,7 @@ def stage_inscription_parental():
                                 ageError=False)
 
 @app.route("/stage/partitions/")
-# @roles_required("STAGIAIRE")
+@roles_accepted('ADMIN', 'STAGIAIRE')
 def stage_partitions():
     """
 
@@ -128,7 +128,7 @@ def stage_partitions():
     return render_template("stage/stage_partitions.html", niveauForm = niveauForm)
 
 @app.route("/stage/souvenirs/")
-# @roles_required("STAGIAIRE")
+@roles_accepted('ADMIN', 'STAGIAIRE')
 def stage_souvenirs():
     """
 
@@ -147,7 +147,7 @@ def stage_inscription_autorisationMedicale():
     form=AutorMedicForm()
 
     if form.validate_on_submit():
-        #add bd
+        #TODO add le stage à la BD
         return redirect(url_for('stage_inscription_valide'))
     return render_template("stage/stage_inscription_autorisationMedicale.html",
                             form=form)
@@ -211,7 +211,7 @@ def stage_presentation_stage(id):
         """
         stage = get_stages(id = id);
 
-        return render_template("stage/presentationStage.html", stage=stage)
+        return render_template("stage/presentationStage.html", stage = stage)
 
 
 @app.route("/stage/presse/all/<int:id>")
@@ -284,7 +284,7 @@ def stage_paiement():
     return render_template("stage/stage_paiement.html")
 
 @app.route("/stage/recettes/")
-# @roles_required("STAGIAIRE")
+@roles_accepted('ADMIN', 'STAGIAIRE')
 def stage_recettes():
     """
 
