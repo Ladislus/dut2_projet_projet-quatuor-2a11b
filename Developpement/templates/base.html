@@ -116,7 +116,8 @@
           <ul class="nav navbar-nav navbar-right">
             {% if current_user.is_authenticated %}
             <div>
-              <li id="logoUtil"><a href="/other/deconnexion/" style="color: black">{{ current_user.usernameUt }}<small><span class="glyphicon glyphicon-log-out sommaire"></span></small></a></li>
+              <button id="connect" href="/other/deconnexion/" class="btn btn-link">{{ current_user.usernameUt }}  <small><span class="glyphicon glyphicon-log-out sommaire"></span></small></button>
+              <!-- <li id="logoUtil"><a href="/other/deconnexion/" style="color: black">{{ current_user.usernameUt }}<small><span class="glyphicon glyphicon-log-out sommaire"></span></small></a></li> -->
             </div>
             {% else %}
             <li><a href="/other/connexion/" style="color: black"><small><span class="glyphicon glyphicon-log-in sommaire"></span></small></a></li>
