@@ -4,11 +4,8 @@
 }
 
 
-table img{
+table .image{
   width: 18%;
-}
-.underline2{
-  margin-left: 37%;
 }
 th, td{
   text-align: center;
@@ -17,7 +14,6 @@ th, td{
 td{
   background-color: rgba(242, 242, 242);
   text-align: center;
-
 }
 
 th{
@@ -47,7 +43,7 @@ overflow: hidden;
   text-align: center;
   margin-left: 41%;
 }
-p{
+.texte{
   text-align: center;
   font-family: "aaa";
   font-size: 130%;
