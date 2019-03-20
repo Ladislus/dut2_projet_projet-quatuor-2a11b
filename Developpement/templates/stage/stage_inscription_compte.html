@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block main %}
+<!-- Creation d'un boite de texte qui change automatiquement le contenue d'une balise <p>  -->
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_inscription.css')}}">
+
+<h1>Inscription à un Stage</h1>
+
+<div class='first-subtitle'>
+    <h3 id="h3title">Bulletin d'Inscription</h3>
+    <img class="underline" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+</div>
+<div class="bigcontainer">
+  <div class="container" id="container1">
+    <div class="row">
+      <div class="col-sm-11">
+        <form class="form-horizontal" role="form" method="POST" >
+          {{ userForm.hidden_tag() }}
+          <h4>Information de connexion</h4>
+          <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
+          <div class="form-group">
+            <label for="username">{{ userForm.username.label }}</label>
+            <div>{{ userForm.username(size=50, class_="form-control",placeholder="Mot de passe")}}</div>
+          </div>
+          {% if userError %}
+          <p class="text-danger">Nom d'utilisateur déjà pris</p>
+          {% endif %}
+          <div class="form-group">
+            <label for="mdp">{{ userForm.mdp.label }}</label>
+            <div>{{ userForm.mdp(size=50, class_="form-control",placeholder="Mot de passe")}}</div>
+          </div>
+          <div class="form-group">
+            <label for="mdpConfirm">{{ userForm.mdpConfirm.label }}</label>
+            <div>{{ userForm.mdpConfirm(size=50, class_="form-control",placeholder="Confirmation du mot de passe")}}</div>
+          </div>
+          {% if mdpError %}
+          <p class="text-danger">Les mots de passe ne correspondent pas</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=form-group>
+    <input type="submit" id="submit" class="btn btn-default" value="Continuer">
+  </div>
+
+  {% endblock %}

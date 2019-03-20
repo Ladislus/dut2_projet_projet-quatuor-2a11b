@@ -9,7 +9,9 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
 from flask_login import UserMixin
-from flask_security import RoleMixin, SQLAlchemySessionUserDatastore, Security
+from flask_security import RoleMixin, SQLAlchemyUserDatastore, Security
+
+from datetime import datetime
 
 Base = db.Model
 
@@ -26,6 +28,10 @@ stage_media           = Table("stage_media", Base.metadata,
                          Column("idSt", Integer, ForeignKey("Stage.idSt")),
                          Column("idMed", Integer, ForeignKey("Media.idMed")) )
 
+role_user             = Table("role_user", Base.metadata,
+                        Column("idUt", Integer, ForeignKey("Utilisateur.idUt")),
+                        Column("idRole", Integer, ForeignKey("Role.idRole")) )
+
 #Tables
 class Utilisateur(Base, UserMixin):
     __tablename__ = "Utilisateur"
@@ -35,13 +41,13 @@ class Utilisateur(Base, UserMixin):
     nivUt          = Column(Integer)
     usernameUt     = Column(String(30), nullable = False, unique = True)
     mdpUt          = Column(String(30), nullable = False)
-    roleUt         = Column(String(10), default = 'UTILISATEUR')
+    active         = Column(Boolean())
 
     id_Role        = Column(Integer, ForeignKey("Role.idRole"))
     id_Pers        = Column(Integer, ForeignKey("Personne.idPers"))
 
+    roles         = relationship("Role", secondary = role_user, back_populates = "membres")
     personne       = relationship("Personne")
-    roleUt         = relationship("Role", back_populates = "membres")
     instruments    = relationship("JoueInstrument", back_populates = "joueur")
     participations = relationship("Participe", back_populates = "utilisateur")
     instruInscrits = relationship("InscrireInstru", back_populates = "utilisateur")
@@ -52,9 +58,9 @@ class Role(Base, RoleMixin):
     __tablename__ = "Role"
 
     idRole  = Column(Integer, primary_key = True, autoincrement = True)
-    nomRole = Column(String(20), unique = True)
+    name = Column(String(20), unique = True)
 
-    membres = relationship("Utilisateur", back_populates = "roleUt")
+    membres = relationship("Utilisateur", back_populates = "")
 
 class Personne(Base):
     __tablename__ = "Personne"
@@ -62,12 +68,12 @@ class Personne(Base):
     idPers      = Column(Integer, primary_key = True, autoincrement = True)
     nomPers     = Column(String(20))
     prenomPers  = Column(String(20))
-    mailPers    = Column(String(50), unique = True)
+    mailPers    = Column(String(50))
     telPersUn   = Column(String(10), nullable = False)
     telPersDeux = Column(String(10))
     dateNPers   = Column(Date)
 
-    idTuteur    = Column(Integer)                                               #TODO : obligatoire si age < 18; trigger pour savoir si tuteur.age > 18
+    idTuteur    = Column(Integer, ForeignKey("Personne.idPers"))                                               #TODO : obligatoire si age < 18; trigger pour savoir si tuteur.age > 18
 
     id_Lieu     = Column(Integer, ForeignKey("Lieu.idLieu"))
 
@@ -241,5 +247,47 @@ def insert_lieu(form):
         print("ALREADY IN")
     return Lieu.query.filter(Lieu.adrLieu == str(form.adrLieu.data), Lieu.codeLieu == int(form.CPLieu.data), Lieu.villeLieu == str(form.villeLieu.data)).first().idLieu
 
-user_datastore = SQLAlchemySessionUserDatastore(db, Utilisateur, Role)
+user_datastore = SQLAlchemyUserDatastore(db, Utilisateur, Role)
 app.security = Security(app, user_datastore)
+
+def insert_personne(form, id_lieu):
+    if Personne.query.filter(Personne.nomPers == str(form.nomPers.data).upper(), Personne.prenomPers == str(form.prenomPers.data), Personne.mailPers == str(form.mailPers.data), Personne.telPersUn == str(form.tel1Pers.data), Personne.dateNPers == str(form.dateNPers.data)).first() is None:
+        existing = False
+        print("ADDING PERSON TO SESSION")
+        db.session.add(Personne(nomPers = str(form.nomPers.data).upper(), prenomPers = str(form.prenomPers.data), mailPers = str(form.mailPers.data), telPersUn = str(form.tel1Pers.data), dateNPers = datetime.strptime(str(form.dateNPers.data), '%Y-%m-%d'), id_Lieu = id_lieu))
+        print("SUCCESSFULLY ADDED PERSON TO SESSION")
+        print("COMMITTING")
+        db.session.commit()
+        print("COMMIT SUCCESSFUL")
+    else:
+        existing = True
+        print("ALREADY IN")
+    return (Personne.query.filter(Personne.nomPers == str(form.nomPers.data).upper(), Personne.prenomPers == str(form.prenomPers.data), Personne.mailPers == str(form.mailPers.data), Personne.telPersUn == str(form.tel1Pers.data), Personne.dateNPers == str(form.dateNPers.data)).first().idPers, existing)
+
+def try_username(username):
+    return Utilisateur.query.filter(Utilisateur.usernameUt == username).first() is None
+
+def insert_user(userForm, ecole, niveau, id_pers):
+    user = user_datastore.create_user(usernameUt  = str(userForm.username.data), mdpUt = crypt(str(userForm.mdp.data)), ecoleUt = ecole, nivUt = niveau, id_Pers = id_pers, roles = ["STAGIAIRE"])
+    print("THE USER IS" + str(user))
+    print("USER SUCCESSFULLY CREATED")
+    print("LINKING TO ROLE \"STAGIAIRE\"")
+    role_stagiaire = user_datastore.find_or_create_role(name = "STAGIAIRE")
+    user_datastore.add_role_to_user(user, role_stagiaire)
+    print("SUCCESSFULLY ADDED THE ROLE")
+    user_datastore.commit()
+    print("COMMITTED !")
+
+def insert_resp(respForm, lieuForm, id_enfant):
+    id_lieu = insert_lieu(lieuForm)
+    p = Personne(nomPers = str(respForm.nomResp.data), prenomPers = str(respForm.prenomResp.data), telPersUn = str(respForm.telPers.data), telPersDeux = str(respForm.telTrav.data), mailPers = str(respForm.mailPers.data), dateNPers = datetime.strptime(str(respForm.dateNPers.data), '%Y-%m-%d'), id_Lieu = id_lieu)
+    db.session.add(p)
+    db.session.commit()
+
+    Personne.query.filter(Personne.idPers == id_enfant).first().idTuteur = Personne.query.filter(Personne.nomPers == str(respForm.nomResp.data), Personne.prenomPers == str(respForm.prenomResp.data), Personne.mailPers == str(respForm.mailPers.data)).first().idPers
+
+    db.session.commit()
+
+db.create_all()
+user_datastore.create_role(name = "ADMIN")
+user_datastore.create_role(name = "STAGIAIRE")

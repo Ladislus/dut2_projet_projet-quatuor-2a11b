@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block main %}
+<!-- Creation d'un boite de texte qui change automatiquement le contenue d'une balise <p>  -->
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/base.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_inscription.css')}}">
+
+<h1>Inscription à un Stage</h1>
+
+<div class='first-subtitle'>
+    <h3 id="h3title">Bulletin d'Inscription</h3>
+    <img class="underline" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
+</div>
+<div id="age">
+  <h4>Responsable Légal</h4>
+  <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
+  <div class="bigcontainer2">
+    <div class="container" id="container3">
+      <div class="row">
+        <div class="col-sm-11">
+          <form class="form-horizontal" role="form2" method="POST">
+            {{ respLegForm.hidden_tag() }}
+            <div class="form-group">
+              <label for="nomResp">{{ respLegForm.nomResp.label }}</label>
+              <div>{{ respLegForm.nomResp(size=50, class_="form-control",placeholder="Demarest")}}</div>
+            </div>
+            <div class="form-group">
+              <label for="prenomResp">{{ respLegForm.prenomResp.label }}</label>
+              <div>{{ respLegForm.prenomResp(size=50, class_="form-control",placeholder="Liam")}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container" id="container2">
+        <div class="row">
+          <div class="col-sm-11">
+            <div class="form-group">
+              <label for="telPers">{{ respLegForm.telPers.label }}</label>
+              <div>
+                {{ respLegForm.telPers(size=50, class_="form-control", type="tel", pattern="[0-9]{10}", placeholder="0633592090")}}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="telTrav">{{ respLegForm.telTrav.label }}</label>
+              <div>
+                {{ respLegForm.telTrav(size=50, class_="form-control", type="tel", pattern="[0-9]{10}", placeholder="06-33-59-20-90")}}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="mailPers">{{ respLegForm.mailPers.label }}</label>
+              <div>
+                {{ respLegForm.mailPers(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="dateNPers">{{ respLegForm.dateNPers.label }}</label>
+              <div>
+                {{ respLegForm.dateNPers(size=50, class_="form-control", type="date", id="date")}}
+                {% if ageError %}
+                <p class="text-danger">Le responsable legal doit être majeur</p>
+                {% endif %}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="mailTrav">{{ respLegForm.mailTrav.label }}</label>
+              <div>
+                {{ respLegForm.mailTrav(size=50, class_="form-control", type="email", pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", placeholder="liam.demarest@orange.fr")}}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="adrResp">{{ lieuForm.adrLieu.label }}</label>
+              <div>{{ lieuForm.adrLieu(size=100, class_="form-control",placeholder="16 Rue Victor Hugo")}}</div>
+            </div>
+            <div class="form-group">
+              <label for="CPResp">{{ lieuForm.CPLieu.label }}</label>
+              {{ lieuForm.CPLieu(size=100, class_="form-control", pattern="(0-9]{5}", placeholder="45000")}}
+            </div>
+            <div class="form-group">
+              <label for="villeResp">{{ lieuForm.villeLieu.label }}</label>
+              <div>{{ lieuForm.villeLieu(size=50, class_="form-control", placeholder="Orleans")}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=form-group>
+        <input type="submit" id="submit" class="btn btn-default" value="Continuer">
+      </div>
+    </div>
+  </div>
+  {% endblock %}
