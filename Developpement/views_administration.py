@@ -1,5 +1,4 @@
 from .views import *
-from .forms import *
 @app.route("/administration/")
 # @roles_required(ADMIN)
 def administration():

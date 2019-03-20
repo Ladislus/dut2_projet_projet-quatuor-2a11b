@@ -9,7 +9,9 @@ def contact_administratif():
 
     :return: Retourne le template de la partie administrative du contact
     """
-    return render_template("contact/contact_administratif.html")
+
+    user_contactForm = User_ContactForm()
+    return render_template("contact/contact_administratif.html",user_contactForm=user_contactForm)
 
 @app.route("/contact/mentionsLegales/")
 def contact_mentionsLegales():

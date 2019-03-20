@@ -55,12 +55,13 @@ class RespLegalForm(FlaskForm):
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
 
 class User_ContactForm(FlaskForm):
-    nomAuteur       = StringField('Nom Auteur mail', validators=[DataRequired()])
-    prenomAuteur    = StringField('Prénom Auteur mail', validators=[DataRequired()])
+    nomAuteur       = StringField('Nom Auteur ', validators=[DataRequired()])
+    prenomAuteur    = StringField('Prénom Auteur', validators=[DataRequired()])
     mailAuteur      = StringField('Mail Auteur', validators=[DataRequired()])
-    objetMessage    = SelectField('Objet', choices=[], validators=[DataRequired()])
-    contenuMessage  = TextField('Contenu message', validaTextAreaFieldtors=[DataRequired()])
+    objetMessage    = SelectField('Objet', choices=[("choix","--Choix--"),('stage',"Stage"),('concert',"Concert"),("autre","autre")], validators=[DataRequired()])
+    contenuMessage  = TextAreaField('Contenu du message',validators=[DataRequired()])
     pjMessage       = StringField('PJ')
+    autrobjMessage  = TextField('Objet autre', validators=[DataRequired()])
 
 class Admin_ContactForm(FlaskForm):
     objetMessage    = SelectField('Objet', choices=[("choix","--Choix-- "),('admin', "Adminstratif "), ('music', "Musical "), ('ques', "Question "),('autre',"autre ")], validators=[DataRequired()])
