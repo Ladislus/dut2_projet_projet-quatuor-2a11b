@@ -345,11 +345,17 @@ def get_stages(id = None, filter = None, critere = None):
     return Stage.query.all()
 
 def is_over(dateDeb, dateFin):
+    print("DEBUT IS_OVER()")
+    print(type(dateDeb))
     stages = get_stages()
     for stage in stages:
+        print("DEB : " + str(stage.dateDebSt) + " (" + str(type(stage.dateDebSt)) + ") ; FIN : " + str(stage.dateFinSt) + " (" + str(type(stage.dateDebSt)) + ")")
         if stage.dateDebSt is not None and stage.dateFinSt is not None:
-            if (datetime.strptime(str(stage.dateDebSt), '%Y-%m-%d') < datetime.strptime(str(dateDeb), '%Y-%m-%d') < datetime.strptime(str(stage.dateFinSt), '%Y-%m-%d')) or (datetime.strptime(str(stage.dateDebSt), '%Y-%m-%d') < datetime.strptime(str(dateFin), '%Y-%m-%d') < datetime.strptime(str(stage.dateFinSt), '%Y-%m-%d')):
+            print("OK")
+            if (stage.dateDebSt < dateDeb.date() < stage.dateFinSt) or (stage.dateDebSt < dateFin.date() < stage.dateFinSt):
+                print("ALREADY IN")
                 return True
+    print("PAS D'ERREUR")
     return False
 
 db.create_all()
