@@ -4,6 +4,7 @@ from sqlalchemy.dialects.sqlite import BLOB
 from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, Text, Float, Date, Table, UniqueConstraint
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+from  sqlalchemy import exc
 
 from flask_login import UserMixin
 from flask_security import RoleMixin, SQLAlchemyUserDatastore, Security
@@ -258,10 +259,14 @@ def init_db(filename = None):
 @click.argument("username")
 @click.argument("passwd")
 def new_admin(username, passwd):
-    user = user_datastore.create_user(usernameUt = username, mdpUt = crypt(passwd))
-    user_datastore.add_role_to_user(user, 'ADMIN')
-    db.session.commit()
-    print("ROLE ADMIN SUCCESSFULLY ADD")
+    try:
+        user = user_datastore.create_user(usernameUt = username, mdpUt = crypt(passwd))
+        user_datastore.add_role_to_user(user, 'ADMIN')
+        db.session.commit()
+        print("ROLE ADMIN SUCCESSFULLY ADD")
+    except exc.IntegrityError:
+        db.session.rollback()
+        print("USER ALREADY EXISTING")
 
 def est_majeur(str_date):
     """
@@ -306,10 +311,9 @@ def insert_user(userForm, ecole, niveau, id_pers):
     print("THE USER IS" + str(user))
     print("USER SUCCESSFULLY CREATED")
     print("LINKING TO ROLE \"STAGIAIRE\"")
-    role_stagiaire = user_datastore.find_or_create_role(name = "STAGIAIRE")
-    user_datastore.add_role_to_user(user, role_stagiaire)
+    user_datastore.add_role_to_user(user, 'STAGIAIRE')
     print("SUCCESSFULLY ADDED THE ROLE")
-    user_datastore.commit()
+    db.session.commit()
     print("COMMITTED !")
 
 def insert_resp(respForm, lieuForm, id_enfant):
