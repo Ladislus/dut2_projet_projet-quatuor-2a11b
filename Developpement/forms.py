@@ -63,8 +63,9 @@ class User_ContactForm(FlaskForm):
     pjMessage       = StringField('PJ')
 
 class Admin_ContactForm(FlaskForm):
-    objetMessage    = SelectField('Objet', choices=[('admin', "Adminstratif"), ('music', "Musical"), ('ques', "Question")], validators=[DataRequired()])
-    destMessage     = SelectField('Destinataire', choices=[('dest1', "dest1"),('dest2', "dest2")], validators=[DataRequired()])
+    objetMessage    = SelectField('Objet', choices=[('admin', "Adminstratif "), ('music', "Musical "), ('ques', "Question ")], validators=[DataRequired()])
+    destMessage     = SelectField('Destinataire', choices=[('dest1', "dest1"),('dest2', "dest2"),('autre',"autre")], validators=[DataRequired()])
+    autrDestMessage = TextField('Adresse autre', validators=[DataRequired()])
     contenuMessage  = TextField('Contenu message', validators=[DataRequired()])
     pjMessage       = StringField('PJ')
 

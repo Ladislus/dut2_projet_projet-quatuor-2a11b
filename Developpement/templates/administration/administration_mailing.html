@@ -1,5 +1,27 @@
 {% extends "base.html" %}
 {% block main %}
+
+<script type="text/javascript">
+
+    function autre(){
+
+      let r = document.getElementById("hidden");
+      let $s = $('select');
+      let val = $s.find('option:selected').text().split(' ');
+      if (val[1]=="autre") {
+        r.style.display = "";
+      }
+      else {
+        r.style.display = "none";
+      }
+
+    }
+    // Boucle de verification
+    let myvar;
+    myvar = setInterval('autre()',1000);
+
+</script>
+
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_mailing.css')}}">
 
 <div class="liens">
@@ -12,8 +34,12 @@
     <div class="col-sm-3">{{ admin_contactForm.objetMessage(class="form-control")}}</div>
   </div>
   <div class="form-group">
-    <label for="destMessage" class="col-sm-3 control-label">{{admin_contactForm.destMessage.label}}</label>
-    <div class="col-sm-3">{{ admin_contactForm.destMessage(class="form-control", placeholder="Destinataire du mail")}}</div>
+    <label for="destMessage" id="select" class="col-sm-3 control-label">{{admin_contactForm.destMessage.label}}</label>
+    <div class="col-sm-3">{{ admin_contactForm.destMessage(class="form-control", placeholder="Destinataire du mail",id="select")}}</div>
+  </div>
+  <div class="form-group" id="hidden" style="display:none">
+    <label for="contenuMessage" class="col-sm-3 control-label">{{admin_contactForm.autrDestMessage.label}}</label>
+    <div class="col-sm-3">{{ admin_contactForm.autrDestMessage(size=50, class="form-control", placeholder="Adresse autre")}}</div>
   </div>
   <div class="form-group">
     <label for="contenuMessage" class="col-sm-3 control-label">{{admin_contactForm.contenuMessage.label}}</label>
@@ -29,4 +55,8 @@
     <button type="submit" class="btn btn-default">Envoyer mail</button>
   </div>
 </div>
+
+
+
+
 {% endblock %}
