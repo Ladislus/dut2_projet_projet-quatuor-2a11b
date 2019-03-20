@@ -35,8 +35,6 @@ def stage_inscription():
         id_lieu = insert_lieu(lieuForm)
         id_pers, existing = insert_personne(persForm, id_lieu)
 
-        print("qsjlkdfhqlsjkdhflqskjdhflqksjdhflqskjdfhlqskjhflqsjkdfhqlskdfjh " + str(existing))
-
         if (existing):
             return redirect(url_for('other_connexion'))
 
@@ -72,6 +70,7 @@ def stage_inscription_compte():
                                     mdpError = mdpError)
 
         insert_user(userForm, request.args.get('ecole', type=str), request.args.get('niveau', type=int), request.args.get('id_pers', 1, type=int))
+
         #TODO insert instruments joués
         print("REDIRECTING TO MEDS")
 
