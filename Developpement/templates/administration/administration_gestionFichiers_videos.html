@@ -1,6 +1,6 @@
 {% extends "administration/administration_gestionFichiers.html" %}
 {% block fichier %}
-<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionStagiaires.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionVideos.css')}}">
 <div class="liens">
   <h1 id="hliens">Gestion des vidéos</h1>
   <img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
@@ -13,18 +13,23 @@
       <table  class="table table-bordered">
         <thead>
           <tr>
-            <th>Nom</th>
-            <th>Type</th>
-            <th>URL</th>
+            <th scope="col">Aperçu</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Type</th>
+            <th scope="col">URL</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
           {% for video in dico_videos[videos] %}
           <tr>
             <!-- Nom Prenom age niveau mail role  -->
+            <td><div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="{{ video[3] }}" allowfullscreen></iframe>
+</div></td>
             <td>{{ video[0] }}</td>
             <td>{{ video[1] }}</td>
-            <td><img href="" alt="test">{{ video[2] }}</td>
+            <td><img href="" alt="">{{ video[2] }}</td>
             <td>
               <a href="/administration/modifierStagiaire/" class="btn btn-default">
                 <span class="glyphicon glyphicon-pencil"></span>
@@ -46,6 +51,21 @@
 
   </div>
   {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 {% endblock %}
