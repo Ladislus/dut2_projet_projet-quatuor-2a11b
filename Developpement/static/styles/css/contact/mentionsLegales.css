@@ -1,0 +1,12 @@
+h2, h3{
+  text-align: center;
+  padding: 3%;
+}
+
+.contain-p1{
+  background-color: #fafdef;
+  padding: 4%;
+  margin-bottom: 4%;
+  border-radius: 25px;
+  text-align: justify;
+}

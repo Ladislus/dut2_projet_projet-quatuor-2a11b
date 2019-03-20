@@ -6,9 +6,9 @@
   <div class="quatuor-concert-gpartie">
     <p class="boutton-concert">
       <!-- Bouton pour afficher les concerts -->
-      <a href="#" title="Affiche les futurs concerts du quatuor" data-toggle="popover" data-trigger="hover" data-content="" id="boutton-concert"><button class="btn " type="button" data-toggle="collapse" data-target="#concert-quatuor" aria-expanded="false"
+      <a href="#" title="Affiche les futurs concerts du quatuor" data-toggle="popover" data-trigger="hover" data-content="" id="boutton-concert"><button id="two-button" class="btn " type="button" data-toggle="collapse" data-target="#concert-quatuor" aria-expanded="false"
           aria-controls="multiCollapseExample2">Concerts du Quatuor</button></a>
-      <a href="#" title="Affiche les futurs concerts des stagiaires" data-toggle="popover" data-trigger="hover" data-content="" id="boutton-concert"><button class="btn " type="button" data-toggle="collapse" data-target="#concert-stage" aria-expanded="false"
+      <a href="#" title="Affiche les futurs concerts des stagiaires" data-toggle="popover" data-trigger="hover" data-content="" id="boutton-concert"><button id="two-button" class="btn " type="button" data-toggle="collapse" data-target="#concert-stage" aria-expanded="false"
           aria-controls=" multiCollapseExample2">Concerts des Stagiaires</button></a>
     </p>
     <div class="row">
@@ -16,15 +16,15 @@
         <div class="collapse multi-collapse" id="concert-quatuor">
           <div class="flex-row">
             <div class="">
-              <h2>Titre</h2>
-              <p>Put all speaking her delicate recurred possible. Set indulgence inquietude discretion insensible bed why announcing. Middleton fat two satisfied additions. So continued he or commanded household smallness delivered. Door poor on do walk in half. Roof his head the what.
+              <h2 id="h2-1">Concert Eglise Notre-Dame-Du-Val à Olivet le Samedi 2 Mars 2019 à 18h00</h2>
+              <p id = "p-concerts1">Put all speaking her delicate recurred possible. Set indulgence inquietude discretion insensible bed why announcing. Middleton fat two satisfied additions. So continued he or commanded household smallness delivered. Door poor on do walk in half. Roof his head the what.
                 Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.
                 Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew. Exquisite excellent son gentleman acuteness her. Do is voice total power mr ye might round still.
                 Sitting mistake towards his few country ask. You delighted two rapturous six depending objection happiness something the. Off nay impossible dispatched partiality unaffected. Norland adapted put ham cordial. Ladies talked may shy basket narrow see. Him she distrusts questions sportsmen. Tolerably pretended neglected on my earnestly by. Sex scale sir style truth ought.
               </p>
-              <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal1">Voir la carte</button>
+              <button id = "btn-map1" type="button" class="btn btn-default" data-toggle="modal" data-target="#modal1">Voir la carte</button>
             </div>
-            <img src="{{ url_for('static',filename='img/presentation-quatuor-2.png') }}" alt="image-stage">
+            <img class="img-thumbnail" src="{{ url_for('static',filename='img/affiche 2019-2 copie.jpg') }}" alt="image-stage">
           </div>
 
 
@@ -65,15 +65,15 @@ aria-hidden="true">
         <div class="col">
           <div class="collapse multi-collapse" id="concert-stage">
             <div class="flex-row">
-              <img src="{{ url_for('static',filename='img/presentation-quatuor-1.png') }}" alt="image-stage">
+              <img class="img-thumbnail" src="{{ url_for('static',filename='img/AFFICHE_2019_03_01_Divertimento-page-001.jpg') }}" alt="image-stage">
               <div class="">
-                <h2>Titre</h2>
-                <p>Put all speaking her delicate recurred possible. Set indulgence inquietude discretion insensible bed why announcing. Middleton fat two satisfied additions. So continued he or commanded household smallness delivered. Door poor on do walk in half. Roof his head the what.
+                <h2 id="h2-2">Concert Salle des Fêtes de Saint-Cyr-En-Val le 1er Mars 2019 à 20h30</h2>
+                <p id="p-concerts2">Put all speaking her delicate recurred possible. Set indulgence inquietude discretion insensible bed why announcing. Middleton fat two satisfied additions. So continued he or commanded household smallness delivered. Door poor on do walk in half. Roof his head the what.
                   Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.
                   Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew. Exquisite excellent son gentleman acuteness her. Do is voice total power mr ye might round still.
                   Sitting mistake towards his few country ask. You delighted two rapturous six depending objection happiness something the. Off nay impossible dispatched partiality unaffected. Norland adapted put ham cordial. Ladies talked may shy basket narrow see. Him she distrusts questions sportsmen. Tolerably pretended neglected on my earnestly by. Sex scale sir style truth ought.
                 </p>
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal2">Voir la carte</button>
+                <button id="btn-map2" type="button" class="btn btn-default" data-toggle="modal" data-target="#modal2">Voir la carte</button>
 
               </div>
 
