@@ -1,5 +1,4 @@
 from .app import db, app, login_manager
-from .forms import *
 
 from sqlalchemy.dialects.sqlite import BLOB
 from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, Text, Float, Date, Table, UniqueConstraint
@@ -353,13 +352,6 @@ def insert_stage(stageForm):
         if is_over(dateD, dateF):
             raise ValueError
 
-    print("THE LIEU MAGGGLE")
-    print(str(stageForm.adresseSt.data))
-    print(ine(str(stageForm.adresseSt.data)))
-    print(str(stageForm.villeSt.data))
-    print(ine(str(stageForm.villeSt.data)))
-    print(str(stageForm.cpSt.data))
-    print(ine(str(stageForm.cpSt.data)))
     if ine(str(stageForm.adresseSt.data)) & ine(str(stageForm.villeSt.data)) & ine(str(stageForm.cpSt.data)):
         print("OK")
         lieuForm = LieuForm()
