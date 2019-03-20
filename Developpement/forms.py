@@ -1,7 +1,7 @@
 from .functions import crypt
 from .getters import get_user
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, SelectMultipleField, StringField, TextField
+from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, SelectMultipleField, StringField, TextField, TextAreaField
 from wtforms.validators import DataRequired, Length, Required, Optional
 
 class InscriptionForm(FlaskForm):
@@ -59,13 +59,15 @@ class User_ContactForm(FlaskForm):
     prenomAuteur    = StringField('Prénom Auteur mail', validators=[DataRequired()])
     mailAuteur      = StringField('Mail Auteur', validators=[DataRequired()])
     objetMessage    = SelectField('Objet', choices=[], validators=[DataRequired()])
-    contenuMessage  = TextField('Contenu message', validators=[DataRequired()])
+    contenuMessage  = TextField('Contenu message', validaTextAreaFieldtors=[DataRequired()])
     pjMessage       = StringField('PJ')
 
 class Admin_ContactForm(FlaskForm):
-    objetMessage    = SelectField('Objet', choices=[('admin', "Adminstratif"), ('music', "Musical"), ('ques', "Question")], validators=[DataRequired()])
-    destMessage     = SelectField('Destinataire', choices=[('dest1', "dest1"),('dest2', "dest2")], validators=[DataRequired()])
-    contenuMessage  = TextField('Contenu message', validators=[DataRequired()])
+    objetMessage    = SelectField('Objet', choices=[("choix","--Choix-- "),('admin', "Adminstratif "), ('music', "Musical "), ('ques', "Question "),('autre',"autre ")], validators=[DataRequired()])
+    autrobjMessage  = TextField('Objet autre', validators=[DataRequired()])
+    destMessage     = SelectField('Destinataire', choices=[("choix","--Choix-- "),('dest1', "dest1"),('dest2', "dest2"),('autre',"autre")], validators=[DataRequired()])
+    autrDestMessage = TextField('Adresse autre', validators=[DataRequired()])
+    contenuMessage  = TextAreaField('Contenu du message',validators=[DataRequired()])
     pjMessage       = StringField('PJ')
 
 class AutorMedicForm(FlaskForm):

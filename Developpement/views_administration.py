@@ -16,6 +16,8 @@ def administration_mailing():
 
     :return: Retourne le template de la page de mailing
     """
+
+
     admin_contactForm = Admin_ContactForm()
     return render_template("administration/administration_mailing.html",
                             admin_contactForm=admin_contactForm)
