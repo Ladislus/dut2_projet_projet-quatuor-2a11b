@@ -6,7 +6,7 @@ from .views_other import *
 
 # @app.route("/stage/<int:id>")
 # def stage_Id(id):
-#     a = get_stage(id)
+#     a = get_stages(id)
 #     return render_template("stage.html",
 #             title=a.intituleSt)
 
@@ -17,7 +17,7 @@ def stage_presentation():
 
     :return: Retourne le template de la page de presentation de stage
     """
-    return render_template("stage/stage_presentation.html", dico_stage=get_stage())
+    return render_template("stage/stage_presentation.html", dico_stage=get_stages())
 
 @app.route("/stage/inscription/", methods = ["GET", "POST"])
 def stage_inscription():

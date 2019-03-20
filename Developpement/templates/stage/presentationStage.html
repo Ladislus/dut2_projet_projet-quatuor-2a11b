@@ -1,3 +1,37 @@
 {% extends "base.html" %}
 {% block main %}
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/presentationStage.css')}}">
+<div class="stagiaire-annee">
+  <h2>Stages</h2>
+  <div class="stage">
+    <p>Intitule</p>
+    <p>Intitule</p>
+    <p>Intitule</p>
+    <p>Intitule</p>
+    <p>Intitule</p>
+    <p>Intitule</p>
+    <p>Intitule</p>
+    <p>Intitule</p>
+    <p>Intitule</p>
+    <p>Intitule</p>
+    <p>Intitule</p>
+    <p>Intitule</p>
+
+    <p>{{ stage.intituleSt }}</p>
+    <p>{{ stage.idRep }}</p>
+    <p>{{ stage.dateDebSt }}</p>
+    <p>{{ stage.dateFinSt }}</p>
+    <p>{{ stage.descSt }}</p>
+    <p>{{ stage.nivRequisSt }}</p>
+    <p>{{ stage.idLieu }}</p>
+    <p>{{ stage.idLieu }}</p>
+    <p>{{ stage.idLieu }}</p>
+    <p>{{ stage.nbPlaceSt }}</p>
+    <p>{{ stage.prixSt }}</p>
+    <p>{{ stage.vetSt }}</p>
+    <a href="/stage/inscription/" class="btn btn-default">
+      <span class="glyphicon glyphicon-pencil"></span>
+    </a>
+  </div>
+</div>
+{% endblock %}
