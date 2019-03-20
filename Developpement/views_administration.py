@@ -109,9 +109,9 @@ def administration_gestionFichiers_videos_modification():
     """
     return render_template("administration/administration_gestionFichiers_videos_modification.html")
 
-@app.route("/administration/gestionFichiers/textes/")
+@app.route("/administration/gestionFichiers/articles/")
 # @roles_required(ADMIN)
-def administration_gestionFichiers_textes():
+def administration_gestionFichiers_aticles():
     """
 
     :return: Retourne le template de la page de gestion des textes
