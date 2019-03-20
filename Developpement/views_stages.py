@@ -12,13 +12,13 @@ def stage_Id(id):
             title=a.intituleSt)
 
 
-@app.route("/stage/presentation/")
+@app.route("/stage/presentation/", methods = ["GET", "POST"])
 def stage_presentation():
     """
 
     :return: Retourne le template de la page de presentation de stage
     """
-    return render_template("stage/stage_presentation.html")
+    return render_template("stage/stage_presentation.html", dico_stage=get_stage())
 
 @app.route("/stage/inscription/", methods = ["GET", "POST"])
 def stage_inscription():
@@ -203,6 +203,17 @@ def stage_presse_actu():
     :return: Retourne le template correspondant a la page des articles de presse du stage actuelle
     """
     return render_template("stage/stage_presse_actu.html",liste=liste)
+
+@app.route("/stage/presentation/<int:id>")
+def stage_presentation_stage(id):
+        """
+
+        :return: Retourne le template correspondant a la description d'un stage
+        """
+        stage = get_stage(id);
+
+        return render_template("stage/presentationStage.html", stage=stage)
+
 
 @app.route("/stage/presse/all/<int:id>")
 def stage_presse_all(id):

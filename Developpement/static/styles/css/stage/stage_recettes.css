@@ -3,3 +3,10 @@
 .navbar-fixed-bottom{
   background-color: white;
 }
+h1{
+  text-align: center;
+}
+.row{
+  margin-left: 5%;
+  margin-right: 5%;
+}
