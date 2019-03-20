@@ -16,11 +16,13 @@ def administration_mailing():
 
     :return: Retourne le template de la page de mailing
     """
+
+
     admin_contactForm = Admin_ContactForm()
     return render_template("administration/administration_mailing.html",
                             admin_contactForm=admin_contactForm)
 
-@app.route("/administration/gestionStages/")
+@app.route("/administration/gestionStages/", methods = ["GET", "POST"])
 # @roles_required(ADMIN)
 def administration_gestionStages():
     """
@@ -152,15 +154,29 @@ def administration_gestionStagiaires_Stagiaire():
     modifStagiaire=PersonForm()
     return render_template("administration/administration_gestionStagiaires_stagiaire.html",modifStagiaire=modifStagiaire)
 
-@app.route("/administration/creerStage/")
-# @roles_required(ADMIN)
+@app.route("/administration/creerStage/", methods = ["GET", "POST"])
+# @roles_required("ADMIN")
 def administration_creerStage():
     """
 
     :return: Retourne le template de la page de creation de stage
     """
-    creaStageForm=StageForm()
-    lieuForm=LieuForm()
-    return render_template("administration/administration_creerStage.html",
-                            creaStageForm=creaStageForm,
-                            lieuForm=lieuForm)
+
+    stageForm=StageForm()
+
+    if stageForm.validate_on_submit():
+
+
+        # try:
+        insert_stage(stageForm)
+        print("NORMALEMENT LA REDIRECTION")
+        return redirect(url_for('administration_gestionStages'))
+        # except ValueError:
+        #     print("EXCEPTION !")
+        #     return render_template("administration/administration_creerStage.html",
+        #                             stageForm=stageForm,
+        #                             timeError=True)
+    else:
+        return render_template("administration/administration_creerStage.html",
+                                stageForm=stageForm,
+                                timeError=False)

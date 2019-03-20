@@ -1,31 +1,84 @@
 {% extends "base.html" %}
 {% block main %}
+
+<script type="text/javascript">
+
+    function autre(){
+
+      let r = document.getElementById("hidden");
+      let t = document.getElementById("hidden2");
+
+      let $s = $('select');
+      // console.log($s);
+
+      let val = $s.find('option:selected').text().split(' ');
+      // console.log(val);
+      if (val[1]=="autre") {
+        r.style.display = "";
+      }
+      else {
+        r.style.display = "none";
+      }
+
+      if (val[0]=="autre") {
+        t.style.display = "";
+      }
+      else {
+        t.style.display = "none";
+      }
+    }
+    // Boucle de verification
+    let myvar;
+    myvar = setInterval('autre()',1000);
+
+</script>
+
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_mailing.css')}}">
 
 <div class="liens">
 <h1>Messagerie</h1>
 </div>
-<form class="form-horizontal" id="form_login"role="form" method="POST" action="{{ url_for('administration_mailing') }}">
+<form class="form" id="form_login"role="form" method="POST" action="{{ url_for('administration_mailing') }}">
+  <div class="d-inline">
   <div class="form-group">
-    <label for="objetMessage" class="col-sm-3 control-label">{{admin_contactForm.objetMessage.label}}</label>
+    <label for="objetMessage" id="select2" class="col-sm-3 control-label">{{admin_contactForm.objetMessage.label}}</label>
     <div class="col-sm-3">{{ admin_contactForm.objetMessage(class="form-control")}}</div>
   </div>
-  <div class="form-group">
-    <label for="destMessage" class="col-sm-3 control-label">{{admin_contactForm.destMessage.label}}</label>
-    <div class="col-sm-3">{{ admin_contactForm.destMessage(class="form-control", placeholder="Destinataire du mail")}}</div>
+  <div class="form-group" id="hidden2" style="display:none">
+    <div class="col-sm-3">{{ admin_contactForm.autrobjMessage(size=50, class="form-control", placeholder="Objet autre")}}</div>
   </div>
+</div>
+  <br>
+  <div class="d-inline">
+    <div class="form-group">
+      <label for="destMessage" id="select" class="col-sm-3 control-label">{{admin_contactForm.destMessage.label}}</label>
+      <div class="col-sm-3">{{ admin_contactForm.destMessage(class="form-control", placeholder="Destinataire du mail",id="select")}}</div>
+    </div>
+    <div class="form-group" id="hidden" style="display:none">
+      <div class="col-sm-3">{{ admin_contactForm.autrDestMessage(size=50, class="form-control", placeholder="Adresse autre")}}</div>
+    </div>
+  </div>
+  <br>
+
   <div class="form-group">
     <label for="contenuMessage" class="col-sm-3 control-label">{{admin_contactForm.contenuMessage.label}}</label>
-    <div class="col-sm-3">{{ admin_contactForm.contenuMessage(size=50, class="form-control", placeholder="Contenu du mail")}}</div>
+    <div class="col-sm-3">{{ admin_contactForm.contenuMessage(size=100, class="form-control textarea", placeholder="Contenu du mail")}}</div>
   </div>
-  <div class="form-group">
+  <br>
+  <br>
+  <div class="form-group grand">
     <label for="pjMessage" class="col-sm-3 control-label">{{admin_contactForm.pjMessage.label}}</label>
     <div class="col-sm-3">{{ admin_contactForm.pjMessage(size=50, class="form-control")}}</div>
   </div>
+  <br>
 </form>
 <div class="form-group">
   <div class="col-sm-offset-3 col-sm-3">
     <button type="submit" class="btn btn-default">Envoyer mail</button>
   </div>
 </div>
+
+
+
+
 {% endblock %}
