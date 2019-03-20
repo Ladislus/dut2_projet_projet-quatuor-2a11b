@@ -1,7 +1,8 @@
 from .views import *
 from .forms import *
+from .models import *
 
-from flask_login import login_user;
+from flask_login import login_user, logout_user;
 
 @app.route("/other/liens/")
 def other_liens():
@@ -17,7 +18,7 @@ def other_inscription():
     """
     return render_template("other/inscription.html")
 
-@app.route("/other/connexion/")
+@app.route("/other/connexion/", methods = ["GET", "POST"])
 def other_connexion():
     """
 
@@ -25,16 +26,23 @@ def other_connexion():
 
     """
     connectForm=ConnectForm()
-    if not connectForm.is_submitted():
-        connectForm.next.data = request.args.get("next")
-    elif connectForm.validate_on_submit():
-        user = connectForm.get_authentificated_user()
-        if user:
-            login_user(user)
-            next = connectForm.next.data or url_for("home")
-            return redirect(next)
-    return render_template("other/connexion.html",
-                            connectForm=connectForm)
+
+    if connectForm.validate_on_submit():
+
+        user = connectForm.get_user()
+        print("USER FROM FORM : " + str(user))
+
+        if user is None:
+            print("ERROR DURING LOGGING")
+            return render_template("other/connexion.html", connectForm=connectForm, errorLogin=True)
+
+        login_user(user)
+        print("SUCCESSFULLY LOGGED IN")
+        return redirect(url_for("home"))
+
+    return render_template("other/connexion.html", connectForm=connectForm)
+
+
 
 @app.route("/other/deconnexion/")
 def other_deconnexion():
@@ -42,8 +50,8 @@ def other_deconnexion():
 
     :return: Retourne le template de la page de deconnexion
     """
-    user_logout()
-    return redirect("home")
+    logout_user()
+    return redirect(url_for("home"))
 
 @app.route("/other/mdpOubli/")
 def other_mdpOublie():

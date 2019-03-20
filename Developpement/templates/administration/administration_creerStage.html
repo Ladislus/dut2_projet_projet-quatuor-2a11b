@@ -7,6 +7,9 @@
 <form class="form-horizontal" id="form_login"role="form" method="POST" action="{{ url_for('administration_creerStage') }}">
   {{ stageForm.hidden_tag() }}
   <div class="form-group">
+    {% if titleError %}
+    <p class="text-danger">Ce nom de stage est déjà utilisé</p>
+    {% endif %}
     <label for="nomStage" class="col-sm-3 control-label">{{stageForm.intituleSt.label}}</label>
     <div class="col-sm-3">{{ stageForm.intituleSt(size=50, class="form-control", placeholder="Intitule du stage")}}</div>
   </div>
@@ -20,7 +23,7 @@
   </div>
   <div class="form-group">
     {% if timeError %}
-    <p class="text-danger">Un stage commence déjà à cette date</p>
+    <p class="text-danger">Un autre stage est en cours pendant cette periode</p>
     {% endif %}
     <label for="dateDebSt" class="col-sm-3 control-label">{{stageForm.dateDebSt.label}}</label>
     <div class="col-sm-3">{{ stageForm.dateDebSt(size=50, class="form-control", type="date", placeholder="YYYY-MM-DD")}}</div>
