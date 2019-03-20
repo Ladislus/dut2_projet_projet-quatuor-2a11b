@@ -1,6 +1,7 @@
 from .views import *
+
 @app.route("/administration/")
-# @roles_required(ADMIN)
+@roles_required('ADMIN')
 def administration():
     """
 
@@ -9,7 +10,7 @@ def administration():
     return render_template("administration/administration.html")
 
 @app.route("/administration/mailing/")
-# @roles_required(ADMIN)
+@roles_required('ADMIN')
 def administration_mailing():
     """
 
@@ -22,7 +23,7 @@ def administration_mailing():
                             admin_contactForm=admin_contactForm)
 
 @app.route("/administration/gestionStages/", methods = ["GET", "POST"])
-# @roles_required(ADMIN)
+@roles_required('ADMIN')
 def administration_gestionStages():
     """
 
@@ -31,7 +32,7 @@ def administration_gestionStages():
     return render_template("administration/administration_gestionStages.html", dico_stage=get_stages())
 
 @app.route("/administration/modifierStage/")
-# @roles_required(ADMIN)
+@roles_required('ADMIN')
 def administration_modifierStage():
     """
 
@@ -43,7 +44,7 @@ def administration_modifierStage():
     lieuForm=lieuForm)
 
 @app.route("/administration/gestionFichiers/")
-# @roles_required(ADMIN)
+@roles_required('ADMIN')
 def administration_gestionFichiers():
     """
 
@@ -52,7 +53,7 @@ def administration_gestionFichiers():
     return render_template("administration/administration_gestionFichiers.html")
 
 @app.route("/administration/gestionFichiers/images/")
-# @roles_required(ADMIN)
+@roles_required('ADMIN')
 def administration_gestionFichiers_images():
     """
 
@@ -63,7 +64,7 @@ def administration_gestionFichiers_images():
 
 
 @app.route("/administration/gestionFichiers/images/modification/")
-# @roles_required(ADMIN)
+@roles_required('ADMIN')
 def administration_gestionFichiers_images_modification():
     """
 
@@ -72,7 +73,7 @@ def administration_gestionFichiers_images_modification():
     return render_template("administration/administration_gestionFichiers_images_modification.html")
 
 @app.route("/administration/gestionFichiers/videos/")
-# @roles_required(ADMIN)
+@roles_required('ADMIN')
 def administration_gestionFichiers_videos():
     """
 
@@ -94,7 +95,7 @@ def administration_gestionFichiers_videos():
 
 
 @app.route("/administration/gestionFichiers/videos/modification/")
-# @roles_required(ADMIN)
+@roles_required('ADMIN')
 def administration_gestionFichiers_videos_modification():
     """
 
@@ -103,7 +104,7 @@ def administration_gestionFichiers_videos_modification():
     return render_template("administration/administration_gestionFichiers_videos_modification.html")
 
 @app.route("/administration/gestionFichiers/articles/")
-# @roles_required(ADMIN)
+@roles_required('ADMIN')
 def administration_gestionFichiers_aticles():
     """
 
@@ -112,7 +113,7 @@ def administration_gestionFichiers_aticles():
     return render_template("administration/administration_gestionFichiers_articles.html",dico_articles=liste)
 
 @app.route("/administration/gestionFichiers/textes/modification")
-# @roles_required(ADMIN)
+@roles_required('ADMIN')
 def administration_gestionFichiers_textes_modification():
     """
 
@@ -121,7 +122,7 @@ def administration_gestionFichiers_textes_modification():
     return render_template("administration/administration_gestionFichiers_articles_modification.html")
 
 @app.route("/administration/gestionStagiaires/")
-# @roles_required(ADMIN)
+@roles_required('ADMIN')
 def administration_gestionStagiaires():
     """
 
@@ -137,7 +138,7 @@ def administration_gestionStagiaires():
     return render_template("administration/administration_gestionStagiaires.html",dico_stagiaire=dico)
 
 @app.route("/administration/modifierStagiaire/")
-# @roles_required(ADMIN)
+@roles_required('ADMIN')
 def administration_gestionStagiaires_Stagiaire():
     """
 
