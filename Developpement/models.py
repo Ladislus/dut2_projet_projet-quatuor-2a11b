@@ -1,17 +1,17 @@
-from .app import db, app
-from .functions import *
-from .getters import *
-from .inserts import *
+from .app import db, app, login_manager
 
 from sqlalchemy.dialects.sqlite import BLOB
 from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, Text, Float, Date, Table, UniqueConstraint
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+from  sqlalchemy import exc
 
 from flask_login import UserMixin
 from flask_security import RoleMixin, SQLAlchemyUserDatastore, Security
 
-from datetime import datetime
+import click
+from hashlib import sha512
+from datetime import datetime, timedelta
 
 Base = db.Model
 
@@ -29,14 +29,14 @@ stage_media           = Table("stage_media", Base.metadata,
                          Column("idMed", Integer, ForeignKey("Media.idMed")) )
 
 role_user             = Table("role_user", Base.metadata,
-                        Column("idUt", Integer, ForeignKey("Utilisateur.idUt")),
+                        Column("id", Integer, ForeignKey("Utilisateur.id")),
                         Column("idRole", Integer, ForeignKey("Role.idRole")) )
 
 #Tables
 class Utilisateur(Base, UserMixin):
     __tablename__ = "Utilisateur"
 
-    idUt           = Column(Integer, primary_key = True, autoincrement = True)
+    id           = Column(Integer, primary_key = True, autoincrement = True)
     ecoleUt        = Column(String(50))
     nivUt          = Column(Integer)
     usernameUt     = Column(String(30), nullable = False, unique = True)
@@ -84,7 +84,7 @@ class JoueInstrument(Base):
 
     niveauInstru = Column(Integer)
 
-    idUt         = Column(Integer, ForeignKey("Utilisateur.idUt"), primary_key = True)
+    id         = Column(Integer, ForeignKey("Utilisateur.id"), primary_key = True)
     idInstru     = Column(Integer, ForeignKey("Instrument.idInstru"), primary_key = True)
 
     joueur       = relationship("Utilisateur", back_populates = "instruments")
@@ -104,7 +104,7 @@ class Participe(Base):
     telUrg2     = Column(String(10), nullable = False)
     telUrg3     = Column(String(10))
 
-    idUt        = Column(Integer, ForeignKey("Utilisateur.idUt"), primary_key = True)
+    id        = Column(Integer, ForeignKey("Utilisateur.id"), primary_key = True)
     idSt        = Column(Integer, ForeignKey("Stage.idSt"), primary_key = True)
 
     utilisateur = relationship("Utilisateur", back_populates = "participations")
@@ -115,7 +115,7 @@ class InscrireInstru(Base):
 
     voieJoue    = Column(String(20), nullable = False)
 
-    idUt        = Column(Integer, ForeignKey("Utilisateur.idUt"), primary_key = True)
+    id        = Column(Integer, ForeignKey("Utilisateur.id"), primary_key = True)
     idSt        = Column(Integer, ForeignKey("Stage.idSt"), primary_key = True)
     idInstru    = Column(Integer, ForeignKey("Instrument.idInstru"), primary_key = True)
 
@@ -130,7 +130,7 @@ class Stage(Base):
     idRep          = Column(Integer)                                               #TODO : Trigger lors de l'insertion/modification si l'idRep est dans Repertoire
     intituleSt     = Column(String(30), nullable = False)
     nbPlaceSt      = Column(Integer)
-    dateDebSt      = Column(Date, unique = True)                                   #TODO : Trigger lors de l'insertion/modification si un autre stage est en cour
+    dateDebSt      = Column(Date)                                   #TODO : Trigger lors de l'insertion/modification si un autre stage est en cour
     dateFinSt      = Column(Date, nullable = True)                                                  #TODO : trigger lors de l'insertion/modification si la date de fin n'est pas enterieur a la date de début
     idLieu         = Column(Integer)                                               #TODO : trigger lors de l'insertion/modification si l'idLieu est dans Lieu
     vetSt          = Column(String(40))
@@ -206,7 +206,7 @@ class Article(Base):
     datePubArt   = Column(Date, nullable = False)
     contenuArt   = Column(Text)
 
-    id_Ut        = Column(Integer, ForeignKey("Utilisateur.idUt"))
+    id_Ut        = Column(Integer, ForeignKey("Utilisateur.id"))
 
     auteur       = relationship("Utilisateur", back_populates = "articles")
     medias       = relationship("Media", secondary = "article_media", back_populates = "articles")
@@ -231,11 +231,50 @@ class Commentaire(Base):
     dateCom     = Column(Date, nullable = True)
     contenuCom  = Column(Text, nullable = True)
 
-    id_Ut       = Column(Integer, ForeignKey("Utilisateur.idUt"), primary_key = True)
+    id_Ut       = Column(Integer, ForeignKey("Utilisateur.id"), primary_key = True)
     id_Art      = Column(Integer, ForeignKey("Article.idArt"))
 
     auteur      = relationship("Utilisateur", back_populates = "commentaires")
     article     = relationship("Article", back_populates = "commentaires")
+
+def crypt(password):
+    """
+    Crypte le parametre "password" (String) avec le SHA512
+    """
+    crypter = sha512() #créer un objet SHA512
+    crypter.update(password.encode()) #crypte str(password) grâce à l'objet crypter
+    return crypter.hexdigest() #return le password crypter en base16
+
+@app.cli.command()
+def init_db(filename = None):
+    """
+    Initialise la base de donnée
+    """
+    db.create_all()
+    user_datastore.find_or_create_role(name = "STAGIAIRE")
+    user_datastore.find_or_create_role(name = "ADMIN")
+    db.session.commit()
+
+@app.cli.command()
+@click.argument("username")
+@click.argument("passwd")
+def new_admin(username, passwd):
+    try:
+        user = user_datastore.create_user(usernameUt = username, mdpUt = crypt(passwd))
+        user_datastore.add_role_to_user(user, 'ADMIN')
+        db.session.commit()
+        print("ROLE ADMIN SUCCESSFULLY ADD")
+    except exc.IntegrityError:
+        db.session.rollback()
+        print("USER ALREADY EXISTING")
+
+def est_majeur(str_date):
+    """
+    Renvoie un boolean si l'écart entre str_date et la date actuelle est supérieur à 18 ans
+    """
+    date = datetime.strptime(str_date, '%Y-%m-%d') #Converti la date str(YYYY-MM-DD) en objet datetime
+    gap = datetime.now() - date #gap contient la différence de temp entre str_date et la date actuelle
+    return gap.total_seconds() > (60 * 60 * 24 * 365 * 18) #return si gap > 18 ans (en secondes)
 
 def insert_lieu(form):
     if Lieu.query.filter(Lieu.adrLieu == str(form.adrLieu.data), Lieu.codeLieu == int(form.CPLieu.data), Lieu.villeLieu == str(form.villeLieu.data)).first() is None:
@@ -272,10 +311,9 @@ def insert_user(userForm, ecole, niveau, id_pers):
     print("THE USER IS" + str(user))
     print("USER SUCCESSFULLY CREATED")
     print("LINKING TO ROLE \"STAGIAIRE\"")
-    role_stagiaire = user_datastore.find_or_create_role(name = "STAGIAIRE")
-    user_datastore.add_role_to_user(user, role_stagiaire)
+    user_datastore.add_role_to_user(user, 'STAGIAIRE')
     print("SUCCESSFULLY ADDED THE ROLE")
-    user_datastore.commit()
+    db.session.commit()
     print("COMMITTED !")
 
 def insert_resp(respForm, lieuForm, id_enfant):
@@ -288,36 +326,81 @@ def insert_resp(respForm, lieuForm, id_enfant):
 
     db.session.commit()
 
+def ine(string):
+    return string != ""
+
 def insert_stage(stageForm):
-    print("CREATING STAGE")
+
+    if Stage.query.filter(Stage.intituleSt == str(stageForm.intituleSt.data)).first() is not None:
+        raise NameError
+
+    print("DATE DEB : " + str(stageForm.dateDebSt.data))
     if stageForm.dateDebSt.data is None:
-        stageForm.dateDebSt.data = "0001-01-01"
-    s = Stage(intituleSt = str(stageForm.intituleSt.data), idRep=0, nbPlaceSt=0, dateDebSt=datetime.strptime(str(stageForm.dateDebSt.data), '%Y-%m-%d'), idLieu=0, vetSt='Smoking', prixSt=0.0, descSt='None', nivRequisSt=1)
+        dateD = None
+    else:
+        dateD = datetime.strptime(str(stageForm.dateDebSt.data), '%Y-%m-%d')
+    print("DATE DEB AFTER : " + str(dateD))
+
+    print("DATE FIN : " + str(stageForm.dateDebSt.data))
+    if stageForm.dateFinSt.data is None:
+        dateF = None
+    else:
+        dateF = datetime.strptime(str(stageForm.dateFinSt.data), '%Y-%m-%d')
+    print("DATE FIN AFTER : " + str(dateF))
+
+    if dateD is not None and dateF is not None:
+        if is_over(dateD, dateF):
+            raise ValueError
+
+    print("THE LIEU")
+    if ine(str(stageForm.adresseSt.data)) & ine(str(stageForm.villeSt.data)) & ine(str(stageForm.cpSt.data)):
+        lieuForm = LieuForm()
+        lieuForm.adrLieu.data = str(stageForm.adresseSt.data)
+        lieuForm.CPLieu.data = str(stageForm.cpSt.data)
+        lieuForm.villeLieu.data = str(stageForm.villeSt.data)
+        id_lieu = insert_lieu(lieuForm)
+    else:
+        id_lieu = None
+
+    print("CREATING STAGE OBJECT")
+    s = Stage(intituleSt = str(stageForm.intituleSt.data),
+              nbPlaceSt = stageForm.nbPlaceSt.data,
+              dateDebSt=dateD,
+              dateFinSt=dateF,
+              idLieu=id_lieu,
+              vetSt=str(stageForm.tenueSt.data),
+              prixSt=stageForm.prixSt.data,
+              descSt=str(stageForm.descSt.data),
+              nivRequisSt=stageForm.nivRequisSt.data)
     print("STAGE CREATED")
     print(s)
     print("ADDING STAGE")
     db.session.add(s)
     print("STAGE ADDED")
-    # try:
-    print("COMMITTING")
     db.session.commit()
-    print("COMMITTED")
-    # except sqlalchemy.exc.IntegrityError:
-    #     print("ROLLBACK")
-    #     db.session.rollback()
-    #     raise ValueError
 
-def get_stage():
-    print(Stage.query.all())
+def get_stages(id = None, filter = None, critere = None):
+    if id is not None:
+        return Stage.query.filter(Stage.idSt == id).first()
     return Stage.query.all()
 
-def ine(string):
-    return string != ""
+def is_over(dateDeb, dateFin):
+    print("DEBUT IS_OVER()")
+    print(type(dateDeb))
+    stages = get_stages()
+    for stage in stages:
+        print("DEB : " + str(stage.dateDebSt) + " (" + str(type(stage.dateDebSt)) + ") ; FIN : " + str(stage.dateFinSt) + " (" + str(type(stage.dateDebSt)) + ")")
+        if stage.dateDebSt is not None and stage.dateFinSt is not None:
+            print("OK")
+            if (stage.dateDebSt < dateDeb.date() < stage.dateFinSt) or (stage.dateDebSt < dateFin.date() < stage.dateFinSt):
+                print("ALREADY IN")
+                return True
+    print("PAS D'ERREUR")
+    return False
 
-#TODO quand il y aura les stages
-def test_dates(date1, date2):
-    pass
+@login_manager.user_loader
+def load_user(username):
+    return Utilisateur.query.get(username)
 
-db.create_all()
-user_datastore.create_role(name = "ADMIN")
-user_datastore.create_role(name = "STAGIAIRE")
+def get_user(username):
+    return Utilisateur.query.filter(Utilisateur.usernameUt == username).first()
