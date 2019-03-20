@@ -1,5 +1,4 @@
-from .functions import crypt
-from .getters import get_user
+from .models import *
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, SelectMultipleField, StringField, TextField
 from wtforms.validators import DataRequired, Length, Required, Optional
@@ -89,12 +88,12 @@ class ConnectForm(FlaskForm):
     username        = StringField('Nom d\'utilisateur', validators=[DataRequired()])
     password        = PasswordField('Mot de passe', validators=[DataRequired()])
 
-    def get_authentificated_user(self):
+    def get_user(self):
         user = get_user(self.username.data)
         if user is None:
+            print("USER ING GETTER " + str(user))
             return None
-        passwd = crypt(self.password.data)
-        return user if passwd == user.password else None
+        return user if crypt(self.password.data) == user.mdpUt else None
 
 class OubliMdpForm(FlaskForm):
     mail            = StringField('Adresse mail', validators=[DataRequired()])

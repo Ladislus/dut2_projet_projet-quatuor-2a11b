@@ -170,10 +170,18 @@ def administration_creerStage():
             print("NORMALEMENT LA REDIRECTION")
             return redirect(url_for('administration_gestionStages'))
         except ValueError:
-            print("EXCEPTION !")
             return render_template("administration/administration_creerStage.html",
                                     stageForm=stageForm,
-                                    timeError=True)
+                                    timeError=True,
+                                    titleError=False)
+        except NameError:
+            return render_template("administration/administration_creerStage.html",
+                                    stageForm=stageForm,
+                                    timeError=False,
+                                    titleError=True)
+
+
+
     else:
         return render_template("administration/administration_creerStage.html",
                                 stageForm=stageForm,

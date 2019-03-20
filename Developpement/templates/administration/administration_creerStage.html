@@ -9,6 +9,9 @@
 <form class="form-horizontal" id="form_login"role="form" method="POST" action="{{ url_for('administration_creerStage') }}">
   {{ stageForm.hidden_tag() }}
   <div class="form-group">
+    {% if titleError %}
+    <p class="text-danger">Ce nom de stage est déjà utilisé</p>
+    {% endif %}
     <label for="nomStage" class="col-sm-3 control-label">{{stageForm.intituleSt.label}}</label>
     <div class="col-sm-3">{{ stageForm.intituleSt(size=50, class="form-control", placeholder="Intitule du stage")}}</div>
   </div>
