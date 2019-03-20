@@ -209,8 +209,7 @@ def stage_presentation_stage(id):
 
         :return: Retourne le template correspondant a la description d'un stage
         """
-        stage = get_stages(id=id)
-        print(stage)
+        stage = get_stages(id = id);
 
         return render_template("stage/presentationStage.html", stage=stage)
 
