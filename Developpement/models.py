@@ -131,7 +131,7 @@ class Stage(Base):
     intituleSt     = Column(String(30), nullable = False)
     nbPlaceSt      = Column(Integer)
     dateDebSt      = Column(Date, unique = True)                                   #TODO : Trigger lors de l'insertion/modification si un autre stage est en cour
-    dateFinSt      = Column(Date)                                                  #TODO : trigger lors de l'insertion/modification si la date de fin n'est pas enterieur a la date de début
+    dateFinSt      = Column(Date, nullable = True)                                                  #TODO : trigger lors de l'insertion/modification si la date de fin n'est pas enterieur a la date de début
     idLieu         = Column(Integer)                                               #TODO : trigger lors de l'insertion/modification si l'idLieu est dans Lieu
     vetSt          = Column(String(40))
     prixSt         = Column(Float)
@@ -287,6 +287,36 @@ def insert_resp(respForm, lieuForm, id_enfant):
     Personne.query.filter(Personne.idPers == id_enfant).first().idTuteur = Personne.query.filter(Personne.nomPers == str(respForm.nomResp.data), Personne.prenomPers == str(respForm.prenomResp.data), Personne.mailPers == str(respForm.mailPers.data)).first().idPers
 
     db.session.commit()
+
+def insert_stage(stageForm):
+    print("CREATING STAGE")
+    if stageForm.dateDebSt.data is None:
+        stageForm.dateDebSt.data = "0001-01-01"
+    s = Stage(intituleSt = str(stageForm.intituleSt.data), idRep=0, nbPlaceSt=0, dateDebSt=datetime.strptime(str(stageForm.dateDebSt.data), '%Y-%m-%d'), idLieu=0, vetSt='Smoking', prixSt=0.0, descSt='None', nivRequisSt=1)
+    print("STAGE CREATED")
+    print(s)
+    print("ADDING STAGE")
+    db.session.add(s)
+    print("STAGE ADDED")
+    # try:
+    print("COMMITTING")
+    db.session.commit()
+    print("COMMITTED")
+    # except sqlalchemy.exc.IntegrityError:
+    #     print("ROLLBACK")
+    #     db.session.rollback()
+    #     raise ValueError
+
+def get_stage():
+    print(Stage.query.all())
+    return Stage.query.all()
+
+def ine(string):
+    return string != ""
+
+#TODO quand il y aura les stages
+def test_dates(date1, date2):
+    pass
 
 db.create_all()
 user_datastore.create_role(name = "ADMIN")

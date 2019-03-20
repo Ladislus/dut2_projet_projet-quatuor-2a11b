@@ -2,7 +2,7 @@ from .functions import crypt
 from .getters import get_user
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, SelectMultipleField, StringField, TextField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, Required, Optional
 
 class InscriptionForm(FlaskForm):
     nomPers         = StringField('Nom', validators=[DataRequired()])
@@ -111,19 +111,18 @@ class ModifMdPForm(FlaskForm):
     mdpNewConfirm   = PasswordField('Confirmation nouveau Mot de passe actuel', validators=[DataRequired()])
 
 class StageForm(FlaskForm):
-    idSt        = HiddenField('idSt')
-    repSt       = SelectField('Repertoire du stage', choices=[], validators=[DataRequired()])
+    repSt       = SelectField('Repertoire du stage', choices=[("1", "TEST")], validators=[Optional()])
     intituleSt  = StringField('Intitule du stage', validators=[DataRequired()])
-    adresseSt   = StringField('Adresse du stage', validators=[DataRequired()])
-    cpSt        = StringField('Code Postal du stage', validators=[DataRequired()])
-    villeSt     = StringField('Ville du stage', validators=[DataRequired()])
-    nbPlaceSt   = IntegerField('Nombre de places dispos', validators=[DataRequired()])
-    dateDebSt   = DateField('Date de début du stage', validators=[DataRequired()])
-    dateFinSt   = DateField('Date de fin du stage', validators=[DataRequired()])
-    tenueSt     = StringField('Tenue exigée pour le concert du stage')
-    prixSt      = FloatField('Prix du stage')
-    descSt      = TextField('Description du stage', validators=[DataRequired()])
-    nivRequisSt = IntegerField('Niveau minimum pour intégrer le stage')
+    adresseSt   = StringField('Adresse du stage', validators=[Optional()])
+    cpSt        = StringField('Code Postal du stage', validators=[Optional()])
+    villeSt     = StringField('Ville du stage', validators=[Optional()])
+    nbPlaceSt   = IntegerField('Nombre de places dispos', validators=[Optional()])
+    dateDebSt   = DateField('Date de début du stage', validators=[Optional()])
+    dateFinSt   = DateField('Date de fin du stage', validators=[Optional()])
+    tenueSt     = StringField('Tenue exigée pour le concert du stage', validators=[Optional()])
+    prixSt      = FloatField('Prix du stage', validators=[Optional()])
+    descSt      = TextField('Description du stage', validators=[Optional()])
+    nivRequisSt = IntegerField('Niveau minimum pour intégrer le stage', validators=[Optional()])
 
 class SouvenirsForm(FlaskForm):
     anneeSouv   = SelectField("Choix de l'année", choices=[('2015', "Année 2015"), ('2016', "Année 2016"), ('2017', "Année 2017")], validators=[DataRequired()])
