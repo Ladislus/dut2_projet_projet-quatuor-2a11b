@@ -6,7 +6,32 @@
 h1{
   text-align: center;
 }
+h3{
+  text-align: center;
+  text-decoration-color: black;
+  font-style: italic;
+}
 .row{
+  margin-right: 1%;
+  margin-bottom: 5%;
+}
+.pdf{
+  width: 90%;
+  height: 680px;
+  text-align: center;
   margin-left: 5%;
-  margin-right: 5%;
+  margin-right: 2%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.glyphicon-save{
+  color: darkred;
+}
+.texte{
+  background-color: #fafdef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 25px;
+  padding-top: 2%;
 }
