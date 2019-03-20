@@ -1,3 +1,16 @@
 .bigcontainer{
     text-align: center;
 }
+.contain-p-down{
+  padding:3%;
+  background-color: #fafdef;
+  width: 90%;
+  margin-left: 5%;
+  text-align: justify;
+  border-radius: 5%;
+}
+#download{
+  margin-left: 49%;
+  color: black;
+  font-size: 180%;
+}

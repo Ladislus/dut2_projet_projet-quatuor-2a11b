@@ -4,6 +4,13 @@ border-radius: 10%;
 width: 60%;
 margin: 2%;
 }
+#present-stage{
+  background-color: #fafdef;
+  width: 90%;
+  margin-left: 5%;
+  padding: 3%;
+  text-align: justify;
+}
 
 #member1{
   width: 20%;
@@ -118,6 +125,7 @@ h4{
   width: 90%;
   margin-left: 4.8%;
   border-radius: 5%;
+  margin-bottom: 5%;
 }
 h4{
   padding-top: 10%;
