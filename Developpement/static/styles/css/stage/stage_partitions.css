@@ -9,7 +9,16 @@ body{
   text-align: center;
   width: 20%;
   margin-left: 40%;
-  padding: 1%;
+  padding: 1.5%;
+}
+
+#contain-select-tab{
+  padding: 3%;
+  background-color: #fafdef;
+  border-radius: 25px;
+  margin-bottom: 5%;
+  width: 90%;
+  margin-left: 5%;
 }
 
 #sel1{
@@ -18,4 +27,16 @@ body{
 img{
   margin-left: 36.5%;
   margin-top: -2%;
+}
+table{
+  text-align: center;
+  width: 90%;
+}
+table th{
+  text-align: center;
+  font-weight: bold;
+}
+.glyphicon{
+  color: black;
+  font-size: 150%;
 }

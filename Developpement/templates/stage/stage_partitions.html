@@ -35,8 +35,7 @@
 
 <body onload="m()">
 <h1> Les Partitions </h1>
-<img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline2">
-
+<div id="contain-select-tab">
 <div id="select-1" class="form-group">
  <label for="sel1">Veuillez sélectionnez votre niveau de stage </label>
  <select class="form-control" id="sel1">
@@ -46,13 +45,101 @@
  </select>
 </div>
   <div id="Niveau1">
-    J'ai le Niveau 1
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Oeuvre</th>
+          <th>Compositeur</th>
+          <th>Instrument</th>
+          <th>Télécharger</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Concerto 54:D3</td>
+          <td>G.P Telemann</td>
+          <td>Clarinette Alto</td>
+          <td><a download="concerto 54-d3 - Clarinette Alto.pdf" href="{{url_for('static', filename='fichier_statique/concerto 54-d3 - Clarinette Alto.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+        </tr>
+        <tr>
+          <td>Le Déluge Op 45 - Poème Biblique</td>
+          <td>Camille Saint-Saëns</td>
+          <td>Clarinette Alto</td>
+          <td><a download="deluge prelude - Clarinette Alto.pdf" href="{{url_for('static', filename='fichier_statique/deluge prelude - Clarinette Alto.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+        </tr>
+        <tr>
+          <td>Concerto 54-d3</td>
+          <td>G.P Telemann</td>
+          <td>Clarinette Alto</td>
+          <td><a download="concerto 54-d3 - Clarinette Alto.pdf" href="{{url_for('static', filename='fichier_statique/concerto 54-d3 - Clarinette Alto.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <div id="Niveau2">
-    J'ai le Niveau 2
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Oeuvre</th>
+          <th>Compositeur</th>
+          <th>Instrument</th>
+          <th>Télécharger</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Brass Machine</td>
+          <td>Mark Taylor</td>
+          <td>Clarinette Alto</td>
+          <td><a download="brass machine - Clarinette Alto.pdf" href="{{url_for('static', filename='fichier_statique/brass machine - Clarinette Alto.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+        </tr>
+        <tr>
+          <td>Brass Machine</td>
+          <td>Mark Taylor</td>
+          <td>Clarinette Basse en Sib</td>
+          <td><a download="brass machine - Clarinette Basse en Sib.pdf" href="{{url_for('static', filename='fichier_statique/brass machine - Clarinette Basse en Sib.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+        </tr>
+        <tr>
+          <td>Carmina Burana - I. Fortune Plango Vulnera</td>
+          <td>Carl Orff</td>
+          <td>Clarinette en Sib 1</td>
+          <td><a download="1 fortune plango vulnera - Clarinette en Sib 1.pdf" href="{{url_for('static', filename='fichier_statique/1 fortune plango vulnera - Clarinette en Sib 1.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <div id="Niveau3">
-    J'ai le Niveau 3
-  </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Oeuvre</th>
+          <th>Compositeur</th>
+          <th>Instrument</th>
+          <th>Télécharger</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Brass Machine</td>
+          <td>Mark Taylor</td>
+          <td>Clarinette Alto</td>
+          <td><a download="brass machine - Clarinette Alto.pdf" href="{{url_for('static', filename='fichier_statique/brass machine - Clarinette Alto.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+        </tr>
+        <tr>
+          <td>Brass Machine</td>
+          <td>Mark Taylor</td>
+          <td>Clarinette Basse en Sib</td>
+          <td><a download="brass machine - Clarinette Basse en Sib.pdf" href="{{url_for('static', filename='fichier_statique/brass machine - Clarinette Basse en Sib.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+        </tr>
+        <tr>
+          <td>Carmina Burana - I. Fortune Plango Vulnera</td>
+          <td>Carl Orff</td>
+          <td>Clarinette en Sib 1</td>
+          <td><a download="1 fortune plango vulnera - Clarinette en Sib 1.pdf" href="{{url_for('static', filename='fichier_statique/1 fortune plango vulnera - Clarinette en Sib 1.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+</div>
 </body>
 {% endblock %}
