@@ -28,7 +28,7 @@ def administration_gestionStages():
 
     :return: Retourne le template de la page de gestion des stages
     """
-    return render_template("administration/administration_gestionStages.html", dico_stage=get_stage())
+    return render_template("administration/administration_gestionStages.html", dico_stage=get_stages())
 
 @app.route("/administration/modifierStage/")
 # @roles_required(ADMIN)
