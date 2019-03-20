@@ -18,7 +18,18 @@
   border-radius: 1em;
 }
 
-
+h1{
+  padding-top: 2%;
+  text-align: center;
+  background-color: #fafdef;
+  border-radius: 10% / 10%;
+  padding-bottom: 1%;
+  margin-bottom: 4%;
+  border-style: solid;
+  border-width: thin;
+  margin-left: 25%;
+  width: 50%;
+}
 
 body{
   background-image: url("../../img/imgFond.png");
