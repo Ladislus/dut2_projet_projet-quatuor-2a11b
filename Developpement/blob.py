@@ -1,4 +1,6 @@
+from .views import *
 from base64 import *
+
 
 def make_blob(filename):
     extension = ""
