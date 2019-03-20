@@ -98,3 +98,106 @@ margin: 2%;
   margin: 5%;
   margin-top: -7%;
 }
+
+@media only screen and (max-width: 1060px) {
+  @font-face{
+    font-family: "Roboto";
+    src: url('../../../Police/Aaargh.ttf');
+  }
+
+  .division-membres {
+    display: flex;
+    align-items: flex-start;
+
+  }
+
+  .presentation-text p{
+    font-family: "Roboto";
+    font-size: 1.8vh;
+    width: 70%;
+    text-align: justify;
+    margin-left: 15%;
+    margin-top: 3%;
+  }
+
+  h1{
+    margin-top: 5%;
+  }
+  .titre-gpartie{
+    text-align: center;
+    margin-bottom: 10%;
+  }
+  .presentation-div{
+    display: flex;
+    margin-bottom: 5%
+  }
+
+  .fond-text{
+    background-color: rgba(212, 212, 212, 0.13);
+  }
+  #img1{
+    width:50%;
+    margin-left: 25%;
+    margin-top: 4%;
+  }
+  #img2{
+    width:50%;
+    margin-left: 25%;
+    margin-top: 2%;
+  }
+  #member1{
+    width: 20%;
+    margin: 2%;
+  }
+
+  #member2{
+    width: 20%;
+    margin: 2%;
+  }
+  #member3{
+    width: 20%;
+    margin: 2%;
+  }
+  #member4{
+    width: 20%;
+    margin: 2%;
+  }
+  .division-membres{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: -6%;
+  }
+  ul{
+    list-style-type: none;
+  }
+
+  #inst{
+    font-weight: bold;
+    margin-left: 3%;
+  }
+
+  h3{
+    font-weight: bold;
+  }
+  #Olivier-Roussillat, #Robert-Ramon, #Frederic-Dudilet, #Tony-Bigot{
+  background-color: #fafdef;
+  border-radius: 10%;
+  width: 60%;
+  margin: 2%;
+  }
+
+  #first-two{
+    display: flex;
+  }
+  #two-last{
+    display: flex;
+  }
+
+  .presentation-gdiv{
+    background-color: #fbfcef;
+    border-radius: 5%;
+    margin: 5%;
+    margin-top: -7%;
+  }
+}
