@@ -80,6 +80,8 @@ h3{
 }
 #Olivier-Roussillat, #Robert-Ramon, #Frederic-Dudilet, #Tony-Bigot{
 background-color: #fafdef;
+border-style: solid;
+border-width: thin;
 border-radius: 10%;
 width: 60%;
 margin: 2%;

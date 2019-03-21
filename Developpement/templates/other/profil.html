@@ -1,4 +1,31 @@
 {% extends "base.html" %}
 {% block main %}
-{{utilisateur}}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/autre/profil.css')}}">
+<h1>Votre Profil</h1>
+<div id="contain-profil">
+  <div class="col-sm-6">
+      <h3>Nom d'Utilisateur</h3>
+      <p>{{current_user.usernameUt}}</p>
+      <h3>Nom</h3>
+      <p>{{current_user.personne.nomPers}}</p>
+      <h3>Prénom</h3>
+      <p>{{current_user.personne.prenomPers}}</p>
+      <h3>Adresse Mail</h3>
+      <p>{{current_user.personne.mailPers}}</p>
+      <h3>Numéro de téléphone</h3>
+      <p>{{current_user.personne.telPersUn}}</p>
+  </div>
+  <div class="col-sm-6">
+    <h3>Date de Naissance</h3>
+    <p>{{current_user.personne.dateNPers}}</p>
+    <h3>Adresse</h3>
+    <p>{{current_user.personne.adresse}}</p>
+    <h3>Instruments joués</h3>
+    <p>{{current_user.personne.instruments}}</p>
+    <h3>Ecole</h3>
+    <p>{{current_user.ecoleUt}}</p>
+    <h3>Niveau</h3>
+    <p>{{current_user.nivUt}}</p>
+  </div>
+</div>
 {% endblock %}
