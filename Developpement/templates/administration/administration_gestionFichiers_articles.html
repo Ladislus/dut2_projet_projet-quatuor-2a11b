@@ -15,20 +15,19 @@
             <th>Titre</th>
             <th>Date</th>
             <th>Auteur</th>
-            <th>ID</th>
+            <th>lien de l'image</th>
             <th>Texte</th>
           </tr>
         </thead>
         <tbody>
-          <!-- {% for article in dico_articles[articles] %} -->
           {% for articles in dico_articles %}
           <tr>
             <!-- titre date contenu  -->
             <td>{{articles[0]}}</td>
-            <td>{{articles[0]}}</td>
-            <td>{{articles[0]}}</td>
-            <td>{{articles[0]}}</td>
-            <td>{{articles[0]}}</td>
+            <td>{{articles[1]}}</td>
+            <td>{{articles[2]}}</td>
+            <td>{{url_for('static',filename="img/"+articles[3])}}</td>
+            <td>{{articles[4]}}</td>
             <td>
               <a href="/administration/modifierStagiaire/" class="btn btn-default">
                 <span class="glyphicon glyphicon-pencil"></span>
@@ -39,7 +38,6 @@
             </td>
           </tr>
           {% endfor %}
-          <!-- {% endfor %} -->
         </tbody>
       </table>
       <input type="file" id="file1">
