@@ -1,34 +1,37 @@
 {% extends "base.html" %}
 {% block main %}
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/presentationStage.css')}}">
-<div class="stagiaire-annee">
-  <h2>Stages</h2>
-  <div>
-    <p>{{ stage.intituleSt }}</p>
-    <p>{{ stage.prixSt }}</p>
-    <div>
-      <p>{{ stage.dateDebSt }}</p>
-      <p>{{ stage.dateFinSt }}</p>
+<div>
+  <h1>Stages</h1>
+  <div id="stage">
+    <div id="texte">
+      <h3 id="titre">{{ stage.intituleSt }}</h3>
+      <p><span class="glyphicon glyphicon-calendar"></span>  Dates : {{ stage.dateDebSt }} - {{ stage.dateFinSt }}</p>
+      <div>
+        <p><span class="glyphicon glyphicon-user"></span>  Nombre de places : {{ stage.nbPlaceSt }}</p>
+      </div>
+      <div>
+        <p><span class="glyphicon glyphicon-tasks"></span>  Nombre d'années d'expérience requis : {{ stage.nivRequisSt }}</p>
+      </div>
+      <div>
+        <p><span class="glyphicon glyphicon-euro"></span>  {{ stage.prixSt }}</p>
+      </div>
+      <div>
+        <p><span class="glyphicon glyphicon-map-marker"></span>  {{ stage.idLieu }}, {{ stage.idLieu }}, {{ stage.idLieu }}</p>
+      </div>
+      <div>
+        <p><span class="glyphicon glyphicon-check"></span>  Tenue requise : {{ stage.vetSt }}</p>
+      </div>
+      <div>
+        <p><span class="glyphicon glyphicon-comment"></span>  Description : {{ stage.descSt }}</p>
+      </div>
+      <br><a href="/stage/inscription/" class="btn btn-default">
+        <span class="glyphicon glyphicon-check">  S'inscrire au stage</span>
+      </a>
     </div>
-    <div>
-      <p>{{ stage.idLieu }}</p>
-      <p>{{ stage.idLieu }}</p>
-      <p>{{ stage.idLieu }}</p>
+    <div id="image">
+      <img class="img-thumbnail img-rounded" src="{{ url_for('static',filename='img/AFFICHE_2019_03_01_Divertimento-page-001.jpg') }}" alt="">
     </div>
-    <div>
-    </div>
-    <p>{{ stage.descSt }}</p>
-    <p>{{ stage.nivRequisSt }}</p>
-    <p>{{ stage.idLieu }}</p>
-    <p>{{ stage.idLieu }}</p>
-    <p>{{ stage.idLieu }}</p>
-    <p>{{ stage.nbPlaceSt }}</p>
-    <p>{{ stage.prixSt }}</p>
-    <p>{{ stage.vetSt }}</p>
-
-    <a href="/stage/inscription/" class="btn btn-default">
-      <span class="glyphicon glyphicon-pencil"></span>
-    </a>
   </div>
 </div>
 {% endblock %}

@@ -1,8 +1,31 @@
-.stage{
-  background-color: #fafdef;
+#stage{
+  background-color: #fbfcef;
   border-color: black;
   border-style: solid;
   border-width: thin;
-  border-radius: 25px;
-  padding-top: 2%;
+  margin-bottom: 2%;
+  padding-bottom: 5%;
+}
+#titre{
+  border-bottom: 1px solid black;
+  padding-bottom: 2%;
+}
+h3{
+  text-align: center;
+  margin-top: -0.2%;
+}
+p{
+  font-size: 130%;
+}
+#image{
+  display: inline-block;
+}
+#image img{
+  width: 30%;
+  margin-top: -31%;
+  margin-left: 64%;
+}
+#texte{
+  display: inline-block;
+  padding: 3%;
 }
