@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block main %}
+
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionFichiers_images.css')}}">
 <div class="liens">
   <h1 id="hliens">Gestion des stages</h1>
 </div>
@@ -48,7 +50,7 @@
             <a href="/administration/modifierStage/" class="btn btn-default">
               <span class="glyphicon glyphicon-pencil"></span>
             </a>
-            <a href="" class="btn btn-default">
+            <a href="" class="btn btn-danger">
               <span class="glyphicon glyphicon-trash"></span>
             </a>
             </td>
@@ -59,7 +61,7 @@
         </tbody>
       </table>
       {% endif %}
-      <a href="/administration/creerStage/" class="btn btn-default">
+      <a id="btn-plus" href="/administration/creerStage/" class="btn btn-default">
         <span class="glyphicon glyphicon-plus"></span>
       </a>
     </div>

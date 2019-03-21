@@ -51,7 +51,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle sommaire" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: black">Stage <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/stage/presentation/">Présentation</a></li>
+                <li><a href="/stage/presentation/">Présentation/Inscription</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="/stage/programmes/">Programmes</a></li>
                 <li role="separator" class="divider"></li>
@@ -61,8 +61,6 @@
 
                 {% if current_user.is_authenticated %}
 
-                <li role="separator" class="divider"></li>
-                <li><a href="/stage/repertoire/">Repertoire</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="/stage/partitions/">Partitions</a></li>
                 <li role="separator" class="divider"></li>
@@ -121,7 +119,8 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {% if current_user.is_authenticated %}
-            <li><a id="connect" href="/other/deconnexion/" style="color: black" class="btn btn-link">{{ current_user.usernameUt }}  <small><span class="glyphicon glyphicon-log-out sommaire"></span></small></a></li>
+            <li><a id="connect" href="/other/profil" style="color: black" class="btn btn-link">{{ current_user.usernameUt }}</a></li>
+            <li><a id="connect" href="/other/deconnexion/" style="color: black" class="btn btn-link"><small><span class="glyphicon glyphicon-log-out sommaire"></span></small></a></li>
             {% else %}
             <li><a href="/other/connexion/" style="color: black"><small><span class="glyphicon glyphicon-log-in sommaire"></span></small></a></li>
             {% endif %}
