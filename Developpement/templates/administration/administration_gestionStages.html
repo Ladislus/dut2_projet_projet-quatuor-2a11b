@@ -6,7 +6,9 @@
 <div class="stagiaire-all">
   <div class="stagiaire-annee">
     <h2>Stages</h2>
+
     <div class="stagiaire-individu table-responsive">
+      {% if stages|length %}
       <table  class="table table-bordered">
         <thead>
           <tr>
@@ -48,9 +50,14 @@
             </a>
             </td>
           </tr>
-          {% endfor %}
+
+
+      {% endfor %}
         </tbody>
       </table>
+      {% else %}
+            <h2>Il n'y a aucun stage pour le moment</h2>
+      {% endif %}
       <a href="/administration/creerStage/" class="btn btn-default">
         <span class="glyphicon glyphicon-plus"></span>
       </a>

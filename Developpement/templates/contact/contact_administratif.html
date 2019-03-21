@@ -30,6 +30,9 @@
 <div class="liens">
 <h1>Contact Administratif</h1>
 </div>
+<div class="message">
+
+
 <form class="form" id="form_login"role="form" method="POST" action="{{ url_for('administration_mailing') }}">
 
   <div class="form-group grand">
@@ -61,21 +64,25 @@
 <br>
 <div class="form-group">
   <label for="contenuMessage" class="col-sm-3 control-label">{{user_contactForm.contenuMessage.label}}</label>
-  <div class="col-sm-3">{{ user_contactForm.contenuMessage(size=100, class="form-control textarea", placeholder="Contenu du mail")}}</div>
+  <div class="col-sm-3">{{ user_contactForm.contenuMessage(size=100, class="form-control textarea", placeholder="Contenu du mail", style="resize: none;",rows="11",cols="20")}}</div>
+</div>
 </div>
 <br>
 <br>
-<div class="form-group">
-    <label for="pjMessage" class="col-sm-3 control-label">{{user_contactForm.pjMessage.label}}</label>
-    <div class="col-sm-3">{{ user_contactForm.pjMessage(size=50, class="form-control")}}</div>
-</div>
-<br>
-</form>
-<div class="form-group">
-  <div class="col-sm-offset-3 col-sm-3">
-    <button type="submit" class="btn btn-default">Envoyer mail</button>
+<div class="">
+  <div class="form-group">
+      <label for="pjMessage" class="col-sm-3 control-label">{{user_contactForm.pjMessage.label}}</label>
+      <div class="col-sm-3">{{ user_contactForm.pjMessage(size=50, class="form-control")}}</div>
+  </div>
+  <br>
+  </form>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-3">
+      <button type="submit" class="btn btn-default">Envoyer mail</button>
+    </div>
   </div>
 </div>
+
 
 
 

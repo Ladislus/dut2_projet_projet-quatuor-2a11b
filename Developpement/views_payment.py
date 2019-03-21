@@ -11,10 +11,10 @@ def create_payment(amount,email,customer_id):
         'email': email
       },
       'hosted_payment': {
-        'return_url': 'https://localhost:5000',
-        'cancel_url': 'https://localhost:5000',
+        'return_url': 'https://localhost:5000/payment/sucess',
+        'cancel_url': 'https://localhost:5000/payment/cancel',
       },
-      'notification_url': 'https://localhost:5000',
+      'notification_url': 'https://localhost:5000/payment/notification',
       'metadata': {
         'customer_id': customer_id,
       },
@@ -22,6 +22,11 @@ def create_payment(amount,email,customer_id):
     payment = payplug.Payment.create(**payment_data)
     payment_id = str(payment.id)
     return payment
+
+
+
+def get_payment_link(payment):
+    return payment.hosted_payment.payment_url
 
 
 def retrieve_payment(payment_id,mail):

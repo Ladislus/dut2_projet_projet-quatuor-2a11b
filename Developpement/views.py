@@ -3,7 +3,7 @@ from flask import render_template, redirect, request, url_for
 from flask_security import roles_accepted, roles_required
 import os
 from .blob import *
-from .payplug import *
+from .views_payment import *
 from .forms import *
 from .views_quatuor import *
 from .views_clarinette import *

@@ -25,11 +25,16 @@
           <tr>
             <!-- Nom Prenom age niveau mail role  -->
             <td><div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="{{ video[3] }}" allowfullscreen></iframe>
-</div></td>
+              <video controls>
+                <source src="{{ video[3] }}" type="video/mp4">
+                <source src="{{ video[3] }}" type="video/ogg">
+                <source src="{{ video[3] }}" type="video/webm">
+                Video file not supported.  <a href="{{video[3]}}">Telechargez la video</a>
+              </video>
+          </div></td>
             <td>{{ video[0] }}</td>
             <td>{{ video[1] }}</td>
-            <td><img href="" alt="">{{ video[2] }}</td>
+            <td>{{ video[2] }}</td>
             <td>
               <a href="/administration/modifierStagiaire/" class="btn btn-default">
                 <span class="glyphicon glyphicon-pencil"></span>
@@ -39,7 +44,6 @@
               </a>
             </td>
           </tr>
-
           {% endfor %}
         </tbody>
       </table>
