@@ -5,6 +5,9 @@ h2, h3{
 
 .contain-p1{
   background-color: #fafdef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
   padding: 4%;
   margin-bottom: 4%;
   border-radius: 25px;

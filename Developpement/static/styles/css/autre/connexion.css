@@ -11,6 +11,9 @@
 .form-horizontal{
   margin-left: 17%;
   background-color: #fafdef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
   width: 65%;
   border-radius: 25px;
   margin-bottom: 3%;
@@ -18,4 +21,7 @@
 }
 #contain-div{
   margin-left: 22%;
+}
+.clique{
+  width: 50%;
 }

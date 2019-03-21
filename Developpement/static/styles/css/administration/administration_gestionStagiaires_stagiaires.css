@@ -1,5 +1,8 @@
 #contain-all{
   background-color: #fafdef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
   padding: 3%;
   width: 80%;
   margin-left: 10%;

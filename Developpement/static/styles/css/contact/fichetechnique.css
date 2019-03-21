@@ -21,6 +21,9 @@
   width: 90%;
   margin-left: 5%;
   background-color: #fafdef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
 }
 #lien-a{
   color: black;
