@@ -1,5 +1,71 @@
 {% extends "base.html" %}
 {% block main %}
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/stage/stage_repertoire.css')}}">
+<h1>Répertoire</h1>
+<h2>Stage 2019</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Oeuvre</th>
+      <th>Compositeur</th>
+      <th>Instrument</th>
+      <th>Télécharger</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Concerto 54:D3</td>
+      <td>G.P Telemann</td>
+      <td>Clarinette Alto</td>
+      <td><a download="concerto 54-d3 - Clarinette Alto.pdf" href="{{url_for('static', filename='fichier_statique/concerto 54-d3 - Clarinette Alto.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+    </tr>
+    <tr>
+      <td>Le Déluge Op 45 - Poème Biblique</td>
+      <td>Camille Saint-Saëns</td>
+      <td>Clarinette Alto</td>
+      <td><a download="deluge prelude - Clarinette Alto.pdf" href="{{url_for('static', filename='fichier_statique/deluge prelude - Clarinette Alto.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+    </tr>
+    <tr>
+      <td>Concerto 54-d3</td>
+      <td>G.P Telemann</td>
+      <td>Clarinette Alto</td>
+      <td><a download="concerto 54-d3 - Clarinette Alto.pdf" href="{{url_for('static', filename='fichier_statique/concerto 54-d3 - Clarinette Alto.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Stage 2018</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Oeuvre</th>
+      <th>Compositeur</th>
+      <th>Instrument</th>
+      <th>Télécharger</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Concerto 54:D3</td>
+      <td>G.P Telemann</td>
+      <td>Clarinette Alto</td>
+      <td><a download="concerto 54-d3 - Clarinette Alto.pdf" href="{{url_for('static', filename='fichier_statique/concerto 54-d3 - Clarinette Alto.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+    </tr>
+    <tr>
+      <td>Le Déluge Op 45 - Poème Biblique</td>
+      <td>Camille Saint-Saëns</td>
+      <td>Clarinette Alto</td>
+      <td><a download="deluge prelude - Clarinette Alto.pdf" href="{{url_for('static', filename='fichier_statique/deluge prelude - Clarinette Alto.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+    </tr>
+    <tr>
+      <td>Concerto 54-d3</td>
+      <td>G.P Telemann</td>
+      <td>Clarinette Alto</td>
+      <td><a download="concerto 54-d3 - Clarinette Alto.pdf" href="{{url_for('static', filename='fichier_statique/concerto 54-d3 - Clarinette Alto.pdf')}}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+    </tr>
+  </tbody>
+</table>
+
 
 {% endblock %}
