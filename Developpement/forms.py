@@ -59,7 +59,7 @@ class User_ContactForm(FlaskForm):
     mailAuteur      = StringField('Adresse Mail', validators=[DataRequired()])
     objetMessage    = SelectField('Objet', choices=[("choix","--Choix--"),('stage',"Stage"),('concert',"Concert"),("autre","autre")], validators=[DataRequired()])
     contenuMessage  = TextAreaField('Contenu du message',validators=[DataRequired()])
-    pjMessage       = StringField('PJ')
+    pjMessage       = FileField()
     autrobjMessage  = TextField('Objet autre', validators=[DataRequired()])
 
 class Admin_ContactForm(FlaskForm):
@@ -68,7 +68,7 @@ class Admin_ContactForm(FlaskForm):
     destMessage     = SelectField('Destinataire', choices=[("choix","--Choix-- "),('dest1', "dest1"),('dest2', "dest2"),('autre',"autre")], validators=[DataRequired()])
     autrDestMessage = TextField('Adresse autre', validators=[DataRequired()])
     contenuMessage  = TextAreaField('Contenu du message',validators=[DataRequired()])
-    pjMessage       = StringField('PJ')
+    pjMessage       = FileField()
 
 class AutorMedicForm(FlaskForm):
     numContactUrg1  = StringField('Numero à contacter Urgence 1', validators=[DataRequired()])

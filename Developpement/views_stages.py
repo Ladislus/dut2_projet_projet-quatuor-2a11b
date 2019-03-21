@@ -273,7 +273,7 @@ def stage_repertoire():
 
     :return: Retourne le template de la page du repertoire musical des stages
     """
-    return render_template("stage/stage_repertoire")
+    return render_template("stage/stage_repertoire.html")
 
 @app.route("/stage/paiement/")
 def stage_paiement():
