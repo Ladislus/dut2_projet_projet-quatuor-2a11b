@@ -284,7 +284,6 @@ def stage_paiement():
     return render_template("stage/stage_paiement.html")
 
 @app.route("/stage/recettes/")
-@roles_accepted('ADMIN', 'STAGIAIRE')
 def stage_recettes():
     """
 
