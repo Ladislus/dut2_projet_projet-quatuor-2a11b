@@ -27,8 +27,8 @@ def quatuor_repertoire():
 gliste=[]
 liste2=[]
 sliste1=[]
-sliste1.append(["Sonate en Sol mineur,"," de Tomaso Albinoni","test.mp3","test.jpg"])
-sliste1.append(["Danses hongroises 1,4,5,"," de Johannes Brahms","test.mp3","test.jpg"])
+sliste1.append(["Sonate en Sol mineur,"," de Tomaso Albinoni","sect.mp3","test.jpg"])
+sliste1.append(["Danses hongroises 1,4,5,"," de Johannes Brahms","sect.mp3","test.jpg"])
 sliste2=[]
 sliste2.append(["Suite de danses anglaises - almain*1'15,"," de William Byrd","almain.mp3","test.jpg"])
 sliste2.append(["Suite de danses anglaises - pavan*1'20,"," de William Byrd","pavan.mp3","test.jpg"])
