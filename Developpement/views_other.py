@@ -2,8 +2,6 @@ from .views import *
 from .forms import *
 from .models import *
 
-from flask_login import login_user, logout_user;
-
 @app.route("/other/liens/")
 def other_liens():
     """
@@ -30,14 +28,11 @@ def other_connexion():
     if connectForm.validate_on_submit():
 
         user = connectForm.get_user()
-        print("USER FROM FORM : " + str(user))
 
         if user is None:
-            print("ERROR DURING LOGGING")
             return render_template("other/connexion.html", connectForm=connectForm, errorLogin=True)
 
         login_user(user)
-        print("SUCCESSFULLY LOGGED IN")
         return redirect(url_for("home"))
 
     return render_template("other/connexion.html", connectForm=connectForm)

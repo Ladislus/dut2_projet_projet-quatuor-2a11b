@@ -6,7 +6,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from  sqlalchemy import exc
 
-from flask_login import UserMixin
+from flask_login import UserMixin, login_user, logout_user, login_required, current_user
 from flask_security import RoleMixin, SQLAlchemyUserDatastore, Security
 
 import click
@@ -46,9 +46,8 @@ class Utilisateur(Base, UserMixin):
     id_Role        = Column(Integer, ForeignKey("Role.idRole"))
     id_Pers        = Column(Integer, ForeignKey("Personne.idPers"))
 
-    roles         = relationship("Role", secondary = role_user, back_populates = "membres")
+    roles          = relationship("Role", secondary = role_user, back_populates = "membres")
     personne       = relationship("Personne", back_populates = "utilisateur")
-    instruments    = relationship("JoueInstrument", back_populates = "joueur")
     participations = relationship("Participe", back_populates = "utilisateur")
     instruInscrits = relationship("InscrireInstru", back_populates = "utilisateur")
     articles       = relationship("Article", back_populates = "auteur")
@@ -82,16 +81,18 @@ class Personne(Base):
 
     utilisateur = relationship("Utilisateur", back_populates = "personne")
     adresse     = relationship("Lieu", back_populates = "residants")
+    instruments = relationship("JoueInstrument", back_populates = "joueur")
+
 
 class JoueInstrument(Base):
     __tablename__ = "JoueInstrument"
 
     niveauInstru = Column(Integer)
 
-    id         = Column(Integer, ForeignKey("Utilisateur.id"), primary_key = True)
+    id           = Column(Integer, ForeignKey("Personne.idPers"), primary_key = True)
     idInstru     = Column(Integer, ForeignKey("Instrument.idInstru"), primary_key = True)
 
-    joueur       = relationship("Utilisateur", back_populates = "instruments")
+    joueur       = relationship("Personne", back_populates = "instruments")
     instrument   = relationship("Instrument", back_populates = "joueurs")
 
 class Participe(Base):
@@ -108,7 +109,7 @@ class Participe(Base):
     telUrg2     = Column(String(10), nullable = False)
     telUrg3     = Column(String(10))
 
-    id        = Column(Integer, ForeignKey("Utilisateur.id"), primary_key = True)
+    id          = Column(Integer, ForeignKey("Utilisateur.id"), primary_key = True)
     idSt        = Column(Integer, ForeignKey("Stage.idSt"), primary_key = True)
 
     utilisateur = relationship("Utilisateur", back_populates = "participations")
@@ -117,9 +118,9 @@ class Participe(Base):
 class InscrireInstru(Base):
     __tablename__ = "InscrireInstru"
 
-    voieJoue    = Column(String(20), nullable = False)
+    voieJoue    = Column(String(20))
 
-    id        = Column(Integer, ForeignKey("Utilisateur.id"), primary_key = True)
+    id          = Column(Integer, ForeignKey("Utilisateur.id"), primary_key = True)
     idSt        = Column(Integer, ForeignKey("Stage.idSt"), primary_key = True)
     idInstru    = Column(Integer, ForeignKey("Instrument.idInstru"), primary_key = True)
 
@@ -258,10 +259,11 @@ def init_db(filename = None):
     user_datastore.find_or_create_role(name = "STAGIAIRE")
     user_datastore.find_or_create_role(name = "ADMIN")
 
-    names_c = ["Clarinette sopranino", "Clarinette soprano en mi bémol", "Clarinette en Ré", \
-               "Clarinette en Ut", "Clarinette en si bémol", "Clarinette en la", "La de basset", \
-               "Clarinette alto", "Cor de basset", "Clarinette basse", "Clarinette contre alto", \
-               "Clarinette contrbasse" ]
+    names_c = ["Clarinette soprano en mi bémol", "Clarinette en Ré", \
+               "Clarinette en si bémol", "Clarinette en la", \
+               "Clarinette alto en mi bémol", "Cor de basset en fa", \
+               "Clarinette basse en si bémol", "Clarinette contre alto en mi bémol", \
+               "Clarinette contrebasse en si bémol" ]
     for nom in names_c:
         db.session.add(Instrument(nomInstru = nom))
 
@@ -275,10 +277,8 @@ def new_admin(username, passwd):
         user = user_datastore.create_user(usernameUt = username, mdpUt = crypt(passwd))
         user_datastore.add_role_to_user(user, 'ADMIN')
         db.session.commit()
-        print("ROLE ADMIN SUCCESSFULLY ADD")
     except exc.IntegrityError:
         db.session.rollback()
-        print("USER ALREADY EXISTING")
 
 def est_majeur(str_date):
     """
@@ -291,21 +291,13 @@ def est_majeur(str_date):
 def insert_lieu(form):
     if Lieu.query.filter(Lieu.adrLieu == str(form.adrLieu.data), Lieu.codeLieu == int(form.CPLieu.data), Lieu.villeLieu == str(form.villeLieu.data)).first() is None:
         db.session.add(Lieu(adrLieu = str(form.adrLieu.data), codeLieu = int(form.CPLieu.data), villeLieu = str(form.villeLieu.data)))
-        print("SUCCESSFULLY ADDED THE PLACE")
         db.session.commit()
-        print("COMMITTED TO SESSION")
-    else:
-        print("ALREADY IN")
     return Lieu.query.filter(Lieu.adrLieu == str(form.adrLieu.data), Lieu.codeLieu == int(form.CPLieu.data), Lieu.villeLieu == str(form.villeLieu.data)).first().idLieu
 
 def insert_lieu_bs(adr, cp, ville):
     if Lieu.query.filter(Lieu.adrLieu == str(adr), Lieu.codeLieu == int(cp), Lieu.villeLieu == str(ville)).first() is None:
         db.session.add(Lieu(adrLieu = str(adr), codeLieu = int(cp), villeLieu = str(ville)))
-        print("SUCCESSFULLY ADDED THE PLACE")
         db.session.commit()
-        print("COMMITTED TO SESSION")
-    else:
-        print("ALREADY IN")
     return Lieu.query.filter(Lieu.adrLieu == str(adr), Lieu.codeLieu == int(cp), Lieu.villeLieu == str(ville)).first().idLieu
 
 
@@ -314,39 +306,31 @@ app.security = Security(app, user_datastore)
 
 def insert_personne(form, id_lieu):
     if Personne.query.filter(Personne.nomPers == str(form.nomPers.data).upper(), Personne.prenomPers == str(form.prenomPers.data), Personne.mailPers == str(form.mailPers.data), Personne.telPersUn == str(form.tel1Pers.data), Personne.dateNPers == str(form.dateNPers.data)).first() is None:
-        existing = False
-        print("ADDING PERSON TO SESSION")
         db.session.add(Personne(nomPers = str(form.nomPers.data).upper(), prenomPers = str(form.prenomPers.data), mailPers = str(form.mailPers.data), telPersUn = str(form.tel1Pers.data), dateNPers = datetime.strptime(str(form.dateNPers.data), '%Y-%m-%d'), id_Lieu = id_lieu))
-        print("SUCCESSFULLY ADDED PERSON TO SESSION")
-        print("COMMITTING")
         db.session.commit()
-        print("COMMIT SUCCESSFUL")
+        p = Personne.query.filter(Personne.nomPers == str(form.nomPers.data).upper(), Personne.prenomPers == str(form.prenomPers.data), Personne.mailPers == str(form.mailPers.data), Personne.telPersUn == str(form.tel1Pers.data), Personne.dateNPers == str(form.dateNPers.data)).first()
+        for instru in form.clarJouees.data:
+            db.session.add(JoueInstrument(id = p.idPers, idInstru = int(instru)))
+        db.session.commit()
+        return (p.idPers, False)
     else:
-        existing = True
-        print("ALREADY IN")
-    return (Personne.query.filter(Personne.nomPers == str(form.nomPers.data).upper(), Personne.prenomPers == str(form.prenomPers.data), Personne.mailPers == str(form.mailPers.data), Personne.telPersUn == str(form.tel1Pers.data), Personne.dateNPers == str(form.dateNPers.data)).first().idPers, existing)
+        return (Personne.query.filter(Personne.nomPers == str(form.nomPers.data).upper(), Personne.prenomPers == str(form.prenomPers.data), Personne.mailPers == str(form.mailPers.data), Personne.telPersUn == str(form.tel1Pers.data), Personne.dateNPers == str(form.dateNPers.data)).first().idPers, True)
 
 def try_username(username):
     return Utilisateur.query.filter(Utilisateur.usernameUt == username).first() is None
 
 def insert_user(userForm, ecole, niveau, id_pers):
     user = user_datastore.create_user(usernameUt  = str(userForm.username.data), mdpUt = crypt(str(userForm.mdp.data)), ecoleUt = ecole, nivUt = niveau, id_Pers = id_pers, roles = ["STAGIAIRE"])
-    print("THE USER IS" + str(user))
-    print("USER SUCCESSFULLY CREATED")
-    print("LINKING TO ROLE \"STAGIAIRE\"")
     user_datastore.add_role_to_user(user, 'STAGIAIRE')
-    print("SUCCESSFULLY ADDED THE ROLE")
     db.session.commit()
-    print("COMMITTED !")
+    login_user(user)
 
 def insert_resp(respForm, lieuForm, id_enfant):
     id_lieu = insert_lieu(lieuForm)
     p = Personne(nomPers = str(respForm.nomResp.data), prenomPers = str(respForm.prenomResp.data), telPersUn = str(respForm.telPers.data), telPersDeux = str(respForm.telTrav.data), mailPers = str(respForm.mailPers.data), dateNPers = datetime.strptime(str(respForm.dateNPers.data), '%Y-%m-%d'), id_Lieu = id_lieu)
     db.session.add(p)
     db.session.commit()
-
     Personne.query.filter(Personne.idPers == id_enfant).first().idTuteur = Personne.query.filter(Personne.nomPers == str(respForm.nomResp.data), Personne.prenomPers == str(respForm.prenomResp.data), Personne.mailPers == str(respForm.mailPers.data)).first().idPers
-
     db.session.commit()
 
 def ine(string):
@@ -357,32 +341,24 @@ def insert_stage(stageForm):
     if Stage.query.filter(Stage.intituleSt == str(stageForm.intituleSt.data)).first() is not None:
         raise NameError
 
-    print("DATE DEB : " + str(stageForm.dateDebSt.data))
     if stageForm.dateDebSt.data is None:
         dateD = None
     else:
         dateD = datetime.strptime(str(stageForm.dateDebSt.data), '%Y-%m-%d')
-    print("DATE DEB AFTER : " + str(dateD))
-
-    print("DATE FIN : " + str(stageForm.dateDebSt.data))
     if stageForm.dateFinSt.data is None:
         dateF = None
     else:
         dateF = datetime.strptime(str(stageForm.dateFinSt.data), '%Y-%m-%d')
-    print("DATE FIN AFTER : " + str(dateF))
 
     if dateD is not None and dateF is not None:
         if is_over(dateD, dateF):
             raise ValueError
 
     if ine(str(stageForm.adresseSt.data)) & ine(str(stageForm.villeSt.data)) & ine(str(stageForm.cpSt.data)):
-        print("OK")
         id_lieu = insert_lieu_bs(str(stageForm.adresseSt.data), str(stageForm.cpSt.data), str(stageForm.villeSt.data))
-        print(id_lieu)
     else:
         id_lieu = None
 
-    print("CREATING STAGE OBJECT")
     s = Stage(intituleSt = str(stageForm.intituleSt.data),
               nbPlaceSt = stageForm.nbPlaceSt.data,
               dateDebSt=dateD,
@@ -392,11 +368,7 @@ def insert_stage(stageForm):
               prixSt=stageForm.prixSt.data,
               descSt=str(stageForm.descSt.data),
               nivRequisSt=stageForm.nivRequisSt.data)
-    print("STAGE CREATED")
-    print(s)
-    print("ADDING STAGE")
     db.session.add(s)
-    print("STAGE ADDED")
     db.session.commit()
 
 def get_stages(id = None, filter = None, critere = None):
@@ -405,17 +377,11 @@ def get_stages(id = None, filter = None, critere = None):
     return Stage.query.all()
 
 def is_over(dateDeb, dateFin):
-    print("DEBUT IS_OVER()")
-    print(type(dateDeb))
     stages = get_stages()
     for stage in stages:
-        print("DEB : " + str(stage.dateDebSt) + " (" + str(type(stage.dateDebSt)) + ") ; FIN : " + str(stage.dateFinSt) + " (" + str(type(stage.dateDebSt)) + ")")
         if stage.dateDebSt is not None and stage.dateFinSt is not None:
-            print("OK")
             if (stage.dateDebSt < dateDeb.date() < stage.dateFinSt) or (stage.dateDebSt < dateFin.date() < stage.dateFinSt):
-                print("ALREADY IN")
                 return True
-    print("PAS D'ERREUR")
     return False
 
 @login_manager.user_loader
@@ -425,6 +391,25 @@ def load_user(username):
 def get_user(username):
     return Utilisateur.query.filter(Utilisateur.usernameUt == username).first()
 
-# def get_instruments():
-#     db.create_all()
-#     return Instrument.query.all()
+def insc_st(user, urgForm):
+    p = Participe(id = user.id, idSt = urgForm.id_s.data,
+                  telUrg1 = str(urgForm.numContactUrg1.data),
+                  telUrg2 = str(urgForm.numContactUrg2.data),
+                  telUrg3 = str(urgForm.numContactUrg3.data))
+    db.session.add(p)
+    db.session.commit()
+
+def insc_instru(id_s, user):
+    cur_id = current_user.personne.idPers
+    list_instru = []
+    for elem in JoueInstrument.query.filter(JoueInstrument.id == cur_id).all():
+        list_instru.append(elem.idInstru)
+    print(list_instru)
+    for cur_inst in list_instru:
+        ii = InscrireInstru(id = user.id, idSt = id_s, idInstru = cur_inst)
+        db.session.add(ii)
+        print("ADD")
+    db.session.commit()
+
+def get_instruments():
+    return [ (str(i.idInstru), i.nomInstru) for i in Instrument.query.all() ]
