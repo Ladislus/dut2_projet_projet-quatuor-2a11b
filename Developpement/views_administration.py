@@ -22,6 +22,13 @@ def administration_mailing():
     return render_template("administration/administration_mailing.html",
                             admin_contactForm=admin_contactForm)
 
+@app.route("/administration/gestionStages/suppr", methods = ["GET", "POST", "DELETE"])
+@roles_required('ADMIN')
+def administration_delete_stage():
+    delete_stage(request.args.get('id_s', type=str))
+    print("SUCCESSFULLY DELETED STAGE")
+    return redirect(url_for('administration_gestionStages'))
+
 @app.route("/administration/gestionStages/", methods = ["GET", "POST"])
 @roles_required('ADMIN')
 def administration_gestionStages():
