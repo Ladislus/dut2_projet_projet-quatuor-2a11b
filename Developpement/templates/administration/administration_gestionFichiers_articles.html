@@ -27,7 +27,7 @@
             <td>{{articles[0]}}</td>
             <td>{{articles[1]}}</td>
             <td>{{articles[2]}}</td>
-            <td>{{url_for('static',filename="img/"+articles[3])}}</td>
+            <td><a href="{{'http://localhost:5000'+url_for('static',filename='img/'+articles[3])+'.png'}}">{{"http://localhost:5000"+url_for('static',filename="img/"+articles[3])+".png"}}</a></td>
             <td>{{articles[4]}}</td>
             <td>
               <a href="/administration/modifierStagiaire/" class="btn btn-default">
