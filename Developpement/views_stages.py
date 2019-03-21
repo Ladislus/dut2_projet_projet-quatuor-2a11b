@@ -17,6 +17,7 @@ def stage_presentation():
 
     :return: Retourne le template de la page de presentation de stage
     """
+    print("LES STAGES : " + str(get_stages()))
     return render_template("stage/stage_presentation.html", dico_stage=get_stages())
 
 @app.route("/stage/inscription/", methods = ["GET", "POST"])

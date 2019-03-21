@@ -425,6 +425,6 @@ def load_user(username):
 def get_user(username):
     return Utilisateur.query.filter(Utilisateur.usernameUt == username).first()
 
-def get_instruments():
-    db.create_all()
-    return Instrument.query.all()
+# def get_instruments():
+#     db.create_all()
+#     return Instrument.query.all()
