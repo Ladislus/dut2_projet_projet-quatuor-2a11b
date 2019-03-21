@@ -147,6 +147,12 @@ def administration_gestionStagiaires_Stagiaire():
     modifStagiaire=PersonForm()
     return render_template("administration/administration_gestionStagiaires_stagiaire.html",modifStagiaire=modifStagiaire)
 
+@app.route("/administration/ajouterStagiaire/")
+@roles_required('ADMIN')
+def administration_ajouterStagiaire():
+    ajoutStagiaire=PersonForm()
+    return render_template("administration/admin_ajout_stagiaires.html",ajoutStagiaire=ajoutStagiaire)
+
 @app.route("/administration/creerStage/", methods = ["GET", "POST"])
 # @roles_required("ADMIN")
 def administration_creerStage():
