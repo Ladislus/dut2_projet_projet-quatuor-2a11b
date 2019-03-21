@@ -43,6 +43,8 @@ h2{
 
 #concert-quatuor{
   background-color: #fafdef;
+  border-color: black;
+  border-style: solid;
   text-align: left;
   padding: 3%;
   margin: 5%;

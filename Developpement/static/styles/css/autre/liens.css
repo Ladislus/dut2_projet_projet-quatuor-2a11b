@@ -16,6 +16,9 @@
   align-items: center;
   justify-content: center;
   background-color: #fafdef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
   width: 50%;
   margin-left: 25%;
   margin-bottom: 4%;
@@ -61,6 +64,9 @@ p{
   margin-bottom: 5%;
   margin-top: 3%;
   background-color: #fafdef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
   width: 70%;
   margin-left: 15%;
   border-radius: 25px;

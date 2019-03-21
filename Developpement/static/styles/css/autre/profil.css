@@ -1,0 +1,17 @@
+h3{
+  text-align: center;
+  padding: 1%;
+}
+p{
+  text-align: center;
+}
+.col-sm-6{
+  background-color: #fafdef;
+  padding: 3%;
+  border-radius: 25px;
+  margin-bottom: 2%;
+  width: 40%;
+  margin-left: 6.5%;
+  border-style: solid;
+  border-width: thin;
+}

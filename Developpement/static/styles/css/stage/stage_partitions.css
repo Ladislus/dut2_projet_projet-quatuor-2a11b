@@ -15,6 +15,9 @@ body{
 #contain-select-tab{
   padding: 3%;
   background-color: #fafdef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
   border-radius: 25px;
   margin-bottom: 5%;
   width: 90%;

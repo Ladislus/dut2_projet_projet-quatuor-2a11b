@@ -5,19 +5,19 @@
 
 <div class="liens">
 <h1>Recuperation de mot de passe</h1>
-<img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
 </div>
-<form class="form-horizontal liens" id="form_mdpoubli"role="form" method="POST" action="{{ url_for('other_mdpOublie') }}">
-  <div class="form-group">
-    <label for="mail" class="col-sm-3 control-label">Email</label>
-    <div class="col-sm-3">{{ oubliForm.mail(size=50, class_="form-control", placeholder="Nom d'utilisateur") }}</div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-3 col-sm-3">
-      <button type="submit" class="btn btn-default">Demander une récupération</button>
+<div id="page">
+  <form class="form-horizontal liens" id="form_mdpoubli"role="form" method="POST" action="{{ url_for('other_mdpOublie') }}">
+    <div id="mail" class="form-group">
+      <label for="mail" class="col-sm-3 control-label">Email</label>
+      <div class="col-sm-3">{{ oubliForm.mail(size=50, class_="form-control", placeholder="Nom d'utilisateur") }}</div>
     </div>
-  </div>
-
-</form>
+    <div class="form-group">
+      <div id="bouton" class="col-sm-offset-3 col-sm-3">
+        <button type="submit" class="btn btn-default">Demander une récupération</button>
+      </div>
+    </div>
+  </form>
+</div>
 
 {% endblock %}

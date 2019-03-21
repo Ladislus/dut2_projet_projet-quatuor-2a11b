@@ -1,6 +1,9 @@
 .well{
   background-color: #fbfcef;
   border-color: #fbfcef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
