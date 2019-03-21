@@ -413,3 +413,7 @@ def insc_instru(id_s, user):
 
 def get_instruments():
     return [ (str(i.idInstru), i.nomInstru) for i in Instrument.query.all() ]
+
+def delete_stage(id):
+    Stage.query.filter(Stage.idSt == id).delete()
+    db.session.commit()
