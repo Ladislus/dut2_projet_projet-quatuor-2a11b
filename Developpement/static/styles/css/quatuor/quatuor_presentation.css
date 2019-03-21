@@ -96,6 +96,9 @@ margin: 2%;
 
 .presentation-gdiv{
   background-color: #fbfcef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
   border-radius: 5%;
   margin: 5%;
   margin-top: -7%;

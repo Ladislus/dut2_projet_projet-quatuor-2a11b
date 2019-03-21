@@ -1,11 +1,17 @@
 #Olivier-Roussillat, #Robert-Ramon, #Frederic-Dudilet, #Tony-Bigot{
 background-color: #fafdef;
+border-color: black;
+border-style: solid;
+border-width: thin;
 border-radius: 10%;
 width: 60%;
 margin: 2%;
 }
 #present-stage{
   background-color: #fafdef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
   width: 90%;
   margin-left: 5%;
   padding: 3%;
@@ -122,6 +128,9 @@ h4{
 }
 #contain-tab-down{
   background-color: #fafdef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
   width: 90%;
   margin-left: 4.8%;
   border-radius: 5%;
