@@ -89,26 +89,31 @@
       </div>
       <div class="recherche"><button type="button" class="btn btn-default" data-toggle="collapse" data-target=".tableau">Rechercher les stages disponibles</button></div>
       <div class="container_tab">
-        <div class="tableau">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Nom du Stage</th>
-                  <th>Dates</th>
-                  <th>Adresse</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for stage in dico_stage %}
-                <tr>
-                  <td><a href="/stage/presentation/{{stage.idSt}}">{{stage.intituleSt}}</a></td>
-                  <td>{{stage.dateDebSt}} - {{stage.dateFinSt}}</td>
-                  <td>{{stage.descSt}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
+        {% if stages|length %}
+        <h2>Il n'y a aucun stage pour le moment</h2>
+
+          {% else %}
+          <div class="tableau">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nom du Stage</th>
+                    <th>Dates</th>
+                    <th>Adresse</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for stage in dico_stage %}
+                  <tr>
+                    <td><a href="/stage/presentation/{{stage.idSt}}">{{stage.intituleSt}}</a></td>
+                    <td>{{stage.dateDebSt}} - {{stage.dateFinSt}}</td>
+                    <td>{{stage.descSt}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>
