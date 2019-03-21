@@ -26,11 +26,12 @@ def stage_inscription():
     :return: Retourne le template de la page d'inscription à un stage
     """
     persForm=PersonForm()
+    persForm.clarJouees.choices = get_instruments()
+
     autorForm=AutorStage_MineurForm()
     lieuForm=LieuForm()
 
     if persForm.validate_on_submit() & autorForm.validate_on_submit() & lieuForm.validate_on_submit():
-
         id_lieu = insert_lieu(lieuForm)
         id_pers, existing = insert_personne(persForm, id_lieu)
 
@@ -38,8 +39,8 @@ def stage_inscription():
             return redirect(url_for('other_connexion'))
 
         if not est_majeur(str(persForm.dateNPers.data)):
-            return redirect(url_for('stage_inscription_parental', id_enfant = id_pers, ecole = str(persForm.ecole.data), niveau = int(persForm.niveau.data)))
-        return redirect(url_for('stage_inscription_compte', id_pers = id_pers, ecole = str(persForm.ecole.data), niveau = int(persForm.niveau.data)))
+            return redirect(url_for('stage_inscription_parental', id_enfant = id_pers, ecole = str(persForm.ecole.data), niveau = int(persForm.niveau.data), id_s = request.args.get('id_s', type=str)))
+        return redirect(url_for('stage_inscription_compte', id_pers = id_pers, ecole = str(persForm.ecole.data), niveau = int(persForm.niveau.data), id_s = request.args.get('id_s', type=str)))
     else:
         return render_template("stage/stage_inscription_basic.html",
                                 persForm=persForm,
@@ -48,6 +49,7 @@ def stage_inscription():
 
 @app.route("/stage/inscription/compte", methods = ["GET", "POST"])
 def stage_inscription_compte():
+
 
     userForm = CreateAccountForm()
 
@@ -62,7 +64,6 @@ def stage_inscription_compte():
             userError = True
 
         if userError or mdpError:
-            print("ERRORS IN THE FORMS")
             return render_template("stage/stage_inscription_compte.html" ,
                                     userForm = userForm,
                                     userError = userError,
@@ -70,10 +71,7 @@ def stage_inscription_compte():
 
         insert_user(userForm, request.args.get('ecole', type=str), request.args.get('niveau', type=int), request.args.get('id_pers', 1, type=int))
 
-        #TODO insert instruments joués
-        print("REDIRECTING TO MEDS")
-
-        return redirect(url_for('stage_inscription_autorisationMedicale'))
+        return redirect(url_for('stage_inscription_autorisationMedicale', id_s = str(request.args.get('id_s', type=str))))
     else:
         return render_template("stage/stage_inscription_compte.html" ,
                                 userForm = userForm,
@@ -87,13 +85,8 @@ def stage_inscription_parental():
     :return: Retourne le template de la page d'inscription à un stage
     """
 
-    print("GENRATING FORMS")
     respLegForm=RespLegalForm()
     lieuForm=LieuForm()
-    print("FORMS GENERATED")
-
-    print(respLegForm.validate_on_submit())
-    print(lieuForm.validate_on_submit())
 
     if respLegForm.validate_on_submit() & lieuForm.validate_on_submit():
 
@@ -103,15 +96,10 @@ def stage_inscription_parental():
                                     lieuForm=lieuForm,
                                     ageError=True)
 
-        print("FORMS VALIDATED")
-        print("INSERTIONS")
-
         insert_lieu(lieuForm)
         insert_resp(respLegForm, lieuForm, request.args.get('id_enfant', type=int))
-        print("REDIRECTION TO MEDICAL")
-        return redirect(url_for('stage_inscription_compte', id_pers = request.args.get('id_enfant', type=int), ecole = request.args.get("ecole", type=str), niveau = request.args.get("niveau", type=int)))
+        return redirect(url_for('stage_inscription_compte', id_pers = request.args.get('id_enfant', type=int), ecole = request.args.get("ecole", type=str), niveau = request.args.get("niveau", type=int), id_s = request.args.get('id_s', type=str)))
     else:
-        print("REDIRECTION TO EMPTY")
         return render_template("stage/stage_inscription_parental.html",
                                 respLegForm=respLegForm,
                                 lieuForm=lieuForm,
@@ -139,15 +127,22 @@ def stage_souvenirs():
                             souvForm=souvForm)
 
 @app.route("/stage/inscription/autorisationMedicale/", methods = ["GET", "POST"])
+@login_required
 def stage_inscription_autorisationMedicale():
     """
-
     :return: Retourne le template de la page d'autorisation médicale pour un stage
     """
+
     form=AutorMedicForm()
+    if request.args.get('id_s', type=str) is not None:
+        form.id_s.data = request.args.get('id_s', type=str)
 
     if form.validate_on_submit():
-        #TODO add le stage à la BD
+        insc_st(current_user, form)
+
+        #TODO a tester
+        print("TAGROSSEMERE")
+        insc_instru(form.id_s.data, current_user)
         return redirect(url_for('stage_inscription_valide'))
     return render_template("stage/stage_inscription_autorisationMedicale.html",
                             form=form)
@@ -237,7 +232,6 @@ def stage_presse_all(id):
             listeR=[]
     if listeR:
         glistR.append(listeR)
-    print(listeR)
     page=[]
     try:
         page=glistR[id]

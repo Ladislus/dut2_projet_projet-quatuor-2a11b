@@ -3,35 +3,15 @@ from flask_wtf import FlaskForm
 from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, SelectMultipleField, StringField, TextField, TextAreaField
 from wtforms.validators import DataRequired, Length, Required, Optional
 
-class InscriptionForm(FlaskForm):
-    nomPers         = StringField('Nom', validators=[DataRequired()])
-    prenomPers      = StringField('Prénom', validators=[DataRequired()])
-    dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
-    tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
-    mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
-    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[], validators=[DataRequired()])
-    niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
-    ecole           = StringField('Ecole', validators=[DataRequired()])
-    typePratique    = StringField('Type de pratique')
-    nomPers         = StringField('Nom', validators=[DataRequired()])
-    prenomPers      = StringField('Prénom', validators=[DataRequired()])
-    dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
-    tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
-    mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
-    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[], validators=[DataRequired()])
-    niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
-    ecole           = StringField('Ecole', validators=[DataRequired()])
-    typePratique    = StringField('Type de pratique')
-
 class PersonForm(FlaskForm):
     nomPers         = StringField('Nom', validators=[DataRequired()])
     prenomPers      = StringField('Prénom', validators=[DataRequired()])
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
     tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
     mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
-    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[("test", "onsaitpas")], validators=[DataRequired()])
+    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[], validators=[DataRequired()])
     niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
-    ecole           = StringField('Ecole', validators=[DataRequired()])
+    ecole           = StringField('Ecole')
 
 class NiveauForm(FlaskForm):
     niveau = SelectField('Niveau', choices=[("Niveau 1"),("Niveau 2"),("Niveau 3")])
@@ -71,6 +51,7 @@ class Admin_ContactForm(FlaskForm):
     pjMessage       = FileField('Pièces Jointes')
 
 class AutorMedicForm(FlaskForm):
+    id_s            = HiddenField()
     numContactUrg1  = StringField('Numero à contacter Urgence 1', validators=[DataRequired()])
     numContactUrg2  = StringField('Numero à contacter Urgence 2', validators=[DataRequired()])
     numContactUrg3  = StringField('Numero à contacter Urgence 3')
@@ -94,7 +75,6 @@ class ConnectForm(FlaskForm):
     def get_user(self):
         user = get_user(self.username.data)
         if user is None:
-            print("USER ING GETTER " + str(user))
             return None
         return user if crypt(self.password.data) == user.mdpUt else None
 

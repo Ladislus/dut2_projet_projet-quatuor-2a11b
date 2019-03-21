@@ -1,0 +1,24 @@
+.bigcontainer{
+  width: 80%;
+  padding: 3%;
+  border-radius: 25px;
+  margin-bottom: 3%;
+  margin-left: 10%;
+  text-align: center;
+  background-color: #fbfcef;
+}
+h3,h4{
+  text-align: center;
+  font-weight: bold;
+}
+h4{
+  margin-right: 55%;
+  padding-bottom: 3%;
+  width: 50%;
+}
+.form-group{
+  width: 50%;
+}
+.form-horizontal{
+  margin-left: 35%;
+}

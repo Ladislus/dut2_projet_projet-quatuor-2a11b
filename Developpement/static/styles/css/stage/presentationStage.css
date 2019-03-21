@@ -22,10 +22,16 @@ p{
 }
 #image img{
   width: 30%;
-  margin-top: -31%;
-  margin-left: 64%;
+  margin-top: -18%;
+  margin-left: 68%;
 }
 #texte{
   display: inline-block;
   padding: 3%;
+}
+#desc{
+  display: inline-block;
+  padding: 3%;
+  width: 60%;
+  margin-top: -28.7%;
 }
