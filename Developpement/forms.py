@@ -1,4 +1,4 @@
-from .models import get_instruments, crypt, get_user
+from .models import crypt, get_user#, get_instruments
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, DateField, FieldList, FileField, FloatField, FormField, HiddenField, IntegerField, PasswordField, SelectField, SelectMultipleField, StringField, TextField, TextAreaField
 from wtforms.validators import DataRequired, Length, Required, Optional
@@ -25,16 +25,16 @@ class InscriptionForm(FlaskForm):
 
 class PersonForm(FlaskForm):
 
-    cs = []
-    for instru in get_instruments():
-        cs.append((str(instru.idInstru), instru.nomInstru))
+    # cs = []
+    # for instru in get_instruments():
+        # cs.append((str(instru.idInstru), instru.nomInstru))
 
     nomPers         = StringField('Nom', validators=[DataRequired()])
     prenomPers      = StringField('Prénom', validators=[DataRequired()])
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
     tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
     mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
-    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[cs], validators=[DataRequired()])
+    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[("1", "test")], validators=[DataRequired()])
     niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
     ecole           = StringField('Ecole', validators=[DataRequired()])
 

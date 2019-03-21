@@ -47,7 +47,7 @@ class Utilisateur(Base, UserMixin):
     id_Pers        = Column(Integer, ForeignKey("Personne.idPers"))
 
     roles         = relationship("Role", secondary = role_user, back_populates = "membres")
-    personne       = relationship("Personne")
+    personne       = relationship("Personne", back_populates = "utilisateur")
     instruments    = relationship("JoueInstrument", back_populates = "joueur")
     participations = relationship("Participe", back_populates = "utilisateur")
     instruInscrits = relationship("InscrireInstru", back_populates = "utilisateur")
@@ -80,6 +80,7 @@ class Personne(Base):
 
     id_Lieu     = Column(Integer, ForeignKey("Lieu.idLieu"))
 
+    utilisateur = relationship("Utilisateur", back_populates = "personne")
     adresse     = relationship("Lieu", back_populates = "residants")
 
 class JoueInstrument(Base):
@@ -417,8 +418,6 @@ def is_over(dateDeb, dateFin):
     print("PAS D'ERREUR")
     return False
 
-
-
 @login_manager.user_loader
 def load_user(username):
     return Utilisateur.query.get(username)
@@ -426,5 +425,6 @@ def load_user(username):
 def get_user(username):
     return Utilisateur.query.filter(Utilisateur.usernameUt == username).first()
 
-def get_instruments():
-    return Instrument.query.all()
+# def get_instruments():
+#     db.create_all()
+#     return Instrument.query.all()
