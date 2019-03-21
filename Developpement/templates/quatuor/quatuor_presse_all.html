@@ -39,7 +39,7 @@
 <div class="center">
   <ul class="pagination">
     {% for i in range(gliste|length+2) %}
-    <li {% if i==id %} class="active" {% endif %}><a href="/quatuor/presse/all/{{ i }}">{{i}}</a></li>
+    <li {% if i==id %} class="active" {% endif %}><a href="/quatuor/presse/all/{{ i }}">{{i+1}}</a></li>
     {% endfor %}
   </ul>
   <ul class="pager">
