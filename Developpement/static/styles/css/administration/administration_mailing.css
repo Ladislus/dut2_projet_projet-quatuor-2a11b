@@ -1,3 +1,14 @@
 br {
   margin-bottom: 2%
 }
+
+.message{
+  height: 30em;
+  width: 100em;
+}
+
+textarea{
+height: auto;
+width: auto;
+
+}

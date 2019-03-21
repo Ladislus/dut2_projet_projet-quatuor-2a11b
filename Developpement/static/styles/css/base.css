@@ -62,14 +62,13 @@ body{
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-#connect{
-  margin-top: 7%;
+#connect a{
+  margin-top: 8%;
   margin-left: -30%;
   color: black;
-  text-decoration: none;
 }
-#connect:hover{
+#connect a:hover{
+  text-decoration: none;
   background-color: lightgrey;
   color: black;
-  text-decoration: none;
 }
