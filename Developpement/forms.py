@@ -54,9 +54,9 @@ class RespLegalForm(FlaskForm):
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
 
 class User_ContactForm(FlaskForm):
-    nomAuteur       = StringField('Nom Auteur ', validators=[DataRequired()])
-    prenomAuteur    = StringField('Prénom Auteur', validators=[DataRequired()])
-    mailAuteur      = StringField('Mail Auteur', validators=[DataRequired()])
+    nomAuteur       = StringField('Nom', validators=[DataRequired()])
+    prenomAuteur    = StringField('Prénom', validators=[DataRequired()])
+    mailAuteur      = StringField('Adresse Mail', validators=[DataRequired()])
     objetMessage    = SelectField('Objet', choices=[("choix","--Choix--"),('stage',"Stage"),('concert',"Concert"),("autre","autre")], validators=[DataRequired()])
     contenuMessage  = TextAreaField('Contenu du message',validators=[DataRequired()])
     pjMessage       = StringField('PJ')

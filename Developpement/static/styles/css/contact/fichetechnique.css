@@ -10,5 +10,19 @@
 }
 
 .liens{
+  margin: 5%;
   text-align: center;
+  color: black;
+}
+
+.center{
+  padding: 5%;
+  border-radius: 25px;
+  width: 90%;
+  margin-left: 5%;
+  background-color: #fafdef;
+}
+a{
+  color: black;
+  margin-top: 5%;
 }
