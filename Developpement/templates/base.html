@@ -121,7 +121,8 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {% if current_user.is_authenticated %}
-            <li><a id="connect" href="/other/deconnexion/" style="color: black" class="btn btn-link">{{ current_user.usernameUt }}  <small><span class="glyphicon glyphicon-log-out sommaire"></span></small></a></li>
+            <li><a id="connect" href="/other/profil" style="color: black" class="btn btn-link">{{ current_user.usernameUt }}</a></li>
+            <li><a id="connect" href="/other/deconnexion/" style="color: black" class="btn btn-link"><small><span class="glyphicon glyphicon-log-out sommaire"></span></small></a></li>
             {% else %}
             <li><a href="/other/connexion/" style="color: black"><small><span class="glyphicon glyphicon-log-in sommaire"></span></small></a></li>
             {% endif %}
