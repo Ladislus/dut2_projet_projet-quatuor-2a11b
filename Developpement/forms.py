@@ -9,8 +9,8 @@ class PersonForm(FlaskForm):
     dateNPers       = DateField('Date de naissance', validators=[DataRequired()])
     tel1Pers        = StringField('Téléphone principal', validators=[DataRequired()])
     mailPers        = StringField('Adresse Mail', validators=[DataRequired()])
-    clarJouees      = SelectMultipleField('Clarinette jouée', choices=[], validators=[DataRequired()])
-    niveau          = IntegerField('Année d\'experience', validators=[DataRequired()])
+    clarJouees      = SelectMultipleField('Clarinettes jouées', choices=[], validators=[DataRequired()])
+    niveau          = IntegerField('Années d\'experience', validators=[DataRequired()])
     ecole           = StringField('Ecole')
 
 class NiveauForm(FlaskForm):
@@ -39,7 +39,7 @@ class User_ContactForm(FlaskForm):
     mailAuteur      = StringField('Adresse Mail', validators=[DataRequired()])
     objetMessage    = SelectField('Objet', choices=[("choix","--Choix-- "),('stage',"Stage "),('concert',"Concert "),("autre","Autre ")], validators=[DataRequired()])
     contenuMessage  = TextAreaField('Contenu du message',validators=[DataRequired()])
-    pjMessage       = FileField('Pièce jointe')
+    pjMessage       = FileField('Pièces Jointes')
     autrobjMessage  = TextField('Objet autre', validators=[DataRequired()])
 
 class Admin_ContactForm(FlaskForm):
@@ -79,15 +79,15 @@ class ConnectForm(FlaskForm):
         return user if crypt(self.password.data) == user.mdpUt else None
 
 class OubliMdpForm(FlaskForm):
-    mail            = StringField('Adresse mail', validators=[DataRequired()])
+    mail            = StringField('Adresse Mail', validators=[DataRequired()])
 
 class ModifMdPOubliForm():
-    mdpNew          = PasswordField('Nouvau Mot de passe ', validators=[DataRequired()])
+    mdpNew          = PasswordField('Nouveau Mot de passe ', validators=[DataRequired()])
     mdpNewConfirm   = PasswordField('Confirmation nouveau Mot de passe actuel', validators=[DataRequired()])
 
 class ModifMdPForm(FlaskForm):
     mdpActu         = PasswordField('Mot de passe actuel', validators=[DataRequired()])
-    mdpNew          = PasswordField('Nouvau Mot de passe ', validators=[DataRequired()])
+    mdpNew          = PasswordField('Nouveau Mot de passe ', validators=[DataRequired()])
     mdpNewConfirm   = PasswordField('Confirmation nouveau Mot de passe actuel', validators=[DataRequired()])
 
 class StageForm(FlaskForm):
