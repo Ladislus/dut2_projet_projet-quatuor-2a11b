@@ -37,8 +37,6 @@ def other_connexion():
 
     return render_template("other/connexion.html", connectForm=connectForm)
 
-
-
 @app.route("/other/deconnexion/")
 def other_deconnexion():
     """
