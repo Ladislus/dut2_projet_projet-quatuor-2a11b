@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block main %}
-<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionStagiaires.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionFichiers_images.css')}}">
 <div class="liens">
   <h1 id="hliens">Gestion des stagiaires</h1>
 </div>
@@ -9,7 +9,7 @@
   <div class="stagiaire-annee">
     <h2>{{ stagiaires }}</h2>
     <div class="stagiaire-individu table-responsive">
-      <table  class="table table-bordered">
+      <table  class="table">
         <thead>
           <tr>
             <th>Nom</th>
@@ -34,7 +34,7 @@
               <a href="/administration/modifierStagiaire/" class="btn btn-default">
                 <span class="glyphicon glyphicon-pencil"></span>
               </a>
-              <a href="" class="btn btn-default">
+              <a href="" class="btn btn-danger">
                 <span class="glyphicon glyphicon-trash"></span>
               </a>
             </td>
@@ -43,7 +43,7 @@
           {% endfor %}
         </tbody>
       </table>
-      <a href="/administration/modifierStagiaire/" class="btn btn-default">
+      <a id="btn-plus" href="/administration/modifierStagiaire/" class="btn btn-default">
         <span class="glyphicon glyphicon-plus"></span>
       </a>
     </div>
