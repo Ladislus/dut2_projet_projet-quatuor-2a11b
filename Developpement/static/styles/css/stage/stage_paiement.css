@@ -1,1 +1,10 @@
- 
+#contain-paiement{
+  background-color: #fafdef;
+  padding: 3%;
+  width: 60%;
+  margin-bottom: 3%;
+  margin-left: 20%;
+  border-radius: 25px;
+  border-style: solid;
+  border-width: thin;
+}
