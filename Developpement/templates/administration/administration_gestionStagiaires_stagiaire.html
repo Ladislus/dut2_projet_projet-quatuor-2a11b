@@ -1,43 +1,46 @@
 {% extends "base.html" %}
 {% block main %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionStagiaires_stagiaires.css')}}">
 <div class="liens">
   <h1 id="hliens">Modifier un stagiaire</h1>
 </div>
+<div id="contain-all">
 <form class="form-horizontal" id="form_login"role="form" method="POST" action="{{ url_for('administration_creerStage') }}">
   {{ modifStagiaire.hidden_tag() }}
   <div class="form-group">
-    <label for="nomStage" class="col-sm-3 control-label">{{modifStagiaire.nomPers.label}}</label>
-    <div class="col-sm-3">{{ modifStagiaire.nomPers(size=50, class="form-control", placeholder="Nom du stagiaire")}}</div>
+    <label for="nomStage" class="col-sm-4 control-label">{{modifStagiaire.nomPers.label}}</label>
+    <div class="col-sm-4">{{ modifStagiaire.nomPers(size=50, class="form-control", placeholder="Nom du stagiaire")}}</div>
   </div>
   <div class="form-group">
-    <label for="repSt" class="col-sm-3 control-label">{{modifStagiaire.prenomPers.label}}</label>
-    <div class="col-sm-3">{{ modifStagiaire.prenomPers(class="form-control", placeholder="Prénom du stagiaire")}}</div>
+    <label for="repSt" class="col-sm-4 control-label">{{modifStagiaire.prenomPers.label}}</label>
+    <div class="col-sm-4">{{ modifStagiaire.prenomPers(class="form-control", placeholder="Prénom du stagiaire")}}</div>
   </div>
   <div class="form-group">
-    <label for="nbPlaces" class="col-sm-3 control-label">{{modifStagiaire.dateNPers.label}}</label>
-    <div class="col-sm-3">{{ modifStagiaire.dateNPers(size=50, class="form-control", type="date" ,placeholder="YYYY-MM-DD")}}</div>
+    <label for="nbPlaces" class="col-sm-4 control-label">{{modifStagiaire.dateNPers.label}}</label>
+    <div class="col-sm-4">{{ modifStagiaire.dateNPers(size=50, class="form-control", type="date" ,placeholder="YYYY-MM-DD")}}</div>
   </div>
   <div class="form-group">
-    <label for="dateDebSt" class="col-sm-3 control-label">{{modifStagiaire.tel1Pers.label}}</label>
-    <div class="col-sm-3">{{ modifStagiaire.tel1Pers(size=50, class="form-control", placeholder="06-41-44-09-99")}}</div>
+    <label for="dateDebSt" class="col-sm-4 control-label">{{modifStagiaire.tel1Pers.label}}</label>
+    <div class="col-sm-4">{{ modifStagiaire.tel1Pers(size=50, class="form-control", placeholder="04-41-44-09-99")}}</div>
   </div>
   <div class="form-group">
-    <label for="dateFinSt" class="col-sm-3 control-label">{{modifStagiaire.mailPers.label}}</label>
-    <div class="col-sm-3">{{ modifStagiaire.mailPers(size=50, class="form-control", placeholder="liam.demarest@orange.fr")}}</div>
+    <label for="dateFinSt" class="col-sm-4 control-label">{{modifStagiaire.mailPers.label}}</label>
+    <div class="col-sm-4">{{ modifStagiaire.mailPers(size=50, class="form-control", placeholder="liam.demarest@orange.fr")}}</div>
   </div>
   <div class="form-group">
-    <label for="adresseSt" class="col-sm-3 control-label">{{modifStagiaire.clarJouees.label}}</label>
-    <div class="col-sm-3">{{ modifStagiaire.clarJouees(size=50, class="form-control", type="select", placeholder="Clarinettes jouées")}}</div>
+    <label for="adresseSt" class="col-sm-4 control-label">{{modifStagiaire.clarJouees.label}}</label>
+    <div class="col-sm-4">{{ modifStagiaire.clarJouees(size=50, class="form-control", type="select", placeholder="Clarinettes jouées")}}</div>
   </div>
   <div class="form-group">
-    <label for="cpSt" class="col-sm-3 control-label">{{modifStagiaire.niveau.label}}</label>
-    <div class="col-sm-3">{{ modifStagiaire.niveau(size=50, class="form-control", type="select", placeholder="Niveau")}}</div>
+    <label for="cpSt" class="col-sm-4 control-label">{{modifStagiaire.niveau.label}}</label>
+    <div class="col-sm-4">{{ modifStagiaire.niveau(size=50, class="form-control", type="select", placeholder="Niveau")}}</div>
   </div>
   <div class="form-group">
-    <div class="col-sm-offset-3 col-sm-3">
-      <button type="submit" class="btn btn-default">Modifier stagiaire</button>
+    <div class="col-sm-offset-4 col-sm-4">
+      <button id="btn-sub"type="submit" class="btn btn-default">Modifier stagiaire</button>
     </div>
   </div>
+</div>
 </form>
 
 {% endblock %}

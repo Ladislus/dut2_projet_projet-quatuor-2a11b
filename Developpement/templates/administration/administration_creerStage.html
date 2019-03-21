@@ -1,70 +1,72 @@
 {% extends "base.html" %}
 {% block main %}
-<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_creerStage.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/administration/administration_gestionStagiaires_stagiaires.css')}}">
 
 <div class="liens">
 <h1>Création du stage</h1>
+<div id="contain-all">
 <form class="form-horizontal" id="form_login"role="form" method="POST" action="{{ url_for('administration_creerStage') }}">
   {{ stageForm.hidden_tag() }}
   <div class="form-group">
     {% if titleError %}
     <p class="text-danger">Ce nom de stage est déjà utilisé</p>
     {% endif %}
-    <label for="nomStage" class="col-sm-3 control-label">{{stageForm.intituleSt.label}}</label>
-    <div class="col-sm-3">{{ stageForm.intituleSt(size=50, class="form-control", placeholder="Intitule du stage")}}</div>
+    <label for="nomStage" class="col-sm-5 control-label">{{stageForm.intituleSt.label}}</label>
+    <div class="col-sm-5">{{ stageForm.intituleSt(size=50, class="form-control", placeholder="Intitule du stage")}}</div>
   </div>
   <div class="form-group">
-    <label for="repSt" class="col-sm-3 control-label">{{stageForm.repSt.label}}</label>
-    <div class="col-sm-3">{{ stageForm.repSt(class="form-control", placeholder="Repertoire du stage")}}</div>
+    <label for="repSt" class="col-sm-5 control-label">{{stageForm.repSt.label}}</label>
+    <div class="col-sm-5">{{ stageForm.repSt(class="form-control", placeholder="Repertoire du stage")}}</div>
   </div>
   <div class="form-group">
-    <label for="nbPlaces" class="col-sm-3 control-label">{{stageForm.nbPlaceSt.label}}</label>
-    <div class="col-sm-3">{{ stageForm.nbPlaceSt(size=50, class="form-control", placeholder="Nombre de place")}}</div>
+    <label for="nbPlaces" class="col-sm-5 control-label">{{stageForm.nbPlaceSt.label}}</label>
+    <div class="col-sm-5">{{ stageForm.nbPlaceSt(size=50, class="form-control", placeholder="Nombre de place")}}</div>
   </div>
   <div class="form-group">
     {% if timeError %}
     <p class="text-danger">Un autre stage est en cours pendant cette periode</p>
     {% endif %}
-    <label for="dateDebSt" class="col-sm-3 control-label">{{stageForm.dateDebSt.label}}</label>
-    <div class="col-sm-3">{{ stageForm.dateDebSt(size=50, class="form-control", type="date", placeholder="YYYY-MM-DD")}}</div>
+    <label for="dateDebSt" class="col-sm-5 control-label">{{stageForm.dateDebSt.label}}</label>
+    <div class="col-sm-5">{{ stageForm.dateDebSt(size=50, class="form-control", type="date", placeholder="YYYY-MM-DD")}}</div>
   </div>
   <div class="form-group">
-    <label for="dateFinSt" class="col-sm-3 control-label">{{stageForm.dateFinSt.label}}</label>
-    <div class="col-sm-3">{{ stageForm.dateFinSt(size=50, class="form-control", type="date", placeholder="YYYY-MM-DD")}}</div>
+    <label for="dateFinSt" class="col-sm-5 control-label">{{stageForm.dateFinSt.label}}</label>
+    <div class="col-sm-5">{{ stageForm.dateFinSt(size=50, class="form-control", type="date", placeholder="YYYY-MM-DD")}}</div>
   </div>
   <div class="form-group">
-    <label for="adresseSt" class="col-sm-3 control-label">{{stageForm.adresseSt.label}}</label>
-    <div class="col-sm-3">{{ stageForm.adresseSt(size=50, class="form-control", placeholder="Adresse")}}</div>
+    <label for="adresseSt" class="col-sm-5 control-label">{{stageForm.adresseSt.label}}</label>
+    <div class="col-sm-5">{{ stageForm.adresseSt(size=50, class="form-control", placeholder="Adresse")}}</div>
   </div>
   <div class="form-group">
-    <label for="cpSt" class="col-sm-3 control-label">{{stageForm.cpSt.label}}</label>
-    <div class="col-sm-3">{{ stageForm.cpSt(size=50, class="form-control", placeholder="Code Postal")}}</div>
+    <label for="cpSt" class="col-sm-5 control-label">{{stageForm.cpSt.label}}</label>
+    <div class="col-sm-5">{{ stageForm.cpSt(size=50, class="form-control", placeholder="Code Postal")}}</div>
   </div>
   <div class="form-group">
-    <label for="villeSt" class="col-sm-3 control-label">{{stageForm.villeSt.label}}</label>
-    <div class="col-sm-3">{{ stageForm.villeSt(size=50, class="form-control", placeholder="Ville")}}</div>
+    <label for="villeSt" class="col-sm-5 control-label">{{stageForm.villeSt.label}}</label>
+    <div class="col-sm-5">{{ stageForm.villeSt(size=50, class="form-control", placeholder="Ville")}}</div>
   </div>
   <div class="form-group">
-    <label for="descSt" class="col-sm-3 control-label">{{stageForm.descSt.label}}</label>
-    <div class="col-sm-3">{{ stageForm.descSt(size=50, class="form-control", placeholder="Description du stage ...")}}</div>
+    <label for="descSt" class="col-sm-5 control-label">{{stageForm.descSt.label}}</label>
+    <div class="col-sm-5">{{ stageForm.descSt(size=50, class="form-control", placeholder="Description du stage ...")}}</div>
   </div>
   <div class="form-group">
-    <label for="prixSt" class="col-sm-3 control-label">{{stageForm.prixSt.label}}</label>
-    <div class="col-sm-3">{{ stageForm.prixSt(size=50, class="form-control", placeholder="XXX,XX")}}</div>
+    <label for="prixSt" class="col-sm-5 control-label">{{stageForm.prixSt.label}}</label>
+    <div class="col-sm-5">{{ stageForm.prixSt(size=50, class="form-control", placeholder="XXX,XX")}}</div>
   </div>
   <div class="form-group">
-    <label for="tenueSt" class="col-sm-3 control-label">{{stageForm.tenueSt.label}}</label>
-    <div class="col-sm-3">{{ stageForm.tenueSt(size=50, class="form-control", placeholder="Tenue requise")}}</div>
+    <label for="tenueSt" class="col-sm-5 control-label">{{stageForm.tenueSt.label}}</label>
+    <div class="col-sm-5">{{ stageForm.tenueSt(size=50, class="form-control", placeholder="Tenue requise")}}</div>
   </div>
   <div class="form-group">
-    <label for="nivRequisSt" class="col-sm-3 control-label">{{stageForm.nivRequisSt.label}}</label>
-    <div class="col-sm-3">{{ stageForm.nivRequisSt(size=50, class="form-control", placeholder="Niveau requis")}}</div>
+    <label for="nivRequisSt" class="col-sm-5 control-label">{{stageForm.nivRequisSt.label}}</label>
+    <div class="col-sm-5">{{ stageForm.nivRequisSt(size=50, class="form-control", placeholder="Niveau requis")}}</div>
   </div>
   <div class="form-group">
-    <div class="col-sm-offset-3 col-sm-3">
-      <input type="submit" id="submit" class="btn btn-default", value="Créer stage">
+    <div class="col-sm-offset-5 col-sm-5">
+      <input id="btn-sub" type="submit" id="submit" class="btn btn-default", value="Créer stage">
     </div>
   </div>
 </form>
+</div>
 
 {% endblock %}
