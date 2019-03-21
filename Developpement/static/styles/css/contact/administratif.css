@@ -1,1 +1,14 @@
-
+.message{
+  background-color: #fafdef;
+  display: flex;
+  flex-wrap: nowrap;
+  text-align: center;
+  margin-left: 10%;
+  border-radius: 25px;
+  padding: 3%;
+  width: 80%;
+  margin-bottom: 3%;
+}
+.form{
+  margin-left: 19%;
+}
