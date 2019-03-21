@@ -94,6 +94,9 @@ margin: 2%;
 
 .presentation-gdiv{
   background-color: #fbfcef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
   border-radius: 5%;
   margin: 5%;
   margin-top: -7%;
@@ -182,6 +185,9 @@ margin: 2%;
   }
   #Olivier-Roussillat, #Robert-Ramon, #Frederic-Dudilet, #Tony-Bigot{
   background-color: #fafdef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
   border-radius: 10%;
   width: 60%;
   margin: 2%;

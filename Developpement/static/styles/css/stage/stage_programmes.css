@@ -4,6 +4,9 @@
 .contain-p-down{
   padding:3%;
   background-color: #fafdef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
   width: 90%;
   margin-left: 5%;
   text-align: justify;

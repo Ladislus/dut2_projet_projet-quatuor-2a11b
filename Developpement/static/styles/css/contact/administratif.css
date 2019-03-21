@@ -1,5 +1,8 @@
 .message{
   background-color: #fafdef;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
   display: flex;
   flex-wrap: nowrap;
   text-align: center;
