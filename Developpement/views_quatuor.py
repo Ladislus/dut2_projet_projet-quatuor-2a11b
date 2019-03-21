@@ -115,7 +115,6 @@ def quatuor_presse_all(id):
             listeR=[]
     if listeR:
         glistR.append(listeR)
-    print(listeR)
     page=[]
     try:
         page=glistR[id]
