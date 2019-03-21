@@ -1,10 +1,21 @@
-
-.underline2{
-  width:16%;
-  margin-top:-2.5%;
-
+#liens-a{
+  margin-left: 23%;
+  color: black;
 }
-
+#btn-connect{
+  margin-left: -5%;
+}
 .liens{
   text-align: center;
+}
+.form-horizontal{
+  margin-left: 17%;
+  background-color: #fafdef;
+  width: 65%;
+  border-radius: 25px;
+  margin-bottom: 3%;
+  padding:4%;
+}
+#contain-div{
+  margin-left: 22%;
 }
