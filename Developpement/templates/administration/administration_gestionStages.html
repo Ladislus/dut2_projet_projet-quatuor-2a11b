@@ -9,6 +9,9 @@
 
     <div class="stagiaire-individu table-responsive">
       {% if stages|length %}
+      <h2>Il n'y a aucun stage pour le moment</h2>
+
+      {% else %}
       <table  class="table table-bordered">
         <thead>
           <tr>
@@ -55,8 +58,6 @@
       {% endfor %}
         </tbody>
       </table>
-      {% else %}
-            <h2>Il n'y a aucun stage pour le moment</h2>
       {% endif %}
       <a href="/administration/creerStage/" class="btn btn-default">
         <span class="glyphicon glyphicon-plus"></span>
