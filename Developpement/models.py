@@ -297,6 +297,17 @@ def insert_lieu(form):
         print("ALREADY IN")
     return Lieu.query.filter(Lieu.adrLieu == str(form.adrLieu.data), Lieu.codeLieu == int(form.CPLieu.data), Lieu.villeLieu == str(form.villeLieu.data)).first().idLieu
 
+def insert_lieu_bs(adr, cp, ville):
+    if Lieu.query.filter(Lieu.adrLieu == str(adr), Lieu.codeLieu == int(cp), Lieu.villeLieu == str(ville)).first() is None:
+        db.session.add(Lieu(adrLieu = str(adr), codeLieu = int(cp), villeLieu = str(ville)))
+        print("SUCCESSFULLY ADDED THE PLACE")
+        db.session.commit()
+        print("COMMITTED TO SESSION")
+    else:
+        print("ALREADY IN")
+    return Lieu.query.filter(Lieu.adrLieu == str(adr), Lieu.codeLieu == int(cp), Lieu.villeLieu == str(ville)).first().idLieu
+
+
 user_datastore = SQLAlchemyUserDatastore(db, Utilisateur, Role)
 app.security = Security(app, user_datastore)
 
@@ -365,13 +376,7 @@ def insert_stage(stageForm):
 
     if ine(str(stageForm.adresseSt.data)) & ine(str(stageForm.villeSt.data)) & ine(str(stageForm.cpSt.data)):
         print("OK")
-        lieuForm = LieuForm()
-        print("THE FORM IS CREATED")
-        lieuForm.adrLieu.data = str(stageForm.adresseSt.data)
-        lieuForm.CPLieu.data = str(stageForm.cpSt.data)
-        lieuForm.villeLieu.data = str(stageForm.villeSt.data)
-        print("THE FORM IS FILLED")
-        id_lieu = insert_lieu(lieuForm)
+        id_lieu = insert_lieu_bs(str(stageForm.adresseSt.data), str(stageForm.cpSt.data), str(stageForm.villeSt.data))
         print(id_lieu)
     else:
         id_lieu = None
@@ -412,9 +417,14 @@ def is_over(dateDeb, dateFin):
     print("PAS D'ERREUR")
     return False
 
+
+
 @login_manager.user_loader
 def load_user(username):
     return Utilisateur.query.get(username)
 
 def get_user(username):
     return Utilisateur.query.filter(Utilisateur.usernameUt == username).first()
+
+def get_instruments():
+    return Instrument.query.all()
