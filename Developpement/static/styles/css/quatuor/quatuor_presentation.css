@@ -185,15 +185,6 @@ margin: 2%;
   h3{
     font-weight: bold;
   }
-  #Olivier-Roussillat, #Robert-Ramon, #Frederic-Dudilet, #Tony-Bigot{
-  background-color: #fafdef;
-  border-color: black;
-  border-style: solid;
-  border-width: thin;
-  border-radius: 10%;
-  width: 60%;
-  margin: 2%;
-  }
 
   #first-two{
     display: flex;
