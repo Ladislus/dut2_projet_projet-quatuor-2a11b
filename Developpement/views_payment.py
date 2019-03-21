@@ -3,6 +3,10 @@ import payplug
 
 payplug.set_secret_key('sk_test_6sTDt5xbcqQiqlXTDeZCnJ')
 
+
+def send_paiment():
+    pass
+
 def create_payment(amount,email,customer_id):
     payment_data = {
       'amount': amount,
