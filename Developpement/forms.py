@@ -37,15 +37,15 @@ class User_ContactForm(FlaskForm):
     nomAuteur       = StringField('Nom', validators=[DataRequired()])
     prenomAuteur    = StringField('Prénom', validators=[DataRequired()])
     mailAuteur      = StringField('Adresse Mail', validators=[DataRequired()])
-    objetMessage    = SelectField('Objet', choices=[("choix","--Choix--"),('stage',"Stage"),('concert',"Concert"),("autre","Autre")], validators=[DataRequired()])
+    objetMessage    = SelectField('Objet', choices=[("choix","--Choix-- "),('stage',"Stage "),('concert',"Concert "),("autre","Autre ")], validators=[DataRequired()])
     contenuMessage  = TextAreaField('Contenu du message',validators=[DataRequired()])
     pjMessage       = FileField('Pièce jointe')
     autrobjMessage  = TextField('Objet autre', validators=[DataRequired()])
 
 class Admin_ContactForm(FlaskForm):
-    objetMessage    = SelectField('Objet', choices=[("choix","--Choix-- "),('admin', "Adminstratif "), ('music', "Musical "), ('ques', "Question "),('autre',"autre ")], validators=[DataRequired()])
+    objetMessage    = SelectField('Objet', choices=[("choix","--Choix-- "),('admin', "Adminstratif "), ('music', "Musical "), ('ques', "Question "),('autre',"Autre ")], validators=[DataRequired()])
     autrobjMessage  = TextField('Objet autre', validators=[DataRequired()])
-    destMessage     = SelectField('Destinataire', choices=[("choix","--Choix-- "),('dest1', "dest1"),('dest2', "dest2"),('autre',"Autre")], validators=[DataRequired()])
+    destMessage     = SelectField('Destinataire', choices=[("choix","--Choix--"),('lisEnvoi_2018', "Stagiaire de 2018"),('lisEnvoi_2019', "Stagiaire de 2019"),('lisAll', "Global"),('autre',"Autre")], validators=[DataRequired()])
     autrDestMessage = TextField('Adresse autre', validators=[DataRequired()])
     contenuMessage  = TextAreaField('Contenu du message',validators=[DataRequired()])
     pjMessage       = FileField('Pièces Jointes')

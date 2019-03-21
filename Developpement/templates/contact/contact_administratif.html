@@ -2,17 +2,12 @@
 {% block main %}
 
 <script type="text/javascript">
-
     function autre(){
-
       let t = document.getElementById("hidden2");
-
       let $s = $('select');
-      // console.log($s);
-
       let val = $s.find('option:selected').text().split(' ');
-      // console.log(val);
-      if (val[0]=="autre") {
+      console.log(val);
+      if (val[0]=="Autre") {
         t.style.display = "";
       }
       else {
