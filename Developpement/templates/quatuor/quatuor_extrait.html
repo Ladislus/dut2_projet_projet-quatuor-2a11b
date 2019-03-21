@@ -12,11 +12,10 @@
       <p>{{ elem3[1] }}</p>
     </div>
     <div class="col-sm-3" id = "audio-download">
-    <audio controls>
-      <source src="{{ url_for('static',filename='audio/extrait/'+elem3[2])}}" type="audio/mpeg">
+      <audio controls>
+        <source src="{{ url_for('static',filename='audio/extrait/'+elem3[2])}}" type="audio/mpeg">
       </audio>
-      <br>
-      <a href="{{ url_for('static',filename='partition/'+elem3[3])}}" download="{{ elem3[3] }}"><span id = "glyph" class="glyphicon glyphicon-download-alt"></span></a>
+      <a href="{{ url_for('static',filename='img/'+elem3[3])}}" download="{{ elem3[3] }}"><span id = "glyph" class="glyphicon glyphicon-download-alt"></span></a>
     </div>
     </div>
   {% endfor %}
@@ -28,7 +27,7 @@
 
   <ul class="pagination">
     {% for i in range(gliste|length+2) %}
-    <li {% if i==id %} class="active" {% endif %}><a href="/quatuor/extrait/{{ i }}">{{i}}</a></li>
+    <li {% if i==id %} class="active" {% endif %}><a href="/quatuor/extrait/{{ i }}">{{i+1}}</a></li>
     {% endfor %}
   </ul>
   <ul class="pager">

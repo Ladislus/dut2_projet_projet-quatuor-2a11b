@@ -59,7 +59,7 @@ class User_ContactForm(FlaskForm):
     mailAuteur      = StringField('Adresse Mail', validators=[DataRequired()])
     objetMessage    = SelectField('Objet', choices=[("choix","--Choix--"),('stage',"Stage"),('concert',"Concert"),("autre","autre")], validators=[DataRequired()])
     contenuMessage  = TextAreaField('Contenu du message',validators=[DataRequired()])
-    pjMessage       = FileField()
+    pjMessage       = FileField('Pièce jointe')
     autrobjMessage  = TextField('Objet autre', validators=[DataRequired()])
 
 class Admin_ContactForm(FlaskForm):
@@ -125,7 +125,7 @@ class StageForm(FlaskForm):
     nivRequisSt = IntegerField('Niveau minimum pour intégrer le stage', validators=[Optional()])
 
 class SouvenirsForm(FlaskForm):
-    anneeSouv   = SelectField("Choix de l'année", choices=[('2015', "Année 2015"), ('2016', "Année 2016"), ('2017', "Année 2017")], validators=[DataRequired()])
+    anneeSouv   = SelectField("Choix de l'année", choices=[('2017', "Année 2017"), ('2016', "Année 2016"), ('2015', "Année 2015")], validators=[DataRequired()])
 
 class ArticleForm(FlaskForm):
     idArt       = HiddenField('idArt')
