@@ -82,8 +82,8 @@ def profile():
 
     :return: Retourne le template correspondant au profil de l'utilisateur
     """
-    a=get_user(current_user.usernameUt)
-    return render_template("other/profil.html", utilisateur=a)
+
+    return render_template("other/profil.html", utilisateur=current_user)
 #NE PAS PRENDRE EN COMPTE
 @app.route("/other/test/")
 def other_test():
