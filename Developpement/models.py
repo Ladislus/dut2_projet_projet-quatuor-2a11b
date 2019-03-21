@@ -54,6 +54,9 @@ class Utilisateur(Base, UserMixin):
     articles       = relationship("Article", back_populates = "auteur")
     commentaires   = relationship("Commentaire", back_populates = "auteur")
 
+    def has_role(self, role):
+        return role in self.roles
+
 class Role(Base, RoleMixin):
     __tablename__ = "Role"
 
@@ -253,6 +256,14 @@ def init_db(filename = None):
     db.create_all()
     user_datastore.find_or_create_role(name = "STAGIAIRE")
     user_datastore.find_or_create_role(name = "ADMIN")
+
+    names_c = ["Clarinette sopranino", "Clarinette soprano en mi bémol", "Clarinette en Ré", \
+               "Clarinette en Ut", "Clarinette en si bémol", "Clarinette en la", "La de basset", \
+               "Clarinette alto", "Cor de basset", "Clarinette basse", "Clarinette contre alto", \
+               "Clarinette contrbasse" ]
+    for nom in names_c:
+        db.session.add(Instrument(nomInstru = nom))
+
     db.session.commit()
 
 @app.cli.command()
