@@ -22,15 +22,17 @@
       <div>
         <p><span class="glyphicon glyphicon-check"></span>  Tenue requise : {{ stage.vetSt }}</p>
       </div>
-      <div>
-        <p><span class="glyphicon glyphicon-comment"></span>  Description : {{ stage.descSt }}</p>
+      <div id="image">
+        <img class="img-thumbnail img-rounded" src="{{ url_for('static',filename='img/AFFICHE_2019_03_01_Divertimento-page-001.jpg') }}" alt="">
       </div>
-      <br><a href="/stage/inscription/" class="btn btn-default">
-        <span class="glyphicon glyphicon-check">  S'inscrire au stage</span>
-      </a>
     </div>
-    <div id="image">
-      <img class="img-thumbnail img-rounded" src="{{ url_for('static',filename='img/AFFICHE_2019_03_01_Divertimento-page-001.jpg') }}" alt="">
+    <div>
+      <div id="desc">
+        <p><span class="glyphicon glyphicon-comment"></span>  Description : {{ stage.descSt }}</p>
+        <br><a href="/stage/inscription/" class="btn btn-default">
+          <span class="glyphicon glyphicon-check">  S'inscrire au stage</span>
+        </a>
+      </div>
     </div>
   </div>
 </div>
