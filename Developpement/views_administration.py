@@ -179,7 +179,6 @@ def administration_creerStage():
 
         try:
             insert_stage(stageForm)
-            print("NORMALEMENT LA REDIRECTION")
             return redirect(url_for('administration_gestionStages'))
         except ValueError:
             return render_template("administration/administration_creerStage.html",

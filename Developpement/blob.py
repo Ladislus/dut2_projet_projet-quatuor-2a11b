@@ -15,7 +15,6 @@ def make_blob(filename):
 
 def make_file(filename, blob):
     data, ext = blob
-    print(ext)
     if ext is "null":
         fh = open(filename, "wb")
     else:
