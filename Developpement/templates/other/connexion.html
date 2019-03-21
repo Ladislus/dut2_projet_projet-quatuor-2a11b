@@ -4,7 +4,6 @@
 
 <div class="liens">
 <h1>Connexion</h1>
-<img class="underline2" src="{{ url_for('static',filename='img/underline3.png') }}" alt="underline">
 </div>
 <form class="form-horizontal" id="form_login"role="form" method="POST" action="{{ url_for('other_connexion') }}">
   {% if msg %}
@@ -14,8 +13,9 @@
   <p class="text-error">Nom d'utilisateur ou mot de passe incorrect</p>
   {% endif %}
   {{ connectForm.hidden_tag() }}
+  <div id="contain-div">
   <div class="form-group">
-    <label for="username" class="col-sm-3 control-label">Nom d'utilisateur</label>
+    <label for="username" class="col-sm-3 control-label">Pseudo</label>
     <div class="col-sm-3">{{ connectForm.username(size=50, class_="form-control", placeholder="Nom d'utilisateur") }}</div>
   </div>
   <div class="form-group">
@@ -24,10 +24,11 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-3">
-      <button type="submit" class="btn btn-default">Se connecter</button>
-      <a href="/other/mdpOubli/"> mot de passe oublié ?</a>
-    </div>
+      <button id = "btn-connect" type="submit" class="btn btn-default">Se connecter</button>
+    </div><br><br>
+      <a id = "liens-a" href="/other/mdpOubli/"> mot de passe oublié ?</a>
   </div>
+</div>
 </form>
 
 {% endblock %}

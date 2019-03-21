@@ -2,8 +2,12 @@
   font-family: "aaa";
   src: url('../../Police/Aaargh.ttf');
 }
-
-
+h2{
+  text-align: center;
+}
+#btn-plus{
+  margin-left: 48.5%;
+}
 table .image{
   width: 18%;
 }
